@@ -688,17 +688,13 @@ html.age-tier-1 .circular-btn-play:active {
 
 /* ─── HOME: TOP BAR Y ENCABEZADOS ───────────────────────────────────────── */
 html.age-tier-1 .home-top-bar > div:first-child {
-  background-image: url('../../assets/interface/mochi_profile_badge.webp') !important;
-  background-size: contain !important;
-  background-position: center left !important;
-  background-repeat: no-repeat !important;
-  background-color: transparent !important;
+  background: none !important;
   border: none !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  width: 170px !important;
-  height: 96px !important;
-  padding: 0 10px 0 75px !important; /* Salta la cara del panda */
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -707,34 +703,43 @@ html.age-tier-1 .home-top-bar > div:first-child {
 }
 
 html.age-tier-1 .home-header-title {
-  display: none !important; /* Ocultamos el título "🐼 Mochi" porque el panda ya está en la imagen */
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #2b7bc4 !important;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8), 0 3px 6px rgba(43, 123, 196, 0.25) !important;
+  margin: 0 !important;
+  letter-spacing: -0.5px !important;
 }
 
 html.age-tier-1 .home-header-subtitle {
-  color: #1a237e !important; /* Azul oscuro clay */
+  color: #1e528a !important; /* Azul clay medio */
   font-family: 'Nunito', sans-serif !important;
-  font-weight: 900 !important;
-  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  white-space: nowrap !important;
   margin: 0 !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) !important;
 }
 
 html.age-tier-1 .home-header-age {
-  margin: 2px 0 0 0 !important;
-  display: inline-block !important;
+  margin: 1px 0 0 0 !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #4b6b88 !important;
 }
 
 html.age-tier-1 .home-header-age span {
-  display: inline-block !important;
-  background: #f48fb1 !important; /* Pastilla rosa clay */
-  color: #ffffff !important;
-  border-radius: 12px !important;
-  padding: 3px 10px !important;
-  font-size: 10px !important;
-  font-weight: 900 !important;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), inset 0 -2px 0 rgba(0, 0, 0, 0.05) !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.03em !important;
-  opacity: 1 !important;
+  display: inline !important;
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
 }
 
 /* ─── BURBUJA DE MASCOTA ────────────────────────────────────────────────── */
@@ -1099,33 +1104,44 @@ html.age-tier-1 .shop-tabs {
   gap: 8px;
 }
 html.age-tier-1 .shop-tab {
-  background: rgba(255,255,255,0.70);
-  border: 2px solid rgba(144,202,249,0.5);
-  border-radius: 20px !important;
-  color: #1565C0;
-  font-weight: 900;
-  text-transform: none;
+  background: #d4ecfc !important;
+  border: 3.5px solid #ffffff !important;
+  border-radius: 24px !important;
+  color: #1e3a6a !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  box-shadow: 0 5px 0 #a9d9f9, inset 0 2px 4px #ffffff !important;
+  transition: transform 0.1s ease !important;
 }
 html.age-tier-1 .shop-tab.active {
-  background: #FFD54F;
-  border-color: #FF8F00;
-  color: #E65100;
+  background: linear-gradient(135deg, #ffd54f, #ffca28) !important;
+  border-color: #ffffff !important;
+  color: #b45309 !important;
+  box-shadow: 0 6px 0 #d97706, 0 8px 14px rgba(217, 119, 6, 0.25), inset 0 3px 5px #ffecb3 !important;
+  transform: translateY(-2px) !important;
 }
 
 html.age-tier-1 .shop-item {
-  background: rgba(255,255,255,0.88) !important;
-  border: 3px solid rgba(144,202,249,0.5) !important;
-  border-radius: 26px !important;
-  box-shadow: 0 8px 0 rgba(0,0,0,0.10),
-              inset 0 -4px 0 rgba(0,0,0,0.05);
+  background: #ffffff !important;
+  border: 4px solid #bce1fa !important;
+  border-radius: 30px !important;
+  box-shadow: 0 10px 0 #90cdf4, 0 14px 22px rgba(14, 40, 80, 0.12), inset 0 4px 6px #ffffff, inset 0 -4px 6px rgba(0, 0, 0, 0.04) !important;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
   color: #1a237e;
 }
-html.age-tier-1 .shop-item.animal {
-  border-color: rgba(255,213,79,0.7) !important;
-  box-shadow: 0 8px 0 rgba(255,143,0,0.25),
-              inset 0 -4px 0 rgba(0,0,0,0.05) !important;
+html.age-tier-1 .shop-item:hover {
+  transform: translateY(-4px) scale(1.02) !important;
 }
-html.age-tier-1 .pet-name { color: #1a237e; }
+html.age-tier-1 .shop-item.animal {
+  border-color: #ffe082 !important;
+  box-shadow: 0 10px 0 #ffca28, 0 14px 22px rgba(255, 179, 0, 0.2), inset 0 4px 6px #ffffff !important;
+}
+html.age-tier-1 .pet-name { 
+  color: #1a237e !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 17px !important;
+}
 html.age-tier-1 .pet-price {
   color: #E65100;
   background: rgba(255,213,79,0.3);
@@ -1134,19 +1150,36 @@ html.age-tier-1 .pet-price {
 
 /* Botones de compra en tienda */
 html.age-tier-1 .sbb.buy {
-  background: linear-gradient(180deg, #FFD54F, #FFCA28);
-  box-shadow: 0 5px 0 #FF8F00;
-  color: #E65100;
+  background: linear-gradient(135deg, #ffc837, #ffb300) !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 0 #c68b00, 0 8px 14px rgba(198, 139, 0, 0.25), inset 0 3px 4px #fff3a8 !important;
+  color: #78350f !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  transition: transform 0.08s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+html.age-tier-1 .sbb.buy:active {
+  transform: translateY(4px) scale(0.96) !important;
+  box-shadow: 0 2px 0 #c68b00, inset 0 1px 2px #fff3a8 !important;
 }
 html.age-tier-1 .sbb.owned {
-  background: linear-gradient(180deg, #A5D6A7, #81C784);
-  box-shadow: 0 5px 0 #388E3C;
-  color: #1B5E20;
+  background: linear-gradient(135deg, #a5d6a7, #81c784) !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 0 #388e3c, 0 8px 14px rgba(56, 142, 60, 0.25), inset 0 3px 4px #c8e6c9 !important;
+  color: #1b5e20 !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
 }
 html.age-tier-1 .sbb.equipped {
-  background: linear-gradient(180deg, #90CAF9, #64B5F6);
-  box-shadow: 0 5px 0 #1976D2;
-  color: #0D47A1;
+  background: linear-gradient(135deg, #58d68d, #2ecc71) !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 0 #1e8449, 0 8px 14px rgba(30, 132, 73, 0.25), inset 0 3px 4px #a9dfbf !important;
+  color: #0e4b25 !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
 }
 
 /* Preview de mascota en tienda */
@@ -1608,3 +1641,368 @@ html.age-tier-1 .popup-info-text {
   font-weight: 800;
   color: #4a148c;
 }
+
+/* ============================================================
+   🎨 JUICY CLAY WORLD (TIER 1) — SPLIT-SCREEN & MISSION SLAB
+   Fiel a la referencia oficial (Referencias Visuales/Tier 1.png)
+   ============================================================ */
+
+/* Animación de respiración de Mochi */
+@keyframes clayMochiBreathe {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1.045); }
+}
+
+/* --- DESBLOQUEAR ANCHO EN TIER 1 PARA DIORAMA SPLIT-LAYOUT --- */
+html.age-tier-1 body > *:not(.onboarding-screen) {
+  max-width: 1400px !important;
+  width: 100% !important;
+}
+
+/* --- SPLIT LAYOUT EN DESKTOP / TABLET LANDSCAPE --- */
+@media (min-width: 820px) {
+  html.age-tier-1 .home-screen {
+    padding: 12px 28px 20px 28px !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  html.age-tier-1 .home-top-bar {
+    max-width: 1400px !important;
+    width: 100% !important;
+    margin: 0 auto 10px auto !important;
+    padding: 0 8px !important;
+  }
+
+  html.age-tier-1 .home-main-area {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 36px !important;
+    width: 100% !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    height: calc(100vh - 100px) !important;
+    max-height: 720px !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+
+  html.age-tier-1 .circular-menu-wrapper {
+    flex: 0 0 440px !important;
+    width: 440px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin: 0 !important;
+  }
+
+  html.age-tier-1 .circular-menu {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 420px !important;
+    height: 420px !important;
+    --hub-sz: 420px !important;
+    --btn-sz: 98px !important;
+    --mascot-sz: 115px !important;
+    --radius: 152px !important;
+    margin: auto !important;
+  }
+
+  html.age-tier-1 .home-missions-slab {
+    flex: 1 1 580px !important;
+    max-width: 760px !important;
+    height: 94% !important;
+    max-height: 600px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+/* --- ADAPTACIÓN MÓVIL PORTRAIT --- */
+@media (max-width: 819px) {
+  html.age-tier-1 .home-main-area {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 70px !important;
+  }
+
+  html.age-tier-1 .circular-menu-wrapper {
+    flex: 0 0 auto !important;
+    min-height: 420px !important;
+    width: 100% !important;
+  }
+
+  html.age-tier-1 .home-missions-slab {
+    width: 95% !important;
+    max-width: 480px !important;
+    margin: 16px auto 30px auto !important;
+  }
+}
+
+/* --- TABLERO DE MISIONES DE PLASTILINA (MISSION SLAB) --- */
+html.age-tier-1 .home-missions-slab {
+  background: #f0f8ff !important;
+  border-radius: 42px !important;
+  border: 6px solid #bce1fa !important;
+  box-shadow:
+    0 18px 36px rgba(18, 52, 90, 0.16),
+    0 9px 0 #90cdf4,
+    inset 0 6px 12px #ffffff,
+    inset 0 -8px 14px rgba(144, 202, 249, 0.45) !important;
+  padding: 22px 24px !important;
+  box-sizing: border-box !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: #90cdf4 transparent !important;
+}
+
+html.age-tier-1 .missions-slab-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+html.age-tier-1 .missions-slab-header {
+  margin-bottom: 4px !important;
+}
+
+html.age-tier-1 .missions-header-secondary {
+  margin-top: 10px !important;
+}
+
+html.age-tier-1 .missions-tab-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: #90d7ff !important;
+  color: #ffffff !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 13.5px !important;
+  letter-spacing: 0.04em !important;
+  border-radius: 999px !important;
+  padding: 6px 16px !important;
+  box-shadow:
+    0 4px 0 #5bb4e5,
+    0 6px 12px rgba(0, 40, 80, 0.12),
+    inset 0 2px 3px rgba(255, 255, 255, 0.8) !important;
+  text-shadow: 0 1px 2px rgba(0, 30, 70, 0.25) !important;
+}
+
+html.age-tier-1 .tab-pill-icon {
+  font-size: 14px !important;
+}
+
+html.age-tier-1 .tab-pill-arrow {
+  font-size: 11px !important;
+  opacity: 0.85 !important;
+}
+
+html.age-tier-1 .missions-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+/* Rollos cilíndricos de misión */
+html.age-tier-1 .mission-roll {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background: #d9eefa !important;
+  border-radius: 24px !important;
+  padding: 10px 18px !important;
+  box-shadow:
+    0 4px 0 #a9d9f9,
+    0 6px 12px rgba(14, 40, 80, 0.07),
+    inset 0 3px 5px #ffffff,
+    inset 0 -3px 5px rgba(144, 202, 249, 0.3) !important;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+html.age-tier-1 .mission-roll:hover {
+  transform: translateY(-2px) scale(1.01) !important;
+}
+
+html.age-tier-1 .mission-roll-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+html.age-tier-1 .mission-roll-info .m-title {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  color: #1a3258 !important;
+  line-height: 1.2 !important;
+}
+
+html.age-tier-1 .mission-roll-info .m-reward {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 800 !important;
+  color: #e65100 !important;
+}
+
+html.age-tier-1 .m-progress-pill {
+  background: #ffffff !important;
+  border-radius: 999px !important;
+  padding: 5px 14px !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 900 !important;
+  color: #1a3258 !important;
+  box-shadow:
+    0 3px 0 #b3daf5,
+    inset 0 2px 3px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Fila destacada de Plastilina Frambuesa (Hero Mission) */
+html.age-tier-1 .mission-roll-hero {
+  background: linear-gradient(135deg, #ff6584, #f43f5e) !important;
+  box-shadow:
+    0 5px 0 #be123c,
+    0 8px 18px rgba(244, 63, 94, 0.3),
+    inset 0 3px 5px #ffa4b6,
+    inset 0 -3px 5px rgba(0, 0, 0, 0.18) !important;
+}
+
+html.age-tier-1 .mission-roll-hero .m-title {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(159, 18, 57, 0.45) !important;
+}
+
+html.age-tier-1 .mission-roll-hero .m-reward {
+  color: #fff3c4 !important;
+  text-shadow: 0 1px 2px rgba(159, 18, 57, 0.4) !important;
+}
+
+html.age-tier-1 .mission-roll-hero .m-progress-pill {
+  background: #ffffff !important;
+  color: #be123c !important;
+  box-shadow:
+    0 3px 0 #e11d48,
+    inset 0 2px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* --- BOTONES RADIALES CHUNKY 3D (PLAY-DOH PRESS) --- */
+html.age-tier-1 .circle-btn {
+  border: 4.5px solid #ffffff !important;
+  box-shadow:
+    0 9px 0 rgba(20, 36, 70, 0.32),
+    0 15px 24px rgba(10, 35, 75, 0.22),
+    inset 0 5px 7px rgba(255, 255, 255, 0.85),
+    inset 0 -6px 8px rgba(0, 0, 0, 0.22) !important;
+}
+
+html.age-tier-1 .circle-btn:active {
+  transform: translate(-50%, -50%)
+             rotate(var(--angle))
+             translateY(calc(-1 * var(--radius) + 6px))
+             rotate(calc(-1 * var(--angle)))
+             scale(1.04, 0.94) !important;
+  box-shadow:
+    0 3px 0 rgba(20, 36, 70, 0.32),
+    0 6px 10px rgba(10, 35, 75, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.7) !important;
+}
+
+/* --- PEDESTAL Y BUSTO DE MOCHI 3D EN EL CENTRO --- */
+html.age-tier-1 .hub-mascot-container {
+  background: radial-gradient(circle, #ffffff 55%, #e1f2fd 100%) !important;
+  border: 5.5px solid #ffffff !important;
+  border-radius: 50% !important;
+  box-shadow:
+    0 10px 0 #85c8f2,
+    0 18px 28px rgba(14, 40, 80, 0.18),
+    inset 0 5px 8px #ffffff,
+    inset 0 -6px 10px rgba(133, 200, 242, 0.4) !important;
+  padding: 6px !important;
+  animation: clayMochiBreathe 3.5s ease-in-out infinite alternate !important;
+}
+
+/* --- BOTONES DE AUDIO PEBBLE GEM (ESQUINA INFERIOR DERECHA) --- */
+html.age-tier-1 #ambientBtn,
+html.age-tier-1 #audioBtnGlobal {
+  position: fixed !important;
+  bottom: 18px !important;
+  left: auto !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  border: 3.5px solid #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  z-index: 100 !important;
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+html.age-tier-1 #ambientBtn {
+  right: 76px !important;
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6) !important;
+  box-shadow:
+    0 5px 0 #6d28d9,
+    0 8px 14px rgba(109, 40, 217, 0.25),
+    inset 0 2px 4px #ddd6fe !important;
+}
+
+html.age-tier-1 #audioBtnGlobal {
+  right: 18px !important;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9) !important;
+  box-shadow:
+    0 5px 0 #0284c7,
+    0 8px 14px rgba(2, 132, 199, 0.25),
+    inset 0 2px 4px #bae6fd !important;
+}
+
+html.age-tier-1 #ambientBtn:active,
+html.age-tier-1 #audioBtnGlobal:active {
+  transform: translateY(3px) scale(0.95) !important;
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* --- GAMEPLAY: BOTONES DE RESPUESTA CHUNKY (PLAY-DOH PRESS) --- */
+html.age-tier-1 .btn-ans {
+  background: #ffffff !important;
+  border-radius: 32px !important;
+  border: 4px solid #bce1fa !important;
+  box-shadow:
+    0 8px 0 #90cdf4,
+    0 12px 18px rgba(14, 40, 80, 0.14),
+    inset 0 4px 6px #ffffff,
+    inset 0 -4px 6px rgba(0, 0, 0, 0.05) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: clamp(20px, 4.5vw, 28px) !important;
+  font-weight: 900 !important;
+  color: #1a3258 !important;
+  transition: transform 0.08s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.08s ease !important;
+}
+
+html.age-tier-1 .btn-ans:active {
+  transform: translateY(6px) scale(1.03, 0.95) !important;
+  box-shadow:
+    0 2px 0 #90cdf4,
+    0 4px 8px rgba(14, 40, 80, 0.1),
+    inset 0 2px 4px #ffffff !important;
+}
+
