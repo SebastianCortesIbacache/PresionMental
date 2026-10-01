@@ -95,12 +95,29 @@ Presion Mental APP/
 - **Conversación:** `c3b29188-ead3-4a94-b5d8-e85d8d725a18`
 - **Estado actual:** ✅ Sprint de seguridad completado (2026-06-20). En standby.
 
-### 🧪 Agente Tester (QA) ← NUEVO
-- **Rol:** Pruebas funcionales, detección de regresiones, smoke tests post-sprint
+### 🧪 Agente Tester (QA)
+- **Rol:** Pruebas funcionales, detección de regresiones, suites Playwright
 - **Archivos de memoria:** `.agents/memory/tester.md`
 - **Reglas:** `.agents/rules/agente-tester.md`
-- **Conversación:** `(Sin asignar — pendiente de primera sesión activa)`
-- **Estado actual:** ⏳ Primera campaña de testing PENDIENTE (Post-Sprint Fase 1+3)
+- **Estado actual:** ✅ 11/11 tests Playwright en verde.
+
+### 🧸 Agente Psicopedagogo
+- **Rol:** Pedagogía infantil, carga cognitiva, lenguaje motivacional y didáctica 6-7 años
+- **Archivos de memoria:** `.agents/memory/psicopedagogo.md`
+- **Reglas:** `.agents/rules/agente-psicopedagogo.md`
+- **Estado actual:** ✅ Directrices pedagógicas integradas (feedback positivo y comodines no punitivos).
+
+### 📈 Agente Growth
+- **Rol:** Estrategia de adopción escolar, métricas de retención, modelo de valor y cumplimiento COPPA
+- **Archivos de memoria:** `.agents/memory/growth.md`
+- **Reglas:** `.agents/rules/agente-growth.md`
+- **Estado actual:** 📋 Estrategia de beta cerrada (30 testers en Chile) definida.
+
+### 🚀 Agente Release
+- **Rol:** Empaquetado PWA/Capacitor, auditoría de cachés offline, manifiestos y publicación
+- **Archivos de memoria:** `.agents/memory/release.md`
+- **Reglas:** `.agents/rules/agente-release.md`
+- **Estado actual:** ⏳ En espera de cierre definitivo de UI para empaquetado v1.0.
 
 ---
 
