@@ -1,0 +1,1610 @@
+/* ==========================================================================
+   TIER 1 — CLAY WORLD (6-7 años)
+   Vibe: Claymorphism. Suave, redondo, táctil, infantil.
+   Fuente: Google Fonts — Nunito (800/900)
+   Importada en el HTML o aquí como fallback.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
+
+/* ─── TIPOGRAFÍA GLOBAL TIER 1 ─────────────────────────────────────────── */
+html.age-tier-1,
+html.age-tier-1 body {
+  font-family: 'Nunito', 'Rounded Mplus 1c', 'Arial Rounded MT Bold', sans-serif !important;
+  font-weight: 800;
+  color: var(--text-main);
+  background: #b3e5fc; /* Cielo azul suave */
+  
+  /* Mitigación de Estrés Visual: Rojos más suaves (Pastel/Salmón) para evitar ansiedad */
+  --danger: #FF8A65;
+  --danger-dark: #D84315;
+}
+
+html.age-tier-1 h1,
+html.age-tier-1 h2,
+html.age-tier-1 h3,
+html.age-tier-1 h4 {
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900;
+  text-transform: none; /* Tier 1: NO mayúsculas forzadas */
+}
+
+/* ─── FONDO: CIELO CON CAPAS ANIMADAS ───────────────────────────────────── */
+html.age-tier-1 body,
+html.age-tier-1 {
+  background-color: #b3e5fc !important;
+  background-image: url('../../assets/fondos/tier1/bg_sky_clay.webp') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Nubes en movimiento y Marcos Clay (Solo Tier 1) */
+html.age-tier-1 .bg-clouds-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  display: block !important;
+}
+
+/* Gotitas de Arcilla (Clay Drops) */
+html.age-tier-1 .clay-drop {
+  position: absolute;
+  background-image: url('../../assets/interface/clay_droplet.webp') !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 4px 6px rgba(0,40,90,0.1));
+}
+html.age-tier-1 .clay-drop.cd1 { top: 15%; left: 12%; width: 24px; height: 24px; opacity: 0.8; }
+html.age-tier-1 .clay-drop.cd2 { top: 25%; right: 15%; width: 32px; height: 32px; opacity: 0.9; }
+html.age-tier-1 .clay-drop.cd3 { top: 60%; left: 8%; width: 28px; height: 28px; opacity: 0.7; }
+html.age-tier-1 .clay-drop.cd4 { top: 75%; right: 10%; width: 20px; height: 20px; opacity: 0.85; }
+html.age-tier-1 .clay-drop.cd5 { top: 40%; left: 45%; width: 18px; height: 18px; opacity: 0.6; }
+html.age-tier-1 .clay-drop.cd6 { bottom: 15%; left: 30%; width: 30px; height: 30px; opacity: 0.75; }
+html.age-tier-1 .clay-drop.cd7 { top: 8%; right: 35%; width: 22px; height: 22px; opacity: 0.8; }
+html.age-tier-1 .clay-drop.cd8 { bottom: 20%; right: 40%; width: 26px; height: 26px; opacity: 0.65; }
+
+html.age-tier-1 .bg-cloud {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: none !important; /* El render 3D WebP ya tiene sombreado y oclusión ambiental horneada */
+  opacity: 1 !important;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Formas y texturas de nubes WebP del Agente Gráfico */
+html.age-tier-1 .bg-cloud.c1 {
+  top: 8%; left: 5%;
+  width: min(45vw, 220px); height: min(27vw, 132px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay1.webp') !important;
+  animation: cloudDrift1 20s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c2 {
+  top: 4%; right: 8%;
+  width: min(50vw, 250px); height: min(30vw, 150px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay2.webp') !important;
+  animation: cloudDrift2 24s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c3 {
+  top: 38%; left: -6%;
+  width: min(40vw, 190px); height: min(24vw, 114px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay3.webp') !important;
+  animation: cloudDrift3 28s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c4 {
+  top: 48%; right: -5%;
+  width: min(36vw, 170px); height: min(22vw, 102px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay1.webp') !important;
+  animation: cloudDrift1 22s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c5 {
+  bottom: 12%; left: 8%;
+  width: min(50vw, 240px); height: min(30vw, 144px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay2.webp') !important;
+  animation: cloudDrift2 26s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c6 {
+  bottom: 8%; right: 6%;
+  width: min(44vw, 210px); height: min(26vw, 126px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay3.webp') !important;
+  animation: cloudDrift3 21s infinite ease-in-out;
+}
+
+/* Nubes adicionales para tablets y resoluciones horizontales */
+html.age-tier-1 .bg-cloud.c7 {
+  top: 22%; left: 18%;
+  width: min(32vw, 150px); height: min(19vw, 90px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay1.webp') !important;
+  animation: cloudDrift1 25s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c8 {
+  top: 18%; right: 22%;
+  width: min(35vw, 160px); height: min(21vw, 96px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay2.webp') !important;
+  animation: cloudDrift2 27s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c9 {
+  bottom: 28%; left: 16%;
+  width: min(30vw, 140px); height: min(18vw, 84px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay3.webp') !important;
+  animation: cloudDrift3 29s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c10 {
+  bottom: 32%; right: 18%;
+  width: min(34vw, 155px); height: min(20vw, 93px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay1.webp') !important;
+  animation: cloudDrift1 23s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c11 {
+  top: 5%; left: 45%;
+  width: min(30vw, 130px); height: min(18vw, 78px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay2.webp') !important;
+  animation: cloudDrift2 31s infinite ease-in-out;
+}
+
+html.age-tier-1 .bg-cloud.c12 {
+  bottom: 6%; left: 48%;
+  width: min(32vw, 145px); height: min(19vw, 87px);
+  background-image: url('../../assets/fondos/tier1/cloud_clay3.webp') !important;
+  animation: cloudDrift3 22s infinite ease-in-out;
+}
+
+/* Animaciones de derivación de nubes */
+@keyframes cloudDrift1 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(8vw) translateY(-4px); }
+}
+@keyframes cloudDrift2 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-10vw) translateY(5px); }
+}
+@keyframes cloudDrift3 {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(6vw) translateY(6px); }
+}
+
+html.age-tier-1 .dynamic-bg {
+  background: transparent !important;
+  overflow: hidden;
+}
+
+/* ─── PANTALLA SPLASH: FONDO COSMOS PASTEL ───────────────────────────────── */
+/* Paleta "Noche Mágica Clay" — cosmos violeta armonioso */
+html.age-tier-1 #splash {
+  background: radial-gradient(ellipse at 50% 0%, #c9b8ff 0%, #8e6cff 25%, #4a2d8a 55%, #1e1040 100%) !important;
+}
+
+/* ─── NAMEpopup: MISMO FONDO QUE EL SPLASH ───────────────────────────────── */
+html.age-tier-1 #namePopup {
+  background: radial-gradient(ellipse at 50% 0%, #c9b8ff 0%, #8e6cff 25%, #4a2d8a 55%, #1e1040 100%) !important;
+}
+/* Ocultar watermark y starfield propios del namePopup en tier1, usar solo las pelusas */
+html.age-tier-1 #namePopup .watermark-mascots-bg { display: none !important; }
+
+/* Estrellas del splash/namePopup recoloreadas: suaves, lavanda/rosa */
+html.age-tier-1 .space-starfield {
+  background-image:
+    radial-gradient(1px 1px at 30px  40px,  #f0e8ff 80%, transparent),
+    radial-gradient(1px 1px at 120px 240px, #ddd4ff 80%, transparent),
+    radial-gradient(1px 1px at 280px 140px, #ffd6f0 80%, transparent),
+    radial-gradient(1px 1px at 450px 380px, #ffffff 80%, transparent),
+    radial-gradient(2px 2px at 90px  180px, #e8d5ff 90%, transparent),
+    radial-gradient(2px 2px at 310px  80px, #ffffff 90%, transparent),
+    radial-gradient(2px 2px at 200px 420px, #ffcce8 90%, transparent),
+    radial-gradient(4px 4px at 150px 320px, rgba(240,220,255,0.9), transparent),
+    radial-gradient(5px 5px at 380px 190px, rgba(200,170,255,0.7), transparent),
+    radial-gradient(3px 3px at 80px   90px, rgba(255,180,220,0.7), transparent) !important;
+  opacity: 0.75 !important;
+}
+
+/* ─── PELUSAS FLOTANTES DE COLORES ──────────────────────────────────────── */
+/* Se generan via JS (función spawnDustOrbs) inyectada al iniciar splash.
+   Las pelusas son divs .clay-dust-orb con clases de color a, b, c, d, e */
+.clay-dust-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(18px);
+  animation: dustFloat linear infinite;
+  will-change: transform, opacity;
+}
+.clay-dust-orb.col-a { background: rgba(201, 162, 255, 0.45); }  /* lavanda */
+.clay-dust-orb.col-b { background: rgba(255, 182, 230, 0.4); }   /* rosa */
+.clay-dust-orb.col-c { background: rgba(130, 200, 255, 0.35); }  /* celeste */
+.clay-dust-orb.col-d { background: rgba(255, 213, 79,  0.35); }  /* dorado */
+.clay-dust-orb.col-e { background: rgba(165, 214, 167, 0.35); }  /* verde mint */
+.clay-dust-orb.col-f { background: rgba(255, 138, 101, 0.3); }   /* melocotón */
+
+@keyframes dustFloat {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.7; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(var(--ds)); opacity: 0; }
+}
+
+html.age-tier-1 .splash-msg {
+  color: #d4c5ff;
+  font-family: 'Nunito', sans-serif;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+html.age-tier-1 .inline-splash-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 4px rgba(100,50,180,0.5));
+}
+
+/* ─── BARRA DE PROGRESO CLAY ─────────────────────────────────────────────── */
+html.age-tier-1 .splash-progress-bg {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border: 4px solid #ffffff !important;
+  border-radius: 34px !important;
+  height: 34px !important;
+  padding: 4px !important;
+  box-shadow:
+    0 8px 0 rgba(74, 45, 138, 0.6),            /* Sombra clay gruesa inferior */
+    inset 0 4px 8px rgba(0, 0, 0, 0.15) !important; /* Hundimiento interno */
+  animation: none !important;
+}
+html.age-tier-1 .splash-progress-fill {
+  background: linear-gradient(180deg, #A5D6A7 0%, #81C784 50%, #4CAF50 100%) !important; /* Verde mint clay */
+  border-radius: 20px !important;
+  box-shadow:
+    inset 0 4px 6px rgba(255, 255, 255, 0.8),    /* Brillo de luz cenital (wet clay) */
+    inset 0 -4px 5px rgba(46, 125, 50, 0.5),     /* Sombra interna volumétrica */
+    0 0 14px rgba(129, 199, 132, 0.6) !important;/* Glow suave verde */
+  animation: clayBarShimmer 2.5s infinite ease-in-out !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de rayas diagonales (Candy / Loading style) */
+html.age-tier-1 .splash-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(255,255,255,0.25) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 24px 24px;
+  animation: clayStripeMove 1s linear infinite;
+  border-radius: inherit;
+}
+
+@keyframes clayStripeMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 24px 24px; }
+}
+
+@keyframes clayBarShimmer {
+  0%,100% { filter: brightness(1) contrast(1); }
+  50%     { filter: brightness(1.15) contrast(1.05); }
+}
+
+/* ─── ÍCONOS DE MUNDOS: BURBUJA CLAY ─────────────────────────────────────── */
+html.age-tier-1 .splash-world-icons {
+  gap: 10px !important;
+  margin: 16px 0 12px !important;
+}
+html.age-tier-1 .splash-world-icon {
+  font-size: 22px !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  border: 2.5px solid rgba(255, 255, 255, 0.55) !important;
+  box-shadow:
+    0 5px 0 rgba(100, 50, 180, 0.35),
+    inset 0 1.5px 3px rgba(255,255,255,0.4) !important;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              background 0.35s ease,
+              box-shadow 0.35s ease !important;
+  filter: grayscale(40%) !important;
+  opacity: 0.5 !important;
+}
+html.age-tier-1 .splash-separator {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+html.age-tier-1 .splash-world-icon.active-world {
+  opacity: 1 !important;
+  filter: grayscale(0%) !important;
+  transform: scale(1.25) !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border-color: #ffffff !important;
+  box-shadow:
+    0 5px 0 rgba(100, 50, 180, 0.4),
+    inset 0 2px 4px rgba(255,255,255,0.6),
+    0 0 16px rgba(255, 230, 120, 0.6) !important;
+}
+html.age-tier-1 .splash-world-icon.completed-world {
+  opacity: 0.9 !important;
+  filter: grayscale(0%) !important;
+  transform: scale(1.05) !important;
+  background: rgba(165, 214, 167, 0.4) !important;
+  border-color: #A5D6A7 !important;
+  box-shadow:
+    0 4px 0 rgba(50, 130, 50, 0.3),
+    inset 0 1.5px 3px rgba(255,255,255,0.5) !important;
+}
+html.age-tier-1 #sw0.active-world,
+html.age-tier-1 #sw1.active-world,
+html.age-tier-1 #sw2.active-world,
+html.age-tier-1 #sw3.active-world,
+html.age-tier-1 #sw4.active-world {
+  filter: grayscale(0%) drop-shadow(0 2px 6px rgba(200, 150, 255, 0.5)) !important;
+}
+
+/* ─── TRANSICIÓN TORNADO (VÓRTICE CONCÉNTRICO) ───────────────────────────── */
+/* Fase 1: Splash se absorbe como tornado hacia el centro (más fluido y orgánico) */
+@keyframes tornadoCollapse {
+  0%   { transform: scale(1) rotate(0deg);     opacity: 1;   filter: blur(0px); }
+  25%  { transform: scale(0.9) rotate(15deg);  opacity: 1;   filter: blur(0px); } /* Anticipación */
+  100% { transform: scale(0) rotate(540deg);   opacity: 0;   filter: blur(8px); }
+}
+/* Fase 2: namePopup se despliega desde el centro hacia afuera */
+@keyframes portalUnfold {
+  0%   { transform: scale(0) rotate(-360deg); opacity: 0;   filter: blur(10px); }
+  60%  { transform: scale(1.05) rotate(10deg); opacity: 0.9; filter: blur(2px); }
+  100% { transform: scale(1) rotate(0deg);    opacity: 1;   filter: blur(0px); }
+}
+
+html.age-tier-1 .collapsing-portal #splash .splash-content-wrapper,
+html.age-tier-1 #splash.collapsing-portal .splash-content-wrapper {
+  animation: tornadoCollapse 0.85s forwards cubic-bezier(0.55, 0, 1, 0.45) !important;
+  transform-origin: center center;
+}
+/* Fondo no se mueve, se elimina la animación de .space-starfield */
+
+/* namePopup aparece expandiéndose desde el centro, sólo afecta al contenido interno, NO al fondo */
+html.age-tier-1 #namePopup.revealing-portal .onboarding-circular-card {
+  animation: portalUnfold 0.75s forwards cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transform-origin: center center;
+}
+
+html.age-tier-1 #namePopup .onboarding-space-bg {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TIER 1 — ONBOARDING SELVA CLAY — Rediseño DOM integrado (SVG decorations)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Diálogo = Selva de fondo */
+html.age-tier-1 #namePopup.onboarding-screen,
+html.age-tier-1 dialog.onboarding-screen {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, #a8e063 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 30% 100%, #56ab2f 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 90%, #1e8449 0%, transparent 70%),
+    linear-gradient(160deg, #2d6a4f 0%, #1a4731 50%, #0f3823 100%) !important;
+  overflow: hidden !important;
+}
+
+/* 2. Quitar decoraciones de espacio/fondo cósmico */
+html.age-tier-1 #namePopup .onboarding-space-bg,
+html.age-tier-1 .neon-ring,
+html.age-tier-1 .neon-flare,
+html.age-tier-1 .neon-spark,
+html.age-tier-1 .circular-nebula-vortex,
+html.age-tier-1 .input-status-ring,
+html.age-tier-1 .space-starfield {
+  display: none !important;
+}
+
+/* 3. Decoraciones orgánicas SVG en el fondo del diálogo (hojas selváticas) */
+html.age-tier-1 #namePopup.onboarding-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    /* Hoja grande izquierda */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cellipse cx='100' cy='150' rx='60' ry='130' fill='%2352b788' opacity='0.7' transform='rotate(-30 100 150)'/%3E%3Cellipse cx='100' cy='150' rx='8' ry='120' fill='%2340916c' opacity='0.5' transform='rotate(-30 100 150)'/%3E%3C/svg%3E"),
+    /* Hoja grande derecha */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cellipse cx='100' cy='150' rx='60' ry='130' fill='%2374c69d' opacity='0.65' transform='rotate(25 100 150)'/%3E%3Cellipse cx='100' cy='150' rx='8' ry='120' fill='%2352b788' opacity='0.5' transform='rotate(25 100 150)'/%3E%3C/svg%3E"),
+    /* Flores moradas arriba izquierda */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='15' fill='%23c77dff'/%3E%3Ccircle cx='40' cy='20' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='40' cy='60' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='22' cy='30' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='58' cy='30' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='22' cy='50' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='58' cy='50' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='40' cy='40' r='10' fill='%23ffe066'/%3E%3C/svg%3E"),
+    /* Flores rosadas arriba derecha */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='15' fill='%23ff6b9d'/%3E%3Ccircle cx='40' cy='20' r='12' fill='%23ffb3c6'/%3E%3Ccircle cx='40' cy='60' r='12' fill='%23ffb3c6'/%3E%3Ccircle cx='22' cy='30' r='12' fill='%23ffb3c6'/%3E%3Ccircle cx='58' cy='30' r='12' fill='%23ffb3c6'/%3E%3Ccircle cx='22' cy='50' r='12' fill='%23ffb3c6'/%3E%3Ccircle cx='58' cy='50' r='12' fill='%23ffb3c6'/%3E%3Ccircle cx='40' cy='40' r='10' fill='%23fff066'/%3E%3C/svg%3E"),
+    /* Estrella amarilla izquierda */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpolygon points='30,5 36,22 54,22 40,33 45,51 30,40 15,51 20,33 6,22 24,22' fill='%23ffe066' stroke='%23f5a623' stroke-width='2'/%3E%3C/svg%3E"),
+    /* Estrella amarilla derecha */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpolygon points='30,5 36,22 54,22 40,33 45,51 30,40 15,51 20,33 6,22 24,22' fill='%23ffd700' stroke='%23f5a623' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: 220px 340px, 220px 340px, 90px 90px, 90px 90px, 65px 65px, 65px 65px;
+  background-position:
+    -50px -30px,
+    calc(100% + 40px) 20px,
+    8% 8%,
+    88% 6%,
+    5% 35%,
+    92% 30%;
+  background-repeat: no-repeat;
+}
+
+/* 4. Detalles inferiores — más hojas y flores en la base */
+html.age-tier-1 #namePopup.onboarding-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cellipse cx='100' cy='150' rx='55' ry='120' fill='%2395d5b2' opacity='0.6' transform='rotate(15 100 150)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cellipse cx='100' cy='150' rx='55' ry='120' fill='%2374c69d' opacity='0.55' transform='rotate(-20 100 150)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpolygon points='30,5 36,22 54,22 40,33 45,51 30,40 15,51 20,33 6,22 24,22' fill='%23ffe066' stroke='%23f5a623' stroke-width='2'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='15' fill='%23c77dff'/%3E%3Ccircle cx='40' cy='20' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='40' cy='60' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='22' cy='30' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='58' cy='30' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='22' cy='50' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='58' cy='50' r='12' fill='%23e0aaff'/%3E%3Ccircle cx='40' cy='40' r='10' fill='%23ffe066'/%3E%3C/svg%3E");
+  background-size: 200px 300px, 200px 300px, 55px 55px, 80px 80px;
+  background-position: -30px calc(100% + 40px), calc(100% + 30px) calc(100% + 30px), 88% 92%, 10% 88%;
+  background-repeat: no-repeat;
+}
+
+/* 5. TARJETA — Ahora es la cúpula de plastilina (.webp) */
+html.age-tier-1 .onboarding-circular-card {
+  background: url('../../assets/interface/onboarding_clay_decorations.webp') center/contain no-repeat !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  width: min(90vw, 480px) !important;
+  height: min(90vw, 480px) !important;
+  max-width: 480px !important;
+  max-height: 480px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  animation: clayCardFloat 6s ease-in-out infinite alternate !important;
+  position: relative;
+  z-index: 2;
+  overflow: visible !important; /* Permitir que el panda salga */
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+html.age-tier-1 .onboarding-circular-card::before {
+  display: none !important;           /* ← Eliminar el marco de decoraciones .webp antiguo */
+}
+
+/* 6. Contenido interno — Empujado hacia la parte inferior de la cúpula */
+html.age-tier-1 .circular-card-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-radius: 0 !important;
+  z-index: 10;
+  padding: 0 5% 5% !important;
+  margin-top: 25% !important; /* Empujar contenido hacia el óvalo inferior */
+  width: 100% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  transform: scale(0.95) !important;
+}
+
+@keyframes clayCardFloat {
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+/* 7. Mascota — panda de onboarding sobresaliendo por arriba */
+html.age-tier-1 .main-mascot-header {
+  position: absolute !important;
+  top: -15% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 20 !important;
+  margin: 0 !important;
+}
+html.age-tier-1 .main-mascot-header img.central-panda {
+  content: url('../../assets/interface/onboarding_panda_t1.webp');
+  width: 140px !important;
+  height: 140px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)) !important;
+  display: block !important;
+}
+
+/* 8. Burbuja ¡HOLA! — amarillo vibrante */
+html.age-tier-1 .speech-bubble-hola {
+  background: #FFD700 !important;
+  color: #7a4500 !important;
+  border: none !important;
+  border-radius: 20px !important;
+  border-bottom-left-radius: 4px !important;
+  padding: 6px 18px !important;
+  box-shadow:
+    0 7px 0 #e67e00,
+    0 12px 18px rgba(0,0,0,0.3),
+    inset 0 3px 6px rgba(255,255,255,0.7) !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  position: relative;
+  z-index: 16;
+}
+
+/* 9. Título — letras de plastilina vibrante, estilo logo Reto Panda */
+html.age-tier-1 .circular-card-title {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: clamp(1rem, 4vw, 1.4rem) !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  text-shadow:
+    0 4px 0 rgba(0, 80, 30, 0.7),
+    0 6px 12px rgba(0,0,0,0.4),
+    -2px -2px 0 rgba(255,255,255,0.3) !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  margin-bottom: 5px !important;
+  line-height: 1.1 !important;
+}
+html.age-tier-1 .circular-card-title .highlight-green,
+html.age-tier-1 .circular-card-title .highlight-yellow {
+  display: inline-block;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  animation: none !important;
+}
+html.age-tier-1 .circular-card-title .highlight-green {
+  color: #ffe03d !important;
+  text-shadow: 0 4px 0 rgba(180, 100, 0, 0.6), 0 6px 12px rgba(0,0,0,0.3) !important;
+}
+html.age-tier-1 .circular-card-title .highlight-yellow {
+  color: #ff8fab !important;
+  text-shadow: 0 4px 0 rgba(140, 30, 60, 0.5), 0 6px 12px rgba(0,0,0,0.3) !important;
+}
+
+/* 10. Labels — texto blanco legible sobre el verde oscuro */
+html.age-tier-1 .circular-field label {
+  color: #d4edda !important;
+  font-weight: 900 !important;
+  font-size: 0.8rem !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+  letter-spacing: 0.5px !important;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 5px !important;
+}
+
+/* 11. Inputs — Placa de arcilla blanca hundida (neumorfismo clay) */
+html.age-tier-1 .circular-field input {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: none !important;
+  border-radius: 28px !important;
+  height: 40px !important;
+  box-shadow:
+    0 8px 0 rgba(30, 90, 50, 0.5),
+    0 12px 20px rgba(0, 0, 0, 0.3),
+    inset 0 -3px 0 rgba(255,255,255,0.8) !important;
+  color: #1a4731 !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  text-align: center !important;
+}
+html.age-tier-1 .circular-input-wrapper input:focus,
+html.age-tier-1 .circular-input-wrapper input:not(:placeholder-shown) {
+  border: none !important;
+  background: #ffffff !important;
+  box-shadow:
+    0 8px 0 rgba(30, 90, 50, 0.6),
+    0 12px 20px rgba(0, 0, 0, 0.35),
+    inset 0 -3px 0 rgba(255,255,255,0.8) !important;
+  -webkit-text-fill-color: #1a4731 !important;
+}
+html.age-tier-1 .circular-input-wrapper input::placeholder {
+  color: #8cb89a !important;
+}
+
+/* 12. Íconos esféricos — Reemplazados por WebP 3D Clay */
+html.age-tier-1 .icon-sphere {
+  background: transparent !important;
+  border: none !important;
+  width: 52px !important;
+  height: 52px !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html.age-tier-1 .icon-sphere img.custom-input-icon {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+/* 13. Botón ¡VAMOS! — Placa 3D renderizada por el agente gráfico */
+html.age-tier-1 .circular-btn-play {
+  background: url('../../assets/interface/btn_vamos_icon.webp') center/contain no-repeat !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  text-shadow: 0 3px 5px rgba(0, 50, 20, 0.9) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  width: 220px !important;
+  height: 75px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  padding: 0 !important;
+  margin-top: 15px !important;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+}
+html.age-tier-1 .circular-btn-play .btn-controller-icon {
+  display: none !important; /* Ocultar el ícono interior del cohete/svg */
+}
+html.age-tier-1 .circular-btn-play:hover {
+  transform: scale(1.03) !important;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.5));
+}
+html.age-tier-1 .circular-btn-play:active {
+  transform: scale(0.97) translateY(4px) !important;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* ─── HOME: TOP BAR Y ENCABEZADOS ───────────────────────────────────────── */
+html.age-tier-1 .home-top-bar > div:first-child {
+  background-image: url('../../assets/interface/mochi_profile_badge.webp') !important;
+  background-size: contain !important;
+  background-position: center left !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  width: 170px !important;
+  height: 96px !important;
+  padding: 0 10px 0 75px !important; /* Salta la cara del panda */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 2px !important;
+}
+
+html.age-tier-1 .home-header-title {
+  display: none !important; /* Ocultamos el título "🐼 Mochi" porque el panda ya está en la imagen */
+}
+
+html.age-tier-1 .home-header-subtitle {
+  color: #1a237e !important; /* Azul oscuro clay */
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 13.5px !important;
+  margin: 0 !important;
+}
+
+html.age-tier-1 .home-header-age {
+  margin: 2px 0 0 0 !important;
+  display: inline-block !important;
+}
+
+html.age-tier-1 .home-header-age span {
+  display: inline-block !important;
+  background: #f48fb1 !important; /* Pastilla rosa clay */
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 3px 10px !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), inset 0 -2px 0 rgba(0, 0, 0, 0.05) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+  opacity: 1 !important;
+}
+
+/* ─── BURBUJA DE MASCOTA ────────────────────────────────────────────────── */
+html.age-tier-1 .hub-bubble {
+  background: #fff;
+  color: #1a237e;
+  border-color: #90CAF9;
+  border-radius: 16px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+}
+html.age-tier-1 .hub-bubble::after  { border-color: #fff transparent; }
+html.age-tier-1 .hub-bubble::before { border-color: #90CAF9 transparent; }
+
+/* ─── BOTONES DEL MENÚ CIRCULAR ─────────────────────────────────────────── */
+/* ─── BOTONES DEL MENÚ CIRCULAR ─────────────────────────────────────────── */
+html.age-tier-1 .circular-menu::before {
+  display: none !important;
+}
+
+html.age-tier-1 .hub-mascot-container {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+  z-index: 10 !important;
+  overflow: visible !important;
+}
+
+html.age-tier-1 .hub-mascot-container::after {
+  display: none !important;
+}
+
+html.age-tier-1 .hub-mascot-container:active {
+  transform: translate(-50%, -50%) scale(0.95) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+html.age-tier-1 .hub-mascot img {
+  width: calc(var(--mascot-sz) * 0.90) !important;
+  height: calc(var(--mascot-sz) * 0.90) !important;
+  filter: drop-shadow(0 12px 20px rgba(0,40,90,0.18)) !important;
+  transition: transform 0.2s ease !important;
+}
+
+html.age-tier-1 .hub-mascot-container:hover .hub-mascot img {
+  transform: scale(1.05);
+}
+
+html.age-tier-1 .circle-btn {
+  border-radius: 50% !important;
+  border: none !important;
+  background-color: transparent !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 0 !important;
+  box-sizing: border-box !important;
+  transition: transform 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.12s ease !important;
+  box-shadow: 0 8px 16px rgba(0,60,120,0.18) !important;
+  z-index: 5 !important;
+  position: absolute !important;
+}
+
+html.age-tier-1 .cb-icon {
+  font-size: calc(var(--btn-sz) * 0.38) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  transform: translateY(-4px) !important;
+  z-index: 2 !important;
+}
+
+/* Letras de título circulares rodeando el borde inferior */
+html.age-tier-1 .cb-text-flat {
+  display: none !important;
+}
+
+html.age-tier-1 .cb-text-svg {
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  overflow: visible !important;
+  z-index: 4 !important;
+}
+
+html.age-tier-1 .cb-text-svg text {
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 11.5px !important;
+  letter-spacing: 0.13em !important;
+  fill: #ffffff !important;
+  stroke-width: 2.8px !important;
+  stroke-linejoin: round !important;
+  paint-order: stroke fill !important;
+  text-transform: uppercase !important;
+}
+
+html.age-tier-1 .cb-1 .cb-text-svg text { stroke: #2e7d32 !important; }
+html.age-tier-1 .cb-2 .cb-text-svg text { stroke: #f57c00 !important; }
+html.age-tier-1 .cb-3 .cb-text-svg text { stroke: #c2185b !important; }
+html.age-tier-1 .cb-4 .cb-text-svg text { stroke: #7b1fa2 !important; }
+html.age-tier-1 .cb-5 .cb-text-svg text { stroke: #1565c0 !important; }
+html.age-tier-1 .cb-6 .cb-text-svg text { stroke: #d84315 !important; }
+
+/* 1. MUNDOS (Verde) */
+html.age-tier-1 .cb-1 {
+  background-image: url('../../assets/iconos/bg_btn_green.webp') !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 0 #2e7d32 !important;
+}
+
+/* 2. LIBRE (Amarillo) */
+html.age-tier-1 .cb-2 {
+  background-image: url('../../assets/iconos/bg_btn_yellow.webp') !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 0 #f57c00 !important;
+}
+
+/* 3. TIENDA (Rosa) */
+html.age-tier-1 .cb-3 {
+  background-image: url('../../assets/iconos/bg_btn_pink.webp') !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 0 #c2185b !important;
+}
+
+/* 4. DESTREZAS (Morado) */
+html.age-tier-1 .cb-4 {
+  background-image: url('../../assets/iconos/bg_btn_purple.webp') !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 0 #7b1fa2 !important;
+}
+
+/* 5. INSIGNIAS (Azul) */
+html.age-tier-1 .cb-5 {
+  background-image: url('../../assets/iconos/bg_btn_blue.webp') !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 0 #1565c0 !important;
+}
+
+/* 6. AJUSTES (Naranja) */
+html.age-tier-1 .cb-6 {
+  background-image: url('../../assets/iconos/bg_btn_orange.webp') !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 0 #d84315 !important;
+}
+
+/* Transición Activa (Presionar botón) */
+html.age-tier-1 .circle-btn:active {
+  transform: translate(-50%, -50%)
+             rotate(var(--angle))
+             translateY(calc(-1 * var(--radius)))
+             rotate(calc(-1 * var(--angle)))
+             scale(0.92) !important;
+  box-shadow: 0 4px 8px rgba(0,60,120,0.12) !important;
+}
+
+/* 3D WebP Icons injection instead of emojis */
+html.age-tier-1 .circle-btn .cb-icon {
+  font-size: 0 !important;
+  width: calc(var(--btn-sz) * 0.46) !important;
+  height: calc(var(--btn-sz) * 0.46) !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  margin-bottom: 4px !important;
+}
+
+html.age-tier-1 .cb-1 .cb-icon { background-image: url('../../assets/iconos/icon_mapa.webp') !important; }
+html.age-tier-1 .cb-2 .cb-icon { background-image: url('../../assets/iconos/icon_libre.webp') !important; }
+html.age-tier-1 .cb-3 .cb-icon { background-image: url('../../assets/iconos/icon_tienda.webp') !important; }
+html.age-tier-1 .cb-4 .cb-icon { background-image: url('../../assets/iconos/icon_destrezas.webp') !important; }
+html.age-tier-1 .cb-5 .cb-icon { background-image: url('../../assets/iconos/icon_insignias.webp') !important; }
+html.age-tier-1 .cb-6 .cb-icon { background-image: url('../../assets/iconos/icon_ajustes.webp') !important; }
+
+/* ─── BOTONES GENERALES (btn-3d) ─────────────────────────────────────────── */
+html.age-tier-1 .btn-3d {
+  border-radius: 50px !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 900;
+  text-transform: none;
+  letter-spacing: 0;
+  box-shadow:
+    0 8px 0 rgba(0,0,0,0.2),
+    inset 0 -4px 0 rgba(0,0,0,0.1);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+html.age-tier-1 .btn-3d:active {
+  transform: translateY(5px) !important;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.2) !important;
+}
+
+html.age-tier-1 .btn-play {
+  background: linear-gradient(180deg, #FFD54F 0%, #FFCA28 100%);
+  color: #E65100;
+  box-shadow: 0 8px 0 #FF8F00, inset 0 -4px 0 rgba(0,0,0,0.1);
+}
+html.age-tier-1 .btn-action {
+  background: linear-gradient(180deg, #A5D6A7 0%, #81C784 100%);
+  color: #1B5E20;
+  box-shadow: 0 8px 0 #388E3C, inset 0 -4px 0 rgba(0,0,0,0.1);
+}
+html.age-tier-1 .btn-back {
+  background: rgba(255,255,255,0.85);
+  color: #1a237e;
+  border-radius: 50% !important;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.15), inset 0 -3px 0 rgba(0,0,0,0.08);
+}
+
+/* ─── RESPUESTAS EN JUEGO ────────────────────────────────────────────────── */
+html.age-tier-1 .ans-btn {
+  border-radius: 28px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #1a237e !important;
+  border: 3px solid rgba(144,202,249,0.6);
+  box-shadow: 0 8px 0 rgba(0,0,0,0.14), inset 0 -3px 0 rgba(0,0,0,0.08);
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: none;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+html.age-tier-1 .ans-btn:active {
+  transform: translateY(5px) !important;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.14) !important;
+}
+html.age-tier-1 .ans-btn.correct {
+  background: linear-gradient(180deg, #A5D6A7, #81C784) !important;
+  color: #1B5E20 !important;
+  border-color: #66BB6A;
+  box-shadow: 0 8px 0 #388E3C !important;
+}
+html.age-tier-1 .ans-btn.wrong {
+  background: linear-gradient(180deg, #EF9A9A, #E57373) !important;
+  color: #B71C1C !important;
+  border-color: #EF5350;
+  box-shadow: 0 8px 0 #C62828 !important;
+}
+
+/* ─── TARJETA DE PREGUNTA ─────────────────────────────────────────────────── */
+html.age-tier-1 .card-question {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-radius: 30px !important;
+  border: 3px solid rgba(144,202,249,0.5);
+  box-shadow:
+    0 10px 30px rgba(0,60,120,0.12),
+    inset 0 -5px 0 rgba(0,0,0,0.06);
+  padding: 16px;
+}
+html.age-tier-1 #qText {
+  color: #1a237e;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── PANELES ──────────────────────────────────────────────────────────────── */
+html.age-tier-1 .panel-box {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-radius: 26px !important;
+  border: 2px solid rgba(144,202,249,0.4);
+  box-shadow: 0 8px 20px rgba(0,60,120,0.1);
+}
+html.age-tier-1 .panel-title {
+  color: #1565C0;
+  font-weight: 900;
+  text-transform: none;
+}
+
+/* ─── POPUPS ───────────────────────────────────────────────────────────────── */
+html.age-tier-1 .popup-card {
+  background: rgba(255, 255, 255, 0.97) !important;
+  border-radius: 36px !important;
+  border: 3px solid rgba(144,202,249,0.5);
+  box-shadow:
+    0 20px 50px rgba(0,60,120,0.18),
+    inset 0 -8px 0 rgba(0,0,0,0.06);
+  color: #1a237e;
+}
+html.age-tier-1 .popup-card * { color: #1a237e; }
+html.age-tier-1 .popup-text { color: #37474F; }
+html.age-tier-1 .popup-title { color: #1a237e; }
+
+html.age-tier-1 .popup-overlay {
+  background: rgba(100,150,200,0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* ─── HEADER DE JUEGO ─────────────────────────────────────────────────────── */
+html.age-tier-1 .game-header .score-badge {
+  background: rgba(255, 255, 255, 0.80);
+  border: 2px solid rgba(144,202,249,0.5);
+  border-radius: 20px;
+  color: #1a237e;
+}
+
+/* ─── MISIONES ────────────────────────────────────────────────────────────── */
+html.age-tier-1 .mission-row,
+html.age-tier-1 .mission-card {
+  background: rgba(255, 255, 255, 0.80) !important;
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(0,60,120,0.10) !important;
+}
+html.age-tier-1 .mission-bar-fill {
+  background: linear-gradient(90deg, #A5D6A7, #FFD54F) !important;
+  border-radius: 10px !important;
+}
+
+/* ─── BARRA DE TIEMPO ─────────────────────────────────────────────────────── */
+html.age-tier-1 .timer-bar {
+  background: linear-gradient(90deg, #FFD54F, #FF7043) !important;
+  border-radius: 10px;
+  box-shadow: none;
+}
+html.age-tier-1 .timer-container {
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+  border: 2px solid rgba(144,202,249,0.4);
+}
+
+/* ─── CUENTA REGRESIVA ────────────────────────────────────────────────────── */
+html.age-tier-1 #countOverlay {
+  background: rgba(179,229,252,0.95);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+html.age-tier-1 #countNumber {
+  color: #FF5722;
+  text-shadow: 0 8px 0 rgba(0,0,0,0.12);
+}
+
+/* ─── FEEDBACK (CORRECTO / INCORRECTO) ───────────────────────────────────── */
+html.age-tier-1 #feedbackOverlay {
+  background: rgba(179,229,252,0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+html.age-tier-1 .feedback-title { color: #1a237e; }
+html.age-tier-1 .feedback-explain { color: #37474F; }
+html.age-tier-1 .feedback-stars { color: #FF8F00; }
+
+/* ─── HEADER GENÉRICO (mapas, tienda, etc.) ──────────────────────────────── */
+html.age-tier-1 .screen-header {
+  background: rgba(255,255,255,0.55);
+  border-radius: 20px;
+  padding: 8px 12px;
+}
+
+/* ─── TIENDA (SHOP) ───────────────────────────────────────────────────────── */
+html.age-tier-1 .shop-tabs {
+  gap: 8px;
+}
+html.age-tier-1 .shop-tab {
+  background: rgba(255,255,255,0.70);
+  border: 2px solid rgba(144,202,249,0.5);
+  border-radius: 20px !important;
+  color: #1565C0;
+  font-weight: 900;
+  text-transform: none;
+}
+html.age-tier-1 .shop-tab.active {
+  background: #FFD54F;
+  border-color: #FF8F00;
+  color: #E65100;
+}
+
+html.age-tier-1 .shop-item {
+  background: rgba(255,255,255,0.88) !important;
+  border: 3px solid rgba(144,202,249,0.5) !important;
+  border-radius: 26px !important;
+  box-shadow: 0 8px 0 rgba(0,0,0,0.10),
+              inset 0 -4px 0 rgba(0,0,0,0.05);
+  color: #1a237e;
+}
+html.age-tier-1 .shop-item.animal {
+  border-color: rgba(255,213,79,0.7) !important;
+  box-shadow: 0 8px 0 rgba(255,143,0,0.25),
+              inset 0 -4px 0 rgba(0,0,0,0.05) !important;
+}
+html.age-tier-1 .pet-name { color: #1a237e; }
+html.age-tier-1 .pet-price {
+  color: #E65100;
+  background: rgba(255,213,79,0.3);
+  border: 1.5px solid rgba(255,143,0,0.5);
+}
+
+/* Botones de compra en tienda */
+html.age-tier-1 .sbb.buy {
+  background: linear-gradient(180deg, #FFD54F, #FFCA28);
+  box-shadow: 0 5px 0 #FF8F00;
+  color: #E65100;
+}
+html.age-tier-1 .sbb.owned {
+  background: linear-gradient(180deg, #A5D6A7, #81C784);
+  box-shadow: 0 5px 0 #388E3C;
+  color: #1B5E20;
+}
+html.age-tier-1 .sbb.equipped {
+  background: linear-gradient(180deg, #90CAF9, #64B5F6);
+  box-shadow: 0 5px 0 #1976D2;
+  color: #0D47A1;
+}
+
+/* Preview de mascota en tienda */
+html.age-tier-1 .shop-preview-container {
+  background: rgba(255,255,255,0.60);
+  border-radius: 30px;
+  border: 3px solid rgba(144,202,249,0.4);
+}
+
+/* ─── MASCOTAS COMO IMÁGENES (50 assets nuevos) ──────────────────────────── */
+/* Tamaños para contenedor imagen en hub (menú principal) */
+html.age-tier-1 .hub-mascot img {
+  width: calc(var(--mascot-sz) * 0.80);
+  height: calc(var(--mascot-sz) * 0.80);
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,60,120,0.25));
+}
+
+/* Tamaño en el juego */
+html.age-tier-1 .mascot img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,60,120,0.2));
+}
+
+/* Tamaño en la tienda (preview) */
+html.age-tier-1 .shop-preview-mascot img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,60,120,0.2));
+}
+
+/* Tamaño en los ítems de la cuadrícula de tienda */
+html.age-tier-1 .shop-item .pet-emoji img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+}
+
+/* Hat/accesorio como imagen en juego */
+html.age-tier-1 .mascot-hat img,
+html.age-tier-1 .hub-hat img,
+html.age-tier-1 .res-hat img {
+  width: 1.1em;
+  height: 1.1em;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* ─── INSIGNIAS (BADGES) ───────────────────────────────────────────────────── */
+html.age-tier-1 .badge-item {
+  background: rgba(255,255,255,0.75);
+  border: 2px solid rgba(144,202,249,0.4);
+  border-radius: 20px;
+}
+html.age-tier-1 .badge-item.unlocked {
+  background: rgba(255,213,79,0.25);
+  border-color: #FFB300;
+}
+
+/* ─── MAPA DE MUNDOS ─────────────────────────────────────────────────────── */
+html.age-tier-1 .world-title { color: #1a237e; text-shadow: 0 4px 0 rgba(255,255,255,0.6); }
+html.age-tier-1 .map-world-card {
+  background: rgba(255,255,255,0.80);
+  border: 3px solid rgba(144,202,249,0.5);
+  border-radius: 28px;
+  box-shadow: 0 8px 0 rgba(0,0,0,0.12);
+}
+html.age-tier-1 .map-level-node.locked { background: #B0BEC5; border-color: #90A4AE; }
+html.age-tier-1 .map-level-node.unlocked { background: #90CAF9; border-color: #FFD54F; }
+html.age-tier-1 .map-level-node.current {
+  background: #FFD54F;
+  border-color: #fff;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 0 20px rgba(255,213,79,0.7);
+}
+
+/* ─── BOTONES AUDIO FLOTANTES ─────────────────────────────────────────────── */
+html.age-tier-1 #ambientBtn {
+  position: fixed !important;
+  bottom: max(env(safe-area-inset-bottom, 20px), 20px) !important;
+  left: 20px !important;
+  right: auto !important;
+  border-radius: 0 !important;
+  background-image: url('../../assets/iconos/btn_music_clay.webp') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: transparent !important;
+  width: 56px !important;
+  height: 56px !important;
+  font-size: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transition: transform 0.1s ease !important;
+}
+
+html.age-tier-1 #ambientBtn:active {
+  transform: translateY(3px) scale(0.95) !important;
+  box-shadow: none !important;
+}
+
+html.age-tier-1 #audioBtnGlobal {
+  position: fixed !important;
+  bottom: max(env(safe-area-inset-bottom, 20px), 20px) !important;
+  left: 88px !important;
+  right: auto !important;
+  border-radius: 0 !important;
+  background-image: url('../../assets/iconos/btn_sfx_clay.webp') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: transparent !important;
+  width: 56px !important;
+  height: 56px !important;
+  font-size: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  transition: transform 0.1s ease !important;
+}
+
+html.age-tier-1 #audioBtnGlobal:active {
+  transform: translateY(3px) scale(0.95) !important;
+  box-shadow: none !important;
+}
+
+html.age-tier-1 #ambientBtn.muted {
+  background-image: url('../../assets/iconos/btn_music_muted.webp') !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+html.age-tier-1 #audioBtnGlobal.muted {
+  background-image: url('../../assets/iconos/btn_sfx_muted.webp') !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+/* ─── CONTADOR DE ESTRELLAS Y CASAS DE PUNTUACIÓN CLAY ───────────────────── */
+html.age-tier-1 .star-showcase {
+  background-image: url('../../assets/badges/star_counter_bg.webp') !important;
+  background-size: 100% 100% !important; /* Ahora es seguro porque la imagen fue recortada (899x388) */
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 0 0 25px !important; /* Push text right to center in the orange area */
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 140px !important; /* Ancho ajustado a proporción 2.31 de la imagen real */
+  min-width: 0 !important;
+  height: 60px !important; /* Alto ajustado */
+  box-sizing: border-box !important;
+  position: relative !important;
+  overflow: visible !important;
+  margin-top: 25px !important;
+}
+
+html.age-tier-1 .star-showcase > div {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+html.age-tier-1 .star-showcase .star-lbl {
+  position: absolute !important;
+  top: -10px !important; /* Adjust text position above the rendered image */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 160px !important; 
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  color: #a04b00 !important; 
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+html.age-tier-1 .star-showcase .star-big {
+  font-size: 0 !important;
+  font-weight: 900 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  width: 100% !important;
+}
+
+html.age-tier-1 .star-showcase .star-big span {
+  font-size: 18px !important; /* Reducido a 18px para asegurar que nunca desborde */
+  color: #1a237e !important; 
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5) !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+}
+
+html.age-tier-1 .star-showcase .star-icon {
+  display: none !important;
+}
+
+html.age-tier-1 .shop-score-wrapper,
+html.age-tier-1 .score-badge.stars {
+  background: #ffb74d !important;
+  border: 4px solid #ffffff !important;
+  border-radius: 18px !important;
+  padding: 6px 12px !important;
+  box-shadow: 
+    0 5px 0 rgba(0,0,0,0.12),
+    inset 0 -4px 0 rgba(0,0,0,0.15),
+    inset 0 4px 0 rgba(255,255,255,0.4),
+    0 0 0 3px #ffb74d !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.15) !important;
+  font-weight: 900 !important;
+}
+
+/* ─── RESULTADO FINAL ─────────────────────────────────────────────────────── */
+html.age-tier-1 .result-card {
+  background: rgba(255,255,255,0.92);
+  border-radius: 36px;
+  border: 3px solid rgba(144,202,249,0.5);
+  box-shadow: 0 12px 30px rgba(0,60,120,0.15);
+  color: #1a237e;
+  /* Centra el contenido internamente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+html.age-tier-1 .result-title  { color: #FF7043; text-shadow: 0 4px 0 rgba(255,255,255,0.7); font-size: 36px; }
+html.age-tier-1 .result-streak { color: #1a237e; font-weight: 900; }
+html.age-tier-1 .result-msg    { color: #37474F; }
+html.age-tier-1 #resBtn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+/* Landscape Tier 1: card scroll */
+@media (max-height: 520px) and (orientation: landscape) {
+  html.age-tier-1 .result-card {
+    padding: 16px 24px !important;
+  }
+  html.age-tier-1 .result-icon-wrapper { font-size: 40px !important; margin-bottom: 2px !important; }
+  html.age-tier-1 .result-title { font-size: 22px !important; }
+  html.age-tier-1 .result-msg   { font-size: 13px !important; margin-bottom: 10px !important; }
+}
+
+/* ─── SCROLL CUSTOM ──────────────────────────────────────────────────────── */
+html.age-tier-1 ::-webkit-scrollbar { width: 8px; }
+html.age-tier-1 ::-webkit-scrollbar-track { background: rgba(255,255,255,0.3); border-radius: 10px; }
+html.age-tier-1 ::-webkit-scrollbar-thumb { background: #90CAF9; border-radius: 10px; }
+
+/* ─── ACCESIBILIDAD: REDUCED MOTION ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html.age-tier-1 .dynamic-bg::before,
+  html.age-tier-1 .dynamic-bg::after {
+    animation: none;
+  }
+  html.age-tier-1 .circle-btn,
+  html.age-tier-1 .btn-3d {
+    transition: none;
+  }
+}
+
+/* ─── RESPONSIVE MOBILE ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  html.age-tier-1 .btn-3d { border-radius: 40px !important; }
+  html.age-tier-1 .popup-card { border-radius: 26px !important; }
+  html.age-tier-1 .ans-btn { font-size: 14px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LOGROS OVERLAY — TIER 1 CLAY WORLD
+   ═══════════════════════════════════════════════════════════════════════════ */
+html.age-tier-1 .logros-overlay {
+  background: linear-gradient(180deg, rgba(179,229,252,0.96) 0%, rgba(225,245,254,0.96) 100%);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+html.age-tier-1 .logros-title {
+  color: #1a237e;
+  text-shadow: 0 3px 0 rgba(255,255,255,0.8);
+}
+
+html.age-tier-1 .logros-subtitle {
+  color: #37474F;
+  font-weight: 800;
+}
+
+html.age-tier-1 .logros-tab {
+  background: rgba(255,255,255,0.75);
+  color: #1a237e;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  border-radius: 20px;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.12);
+  border: 2px solid rgba(144,202,249,0.4);
+}
+
+html.age-tier-1 .logros-tab.active {
+  background: linear-gradient(180deg, #FFD54F, #FFCA28);
+  color: #E65100;
+  box-shadow: 0 5px 0 #FF8F00;
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* Insignias en overlay Logros */
+html.age-tier-1 .bitem {
+  background: rgba(255,255,255,0.55);
+  border: 2px solid rgba(144,202,249,0.3);
+  border-radius: 20px;
+  filter: grayscale(0.9) brightness(0.8);
+}
+
+html.age-tier-1 .bitem.got {
+  background: rgba(255,255,255,0.92);
+  border-color: #FFD54F;
+  box-shadow: 0 5px 0 #FFB300;
+  filter: none;
+}
+
+html.age-tier-1 .bnm {
+  color: #1a237e;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+/* Misiones dentro del overlay — texto legible sobre fondo cielo */
+html.age-tier-1 .logros-overlay .mission-row {
+  background: rgba(255,255,255,0.88) !important;
+  border-radius: 20px !important;
+  border: none !important;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.08) !important;
+}
+
+html.age-tier-1 .logros-overlay .mission-info p {
+  color: #1a237e !important;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+html.age-tier-1 .logros-overlay .mission-reward {
+  color: #E65100 !important;
+  font-weight: 900;
+}
+
+html.age-tier-1 .logros-overlay .mission-prog {
+  background: #FFD54F;
+  color: #E65100;
+  font-weight: 900;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 #FF8F00;
+}
+
+html.age-tier-1 .logros-overlay .mission-row.done .mission-info p {
+  color: #388E3C !important;
+}
+
+html.age-tier-1 .logros-overlay h4 {
+  color: #1565C0;
+  font-weight: 900;
+  margin: 14px 0 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTRASTE DE TEXTO — CORRECCIONES GLOBALES TIER 1
+   ═══════════════════════════════════════════════════════════════════════════ */
+/* Stats overlay - texto completamente legible */
+html.age-tier-1 .stat-panel-title { color: #1a237e !important; }
+html.age-tier-1 .stat-panel-desc  { color: #37474F !important; font-weight: 700; }
+html.age-tier-1 .stat-label       { color: #1a237e !important; font-weight: 800; }
+html.age-tier-1 .stat-pct         { font-weight: 900 !important; }
+
+/* Texto de barras de stat */
+html.age-tier-1 #statsBarsContainer b { color: #1a237e !important; }
+html.age-tier-1 #statsBarsContainer div { color: #37474F; }
+
+/* Section subtitles */
+html.age-tier-1 .section-subtitle        { color: #1565C0 !important; font-weight: 900 !important; }
+html.age-tier-1 .section-subtitle.badges   { color: #E65100 !important; }
+html.age-tier-1 .section-subtitle.missions { color: #1565C0 !important; }
+
+/* Botón de guardar informe */
+html.age-tier-1 .stats-btn-row .btn-action {
+  background: linear-gradient(180deg, #A5D6A7, #81C784);
+  color: #1B5E20 !important;
+  box-shadow: 0 6px 0 #388E3C;
+  font-size: 15px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN — TABLET PORTRAIT
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (min-width: 600px) and (max-width: 1023px) {
+  html.age-tier-1 .circular-menu {
+    --hub-sz: 360px !important;
+    --btn-sz: 85px !important;
+    --mascot-sz: 100px !important;
+  }
+  html.age-tier-1 .circular-menu-wrapper {
+    min-height: 420px;
+  }
+  html.age-tier-1 .circle-btn {
+    font-size: calc(var(--btn-sz) * 0.14) !important;
+  }
+  html.age-tier-1 .cb-icon {
+    font-size: calc(var(--btn-sz) * 0.42) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   APOYO VISUAL EN POPUPS (TUTORIAL INTRO)
+   ═══════════════════════════════════════════════════════════════════════════ */
+html.age-tier-1 .popup-info-box {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), inset 0 2px 0 rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+html.age-tier-1 .popup-info-icon {
+  background: #FFF9C4;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 0 #FBC02D;
+  font-size: 26px;
+}
+html.age-tier-1 .popup-info-text {
+  font-size: 15px;
+  font-weight: 800;
+  color: #4a148c;
+}

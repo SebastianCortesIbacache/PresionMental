@@ -1,0 +1,113 @@
+/* ==========================================================================
+   SISTEMA DE DISEÑO - PRESION MENTAL (VIVID TIERS)
+   ========================================================================== */
+
+:root {
+  /* Paleta Funcional Universal (Alto Contraste) */
+  --success: #00FF88;
+  --success-dark: #00A357;
+  --danger: #FF8A65;
+  --danger-dark: #D84315;
+  --warning: #FFEA00;
+  --warning-dark: #B3A400;
+
+  --font-main: 'Nunito', 'Roboto', 'Arial Rounded MT Bold', Arial, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   TIER 1: "Clay World" (6 - 7 años)
+   Vibe: Claymorphism. Suave, redondo, táctil, infantil.
+   Selector: html.age-tier-1 (inyectado en <html> por el loader del <head>)
+   -------------------------------------------------------------------------- */
+html.age-tier-1,
+.age-tier-1 {
+  /* Paleta Clay World — spec agente-diseño.md */
+  --bg-primary:    #b3e5fc; /* Cielo azul suave */
+  --bg-secondary:  #e1f5fe; /* Cielo muy claro */
+  --bg-dark:       #b3e5fc;
+  --bg-panel:      #FFFFFF;
+
+  --btn-primary:   #FFD54F; /* Amarillo */
+  --btn-secondary: #F48FB1; /* Rosa */
+  --btn-action:    #A5D6A7; /* Verde */
+  --btn-special:   #90CAF9; /* Azul */
+
+  --primary:       #FFD54F;
+  --primary-dark:  #FF8F00;
+  --secondary:     #A5D6A7;
+  --secondary-dark:#388E3C;
+  --accent:        #FF7043; /* Naranja cálido */
+  --accent-dark:   #E64A19;
+
+  /* Formas: extremadamente redondeadas */
+  --rad-panel:     40px;
+  --rad-btn:       50px;
+
+  /* Claymorphism */
+  --glass-bg:      rgba(255, 255, 255, 0.90);
+  --glass-border:  rgba(144, 202, 249, 0.50);
+  --glass-shadow:  0 10px 0 rgba(0,0,0,0.10), inset 0 -5px 0 rgba(0,0,0,0.05);
+
+  --btn-shadow:    0 8px 0;
+  --glow-effect:   0 0 0 transparent; /* Sin glow en clay */
+
+  --text-main:     #1a237e; /* Azul oscuro */
+}
+
+/* --------------------------------------------------------------------------
+   TIER 2: "Aventureros" (9 - 10 años)
+   Vibe: "Arcade/Comic". Neones saturados, sombras duras, dinámico.
+   -------------------------------------------------------------------------- */
+.age-tier-2 {
+  /* Colores Electricos */
+  --bg-dark: #6200EA; /* Morado Eléctrico */
+  --bg-panel: #1A052E;
+  --primary: #00E5FF; /* Cian Neón */
+  --primary-dark: #00B8D4;
+  --secondary: #76FF03; /* Lima Ácido */
+  --secondary-dark: #64DD17;
+  --accent: #FF00E5; /* Magenta */
+  
+  /* Formas: Arcade (16px) */
+  --rad-panel: 24px;
+  --rad-btn: 20px;
+  
+  /* Estilo: Neon-Glass (Bordes vibrantes) */
+  --glass-bg: rgba(26, 5, 46, 0.8);
+  --glass-border: var(--primary);
+  --glass-shadow: 0 0 20px rgba(0, 229, 255, 0.3), 0 10px 0 #000;
+  
+  --btn-shadow: 0 8px 0;
+  --glow-effect: 0 0 15px var(--primary);
+  
+  --text-main: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   TIER 3: "Elite Cyber" (11 - 13 años)
+   Vibe: "Cyberpunk/Pro-Gamer". Minimalismo oscuro, neones extremos.
+   -------------------------------------------------------------------------- */
+.age-tier-3 {
+  /* Colores Cyber */
+  --bg-dark: #050505; /* Negro Absoluto */
+  --bg-panel: #0A0A0F;
+  --primary: #00FF41; /* Verde Matrix/Cyber */
+  --primary-dark: #008F11;
+  --secondary: #BC13FE; /* Violeta Neón */
+  --secondary-dark: #8B00FF;
+  --accent: #00D1FF; /* Azul Hielo */
+  
+  /* Formas: Tech (8px o angulares) */
+  --rad-panel: 12px;
+  --rad-btn: 8px;
+  
+  /* Estilo: Sleek Cyber-Glass */
+  --glass-bg: rgba(10, 10, 15, 0.95);
+  --glass-border: rgba(0, 255, 65, 0.4);
+  --glass-shadow: 0 0 30px rgba(0, 255, 65, 0.1), inset 0 0 20px rgba(0, 255, 65, 0.05);
+  
+  --btn-shadow: 0 4px 0;
+  --glow-effect: 0 0 25px rgba(0, 255, 65, 0.5);
+  
+  --text-main: #E0E0E0;
+}

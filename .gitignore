@@ -1,0 +1,28 @@
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Test outputs & Playwright
+playwright-report/
+test-results/
+
+# Python environments & cache
+.venv/
+__pycache__/
+*.py[cod]
+
+# Editor / IDE
+.vscode/
+
+# Temporary / Extraction / Binary dumps
+*.zip
+zip_contents/
+scratch/
+_ARCHIVO_v52_modular/
+*.pdf
+*.pptx
+
+# Large raw database dumps (not used by client PWA)
+questions_db.json
+questions_db_min.json
+js/db_temp.mjs

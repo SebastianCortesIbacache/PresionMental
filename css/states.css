@@ -1,0 +1,126 @@
+/* ==========================================================================
+   ESTADOS Y ANIMACIONES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Estados de los Botones de Respuesta
+   -------------------------------------------------------------------------- */
+.btn-ans.correct {
+  background: var(--success);
+  border-color: var(--success-dark);
+  box-shadow: 0 8px 0 var(--success-dark);
+  color: #000;
+  transform: scale(1.05); /* Micro-interacción: Expansión leve */
+}
+
+.btn-ans.wrong {
+  background: var(--danger);
+  border-color: var(--danger-dark);
+  box-shadow: 0 8px 0 var(--danger-dark);
+  animation: shake 0.4s ease; /* Micro-interacción: Vibración */
+}
+
+/* --------------------------------------------------------------------------
+   Estados del Temporizador
+   -------------------------------------------------------------------------- */
+.timer-bar.warning {
+  background: linear-gradient(90deg, #FFEA00, #FF9100);
+}
+
+.timer-bar.danger {
+  background: linear-gradient(90deg, #FF8A65, #D84315);
+  animation: urgentPulse 1s infinite alternate;
+}
+
+.timer-bar.frozen {
+  background: linear-gradient(90deg, #E0F7FA, #FFFFFF);
+  box-shadow: 0 0 10px #FFF;
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes (Animaciones Reutilizables)
+   -------------------------------------------------------------------------- */
+
+/* Efecto de Flotación Suave (Para Mascota/Iconos) */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Efecto de Error (Nudge suave) */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  33% { transform: translateX(-3px); }
+  66% { transform: translateX(3px); }
+}
+
+/* Efecto de Urgencia / Peligro */
+@keyframes urgentPulse {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.25) saturate(1.2); }
+}
+
+/* Pop In (Aparición de elementos) */
+@keyframes pop {
+  0%   { transform: scale(0.8); opacity: 0; }
+  50%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Flicker para la llama de la Racha */
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+  25%, 75% { opacity: 0.9; }
+}
+
+/* --------------------------------------------------------------------------
+   Utilidades Adicionales
+   -------------------------------------------------------------------------- */
+.urgent-bg {
+  animation: urgentPulse 0.55s infinite alternate;
+}
+
+.streak-almost {
+  animation: streakAlmost 0.55s infinite alternate !important;
+  color: var(--success) !important;
+}
+
+@keyframes streakAlmost {
+  from { transform: scale(1); }
+  to { transform: scale(1.25); }
+}
+
+.streak-fail {
+  animation: streakFail 0.35s 3;
+  color: var(--danger) !important;
+}
+
+@keyframes streakFail {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(-3px) scale(0.98); }
+}
+
+/* --------------------------------------------------------------------------
+   Accesibilidad y Movimiento Reducido
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .streak-almost,
+  .streak-fail,
+  .timer-bar.danger,
+  .urgent-bg,
+  .btn-ans.wrong {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+

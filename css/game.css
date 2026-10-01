@@ -1,0 +1,55 @@
+/* Estilos específicos de la interfaz de juego */
+
+/* --------------------------------------------------------------------------
+   CABECERA DE JUEGO
+   -------------------------------------------------------------------------- */
+.game-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-shrink: 0; }
+.score-badge { background: rgba(0,0,0,0.5); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); padding: 8px 15px; border-radius: 15px; font-weight: 900; font-size: 18px; border: 2px solid rgba(255,255,255,0.1); }
+.streak-fire { color: var(--danger); animation: flicker 1s infinite alternate; }
+
+/* --------------------------------------------------------------------------
+   MASCOTA EN JUEGO
+   -------------------------------------------------------------------------- */
+.mascot-area { text-align: center; margin-bottom: 5px; height: 60px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; position: relative; }
+.mascot { font-size: 50px; filter: drop-shadow(0 5px 5px rgba(0,0,0,0.5)); transition: 0.2s; position: relative; z-index: 2;}
+.mascot-hat { font-size: 35px; position: absolute; top: -15px; z-index: 3; transition: 0.2s; pointer-events:none;}
+.shield-aura { position:absolute; width:80px; height:80px; border-radius:50%; border: 4px solid var(--secondary); box-shadow: 0 0 15px var(--secondary); top:-10px; opacity:0; transition:0.3s; pointer-events:none; }
+
+/* --------------------------------------------------------------------------
+   FLASH Y OVERLAYS DE FEEDBACK
+   -------------------------------------------------------------------------- */
+#flashOverlay { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; opacity:0; z-index: 99; transition: 0.2s; }
+.flash-green { background: rgba(0,255,0,0.25); } .flash-red { background: rgba(255,0,0,0.35); } .flash-blue { background: rgba(0,229,255,0.3); }
+
+/* --------------------------------------------------------------------------
+   CUENTA REGRESIVA (COUNTDOWN)
+   -------------------------------------------------------------------------- */
+#countOverlay { border: none; padding: 0; background: rgba(26,5,46,0.95); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+#countOverlay[open] { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; max-width: 100vw; max-height: 100dvh; }
+#countOverlay::backdrop { background: rgba(0,0,0,0.7); }
+#countNumber { font-size: 150px; color: var(--secondary); text-shadow: 0 10px 20px rgba(0,0,0,0.8); animation: pop 1s infinite; margin: 10px 0; }
+
+
+/* --------------------------------------------------------------------------
+   OVERLAY DE FEEDBACK (CORRECTO/INCORRECTO)
+   -------------------------------------------------------------------------- */
+#feedbackOverlay { border: none; padding: 20px; background: rgba(0,0,0,0.85); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); text-align: center; }
+#feedbackOverlay[open] { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; max-width: 100vw; max-height: 100dvh; }
+#feedbackOverlay::backdrop { background: transparent; }
+.feedback-icon { font-size: 80px; margin-bottom: 10px; }
+.feedback-title { font-size: 28px; font-weight: 900; margin-bottom: 10px; }
+.feedback-explain { font-size: 16px; color: #fff; max-width: 85%; line-height: 1.4; }
+.feedback-stars { font-size: 22px; font-weight: 900; color: var(--accent); margin-top: 15px; }
+
+/* --------------------------------------------------------------------------
+   CUENTA REGRESIVA (COUNTDOWN) HELPERS
+   -------------------------------------------------------------------------- */
+.countdown-icon { font-size: 100px; animation: float 1s infinite ease-in-out; }
+.countdown-msg { color: white; margin-top: 0; }
+
+/* --------------------------------------------------------------------------
+   BADGES DE CABECERA EN JUEGO
+   -------------------------------------------------------------------------- */
+.lives-badge { color: #FF1744; border-color: rgba(255,23,68,0.5); }
+.level-badge-game { color: white; } /* Just white for the badge, span inside will have accent */
+.level-badge-game span { color: var(--accent); }

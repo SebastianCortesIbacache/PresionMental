@@ -1,0 +1,582 @@
+/* ==========================================================================
+   COMPONENTES VIVID (FORMAS Y ESTILOS POR TIER)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   PANELES Y TARJETAS
+   -------------------------------------------------------------------------- */
+.panel-box, .card-question, .mission-row {
+  background: var(--glass-bg);
+  border-radius: var(--rad-panel);
+  border: 4px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Efectos de forma específicos */
+.age-tier-1 .panel-box { border-bottom-width: 12px; } /* Estilo Juguete */
+.age-tier-2 .panel-box { border-style: solid; box-shadow: 8px 8px 0 #000; border-color: #000; } /* Estilo Comic/Aventura */
+.age-tier-3 .panel-box { border-left-width: 8px; clip-path: polygon(0 0, 95% 0, 100% 10%, 100% 100%, 5% 100%, 0 90%); } /* Estilo Tech */
+
+/* --------------------------------------------------------------------------
+   MISIONES Y BARRAS
+   -------------------------------------------------------------------------- */
+.mission-row {
+  margin-bottom: 12px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.age-tier-2 .mission-row { border: 3px solid #000; border-radius: 12px; box-shadow: 4px 4px 0 #000; }
+.age-tier-3 .mission-row { border: 2px solid var(--primary); border-radius: 0; clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%); }
+
+.mission-row-bar {
+  flex: 1;
+  height: 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 6px;
+  margin: 0 15px;
+  overflow: hidden;
+  display: flex;
+  gap: 2px;
+}
+
+.mission-row-bar .segment {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  height: 100%;
+}
+.mission-row-bar .segment.filled {
+  background: var(--primary);
+  box-shadow: var(--glow-effect);
+}
+
+.age-tier-2 .mission-row-bar { transform: skewX(-15deg); border-radius: 0; border: 2px solid #000; }
+.age-tier-2 .mission-row-bar .segment.filled { background: var(--secondary); border-right: 2px solid #000; }
+
+.age-tier-3 .mission-row-bar { transform: skewX(-30deg); border-radius: 0; background: transparent; border: 1px solid var(--primary); }
+.age-tier-3 .mission-row-bar .segment { transform: skewX(10deg); margin: 0 1px; }
+
+/* --------------------------------------------------------------------------
+   BOTONES DEL MENÚ CIRCULAR
+   -------------------------------------------------------------------------- */
+.circle-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: var(--btn-sz);
+  height: var(--btn-sz);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
+  font-size: calc(var(--btn-sz) * 0.12);
+  font-weight: 900; line-height: 1.1; padding: 2px;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+  --radius: calc(var(--hub-sz) / 2 - var(--btn-sz) / 1.8);
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
+}
+
+/* TIER 1: Claymorphism (Circulares blandos) */
+.age-tier-1 .circle-btn {
+  border-radius: 50%;
+  background: var(--primary); /* El Arquitecto o CSS inline define el color exacto, pero este es el estilo base */
+  border: 4px solid var(--glass-border);
+  box-shadow: 0 10px 0 rgba(0,0,0,0.1), inset 0 -6px 0 rgba(0,0,0,0.1), inset 0 6px 0 rgba(255,255,255,0.5);
+  color: var(--text-main);
+}
+.age-tier-1 .circle-btn:active {
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle))) scale(0.9) translateY(4px) !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.1), inset 0 -2px 0 rgba(0,0,0,0.1), inset 0 6px 0 rgba(255,255,255,0.5);
+}
+
+/* TIER 2: Arcade (Bordes duros negros) */
+.age-tier-2 .circle-btn {
+  border-radius: 50%;
+  background: var(--primary);
+  border: 4px solid #000;
+  box-shadow: 6px 6px 0 #000;
+  color: #fff;
+  text-shadow: 2px 2px 0 #000;
+}
+.age-tier-2 .circle-btn:active {
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle))) scale(0.9) translate(4px, 4px) !important;
+  box-shadow: 0 0 0 #000;
+}
+
+/* TIER 3: Cyber (Hexagonales / Tech) */
+.age-tier-3 .circle-btn {
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, rgba(0,255,65,0.2) 0%, rgba(0,0,0,0.8) 100%);
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+}
+/* Efecto de borde para el hexágono */
+.age-tier-3 .circle-btn::before {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px; right: 3px; bottom: 3px;
+  background: #000;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: -1;
+  transition: 0.3s;
+}
+.age-tier-3 .circle-btn:hover {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 20px var(--primary);
+}
+.age-tier-3 .circle-btn:active {
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle))) scale(0.9) !important;
+}
+
+/* --------------------------------------------------------------------------
+   BOTONES GLOBALES (EL CAMBIO DE FORMA)
+   -------------------------------------------------------------------------- */
+.btn-3d {
+  border: none;
+  border-radius: var(--rad-btn);
+  padding: clamp(12px, 3vw, 20px);
+  font-size: clamp(16px, 4vw, 24px);
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+}
+
+/* TIER 1: Botones "Squishy" (Claymorphism) */
+.age-tier-1 .btn-3d {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 10px 0 var(--primary-dark), inset 0 4px 0 rgba(255,255,255,0.4);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.2);
+}
+.age-tier-1 .btn-3d:active { transform: translateY(6px); box-shadow: 0 4px 0 var(--primary-dark); }
+
+/* TIER 2: Botones Arcade (Shadows duras) */
+.age-tier-2 .btn-3d {
+  background: var(--primary);
+  color: #000;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0 #000;
+}
+.age-tier-2 .btn-3d:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0 #000; }
+
+/* TIER 3: Botones Cyber (Glows) */
+.age-tier-3 .btn-3d {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 15px var(--primary), inset 0 0 15px var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+.age-tier-3 .btn-3d:active { background: var(--primary); color: #000; box-shadow: 0 0 30px var(--primary); }
+
+/* --------------------------------------------------------------------------
+   IMÁGENES DE PREGUNTA (ILUSTRACIONES)
+   -------------------------------------------------------------------------- */
+.question-image-wrapper {
+  width: 100%;
+  height: 200px; /* landscape recomendado por Arquitecto */
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.question-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fallback cuando la imagen no carga o está vacía */
+.question-image-wrapper:empty::after {
+  content: '🖼️';
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.05);
+}
+
+/* TIER 1: Estilo Claymorphism superlativo (95% parecido a referencia) */
+.age-tier-1 .question-image-wrapper {
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,244,248,0.7));
+  border: 6px solid #ffffff;
+  box-shadow: 
+    0 12px 24px rgba(0,0,0,0.08), 
+    inset 0 -6px 12px rgba(0,0,0,0.04),
+    inset 0 6px 12px rgba(255,255,255,1);
+  overflow: hidden;
+}
+.age-tier-1 .question-image-wrapper:empty::after {
+  background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+}
+
+/* TIER 2: Arcade / Synthwave */
+.age-tier-2 .question-image-wrapper {
+  border-radius: 8px;
+  border: 3px solid #22d3ee;
+  background: rgba(26, 0, 48, 0.6);
+  box-shadow: 0 0 15px rgba(34,211,238,0.5), inset 0 0 10px rgba(34,211,238,0.2);
+  overflow: hidden;
+}
+.age-tier-2 .question-image-wrapper:empty::after {
+  color: #22d3ee;
+  text-shadow: 0 0 10px #22d3ee;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(34,211,238,0.1) 2px, rgba(34,211,238,0.1) 4px);
+}
+
+/* TIER 3: Cyberpunk / Matrix */
+.age-tier-3 .question-image-wrapper {
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+  border: 1px solid rgba(0,255,65,0.8);
+  background: rgba(5, 5, 5, 0.8);
+  box-shadow: 0 0 20px rgba(0,255,65,0.15);
+  overflow: hidden;
+  position: relative;
+}
+.age-tier-3 .question-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0,255,65,0.05) 51%);
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+.age-tier-3 .question-image-wrapper:empty::after {
+  color: #00ff41;
+  filter: drop-shadow(0 0 5px #00ff41);
+}
+
+.flex-center-mt12 {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   RESPUESTAS (Botones de juego)
+   -------------------------------------------------------------------------- */
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.btn-ans {
+  background: var(--glass-bg);
+  border: 4px solid var(--glass-border);
+  border-radius: var(--rad-btn);
+  padding: 25px;
+  font-size: 28px;
+  font-weight: 900;
+  box-shadow: var(--glass-shadow);
+  transition: 0.1s;
+}
+
+/* --------------------------------------------------------------------------
+   UI ELEMENTS GLOBALES
+   -------------------------------------------------------------------------- */
+.timer-container {
+  width: 100%;
+  height: 25px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 99px;
+  border: 3px solid var(--glass-border);
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.timer-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  box-shadow: 0 0 20px var(--primary);
+}
+
+.score-badge {
+  background: var(--glass-bg);
+  padding: 10px 20px;
+  border-radius: 99px;
+  border: 3px solid var(--primary);
+  font-weight: 900;
+  box-shadow: var(--glow-effect);
+}
+
+/* --------------------------------------------------------------------------
+   ESTILOS ESPECÍFICOS DE HEADER (HOME) POR TIER
+   -------------------------------------------------------------------------- */
+/* TIER 1 */
+.age-tier-1 #home h2 { color: var(--primary-dark); filter: drop-shadow(0 2px 0 #fff); font-family: 'Arial Rounded MT Bold', 'Nunito', sans-serif; font-size: 32px; }
+.age-tier-1 #home h3 { color: var(--text-main); }
+.age-tier-1 .star-showcase { background: #FFD54F; border: 4px solid #FFA000; border-radius: 20px; box-shadow: inset 0 -5px 0 #FFA000; }
+.age-tier-1 .star-showcase .star-lbl { color: #8D6E63; font-weight: 900; }
+.age-tier-1 .star-showcase .star-big { color: #FF6F00; text-shadow: none; }
+
+/* TIER 2 */
+.age-tier-2 #home h2 { color: #fff; text-shadow: 3px 3px 0 #000; }
+.age-tier-2 .star-showcase { background: #000; border: 4px dashed var(--warning); border-radius: 0; box-shadow: 4px 4px 0 #000; }
+.age-tier-2 .star-showcase .star-lbl { color: #fff; }
+
+/* TIER 3 */
+.age-tier-3 #home h2 { color: var(--primary); text-shadow: 0 0 10px var(--primary); font-family: 'Courier New', monospace; }
+.age-tier-3 .star-showcase { background: rgba(0,0,0,0.8); border: 2px solid var(--accent); border-radius: 0; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); }
+
+/* --------------------------------------------------------------------------
+   BOTONES RESIDUALES
+   -------------------------------------------------------------------------- */
+.btn-shop { background: #FF4081; color: #fff; box-shadow: 0 8px 0 #C2185B; }
+.btn-shop:active { box-shadow: 0 2px 0 #C2185B; }
+.btn-stats { background: #E040FB; color: #fff; box-shadow: 0 8px 0 #AA00FF; }
+.btn-stats:active { box-shadow: 0 2px 0 #AA00FF; }
+.btn-back { 
+  background: rgba(0,0,0,0.5); 
+  border: 2px solid rgba(255,255,255,0.2); 
+  width: 44px; 
+  height: 44px; 
+  border-radius: 15px; 
+  font-size: 20px; 
+  box-shadow: 0 4px 0 rgba(0,0,0,0.3); 
+  display:flex; 
+  justify-content:center; 
+  align-items:center; 
+  flex-shrink:0;
+}
+.btn-back:active { transform: translateY(4px); box-shadow: 0 0 0 rgba(0,0,0,0.3); }
+
+/* --------------------------------------------------------------------------
+   MISIONES (ESTILOS ADICIONALES)
+   -------------------------------------------------------------------------- */
+.mission-row.done { border-color: var(--success); background: rgba(0,230,118,0.15); opacity: 0.8; }
+.mission-prog { font-size: 14px; font-weight: bold; background: var(--primary); padding: 4px 10px; border-radius: 10px; }
+
+/* --------------------------------------------------------------------------
+   MAPA DE MUNDOS
+   -------------------------------------------------------------------------- */
+#mapContainer { flex:1; overflow-y:auto; padding: 20px 0; display:flex; flex-direction:column; align-items:center; gap: 30px; }
+.world-card { width: 90%; max-width: 400px; border-radius: 30px; padding: 20px; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.6); border: 4px solid rgba(255,255,255,0.1); }
+.world-card.map-land { width: 100%; max-width: 720px; min-height: 250px; border-radius: 18px; padding: 16px 14px 22px; align-items: stretch; background-size: cover; }
+.world-card.map-land::before { content:''; position:absolute; inset:0; background: linear-gradient(to bottom, rgba(255,255,255,.18), transparent 35%, rgba(0,0,0,.12)); pointer-events:none; z-index:0; }
+.star-shimmer { position:absolute; inset:0; background:radial-gradient(circle,rgba(255,234,0,0.3) 0%,transparent 70%); animation: pulseAura 2s infinite alternate; }
+
+/* --------------------------------------------------------------------------
+   SHOP PREVIEW HELPERS
+   -------------------------------------------------------------------------- */
+.shop-preview-container {
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.shop-preview-mascot { font-size: 70px; position: absolute; z-index: 1; }
+.shop-preview-hat { font-size: 50px; position: absolute; top: -15px; z-index: 2; transition: 0.2s; }
+.map-route { position:relative; z-index:2; min-height:185px; margin-top:8px; }
+.map-road { position:absolute; left:7%; right:7%; top:92px; height:18px; background:#d9a766; border:3px solid rgba(83,45,18,.35); border-radius:999px; box-shadow:0 4px 0 rgba(0,0,0,.18); }
+.map-road::after { content:''; position:absolute; inset:4px 8px; border-top:3px dashed rgba(255,244,190,.85); border-radius:999px; }
+.map-deco { position:absolute; font-size:30px; filter:drop-shadow(0 3px 2px rgba(0,0,0,.35)); opacity:.95; }
+.map-castle { right:4%; top:8px; font-size:44px; }
+.map-start { left:4%; top:122px; font-size:34px; }
+.map-level-node { position:absolute; width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; background:#455A64; border:4px solid rgba(255,255,255,.55); box-shadow:0 5px 0 rgba(0,0,0,.28), 0 0 0 4px rgba(0,0,0,.18); color:#fff; z-index:3; cursor:pointer; transition:.15s; }
+.map-level-node.unlocked { background:#1E88E5; border-color:#FFF59D; }
+.map-level-node.current { background:#E53935; border-color:#FFF; transform:scale(1.12); box-shadow:0 6px 0 rgba(0,0,0,.32), 0 0 18px rgba(255,255,255,.85); }
+.map-level-node.boss { background:#6A1B9A; }
+.map-level-node:active { transform:scale(.92); }
+.map-level-label { position:absolute; top:48px; left:50%; transform:translateX(-50%); font-size:9px; line-height:1.05; width:74px; text-align:center; color:#fff; text-shadow:0 2px 4px #000; pointer-events:none; }
+.world-bg-icon { position: absolute; font-size: 150px; opacity: 0.15; right: -20px; bottom: -20px; pointer-events: none; z-index: 0; }
+.world-title { text-align:center; font-size:26px; font-weight:900; color:#FFF; text-transform:uppercase; margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.8); z-index: 1; display:flex; align-items:center; gap:10px; }
+@keyframes pulseNode { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+/* --------------------------------------------------------------------------
+   INSIGNIAS (BADGES)
+   -------------------------------------------------------------------------- */
+.badges-container { display:flex; gap:10px; overflow-x:auto; padding-bottom:10px; }
+.badge-item { background: rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.1); border-radius: 15px; min-width: 90px; padding: 10px; text-align:center; opacity: 0.5; filter: grayscale(100%); transition:0.3s; }
+.badge-item.unlocked { opacity: 1; filter: none; border-color: var(--accent); background: rgba(255, 234, 0, 0.1); }
+.badge-icon { font-size: 30px; margin-bottom:5px; }
+.badge-name { font-size: 11px; font-weight:bold; line-height:1.1; }
+
+.badges-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:130;display:none;flex-direction:column;padding:20px 16px 30px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);overflow-y:auto;}
+.bgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;}
+.bitem{background:rgba(0,0,0,.5);border:2px solid rgba(255,255,255,.1);border-radius:14px;padding:10px 7px;text-align:center;opacity:.38;filter:grayscale(1);transition:.25s;}
+.bitem.got{opacity:1;filter:none;border-color:var(--accent);background:rgba(255,234,0,.1);box-shadow:0 0 12px rgba(255,234,0,.25);}
+.bico{font-size:30px;margin-bottom:4px;}
+.bnm{font-size:9px;font-weight:900;line-height:1.2;color:#fff;}
+
+/* --------------------------------------------------------------------------
+   COMODINES (POWERUPS)
+   -------------------------------------------------------------------------- */
+.powerups-bar { display:flex; justify-content:center; gap:15px; margin-bottom:15px; flex-shrink:0; }
+.pw-btn { background: rgba(0,0,0,0.6); border: 2px solid rgba(255,255,255,0.2); border-radius: 15px; padding: 8px 15px; font-size:20px; display:flex; align-items:center; gap:8px; transition:0.2s; position:relative; }
+.pw-btn.has-qty { border-color: var(--accent); cursor:pointer; }
+.pw-btn.has-qty:active { transform:translateY(4px); }
+.pw-qty { background:var(--danger); color:white; font-size:12px; font-weight:bold; padding:2px 6px; border-radius:10px; position:absolute; top:-8px; right:-8px; }
+
+/* --------------------------------------------------------------------------
+   TIENDA (SHOP UI)
+   -------------------------------------------------------------------------- */
+.shop-tabs { display:flex; gap:5px; margin-bottom:15px; }
+.shop-tab { flex:1; background:rgba(0,0,0,0.4); border:2px solid transparent; padding:10px; border-radius:10px; font-weight:bold; text-align:center; font-size:14px; transition:0.2s; }
+.shop-tab.active { background:var(--primary); border-color:var(--accent); }
+
+.shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.shop-item{background:linear-gradient(160deg,#2A1845 0%,#160B2E 100%);border:2px solid rgba(124,77,255,0.4);border-radius:22px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .15s;}
+.shop-item:active{transform:scale(.97);}
+.shop-item.animal{border-color:rgba(255,234,0,0.45);box-shadow:0 0 18px rgba(255,234,0,0.1);}
+.pet-emoji{font-size:70px;line-height:1;filter:drop-shadow(0 6px 12px rgba(0,0,0,0.6));}
+.pet-name{font-size:16px;font-weight:900;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.9);}
+.pet-price{font-size:13px;font-weight:900;color:#FFF176;text-shadow:0 2px 4px rgba(0,0,0,.95),0 0 8px rgba(255,234,0,.4);background:rgba(0,0,0,.55);padding:3px 10px;border-radius:12px;border:1px solid rgba(255,234,0,.35);}
+.sbb{margin-top:4px;border:none;border-radius:14px;padding:9px 14px;font-weight:900;font-size:14px;width:100%;cursor:pointer;transition:.1s;}
+.sbb.buy{background:var(--primary);box-shadow:0 5px 0 var(--primary-dark);color:#fff;}
+.sbb.owned{background:var(--success);box-shadow:0 5px 0 var(--success-dark);color:#000;}
+.sbb.equipped{background:var(--secondary);box-shadow:0 5px 0 var(--secondary-dark);color:#000;}
+.sbb:active{transform:translateY(5px);box-shadow:none!important;}
+
+/* --------------------------------------------------------------------------
+   REPORTE (PARENTAL REPORT)
+   -------------------------------------------------------------------------- */
+.report-section { background:rgba(0,0,0,0.35); border-radius:16px; padding:14px; margin-bottom:14px; border:1px solid rgba(255,255,255,0.08); }
+.report-section h4 { margin:0 0 10px 0; color:var(--secondary); font-size:15px; }
+.strength-tag { display:inline-block; background:rgba(0,230,118,0.2); border:1.5px solid var(--success); border-radius:12px; padding:4px 12px; font-size:13px; font-weight:900; margin:3px; color:var(--success); }
+.weak-tag    { display:inline-block; background:rgba(255,61,0,0.2);  border:1.5px solid var(--danger);  border-radius:12px; padding:4px 12px; font-size:13px; font-weight:900; margin:3px; color:var(--danger); }
+.week-bar-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:12px; }
+.week-bar-bg  { flex:1; background:rgba(0,0,0,0.4); height:10px; border-radius:5px; overflow:hidden; }
+.week-bar-fill{ height:100%; border-radius:5px; background:var(--primary); transition:width 0.4s; }
+
+.btn-report { background:linear-gradient(135deg,#00695C,#004D40); color:#fff; box-shadow:0 8px 0 #00251A; }
+.btn-report:active { box-shadow:0 2px 0 #00251A; }
+
+/* --------------------------------------------------------------------------
+   MOSTRADOR DE ESTRELLAS (STAR SHOWCASE)
+   -------------------------------------------------------------------------- */
+.star-showcase { background: linear-gradient(135deg, rgba(255,234,0,0.25), rgba(255,179,0,0.18)); border: 2px solid rgba(255,234,0,0.5); border-radius: 22px; padding: 14px 18px; margin-bottom: 14px; display:flex; justify-content:space-between; align-items:center; box-shadow: 0 0 20px rgba(255,234,0,0.25), inset 0 0 12px rgba(255,255,255,0.08); }
+.star-showcase .big-stars { font-size: 28px; font-weight: 900; color: var(--accent); text-shadow: 0 0 12px rgba(255,234,0,0.7); }
+.star-showcase .mini-label { font-size: 12px; opacity: 0.9; letter-spacing: 1px; }
+
+.star-big{font-size:28px;font-weight:900;color:#FFF176;text-shadow:0 0 12px rgba(255,234,0,.7),0 2px 4px rgba(0,0,0,.95);}
+.star-lbl{font-size:11px;opacity:.85;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.8);}
+.shine-score{color:#FFF176!important;text-shadow:0 0 10px rgba(255,234,0,.5),0 2px 4px rgba(0,0,0,.95)!important;}
+
+#starBurst{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:160;pointer-events:none;font-size:36px;font-weight:900;color:#FFF176;text-shadow:0 0 18px rgba(255,234,0,.9);opacity:0;transition:all .55s ease;white-space:nowrap;}
+.t-cat, .t-dif-btn {
+  padding: 8px 12px;
+  border-radius: 15px;
+  background: rgba(0,0,0,0.4);
+  border: 2px solid transparent;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.t-cat.active, .t-dif-btn.active {
+  background: var(--primary) !important;
+  border-color: var(--secondary) !important;
+}
+
+/* Soporte para Mascotas Dinmicas en Formato Imagen */
+.hub-mascot img, .shop-preview-mascot img, .mascot img {
+  width: 1.5em;
+  height: 1.5em;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+
+/* ==========================================================================
+   INVENTARIO DE MASCOTAS - SOPORTE IMGENES ESTTICAS
+   50 assets: 10 mascotas x (1 base + 3 sombreros + 1 traje especial)
+   Clases usadas por el Arquitecto para renderizar imgenes en lugar de emojis
+   ========================================================================== */
+
+/* Imagen de mascota base en la cuadrcula de tienda */
+.pet-emoji img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mascota en el preview superior de la tienda */
+.shop-preview-mascot img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45));
+}
+
+/* Mascota en el men circular (hub) */
+.hub-mascot img {
+  width: calc(var(--mascot-sz) * 0.75);
+  height: calc(var(--mascot-sz) * 0.75);
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.4));
+  display: block;
+}
+
+/* Mascota durante el juego */
+.mascot img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  display: block;
+}
+
+/* Mascota en pantalla de resultado */
+.result-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+}
+
+/* Hat / sombrero como imagen */
+.mascot-hat img,
+.hub-hat img,
+.res-hat img,
+.shop-preview-hat img {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+}
+
+/* Clase auxiliar para layout de avatar completo (mascota + hat) */
+.avatar-stack {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.avatar-stack .avatar-hat {
+  position: absolute;
+  top: -18%;
+  z-index: 2;
+  pointer-events: none;
+}

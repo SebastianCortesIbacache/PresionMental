@@ -1,0 +1,22 @@
+{
+  "name": "Reto Panda",
+  "short_name": "Reto Panda",
+  "description": "Una app educativa para potenciar tu memoria y rapidez mental.",
+  "start_url": "./v51_modular.html",
+  "display": "standalone",
+  "background_color": "#b3e5fc",
+  "theme_color": "#b3e5fc",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/mascotas/tier1/m_panda.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "assets/mascotas/tier1/m_panda.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}

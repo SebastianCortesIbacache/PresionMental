@@ -1,0 +1,118 @@
+/* ==========================================================================
+   BASE Y TIPOGRAFÍA (MODO VIVID)
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-main);
+  color: var(--text-main);
+}
+
+/* Fallback backdrop-filter para Android gama baja */
+@supports not (backdrop-filter: blur(1px)) {
+  .popup-overlay,
+  .logros-overlay,
+  .badges-overlay {
+    background: rgba(60, 110, 160, 0.92) !important;
+  }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--bg-dark);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: background 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tipografía Escala Base */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.1;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Ajustes específicos por Tier para dar más "carácter" */
+body.age-tier-1 h1, body.age-tier-1 h2 { font-weight: 900; filter: drop-shadow(0 4px 0 rgba(255,255,255,0.8)); }
+body.age-tier-2 h1, body.age-tier-2 h2 { text-shadow: 3px 3px 0px #000, 0 0 10px var(--primary); }
+body.age-tier-3 h1, body.age-tier-3 h2 { font-family: 'Courier New', monospace; letter-spacing: 4px; color: var(--primary); text-shadow: 0 0 15px var(--primary); }
+
+/* ==========================================================================
+   UTILITY CLASSES (CLEAN HTML MISSION)
+   ========================================================================== */
+.p-relative { position: relative; }
+.z-index-1 { z-index: 1; }
+.z-index-2 { z-index: 2; }
+.z-index-50 { z-index: 50; }
+.z-index-100 { z-index: 100; }
+.z-index-130 { z-index: 130; }
+.z-index-160 { z-index: 160; }
+.z-index-200 { z-index: 200; }
+.z-index-250 { z-index: 250; }
+.z-index-260 { z-index: 260; }
+.z-index-300 { z-index: 300; }
+.z-index-310 { z-index: 310; }
+.z-index-320 { z-index: 320; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+.flex-shrink-0 { flex-shrink: 0; }
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+.m-0 { margin: 0 !important; }
+.mt-0 { margin-top: 0 !important; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-10 { margin-bottom: 10px; }
+.mb-15 { margin-bottom: 15px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-25 { margin-bottom: 25px; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-bold { font-weight: bold; }
+.text-900 { font-weight: 900; }
+.uppercase { text-transform: uppercase; }
+
+.overflow-y-auto { overflow-y: auto; }
+.max-h-88vh { max-height: 88vh; }
+
+.bg-danger { background: var(--danger) !important; }
+.bg-success-dark { background: #4CAF50 !important; } /* Corrected for specific button usage */
+.bg-glass-dark { background: rgba(0, 0, 0, 0.4); }
+
+.border-danger { border-color: var(--danger) !important; }
+.border-primary { border-color: var(--primary) !important; }
+.border-secondary { border-color: var(--secondary) !important; }
+.border-accent { border-color: var(--accent) !important; }
+
+.shadow-danger { box-shadow: 0 6px 0 var(--danger-dark); }
+.shadow-success { box-shadow: 0 6px 0 #388E3C; }
+.shadow-none { box-shadow: none !important; }
+
+/* Accesibilidad (A11y) */
+:focus-visible {
+  outline: 3px solid var(--accent, #FFEA00);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
