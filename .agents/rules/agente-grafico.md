@@ -157,8 +157,8 @@ Usa `write_file` (NO `run_command`) para guardar imágenes:
 ## ✅ Permisos de escritura activos
 
 El agente tiene permiso pre-autorizado (Always Allow) para:
-- Escribir en: `e:\Presion Mental APP\assets\**`
-- Escribir en: `e:\Presion Mental APP\.agents\mem\**`
+- Escribir en: `e:\Reto Panda\assets\**`
+- Escribir en: `e:\Reto Panda\.agents\mem\**`
 
 ### Protocolo de guardado de assets WebP:
 1. Generar la imagen

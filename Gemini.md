@@ -1,4 +1,4 @@
-# Reto Panda APP — Reglas del Proyecto
+# Reto Panda — Reglas del Proyecto
 
 Este proyecto cuenta con un ecosistema multiagente especializado:
 - **Consultor Externo** (Antigravity) → Auditoría, recomendaciones y coordinación.
@@ -19,7 +19,7 @@ Este proyecto cuenta con un ecosistema multiagente especializado:
 
 ## Persistencia y Continuidad
 Para retomar el trabajo de un agente específico, consulta:
-- **[.agents/CHATS.md](file:///e:/Presion%20Mental%20APP/.agents/CHATS.md)** → Registro de IDs de conversación y estado actual.
+- **[.agents/CHATS.md](.agents/CHATS.md)** → Registro de IDs de conversación y estado actual.
 - **.agents/memory/** → Archivos de memoria detallada por agente.
 
 Al iniciar una sesión como uno de los agentes, lee su archivo de memoria para conocer el último estado.

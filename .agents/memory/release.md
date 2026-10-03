@@ -21,7 +21,7 @@ Stack del proyecto:
 - Frontend: HTML/CSS/JS modular (`v51_modular.html` como base, raíz del proyecto).
 - Mobile: Capacitor para empaquetado Android/iOS.
 - Hosting: Firebase Hosting.
-- Ruta local: `E:\Presion Mental APP\`
+- Ruta local: `E:\Reto Panda\`
 
 > [!IMPORTANT]
 > **PROTOCOLO DE MEMORIA:** Cada vez que prepares un release, ejecutes un deploy o actualices la configuración de PWA/Capacitor, añade una entrada fechada en esta memoria con: versión del release, plataforma, checklist completado y estado. Sin excepción.
@@ -271,7 +271,7 @@ Esperando instrucción específica.
 - **Infraestructura:** Hosting estático (GitHub Pages / Netlify) y despliegue de versión.
 
 ## Recursos Disponibles
-- Código fuente en `e:/Presion Mental APP/` (HTML, JS, CSS).
+- Código fuente en `e:/Reto Panda/` (HTML, JS, CSS).
 - Service Worker `sw.js` (necesita update de precache).
 - Memorias de arquitectura, seguridad, testing, psicopedagogo.
 - Documentación de presentación y assets visuales.
@@ -312,3 +312,4 @@ Scripts: `brain/1ad63a33-.../scratch/extract_imgs.js` y `validate_precache.js`.
 - Howler (CDN cdnjs) no se cachea (cross-origin); offline cae al sintetizador nativo. Considerar vendorizarlo en `js/vendor/` (coordinar con Arquitecto).
 - Audio `assets/sounds/*.mp3` y `assets/audio/menu_music.mp3` no precacheados (Howler html5 usa Range → 206 no cacheable); evaluar precache explícito si se requiere audio offline.
 - Network-first sin timeout: en red muy lenta (lie-fi) la carga espera a la red. Evaluar timeout ~3 s.
+

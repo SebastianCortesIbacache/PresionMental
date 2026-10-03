@@ -91,6 +91,7 @@ Se requiere la producción de estos 58 assets visuales respetando el **Estilo Cl
 ---
 
 ## INSTRUCCIONES DE ENTREGA PARA EL AGENTE GRÁFICO
-1. Todos los assets deben ser guardados en la ruta: `e:\Presion Mental APP\assets\tier1\[categoria]\[nombre].webp`.
+1. Todos los assets deben ser guardados en la ruta: `e:\Reto Panda\assets\tier1\[categoria]\[nombre].webp`.
 2. Mantener consistencia con el estilo de Mochi (Panda de Tier 1).
 3. Notificar en el canal cuando la producción de estos 58 elementos esté completada, para que el Agente Arquitecto proceda a enlazarlos en `js/db.js`.
+

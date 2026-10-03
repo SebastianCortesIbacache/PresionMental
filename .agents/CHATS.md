@@ -9,7 +9,7 @@ Este archivo documenta la configuración de los agentes de Antigravity para el p
 ## Estructura del proyecto
 
 ```
-Presion Mental APP/
+Reto Panda/
 ├── .agents/
 │   ├── memory/
 │   │   ├── arquitecto.md     ← Memoria del Agente Arquitecto

@@ -147,7 +147,7 @@ El Agente Diseño solicita la creación de un nuevo asset gráfico unificado par
 
 ## 🎨 NUEVO ENCARGO: Ilustraciones de Preguntas (Tier 1 - Clay World) - 2026-06-20
 El **Agente Contenido** ha extraído el listado exacto de todas las preguntas del Tier 1 (6-7 años) que necesitan apoyo visual (imágenes).
-**Archivo de Referencia Maestro:** `e:\Presion Mental APP\.agents\TIER1_CLAY_REQUERIMIENTOS.md`
+**Archivo de Referencia Maestro:** `e:\Reto Panda\.agents\TIER1_CLAY_REQUERIMIENTOS.md`
 
 **Instrucciones de Acción para Agente Gráfico:**
 1. Revisa el archivo `.agents/TIER1_CLAY_REQUERIMIENTOS.md` para conocer las descripciones y el contexto de cada imagen requerida para las preguntas.
@@ -176,7 +176,7 @@ El **Agente Contenido** ha extraído el listado exacto de todas las preguntas de
 ## 🎨 NUEVO ENCARGO: Revisión de Imágenes para MVP (200 Preguntas) - 2026-06-24
 El **Agente Contenido / Psicopedagogo** ha validado un nuevo archivo con la selección definitiva de 200 preguntas para el lanzamiento (MVP).
 
-**Archivo de Selección MVP:** `e:\Presion Mental APP\Preguntas\Seleccion_Lanzamiento_200.md`
+**Archivo de Selección MVP:** `e:\Reto Panda\Preguntas\Seleccion_Lanzamiento_200.md`
 
 **Instrucciones de Acción para Agente Gráfico:**
 1. Revisa este nuevo archivo `Seleccion_Lanzamiento_200.md`.
@@ -188,3 +188,4 @@ El **Agente Contenido / Psicopedagogo** ha validado un nuevo archivo con la sele
 - Total de imágenes requeridas y mapeadas en BD: 106 imágenes.
 - **Avance:** ¡100% COMPLETADO! (Lotes 1 al 10 procesados a WebP en `assets/preguntas/t1_mvp/`).
 - Faltantes finales para lanzar el MVP: **0 imágenes** 🎉
+

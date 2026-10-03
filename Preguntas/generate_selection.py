@@ -1,7 +1,8 @@
 import os
 import random
 
-folder = r"e:\Presion Mental APP\Preguntas\6 a 7"
+base_dir = os.path.dirname(os.path.abspath(__file__))
+folder = os.path.join(base_dir, "6 a 7")
 files = [
     "Ciencias 6 a 7 años.md",
     "Historia 6 a 7 años.md",
@@ -14,7 +15,7 @@ files = [
 selection = []
 questions_per_file = [30, 20, 20, 50, 40, 40] # total 200
 
-with open(r"e:\Presion Mental APP\Preguntas\Seleccion_Lanzamiento_200.md", "w", encoding="utf-8") as out:
+with open(os.path.join(base_dir, "Seleccion_Lanzamiento_200.md"), "w", encoding="utf-8") as out:
     out.write("# Selección de 200 Preguntas MVP (Tier 1 - 6 a 7 años)\n\n")
     
     for i, file in enumerate(files):

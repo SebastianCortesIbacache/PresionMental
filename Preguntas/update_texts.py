@@ -10,15 +10,17 @@ def update_file(path, replacements):
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
 # Update Logica Acertijos
-acertijos_path = r"e:\Presion Mental APP\Preguntas\6 a 7\Logica Acertijos 6 a 7 años.md"
+acertijos_path = os.path.join(base_dir, "6 a 7", "Logica Acertijos 6 a 7 años.md")
 update_file(acertijos_path, [
     ("116- Cuerpo de palo, cabeza de color, me encienden con cuidado y doy mucho calor. [A. La cerilla B. La vela C. El carbón D. La lámpara] | Respuesta: A | Imagen: No",
      "116- Cuerpo de palo, cabeza de color, me encienden con cuidado y doy mucho calor. [A. El fósforo B. La vela C. El carbón D. La lámpara] | Respuesta: A | Imagen: Sí \\- Dibujo de un fósforo encendido con su cabeza roja brillando")
 ])
 
 # Update Seleccion_Lanzamiento_200.md
-seleccion_path = r"e:\Presion Mental APP\Preguntas\Seleccion_Lanzamiento_200.md"
+seleccion_path = os.path.join(base_dir, "Seleccion_Lanzamiento_200.md")
 replacements = [
     # Ciencias
     ("1- ¿Cuál de estos sentidos te permite ver el color de un \"siete colores\" que vuela en el cielo? [A. La visión B. El gusto C. La audición D. El olfato] | Respuesta: A | Imagen: No",

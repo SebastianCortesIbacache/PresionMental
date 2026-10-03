@@ -373,7 +373,7 @@ El Consultor Externo realizó una auditoría exhaustiva y detectó los siguiente
 
 ## 🎨 NUEVO ENCARGO: Ilustraciones de Preguntas (Tier 1 - Clay World) - 2026-06-20
 El **Agente Contenido** ha finalizado y consolidado la lista completa de las preguntas de Tier 1 (6-7 años) que requieren ilustraciones.
-**Archivo de Referencia Maestro:** `e:\Presion Mental APP\.agents\TIER1_CLAY_REQUERIMIENTOS.md`
+**Archivo de Referencia Maestro:** `e:\Reto Panda\.agents\TIER1_CLAY_REQUERIMIENTOS.md`
 
 **Instrucciones de Acción para Agente Diseño:**
 1. Toma como base el archivo `.agents/TIER1_CLAY_REQUERIMIENTOS.md`.
@@ -426,3 +426,4 @@ Durante la campaña de QA de la Suite 2 (Asset Integrity), se detectaron **2 ass
 **Pendientes / riesgos:**
 - `.pw-btn` es `<div onclick>` (js/game.js, dominio Arquitecto): no es focusable por teclado → sugerir `<button type="button">` al Arquitecto.
 - Verificar visualmente con imágenes reales de `assets/preguntas/t1_mvp/` en 1280×800, 1024×768, 390×844 y 844×390 (Tester).
+

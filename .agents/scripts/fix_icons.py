@@ -2,9 +2,10 @@ from rembg import remove
 from PIL import Image
 import os
 
+base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 files = [
-    r"e:\Presion Mental APP\assets\interface\icon_cloud.webp",
-    r"e:\Presion Mental APP\assets\interface\icon_star_clay.webp"
+    os.path.join(base_dir, "assets", "interface", "icon_cloud.webp"),
+    os.path.join(base_dir, "assets", "interface", "icon_star_clay.webp")
 ]
 
 for file in files:

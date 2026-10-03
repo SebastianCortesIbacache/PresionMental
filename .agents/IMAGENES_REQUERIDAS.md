@@ -1,6 +1,6 @@
 # 🎨 Solicitud de Assets Gráficos: Tier 1 (Clay World)
 
-Este documento detalla los requerimientos e indicaciones de diseño para que el **Agente Gráfico** elabore los assets visuales en formato `.webp` transparentes y proporcione los prompts exactos de generación IA (Midjourney/DALL-E) para lograr un estilo Claymorphism 100% fiel a las referencias visuales de plastilina 3D de **Presión Mental Tier 1**.
+Este documento detalla los requerimientos e indicaciones de diseño para que el **Agente Gráfico** elabore los assets visuales en formato `.webp` transparentes y proporcione los prompts exactos de generación IA (Midjourney/DALL-E) para lograr un estilo Claymorphism 100% fiel a las referencias visuales de plastilina 3D de **Reto Panda Tier 1**.
 
 ---
 

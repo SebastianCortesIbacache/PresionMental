@@ -5,8 +5,9 @@ Genera onboarding_hero.webp en assets/interface/
 from PIL import Image
 import os
 
-INPUT  = r"e:\Presion Mental APP\assets\interface\Onboarding.png"
-OUTPUT = r"e:\Presion Mental APP\assets\interface\onboarding_hero.webp"
+base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+INPUT  = os.path.join(base_dir, "assets", "interface", "Onboarding.png")
+OUTPUT = os.path.join(base_dir, "assets", "interface", "onboarding_hero.webp")
 
 img = Image.open(INPUT).convert("RGBA")
 pixels = img.load()
