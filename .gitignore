@@ -27,3 +27,8 @@ _archivo_dev_historico/
 questions_db.json
 questions_db_min.json
 js/db_temp.mjs
+
+# Temporary UI screenshots
+current_ui_*.png
+updated_ui_*.png
+

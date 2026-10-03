@@ -1,6 +1,7 @@
-const CACHE_NAME = 'reto-panda-v3';
+const CACHE_NAME = 'reto-panda-v4';
 const ASSETS_TO_CACHE = [
   './',
+  './index.html',
   './v51_modular.html',
   './manifest.json',
   './js/main.js',

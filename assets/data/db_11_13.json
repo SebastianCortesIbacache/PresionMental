@@ -226,7 +226,7 @@
       "time": 28
     },
     {
-      "q": "Al observar la ilustración de una profesional midiendo a niñas en una escuela, ¿qué buscaba Eloísa Díaz al denunciar las condiciones de vida de las trabajadoras?",
+      "q": "¿Qué buscaba denunciar la doctora Eloísa Díaz respecto a la situación de las trabajadoras y estudiantes?",
       "opts": [
         "Promover el sedentarismo en las escuelas.",
         "Relacionar el desarrollo físico deficiente con la situación de pobreza y malas condiciones higiénicas.",
@@ -466,7 +466,7 @@
       "time": 28
     },
     {
-      "q": "En el Salar de Atacama, el litio se extrae principalmente a partir de",
+      "q": "En el Salar de Atacama, el litio se extrae principalmente a partir de:",
       "opts": [
         "Pegmatitas sólidas en la superficie.",
         "Salmueras líquidas ricas en sales minerales.",
@@ -616,7 +616,7 @@
       "time": 28
     },
     {
-      "q": "Los jugos de fruta con pulpa y el agua con arena son ejemplos típicos de",
+      "q": "Los jugos de fruta con pulpa y el agua con arena son ejemplos típicos de:",
       "opts": [
         "Disoluciones químicas.",
         "Elementos químicos puros.",
@@ -706,7 +706,7 @@
       "time": 28
     },
     {
-      "q": "El suero fisiológico es una mezcla homogénea compuesta por",
+      "q": "El suero fisiológico es una mezcla homogénea compuesta por:",
       "opts": [
         "Agua destilada y litio metálico.",
         "Agua destilada y cloruro de sodio (NaCl).",
@@ -931,7 +931,7 @@
       "time": 28
     },
     {
-      "q": "Si comparamos el paracetamol y la malaquita según el texto, ambos son ejemplos de",
+      "q": "Si comparamos el paracetamol y la malaquita según el texto, ambos son ejemplos de:",
       "opts": [
         "Elementos químicos puros.",
         "Mezclas con composiciones específicas.",
@@ -991,7 +991,7 @@
       "time": 28
     },
     {
-      "q": "Al observar la ilustración de Robert Boyle, ¿qué establece su ley sobre la relación entre presión y volumen?",
+      "q": "¿Qué establece la ley de Boyle respecto a la relación entre la presión y el volumen de un gas a temperatura constante?",
       "opts": [
         "Son directamente proporcionales.",
         "A temperatura constante, el volumen es inversamente proporcional a la presión.",
@@ -1021,7 +1021,7 @@
       "time": 28
     },
     {
-      "q": "Al observar la ilustración de Jacques Charles, ¿qué variable debe permanecer constante para que se cumpla su ley?",
+      "q": "¿Qué variable debe permanecer constante para que se cumpla la ley de Charles en los gases?",
       "opts": [
         "El volumen.",
         "La temperatura.",
@@ -1066,7 +1066,7 @@
       "time": 28
     },
     {
-      "q": "Observando la ilustración de Louis Joseph Gay-Lussac, ¿qué relación describe su ley científica?",
+      "q": "¿Qué relación describe la ley de Gay-Lussac para los gases ideales a volumen constante?",
       "opts": [
         "La relación directa entre presión y temperatura a volumen constante.",
         "La relación entre volumen y masa.",
@@ -1096,7 +1096,7 @@
       "time": 28
     },
     {
-      "q": "Un \"gas ideal\" se define como aquel que sigue las leyes de los gases bajo condiciones de",
+      "q": "Un \"gas ideal\" se define como aquel que sigue las leyes de los gases bajo condiciones de:",
       "opts": [
         "Presiones muy altas y frío extremo.",
         "Bajas presiones y altas temperaturas definidas.",
@@ -1126,7 +1126,7 @@
       "time": 28
     },
     {
-      "q": "El experimento de empujar el émbolo de una jeringa sellada y sentir resistencia es una aplicación de",
+      "q": "El experimento de empujar el émbolo de una jeringa sellada y sentir resistencia es una aplicación de:",
       "opts": [
         "Ley de Charles.",
         "Ley de Boyle.",
@@ -1156,7 +1156,7 @@
       "time": 28
     },
     {
-      "q": "Si un neumático se siente más \"desinflado\" en una mañana muy fría de invierno, estamos observando la ley de",
+      "q": "Si un neumático se siente más \"desinflado\" en una mañana muy fría de invierno, estamos observando la ley de:",
       "opts": [
         "Boyle.",
         "Charles (menor T implica menor V).",
@@ -1426,7 +1426,7 @@
       "time": 28
     },
     {
-      "q": "Los volcanes en Chile son una fuente potencial de",
+      "q": "Los volcanes en Chile son una fuente potencial de:",
       "opts": [
         "Energía eólica de alta montaña.",
         "Energía geotérmica proveniente del calor interno terrestre.",
@@ -1441,7 +1441,7 @@
       "time": 28
     },
     {
-      "q": "El movimiento de las placas tectónicas es impulsado principalmente por",
+      "q": "El movimiento de las placas tectónicas es impulsado principalmente por:",
       "opts": [
         "El magnetismo de la Luna.",
         "Las corrientes de convección en el manto terrestre.",
@@ -1471,7 +1471,7 @@
       "time": 28
     },
     {
-      "q": "La fuerza de atracción que ejerce la Tierra sobre todos los cuerpos hacia su centro es la",
+      "q": "La fuerza de atracción que ejerce la Tierra sobre todos los cuerpos hacia su centro es la:",
       "opts": [
         "Fuerza elástica.",
         "Fuerza de gravedad (o peso).",
@@ -1501,7 +1501,7 @@
       "time": 28
     },
     {
-      "q": "La unidad de medida de la fuerza en el Sistema Internacional es el",
+      "q": "La unidad de medida de la fuerza en el Sistema Internacional es el:",
       "opts": [
         "Kilogramo (kg).",
         "Newton (N).",
@@ -1741,7 +1741,7 @@
       "time": 28
     },
     {
-      "q": "El \"Cinturón de Fuego del Pacífico\" es una región caracterizada por",
+      "q": "El \"Cinturón de Fuego del Pacífico\" es una región caracterizada por:",
       "opts": [
         "Tener los climas más calurosos del mundo.",
         "Poseer la mayor actividad sísmica y volcánica del planeta.",
@@ -1786,7 +1786,7 @@
       "time": 28
     },
     {
-      "q": "La \"inercia\" es la propiedad de los cuerpos de",
+      "q": "La \"inercia\" es la propiedad de los cuerpos de:",
       "opts": [
         "Tender a moverse siempre en círculos.",
         "Resistirse a cambiar su estado actual de reposo o movimiento.",
@@ -1801,7 +1801,7 @@
       "time": 28
     },
     {
-      "q": "El desgaste de los neumáticos de un auto tras meses de uso es un efecto de la",
+      "q": "El desgaste de los neumáticos de un auto tras meses de uso es un efecto de la:",
       "opts": [
         "Fuerza de gravedad.",
         "Fuerza de roce.",
@@ -1816,7 +1816,7 @@
       "time": 28
     },
     {
-      "q": "Un tsunami se origina principalmente por",
+      "q": "Un tsunami se origina principalmente por:",
       "opts": [
         "Vientos huracanados en alta mar.",
         "Sismos de gran magnitud con epicentro en el fondo marino (maremotos).",
@@ -1831,7 +1831,7 @@
       "time": 28
     },
     {
-      "q": "El volcán Villarrica, caracterizado por su forma de cono y capas de lava, es un",
+      "q": "El volcán Villarrica, caracterizado por su forma de cono y capas de lava, es un:",
       "opts": [
         "Volcán de escudo.",
         "Estratovolcán.",
@@ -1921,7 +1921,7 @@
       "time": 28
     },
     {
-      "q": "El uso de fertilizantes en la agricultura contribuye con el 41% de las emisiones del sector debido a la liberación de",
+      "q": "El uso de fertilizantes en la agricultura contribuye con el 41% de las emisiones del sector debido a la liberación de:",
       "opts": [
         "Oxígeno puro.",
         "Óxido nitroso (N2O) producido por bacterias en el suelo.",
@@ -1936,7 +1936,7 @@
       "time": 28
     },
     {
-      "q": "Observando la",
+      "q": "¿Cuál de los siguientes gases de efecto invernadero es liberado fuertemente por la digestión del ganado y la agricultura?",
       "opts": [
         "Dióxido de azufre.",
         "Metano (CH4).",
@@ -1966,7 +1966,7 @@
       "time": 28
     },
     {
-      "q": "De acuerdo con los datos de la FAO, el uso de maquinaria y transporte en el sector agrícola aporta un",
+      "q": "De acuerdo con los datos de la FAO, el uso de maquinaria y transporte en el sector agrícola aporta un:",
       "opts": [
         "15% de los GEI.",
         "5% de los GEI.",
@@ -1996,7 +1996,7 @@
       "time": 28
     },
     {
-      "q": "El aumento drástico de la concentración de CO2 en la atmósfera comenzó principalmente con",
+      "q": "El aumento drástico de la concentración de CO2 en la atmósfera comenzó principalmente con:",
       "opts": [
         "La invención de la agricultura.",
         "La Revolución Industrial y el uso de combustibles fósiles.",
@@ -2146,7 +2146,7 @@
       "time": 28
     },
     {
-      "q": "Observando la ilustración de la vivienda sustentable, ¿qué medida individual ayuda a mitigar el cambio climático?",
+      "q": "En una vivienda sustentable, ¿qué medida individual contribuye directamente a mitigar el cambio climático?",
       "opts": [
         "Aumentar el consumo de productos desechables.",
         "Utilizar energías limpias y practicar el reciclaje.",
@@ -2206,7 +2206,7 @@
       "time": 28
     },
     {
-      "q": "Según el texto, el Salar de Atacama sufre escasez hídrica agravada por",
+      "q": "Según el texto, el Salar de Atacama sufre escasez hídrica agravada por:",
       "opts": [
         "El exceso de lluvias torrenciales.",
         "Factores climáticos y la demanda de agua de la actividad minera.",
@@ -2356,7 +2356,7 @@
       "time": 28
     },
     {
-      "q": "Los nitratos y fosfatos que llegan al Lago Villarrica provienen principalmente de",
+      "q": "Los nitratos y fosfatos que llegan al Lago Villarrica provienen principalmente de:",
       "opts": [
         "La respiración de los peces.",
         "Fertilizantes agrícolas y detergentes domésticos.",
@@ -2536,7 +2536,7 @@
       "time": 28
     },
     {
-      "q": "Los anticuerpos son proteínas específicas producidas por",
+      "q": "Los anticuerpos son proteínas específicas producidas por:",
       "opts": [
         "Las bacterias buenas del intestino.",
         "El sistema inmune para neutralizar patógenos.",
@@ -2611,7 +2611,7 @@
       "time": 28
     },
     {
-      "q": "Los antibióticos son medicamentos diseñados para combatir infecciones causadas por",
+      "q": "Los antibióticos son medicamentos diseñados para combatir infecciones causadas por:",
       "opts": [
         "Virus como el de la gripe.",
         "Bacterias.",
@@ -2701,7 +2701,7 @@
       "time": 28
     },
     {
-      "q": "Al observar la ilustración de un menor usando un celular mientras un adulto lo contacta, ¿cómo define el texto el \"grooming\"?",
+      "q": "En seguridad y convivencia digital, ¿cómo se define el \"grooming\"?",
       "opts": [
         "Un método para aprender idiomas por internet.",
         "Cuando un adulto engaña a un menor por medios digitales para obtener fines sexuales.",
@@ -2716,7 +2716,7 @@
       "time": 28
     },
     {
-      "q": "Al observar la ilustración de una niña preocupada mirando su teléfono, ¿en qué consiste el \"sexting\"?",
+      "q": "En el contexto de la prevención y autocuidado digital, ¿en qué consiste el \"sexting\"?",
       "opts": [
         "Enviar correos electrónicos con tareas escolares.",
         "El envío de imágenes o videos íntimos a través de dispositivos electrónicos.",
@@ -2746,7 +2746,7 @@
       "time": 28
     },
     {
-      "q": "Al observar los iconos de seguridad que indican \"NO lo compartas\", ¿qué debes hacer si recibes una",
+      "q": "Al observar los iconos de seguridad que indican \"NO lo compartas\", ¿qué debes hacer si recibes una:",
       "opts": [
         "Reenviarla solo a tus mejores amigos.",
         "No difundirla y eliminarla inmediatamente para respetar la privacidad.",
@@ -2806,7 +2806,7 @@
       "time": 28
     },
     {
-      "q": "La prevención de las ITS se basa fundamentalmente en",
+      "q": "La prevención de las ITS se basa fundamentalmente en:",
       "opts": [
         "El uso de redes sociales con perfiles privados.",
         "La educación, el autocuidado y el uso de métodos de barrera como el preservativo.",
@@ -2911,7 +2911,7 @@
       "time": 28
     },
     {
-      "q": "Las Infecciones de Transmisión Sexual (ITS) pueden ser provocadas por",
+      "q": "Las Infecciones de Transmisión Sexual (ITS) pueden ser provocadas por:",
       "opts": [
         "Virus, bacterias, hongos o parásitos.",
         "Solo por bacterias presentes en el aire sucio.",
@@ -3198,7 +3198,7 @@
       "time": 28
     },
     {
-      "q": "La ruta que postula la llegada desde Polinesia y Melanesia fue planteada por",
+      "q": "La ruta que postula la llegada desde Polinesia y Melanesia fue planteada por:",
       "opts": [
         "Paul Rivet",
         "Alex Hrdlicka",
@@ -3258,7 +3258,7 @@
       "time": 28
     },
     {
-      "q": "El Homo neanderthalensis se destacó por",
+      "q": "El Homo neanderthalensis se destacó por:",
       "opts": [
         "Ser la única especie viva actual",
         "Adaptarse a climas fríos y sepultar a sus muertos",
@@ -3468,7 +3468,7 @@
       "time": 28
     },
     {
-      "q": "La capacidad de los humanos para cambiar el medio a su conveniencia se asocia con",
+      "q": "La capacidad de los humanos para cambiar el medio a su conveniencia se asocia con:",
       "opts": [
         "La herencia genética",
         "La cultura y adaptabilidad",
@@ -3603,7 +3603,7 @@
       "time": 28
     },
     {
-      "q": "La domesticación de plantas en el Neolítico llevó a la creación de",
+      "q": "La domesticación de plantas en el Neolítico llevó a la creación de:",
       "opts": [
         "Bandas nómadas",
         "Sistemas de riego y vida sedentaria",
@@ -3753,7 +3753,7 @@
       "time": 28
     },
     {
-      "q": "La civilización olmeca es reconocida arqueológicamente por",
+      "q": "La civilización olmeca es reconocida arqueológicamente por:",
       "opts": [
         "Sus barcos rápidos",
         "Cabezas colosales de piedra",
@@ -3828,7 +3828,7 @@
       "time": 28
     },
     {
-      "q": "Los sumerios en Mesopotamia estaban organizados principalmente en",
+      "q": "Los sumerios en Mesopotamia estaban organizados principalmente en:",
       "opts": [
         "Países modernos",
         "Ciudades-estado",
@@ -3903,7 +3903,7 @@
       "time": 28
     },
     {
-      "q": "El \"Cercano Oriente\" incluye territorios de",
+      "q": "El \"Cercano Oriente\" incluye territorios de:",
       "opts": [
         "Chile y Argentina",
         "Noreste de África y Suroeste de Asia",
@@ -3963,7 +3963,7 @@
       "time": 28
     },
     {
-      "q": "Las primeras civilizaciones destacaron por sus desarrollos técnicos en",
+      "q": "Las primeras civilizaciones destacaron por sus desarrollos técnicos en:",
       "opts": [
         "Medicina, matemática y astronomía",
         "Viajes espaciales",
@@ -4293,7 +4293,7 @@
       "time": 28
     },
     {
-      "q": "El idioma que permitió difundir la cultura griega fue el",
+      "q": "El idioma que permitió difundir la cultura griega fue el:",
       "opts": [
         "Latín",
         "Griego",
@@ -4308,7 +4308,7 @@
       "time": 28
     },
     {
-      "q": "La arquitectura griega clásica es reconocida por el uso de",
+      "q": "La arquitectura griega clásica es reconocida por el uso de:",
       "opts": [
         "Columnas y proporciones armónicas",
         "Acero y vidrio",
@@ -4473,7 +4473,7 @@
       "time": 28
     },
     {
-      "q": "La lengua oficial de los romanos fue el",
+      "q": "La lengua oficial de los romanos fue el:",
       "opts": [
         "Griego",
         "Latín",
@@ -4563,7 +4563,7 @@
       "time": 28
     },
     {
-      "q": "Los pueblos de origen indoeuropeo que fundaron Roma eran los",
+      "q": "Los pueblos de origen indoeuropeo que fundaron Roma eran los:",
       "opts": [
         "Griegos",
         "Latinos",
@@ -4593,7 +4593,7 @@
       "time": 28
     },
     {
-      "q": "Los espectáculos de gladiadores eran parte de la cultura romana y se daban en el",
+      "q": "Los espectáculos de gladiadores eran parte de la cultura romana y se daban en el:",
       "opts": [
         "Senado",
         "Anfiteatro",
@@ -4638,7 +4638,7 @@
       "time": 28
     },
     {
-      "q": "La cultura romana se destaca por su legado en",
+      "q": "La cultura romana se destaca por su legado en:",
       "opts": [
         "Arquitectura, derecho y lengua",
         "Solo la caza",
@@ -4773,7 +4773,7 @@
       "time": 28
     },
     {
-      "q": "Constantinopla fue la capital del",
+      "q": "Constantinopla fue la capital del:",
       "opts": [
         "Imperio Romano de Occidente",
         "Imperio Bizantino",
@@ -4788,7 +4788,7 @@
       "time": 28
     },
     {
-      "q": "El libro sagrado del Islam, base de su religión, es el",
+      "q": "El libro sagrado del Islam, base de su religión, es el:",
       "opts": [
         "Biblia",
         "Corán",
@@ -4833,7 +4833,7 @@
       "time": 28
     },
     {
-      "q": "El Cisma de 1054 dividió a la cristiandad en",
+      "q": "El Cisma de 1054 dividió a la cristiandad en:",
       "opts": [
         "Católicos y Protestantes",
         "Católicos Romanos y Ortodoxos",
@@ -4863,7 +4863,7 @@
       "time": 28
     },
     {
-      "q": "El estilo arquitectónico de las catedrales medievales con arcos ojivales es el",
+      "q": "El estilo arquitectónico de las catedrales medievales con arcos ojivales es el:",
       "opts": [
         "Románico",
         "Gótico",
@@ -4893,7 +4893,7 @@
       "time": 28
     },
     {
-      "q": "El grupo social que vivía en los \"burgos\" y se dedicaba al comercio era la",
+      "q": "El grupo social que vivía en los \"burgos\" y se dedicaba al comercio era la:",
       "opts": [
         "Nobleza",
         "Burguesía",
@@ -4908,7 +4908,7 @@
       "time": 28
     },
     {
-      "q": "La crisis demográfica del siglo XIV fue causada principalmente por",
+      "q": "La crisis demográfica del siglo XIV fue causada principalmente por:",
       "opts": [
         "El bipedismo",
         "La Peste Negra",
@@ -4923,7 +4923,7 @@
       "time": 28
     },
     {
-      "q": "Al-Ándalus fue un espacio destacado por",
+      "q": "Al-Ándalus fue un espacio destacado por:",
       "opts": [
         "La coexistencia cultural entre cristianos, judíos y musulmanes",
         "La guerra permanente sin cultura",
@@ -4938,7 +4938,7 @@
       "time": 28
     },
     {
-      "q": "El jefe máximo de la Iglesia Católica es el",
+      "q": "El jefe máximo de la Iglesia Católica es el:",
       "opts": [
         "Rey",
         "Papa",
@@ -4953,7 +4953,7 @@
       "time": 28
     },
     {
-      "q": "El edificio principal del Islam en Al-Ándalus, famoso por sus arcos, es la",
+      "q": "El edificio principal del Islam en Al-Ándalus, famoso por sus arcos, es la:",
       "opts": [
         "Catedral de Notre Dame",
         "Mezquita de Córdoba",
@@ -5058,7 +5058,7 @@
       "time": 28
     },
     {
-      "q": "El centro político y religioso del Imperio Inca fue la ciudad de",
+      "q": "El centro político y religioso del Imperio Inca fue la ciudad de:",
       "opts": [
         "Tenochtitlan",
         "Cusco",
@@ -5178,7 +5178,7 @@
       "time": 28
     },
     {
-      "q": "La base de la alimentación en Mesoamérica fue el",
+      "q": "La base de la alimentación en Mesoamérica fue el:",
       "opts": [
         "Trigo",
         "Arroz",
@@ -5208,7 +5208,7 @@
       "time": 28
     },
     {
-      "q": "El gobernante máximo del Imperio Inca recibía el título de",
+      "q": "El gobernante máximo del Imperio Inca recibía el título de:",
       "opts": [
         "Tlatoani",
         "Sapa Inca",
@@ -5238,7 +5238,7 @@
       "time": 28
     },
     {
-      "q": "Los Mayas practicaban la técnica agrícola de",
+      "q": "Los Mayas practicaban la técnica agrícola de:",
       "opts": [
         "Chinampas",
         "Tala y roza",
@@ -5313,7 +5313,7 @@
       "time": 28
     },
     {
-      "q": "En el Templo de Kukulcán se rendía culto al dios vinculado con",
+      "q": "En el Templo de Kukulcán se rendía culto al dios vinculado con:",
       "opts": [
         "El viento y el agua",
         "El fuego",
@@ -5358,7 +5358,7 @@
       "time": 28
     },
     {
-      "q": "Según el glosario, el área de los \"Andes Centrales\" se caracteriza por",
+      "q": "Según el glosario, el área de los \"Andes Centrales\" se caracteriza por:",
       "opts": [
         "Ser plana",
         "Diversidad de ambientes y ser cuna de civilizaciones",
@@ -5418,7 +5418,7 @@
       "time": 28
     },
     {
-      "q": "Chile se ubica en el continente de",
+      "q": "Chile se ubica en el continente de:",
       "opts": [
         "Europa",
         "América",
@@ -5478,7 +5478,7 @@
       "time": 28
     },
     {
-      "q": "El relieve de Chile se organiza principalmente en",
+      "q": "El relieve de Chile se organiza principalmente en:",
       "opts": [
         "Llanuras",
         "Cuatro macroformas (Planicies, Cordillera de la Costa, Depresión Intermedia, Andes",
@@ -5598,7 +5598,7 @@
       "time": 28
     },
     {
-      "q": "El clima predominante en la zona central de Chile es el",
+      "q": "El clima predominante en la zona central de Chile es el:",
       "opts": [
         "Desértico",
         "Mediterráneo",
@@ -5658,7 +5658,7 @@
       "time": 28
     },
     {
-      "q": "La mayoría de la población de Chile habita en",
+      "q": "La mayoría de la población de Chile habita en:",
       "opts": [
         "El desierto",
         "La zona central",
@@ -5703,7 +5703,7 @@
       "time": 28
     },
     {
-      "q": "En un sistema democrático, la legitimidad emana de",
+      "q": "En un sistema democrático, la legitimidad emana de:",
       "opts": [
         "Las armas",
         "Los ciudadanos",
@@ -5748,7 +5748,7 @@
       "time": 28
     },
     {
-      "q": "El Estado tiene el deber constitucional de",
+      "q": "El Estado tiene el deber constitucional de:",
       "opts": [
         "Ignorar a la gente",
         "Resguardar la seguridad y proteger a las personas",
@@ -5868,7 +5868,7 @@
       "time": 28
     },
     {
-      "q": "Los derechos de los niños y jóvenes están establecidos en",
+      "q": "Los derechos de los niños y jóvenes están establecidos en:",
       "opts": [
         "La Convención sobre los Derechos del Niño",
         "Un manual de juegos",
@@ -6740,7 +6740,7 @@
       "time": 25
     },
     {
-      "q": "ICT stands for",
+      "q": "What does the common acronym ICT stand for?",
       "opts": [
         "Internal Computer Team",
         "Information and Communication Technology",
@@ -10327,7 +10327,7 @@
       "time": 28
     },
     {
-      "q": "¿Qué representa el \"nudo ardiendo\" en la",
+      "q": "¿Qué representa el \"nudo ardiendo\" en la:",
       "opts": [
         "Un incendio forestal",
         "Un vínculo familiar y ancestral fuerte y apasionado",
@@ -13104,7 +13104,7 @@
       "time": 40
     },
     {
-      "q": "En el caso de Laboratorios Illa, la Dra. Lago dejó un mensaje: \"El virus está bajo el cero\". El detective busca en",
+      "q": "En el caso de Laboratorios Illa, la Dra. Lago dejó un mensaje: \"El virus está bajo el cero\". El detective busca en:",
       "opts": [
         "El subterráneo",
         "El congelador",
@@ -13209,7 +13209,7 @@
       "time": 40
     },
     {
-      "q": "Un sospechoso dice que compró una estufa a parafina en pleno desierto de Atacama en verano. El detective sospecha por",
+      "q": "Un sospechoso dice que compró una estufa a parafina en pleno desierto de Atacama en verano. El detective sospecha por:",
       "opts": [
         "El precio",
         "La falta de lógica climática",
@@ -14649,7 +14649,7 @@
       "time": 40
     },
     {
-      "q": "Si \"Blanco\" es el antónimo de \"Negro\", entonces \"Día\" es el antónimo de",
+      "q": "Si \"Blanco\" es el antónimo de \"Negro\", entonces \"Día\" es el antónimo de:",
       "opts": [
         "Sol",
         "Noche",
@@ -14784,7 +14784,7 @@
       "time": 40
     },
     {
-      "q": "\"Médico\" trabaja en \"Hospital\" como \"Profesor\" trabaja en",
+      "q": "\"Médico\" trabaja en \"Hospital\" como \"Profesor\" trabaja en:",
       "opts": [
         "Libro",
         "Escuela",
@@ -14814,7 +14814,7 @@
       "time": 40
     },
     {
-      "q": "\"Avión\" se desplaza por el \"Aire\" como \"Barco\" se desplaza por el",
+      "q": "\"Avión\" se desplaza por el \"Aire\" como \"Barco\" se desplaza por el:",
       "opts": [
         "Vela",
         "Agua",
@@ -14889,7 +14889,7 @@
       "time": 40
     },
     {
-      "q": "\"Lluvia\" requiere un \"Paraguas\" como \"Sol\" intenso requiere una",
+      "q": "\"Lluvia\" requiere un \"Paraguas\" como \"Sol\" intenso requiere una:",
       "opts": [
         "Calor",
         "Sombrilla",
@@ -14934,7 +14934,7 @@
       "time": 40
     },
     {
-      "q": "\"Dedo\" termina en \"Uña\" como \"Cabeza\" termina (arriba) en",
+      "q": "\"Dedo\" termina en \"Uña\" como \"Cabeza\" termina (arriba) en:",
       "opts": [
         "Pelo",
         "Sombrero",
@@ -14949,7 +14949,7 @@
       "time": 40
     },
     {
-      "q": "Si \"Mañana\" es la hora del \"Desayuno\", entonces \"Noche\" es la hora de la",
+      "q": "Si \"Mañana\" es la hora del \"Desayuno\", entonces \"Noche\" es la hora de la:",
       "opts": [
         "Sueño",
         "Cena",
@@ -14979,7 +14979,7 @@
       "time": 40
     },
     {
-      "q": "\"Kilómetro\" mide la \"Distancia\" como \"Litro\" mide el",
+      "q": "\"Kilómetro\" mide la \"Distancia\" como \"Litro\" mide el:",
       "opts": [
         "Peso",
         "Volumen",
@@ -15536,7 +15536,7 @@
       "time": 30
     },
     {
-      "q": "Un error en el m.c.m. de tiempos de riego en una feria libre (usar 60 en vez de 30) resultaría en",
+      "q": "Un error en el m.c.m. de tiempos de riego en una feria libre (usar 60 en vez de 30) resultaría en:",
       "opts": [
         "Ahorro de agua",
         "Desperdicio de recursos por falta de sincronía",
@@ -16001,12 +16001,12 @@
       "time": 30
     },
     {
-      "q": "Realiza la comparación: ¿Qué cantidad es mayor, 12/10 o 21/15?",
+      "q": "Realiza la comparación: ¿Qué fracción es mayor, 12/10 o 21/15?",
       "opts": [
-        "12/10",
-        "21/15 (ya que",
-        "4 >",
-        ""
+        "12/10 (equivale a 1,2)",
+        "21/15 (equivale a 1,4)",
+        "Son exactamente iguales",
+        "No es posible compararlas"
       ],
       "correct": 1,
       "trap": false,
@@ -16181,7 +16181,7 @@
       "time": 30
     },
     {
-      "q": "Un ángulo que mide exactamente 90° recibe el nombre técnico de",
+      "q": "Un ángulo que mide exactamente 90° recibe el nombre técnico de:",
       "opts": [
         "Agudo",
         "Obtuso",
@@ -16331,7 +16331,7 @@
       "time": 30
     },
     {
-      "q": "Una teselación regular se define como el uso de",
+      "q": "Una teselación regular se define como el uso de:",
       "opts": [
         "Círculos",
         "Polígonos regulares que cubren el plano sin dejar huecos",
@@ -17201,7 +17201,7 @@
       "time": 30
     },
     {
-      "q": "El uso de un dado cargado en un experimento de probabilidad es un ejemplo de",
+      "q": "El uso de un dado cargado en un experimento de probabilidad es un ejemplo de:",
       "opts": [
         "Azar justo",
         "Experimento sesgado o no aleatorio",
@@ -17216,7 +17216,7 @@
       "time": 30
     },
     {
-      "q": "En estadística descriptiva, el término \"media aritmética\" es sinónimo de",
+      "q": "En estadística descriptiva, el término \"media aritmética\" es sinónimo de:",
       "opts": [
         "Moda",
         "Mediana",
@@ -17231,7 +17231,7 @@
       "time": 30
     },
     {
-      "q": "En un gráfico circular, un sector que mide exactamente 90° respecto al centro representa el",
+      "q": "En un gráfico circular, un sector que mide exactamente 90° respecto al centro representa el:",
       "opts": [
         "90%",
         "50%",
@@ -17261,7 +17261,7 @@
       "time": 30
     },
     {
-      "q": "Un error grave en la interpretación de la escala de un gráfico puede derivar en",
+      "q": "Un error grave en la interpretación de la escala de un gráfico puede derivar en:",
       "opts": [
         "Decisiones económicas o políticas erróneas",
         "Solo una mala calificación",
@@ -17801,7 +17801,7 @@
       "time": 30
     },
     {
-      "q": "Un cuadrado que tiene un lado de 1 m exacto posee un perímetro de",
+      "q": "Un cuadrado que tiene un lado de 1 m exacto posee un perímetro de:",
       "opts": [
         "100 cm",
         "4 m²",
@@ -17846,7 +17846,7 @@
       "time": 30
     },
     {
-      "q": "",
+      "q": "Si convertimos una longitud de 95 centímetros a metros, ¿cuál es la medida equivalente?",
       "opts": [
         "95 m",
         "9,5 m",
