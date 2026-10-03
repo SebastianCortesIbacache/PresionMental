@@ -3251,7 +3251,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "¿Qué herramienta indica los puntos cardinales en un",
+      "q": "¿Qué herramienta indica los puntos cardinales en un mapa o plano?",
       "opts": [
         "La rosa de los vientos",
         "El termómetro",
@@ -3555,7 +3555,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "En la rosa de los vientos, el punto opuesto al Norte es el",
+      "q": "En la rosa de los vientos, ¿cuál es el punto cardinal opuesto al Norte?:",
       "opts": [
         "Este",
         "Oeste",
@@ -3571,7 +3571,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "En la rosa de los vientos, el punto opuesto al Este es el",
+      "q": "En la rosa de los vientos, ¿cuál es el punto cardinal opuesto al Este?:",
       "opts": [
         "Norte",
         "Oeste",
@@ -3699,7 +3699,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Al amanecer, el Sol siempre se ve aparecer por el",
+      "q": "Al amanecer, ¿por cuál punto cardinal se ve aparecer el Sol?:",
       "opts": [
         "Oeste",
         "Sur",
@@ -3747,11 +3747,11 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Una",
+      "q": "¿Cuál de estas representaciones es una fotografía real tomada desde el espacio?",
       "opts": [
         "Pintura",
         "Croquis",
-        "",
+        "Plano dibujado",
         "Foto satelital"
       ],
       "correct": 3,
@@ -3763,7 +3763,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Para saber qué significa un triángulo pequeño en un mapa, debo consultar la",
+      "q": "Para saber qué significan los símbolos y colores en un mapa, debemos consultar la:",
       "opts": [
         "Toponimia",
         "Simbología",
@@ -3779,7 +3779,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Si un mapa dice \"Regiones de Chile\", ese texto corresponde al",
+      "q": "Si un mapa tiene escrito 'Regiones de Chile' en la parte superior, corresponde al:",
       "opts": [
         "Toponimia",
         "Título",
@@ -3795,7 +3795,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "La palabra \"Arica\" escrita para identificar una ciudad en el mapa es parte de la",
+      "q": "En un mapa de Chile, la palabra escrita para identificar una ciudad corresponde a la:",
       "opts": [
         "Rosa de los vientos",
         "Leyenda",
@@ -4963,7 +4963,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Una porción de tierra rodeada totalmente por el océano es una",
+      "q": "Una porción de tierra rodeada de agua por todas partes corresponde a una:",
       "opts": [
         "Valle",
         "Fiordo",
@@ -5091,7 +5091,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Un paisaje de cordillera con nieve y sin ninguna casa es un",
+      "q": "Un paisaje de cordillera con nieve y sin construcciones humanas es un paisaje:",
       "opts": [
         "Paisaje cultural",
         "Paisaje natural",
@@ -5187,7 +5187,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "El Altiplano es un terreno plano que se encuentra en las alturas de",
+      "q": "El Altiplano chileno es una meseta que se encuentra en las alturas de la cordillera de:",
       "opts": [
         "El mar",
         "La cordillera de los Andes",
@@ -5267,7 +5267,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "La Vizcacha habita en zonas cordilleranas entre las regiones de",
+      "q": "La vizcacha es un roedor autóctono que habita principalmente en la zona de:",
       "opts": [
         "Valparaíso y Santiago",
         "Arica y Parinacota y Los Lagos",
@@ -5475,7 +5475,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Geográficamente, la Zona Sur se encuentra ubicada hacia el",
+      "q": "En el mapa de Chile, la Zona Sur y Austral se encuentra ubicada hacia el:",
       "opts": [
         "Norte de la Zona Centro",
         "Sur de la Zona Centro",
@@ -5507,7 +5507,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Los paisajes con grandes masas de hielo o glaciares son típicos de",
+      "q": "Los paisajes con grandes masas de hielo o glaciares milenarios son típicos de la:",
       "opts": [
         "La Zona Norte",
         "El extremo Sur y Antártica",
@@ -5683,7 +5683,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "La Región de Los Lagos es parte característica de la",
+      "q": "La Región de Los Lagos es parte característica de la zona geográfica:",
       "opts": [
         "Zona Norte",
         "Zona Centro",
@@ -5875,7 +5875,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Administrativamente, la isla de Rapa Nui es una comuna que pertenece a la",
+      "q": "Administrativamente, la mágica isla de Rapa Nui es una comuna que pertenece a la región de:",
       "opts": [
         "Región de Atacama",
         "Región de Valparaíso",
@@ -5955,7 +5955,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Chile es una sociedad \"mestiza\" porque somos el resultado de",
+      "q": "Chile es una sociedad mestiza porque somos el resultado del encuentro histórico de:",
       "opts": [
         "Solo un grupo de personas",
         "La mezcla de diferentes culturas y pueblos",
@@ -6131,7 +6131,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "El cuidado del medioambiente y los paisajes es un deber de",
+      "q": "El cuidado y respeto de la naturaleza y los paisajes de Chile es un deber de:",
       "opts": [
         "Solo los niños",
         "Solo los adultos",
@@ -6195,7 +6195,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Los pueblos originarios consideran que la tierra no es un objeto, sino un",
+      "q": "Para los pueblos originarios de Chile, la tierra es sagrada y representa un bien:",
       "opts": [
         "Negocio",
         "Ser vivo que merece respeto",
@@ -6227,7 +6227,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Históricamente, el pueblo Mapuche se ha ubicado principalmente en la",
+      "q": "Históricamente, el pueblo Mapuche ha habitado principalmente en la zona:",
       "opts": [
         "Zona Norte",
         "Zona Centro y Sur",
@@ -6259,7 +6259,7 @@
       "oa": "HIS-01"
     },
     {
-      "q": "Ayudar a un adulto mayor a cruzar la calle es un ejemplo de",
+      "q": "Ayudar a una persona mayor a cruzar la calle o ceder el asiento es un ejemplo de:",
       "opts": [
         "Mala educación",
         "Buena convivencia social",
@@ -6453,14 +6453,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "My name's",
+      "q": "To introduce yourself in English, you say: 'My name is...':",
       "opts": [
-        "Lee",
-        "Charlie",
-        "Monica",
-        "Ruby"
+        "Name",
+        "Hello",
+        "Bye",
+        "Thanks"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -6885,14 +6885,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which school object do you use to write and draw?",
       "opts": [
-        "It's a pen.",
-        "It's a pencil.",
-        "It's a ruler.",
-        "It's a book."
+        "Pencil",
+        "Ruler",
+        "Book",
+        "Desk"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -6901,12 +6901,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which object do you use to measure lines in centimeters?",
       "opts": [
-        "It's a rubber.",
-        "It's a sharpener.",
-        "It's a pencil case.",
-        "It's a glue stick."
+        "Ruler",
+        "Rubber",
+        "Pen",
+        "Bag"
       ],
       "correct": 0,
       "trap": false,
@@ -6965,14 +6965,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "What object with pages do you read at school?",
       "opts": [
-        "It's a school bag.",
-        "It's a book.",
-        "It's a pencil.",
-        "It's a rubber."
+        "Book",
+        "Door",
+        "Window",
+        "Chair"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -6981,14 +6981,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which object do you use to erase pencil marks?",
       "opts": [
-        "It's a sharpener.",
-        "It's a pencil case.",
-        "It's a pen.",
-        "It's a school bag."
+        "Rubber",
+        "Pencil",
+        "Desk",
+        "Ruler"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -6997,14 +6997,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Where do you carry your school books and pencils?",
       "opts": [
-        "It's a ruler.",
-        "It's a pencil case.",
-        "It's a book.",
-        "It's a rubber."
+        "Schoolbag",
+        "Chair",
+        "Table",
+        "Window"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7061,12 +7061,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which tool do you use to cut paper safely?",
       "opts": [
-        "It's a pen.",
-        "It's a rubber.",
-        "It's a ruler.",
-        "It's a school bag."
+        "Scissors",
+        "Glue",
+        "Pencil",
+        "Ruler"
       ],
       "correct": 0,
       "trap": false,
@@ -7317,28 +7317,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which color is the apple when it is ripe?",
       "opts": [
-        "It's a book.",
-        "It's a pen.",
-        "It's a ruler.",
-        "It's a pencil."
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "What's this?",
-      "opts": [
-        "It's a pencil case.",
-        "It's a book.",
-        "It's a rubber.",
-        "It's a sharpener."
+        "Red",
+        "Blue",
+        "Black",
+        "Pink"
       ],
       "correct": 0,
       "trap": false,
@@ -7349,14 +7333,30 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which color is the bright sun in the morning?",
       "opts": [
-        "It's a glue stick.",
-        "It's a ruler.",
-        "It's a school bag.",
-        "It's a pen."
+        "Yellow",
+        "Purple",
+        "Brown",
+        "Grey"
       ],
-      "correct": 2,
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Which color is the fresh grass in the park?",
+      "opts": [
+        "Green",
+        "Orange",
+        "White",
+        "Red"
+      ],
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7381,12 +7381,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This ruler is",
+      "q": "What color is the deep ocean water?",
       "opts": [
-        "blue",
-        "orange",
-        "black",
-        "yellow"
+        "Blue",
+        "Yellow",
+        "Red",
+        "Orange"
       ],
       "correct": 0,
       "trap": false,
@@ -7397,14 +7397,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This pencil is",
+      "q": "What color are sweet chocolate bars?",
       "opts": [
-        "purple",
-        "red",
-        "pink",
-        "green"
+        "Brown",
+        "Green",
+        "Blue",
+        "Pink"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7413,12 +7413,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This book is",
+      "q": "What color are fluffy clouds on a sunny day?",
       "opts": [
-        "yellow",
-        "blue",
-        "black",
-        "orange"
+        "White",
+        "Black",
+        "Red",
+        "Green"
       ],
       "correct": 0,
       "trap": false,
@@ -7461,28 +7461,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This rubber is",
+      "q": "What color is the night sky when it is dark?",
       "opts": [
-        "red",
-        "purple",
-        "blue",
-        "black"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This pen is",
-      "opts": [
-        "black",
-        "yellow",
-        "pink",
-        "green"
+        "Black",
+        "Yellow",
+        "Pink",
+        "White"
       ],
       "correct": 0,
       "trap": false,
@@ -7493,28 +7477,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "A red",
+      "q": "Which of these is a bright primary color?",
       "opts": [
-        "banana",
-        "orange",
-        "apple",
-        "cake"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "A yellow",
-      "opts": [
-        "banana",
-        "apple",
-        "yoghurt",
-        "pizza"
+        "Red",
+        "Grey",
+        "Brown",
+        "Black"
       ],
       "correct": 0,
       "trap": false,
@@ -7525,44 +7493,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "An orange",
+      "q": "An apple is typically colored:",
       "opts": [
-        "apple",
-        "orange",
-        "pen",
-        "rubber"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "A blue",
-      "opts": [
-        "school bag",
-        "book",
-        "ruler",
-        "pencil case"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "A pink",
-      "opts": [
-        "crayon",
-        "pen",
-        "rubber",
-        "ruler"
+        "Red",
+        "Blue",
+        "Black",
+        "Purple"
       ],
       "correct": 0,
       "trap": false,
@@ -7573,28 +7509,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "A black",
+      "q": "A banana has the color:",
       "opts": [
-        "pencil case",
-        "school bag",
-        "book",
-        "sharpener"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "A green",
-      "opts": [
-        "book",
-        "pen",
-        "pencil",
-        "rubber"
+        "Yellow",
+        "Blue",
+        "Pink",
+        "Grey"
       ],
       "correct": 0,
       "trap": false,
@@ -7605,28 +7525,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "A red",
+      "q": "An orange fruit has the color:",
       "opts": [
-        "ruler",
-        "pencil case",
-        "sharpener",
-        "school bag"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "A blue",
-      "opts": [
-        "rubber",
-        "sharpener",
-        "pen",
-        "pencil"
+        "Orange",
+        "Black",
+        "Green",
+        "White"
       ],
       "correct": 0,
       "trap": false,
@@ -7637,28 +7541,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "A green",
+      "q": "The clear sky has the color:",
       "opts": [
-        "pencil",
-        "book",
-        "pen",
-        "ruler"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "A yellow",
-      "opts": [
-        "ruler",
-        "rubber",
-        "pen",
-        "pencil"
+        "Blue",
+        "Red",
+        "Brown",
+        "Yellow"
       ],
       "correct": 0,
       "trap": false,
@@ -7669,14 +7557,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "A purple",
+      "q": "Flamingos are known for being:",
       "opts": [
-        "school bag",
-        "pencil case",
-        "book",
-        "ruler"
+        "Pink",
+        "Green",
+        "Black",
+        "Blue"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7685,14 +7573,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "A raven or crow bird is:",
       "opts": [
-        "Leg",
-        "Hand",
-        "Arm",
-        "Foot"
+        "Black",
+        "Yellow",
+        "Red",
+        "Pink"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7701,12 +7589,124 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Leaves on a green tree are:",
       "opts": [
-        "Leg",
-        "Hand",
-        "Head",
-        "Nose"
+        "Green",
+        "Blue",
+        "Purple",
+        "Orange"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Strawberries are bright:",
+      "opts": [
+        "Red",
+        "Blue",
+        "Black",
+        "Yellow"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Blueberries are mostly:",
+      "opts": [
+        "Blue",
+        "Red",
+        "Yellow",
+        "White"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Fresh lettuce in a salad is:",
+      "opts": [
+        "Green",
+        "Purple",
+        "Pink",
+        "Orange"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "A yellow lemon is:",
+      "opts": [
+        "Yellow",
+        "Blue",
+        "Black",
+        "Red"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Violets and grapes can be:",
+      "opts": [
+        "Purple",
+        "Yellow",
+        "White",
+        "Grey"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Which animal says 'woof' and is a loyal pet?",
+      "opts": [
+        "Dog",
+        "Cat",
+        "Bird",
+        "Fish"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Which animal says 'meow' and likes to purr?",
+      "opts": [
+        "Cat",
+        "Dog",
+        "Cow",
+        "Horse"
       ],
       "correct": 0,
       "trap": false,
@@ -7733,12 +7733,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which animal can fly and sings in trees?",
       "opts": [
-        "Hair",
-        "Mouth",
-        "Nose",
-        "Eye"
+        "Bird",
+        "Dog",
+        "Rabbit",
+        "Turtle"
       ],
       "correct": 0,
       "trap": false,
@@ -7749,14 +7749,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which animal swims in water and has fins?",
       "opts": [
-        "Arm",
-        "Leg",
-        "Foot",
-        "Knee"
+        "Fish",
+        "Cat",
+        "Lion",
+        "Bear"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7765,12 +7765,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which animal hops and loves carrots?",
       "opts": [
-        "Arm",
-        "Leg",
-        "Hand",
-        "Toe"
+        "Rabbit",
+        "Dog",
+        "Duck",
+        "Pig"
       ],
       "correct": 0,
       "trap": false,
@@ -7797,28 +7797,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which animal gives milk and says 'moo'?",
       "opts": [
-        "Nose",
-        "Mouth",
-        "Ear",
-        "Head"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "What's this?",
-      "opts": [
-        "Mouth",
-        "Eye",
-        "Nose",
-        "Ear"
+        "Cow",
+        "Sheep",
+        "Cat",
+        "Dog"
       ],
       "correct": 0,
       "trap": false,
@@ -7829,28 +7813,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which animal has wool and says 'baa'?",
       "opts": [
-        "Eye",
-        "Nose",
-        "Ear",
-        "Mouth"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "What's this?",
-      "opts": [
-        "Eye",
-        "Ear",
-        "Nose",
-        "Mouth"
+        "Sheep",
+        "Lion",
+        "Tiger",
+        "Horse"
       ],
       "correct": 0,
       "trap": false,
@@ -7861,14 +7829,46 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which fast animal has a mane and can gallop?",
       "opts": [
-        "Eye",
-        "Mouth",
-        "Ear",
-        "Nose"
+        "Horse",
+        "Fish",
+        "Rabbit",
+        "Mouse"
       ],
-      "correct": 3,
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Which animal says 'quack' and swims in ponds?",
+      "opts": [
+        "Duck",
+        "Dog",
+        "Cow",
+        "Bird"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Which pink farm animal likes playing in mud?",
+      "opts": [
+        "Pig",
+        "Cat",
+        "Sheep",
+        "Fish"
+      ],
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7909,14 +7909,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "______ around",
+      "q": "When you spin like a top, you 'Turn ______':",
       "opts": [
-        "Stamp",
-        "Turn",
-        "Clap",
-        "Wave"
+        "Around",
+        "Up",
+        "Down",
+        "Away"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -7989,28 +7989,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Touch your",
+      "q": "With your eyes you can see; with your hands you can:",
       "opts": [
-        "ear",
-        "eye",
-        "nose",
-        "mouth"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "Touch your",
-      "opts": [
-        "ears",
-        "eyes",
-        "hair",
-        "toes"
+        "Touch",
+        "Hear",
+        "Smell",
+        "Taste"
       ],
       "correct": 0,
       "trap": false,
@@ -8021,28 +8005,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "My hair is",
+      "q": "You listen to music using your:",
       "opts": [
-        "red",
-        "blue",
-        "black",
-        "pink"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "My eyes are",
-      "opts": [
-        "blue",
-        "black",
-        "green",
-        "orange"
+        "Ears",
+        "Nose",
+        "Knees",
+        "Toes"
       ],
       "correct": 0,
       "trap": false,
@@ -8053,44 +8021,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "My eyes are",
+      "q": "The part of your body on top of your head is your:",
       "opts": [
-        "pink",
-        "blue",
-        "yellow",
-        "black"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "My hair is",
-      "opts": [
-        "black",
-        "red",
-        "purple",
-        "green"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "arm",
-        "leg",
-        "hand",
-        "foot"
+        "Hair",
+        "Hand",
+        "Foot",
+        "Elbow"
       ],
       "correct": 0,
       "trap": false,
@@ -8101,44 +8037,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This is my",
+      "q": "The organs you use to look at pictures are your:",
       "opts": [
-        "knee",
-        "arm",
-        "leg",
-        "head"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "foot",
-        "head",
-        "hand",
-        "ear"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "foot",
-        "hand",
-        "arm",
-        "leg"
+        "Eyes",
+        "Ears",
+        "Lips",
+        "Teeth"
       ],
       "correct": 0,
       "trap": false,
@@ -8149,28 +8053,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This is my",
+      "q": "You use these to see colors:",
       "opts": [
-        "nose",
-        "mouth",
-        "eye",
-        "head"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "dad",
-        "mum",
-        "brother",
-        "granny"
+        "Eyes",
+        "Nose",
+        "Chin",
+        "Fingers"
       ],
       "correct": 0,
       "trap": false,
@@ -8181,76 +8069,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This is my",
+      "q": "Shampoo is used to clean your:",
       "opts": [
-        "sister",
-        "mum",
-        "dad",
-        "grandad"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "mum",
-        "sister",
-        "granny",
-        "grandad"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "dad",
-        "brother",
-        "granny",
-        "grandad"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "sister",
-        "brother",
-        "mum",
-        "dad"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "sister",
-        "brother",
-        "granny",
-        "grandad"
+        "Hair",
+        "Shoes",
+        "Desk",
+        "Pencil"
       ],
       "correct": 0,
       "trap": false,
@@ -8261,44 +8085,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This is my",
+      "q": "You use this part to smell pleasant flowers:",
       "opts": [
-        "pet",
-        "school",
-        "family",
-        "body"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "sister",
-        "granny",
-        "mum",
-        "dad"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "grandad",
-        "dad",
-        "brother",
-        "mum"
+        "Nose",
+        "Arm",
+        "Leg",
+        "Knee"
       ],
       "correct": 0,
       "trap": false,
@@ -8309,28 +8101,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This is my",
+      "q": "You use this part to smile and talk:",
       "opts": [
-        "granny",
-        "sister",
-        "dad",
-        "mum"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "mum",
-        "grandad",
-        "brother",
-        "dad"
+        "Mouth",
+        "Elbow",
+        "Foot",
+        "Ear"
       ],
       "correct": 0,
       "trap": false,
@@ -8341,28 +8117,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "This is my",
+      "q": "You hear birds singing with your:",
       "opts": [
-        "mum",
-        "sister",
-        "granny",
-        "brother"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "This is my",
-      "opts": [
-        "sister",
-        "brother",
-        "dad",
-        "grandad"
+        "Ear",
+        "Nose",
+        "Finger",
+        "Toe"
       ],
       "correct": 0,
       "trap": false,
@@ -8373,28 +8133,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "They are my",
+      "q": "You use this organ to see the sun:",
       "opts": [
-        "brother and sister",
-        "granny and grandad",
-        "mum and dad",
-        "Lee and Charlie"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "They are my",
-      "opts": [
-        "mum and dad",
-        "granny and grandad",
-        "brother and sister",
-        "Pía and Monica"
+        "Eye",
+        "Thumb",
+        "Ankle",
+        "Neck"
       ],
       "correct": 0,
       "trap": false,
@@ -8405,14 +8149,270 @@
       "oa": "ENG-01"
     },
     {
-      "q": "They are my",
+      "q": "The joint between your arm and your hand is your:",
       "opts": [
-        "mum and dad",
-        "granny and grandad",
-        "Ruby and Lee",
-        "brother and sister"
+        "Wrist",
+        "Knee",
+        "Toes",
+        "Heel"
       ],
-      "correct": 3,
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You have five of these on each hand:",
+      "opts": [
+        "Fingers",
+        "Noses",
+        "Heads",
+        "Ears"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You have five of these on each foot:",
+      "opts": [
+        "Toes",
+        "Hands",
+        "Eyes",
+        "Arms"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "The long part of your body you use to walk is your:",
+      "opts": [
+        "Leg",
+        "Ear",
+        "Nose",
+        "Mouth"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You wear shoes and socks on your:",
+      "opts": [
+        "Feet",
+        "Ears",
+        "Hands",
+        "Eyes"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You wear a watch or bracelet on your:",
+      "opts": [
+        "Arm",
+        "Knee",
+        "Head",
+        "Eye"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "The joint that bends in the middle of your leg is your:",
+      "opts": [
+        "Knee",
+        "Elbow",
+        "Nose",
+        "Mouth"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "The joint that bends in the middle of your arm is your:",
+      "opts": [
+        "Elbow",
+        "Foot",
+        "Neck",
+        "Ear"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You use this to taste sweet ice cream:",
+      "opts": [
+        "Tongue",
+        "Ear",
+        "Hair",
+        "Elbow"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You use these white elements to chew food:",
+      "opts": [
+        "Teeth",
+        "Eyebrows",
+        "Toes",
+        "Ears"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "The part of your body that holds your head is your:",
+      "opts": [
+        "Neck",
+        "Foot",
+        "Knee",
+        "Finger"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You wear a backpack on your:",
+      "opts": [
+        "Shoulders",
+        "Hands",
+        "Knees",
+        "Eyes"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "The front part of your head where your eyes and nose are is your:",
+      "opts": [
+        "Face",
+        "Heel",
+        "Elbow",
+        "Armpit"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You wear a warm hat on your:",
+      "opts": [
+        "Head",
+        "Foot",
+        "Elbow",
+        "Hand"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You wear mittens or gloves on your:",
+      "opts": [
+        "Hands",
+        "Ears",
+        "Knees",
+        "Eyes"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "You put running shoes on your:",
+      "opts": [
+        "Feet",
+        "Hands",
+        "Ears",
+        "Noses"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "When you wave hello, you move your:",
+      "opts": [
+        "Hand",
+        "Knee",
+        "Nose",
+        "Foot"
+      ],
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -8485,12 +8485,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "What vehicle has two wheels and pedals?",
       "opts": [
-        "Cat",
-        "Dog",
-        "Rabbit",
-        "Rat"
+        "Bicycle",
+        "Car",
+        "Bus",
+        "Train"
       ],
       "correct": 0,
       "trap": false,
@@ -8501,28 +8501,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "What vehicle drives on tracks and carries train wagons?",
       "opts": [
-        "Parrot",
-        "Cat",
-        "Dog",
-        "Goldfish"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "What's this?",
-      "opts": [
-        "Rabbit",
-        "Rat",
-        "Cat",
-        "Dog"
+        "Train",
+        "Plane",
+        "Boat",
+        "Bike"
       ],
       "correct": 0,
       "trap": false,
@@ -8533,14 +8517,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "What large vehicle carries many children to school?",
       "opts": [
-        "Rabbit",
-        "Parrot",
-        "Goldfish",
-        "Rat"
+        "School bus",
+        "Rocket",
+        "Canoe",
+        "Helicopter"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -8549,14 +8533,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "What vehicle flies high through the clouds in the sky?",
       "opts": [
-        "Dog",
-        "Goldfish",
-        "Cat",
-        "Rat"
+        "Airplane",
+        "Submarine",
+        "Car",
+        "Bicycle"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -8565,12 +8549,28 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "What vehicle travels on water over the ocean waves?",
       "opts": [
-        "Parrot",
-        "Cat",
-        "Rabbit",
-        "Dog"
+        "Boat",
+        "Train",
+        "Truck",
+        "Skateboard"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "What family vehicle has four wheels and drives on streets?",
+      "opts": [
+        "Car",
+        "Boat",
+        "Helicopter",
+        "Airplane"
       ],
       "correct": 0,
       "trap": false,
@@ -8597,12 +8597,60 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "What fun toy has two small wheels and a handlebar?",
       "opts": [
-        "Teddy bear",
+        "Scooter",
+        "Airplane",
+        "Train",
+        "Ship"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "If an animal purrs and meows, is it a cat?",
+      "opts": [
+        "Yes, it is",
+        "No, it's a dog",
+        "No, it's a cow",
+        "No, it's a fish"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "If an animal barks and wags its tail, is it a dog?",
+      "opts": [
+        "Yes, it is",
+        "No, it's a cat",
+        "No, it's a bird",
+        "No, it's a rabbit"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "A playful puppy grows up to be a:",
+      "opts": [
+        "Dog",
         "Cat",
-        "Puppy",
-        "Parrot"
+        "Horse",
+        "Bear"
       ],
       "correct": 0,
       "trap": false,
@@ -8613,12 +8661,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Is it a cat?",
+      "q": "Is the bright sunny daytime sky blue?",
       "opts": [
-        "Yes",
-        "No",
-        "Hello",
-        "Blue"
+        "Yes, it is",
+        "No, it is red",
+        "No, it is green",
+        "No, it is brown"
       ],
       "correct": 0,
       "trap": false,
@@ -8629,28 +8677,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Is it a dog?",
+      "q": "Is a flamingo bird pink?",
       "opts": [
-        "Yes",
-        "No",
-        "Red",
-        "Ten"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "It's a",
-      "opts": [
-        "puppy",
-        "giraffe",
-        "rat",
-        "goldfish"
+        "Yes, it is",
+        "No, it is black",
+        "No, it is blue",
+        "No, it is grey"
       ],
       "correct": 0,
       "trap": false,
@@ -8661,28 +8693,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Is it blue?",
+      "q": "Are sweet purple grapes purple?",
       "opts": [
-        "No",
-        "Seven",
-        "Dad",
-        "Yes"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "Is it pink?",
-      "opts": [
-        "Yes",
-        "No",
-        "Hand",
-        "Book"
+        "Yes, they are",
+        "No, they are red only",
+        "No, they are orange",
+        "No, they are pink"
       ],
       "correct": 0,
       "trap": false,
@@ -8693,28 +8709,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Is it purple?",
+      "q": "Is charcoal or night darkness black?",
       "opts": [
-        "No",
-        "Mum",
-        "Yes",
-        "Pen"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "Is it black?",
-      "opts": [
-        "Yes",
-        "No",
-        "Arm",
-        "Ruler"
+        "Yes, it is",
+        "No, it is yellow",
+        "No, it is white",
+        "No, it is green"
       ],
       "correct": 0,
       "trap": false,
@@ -8725,28 +8725,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Is it orange?",
+      "q": "Is a sweet orange citrus fruit orange?",
       "opts": [
-        "No",
-        "Yes",
-        "Leg",
-        "Rubber"
-      ],
-      "correct": 1,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "______!",
-      "opts": [
-        "Run",
-        "Sit down",
-        "Stand up",
-        "Catch"
+        "Yes, it is",
+        "No, it is purple",
+        "No, it is black",
+        "No, it is blue"
       ],
       "correct": 0,
       "trap": false,
@@ -8757,28 +8741,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "______!",
+      "q": "When greeting a friend politely in the morning, you say:",
       "opts": [
-        "Stand up",
-        "Run",
-        "Sit down",
-        "Go to sleep"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "______!",
-      "opts": [
-        "Stand up",
-        "Sit down",
-        "Catch",
-        "Run"
+        "Hello!",
+        "Goodbye!",
+        "Night!",
+        "Nothing!"
       ],
       "correct": 0,
       "trap": false,
@@ -8789,44 +8757,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "______!",
+      "q": "When saying farewell at the end of the day, you say:",
       "opts": [
-        "Stand up",
-        "Catch",
-        "Run",
-        "Go to sleep"
-      ],
-      "correct": 3,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "What's this?",
-      "opts": [
-        "Cake",
-        "Yoghurt",
-        "Pizza",
-        "Chicken"
-      ],
-      "correct": 2,
-      "trap": false,
-      "diff": "easy",
-      "cat": "ingles",
-      "age": "6-7",
-      "time": 30,
-      "oa": "ENG-01"
-    },
-    {
-      "q": "What's this?",
-      "opts": [
-        "Cheese",
-        "Banana",
-        "Apple",
-        "Chocolate"
+        "Goodbye!",
+        "Hello!",
+        "Welcome!",
+        "Morning!"
       ],
       "correct": 0,
       "trap": false,
@@ -8837,14 +8773,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "When someone gives you a gift, you say:",
       "opts": [
-        "Pizza",
-        "Yoghurt",
-        "Orange",
-        "Cake"
+        "Thank you!",
+        "No!",
+        "Hello!",
+        "Run!"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -8853,12 +8789,76 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "When you ask for something politely, you say:",
       "opts": [
-        "Yoghurt",
-        "Cheese",
-        "Chicken",
-        "Banana"
+        "Please!",
+        "Stop!",
+        "Go away!",
+        "Never!"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Which family member is your mother's mother?",
+      "opts": [
+        "Grandmother",
+        "Brother",
+        "Sister",
+        "Uncle"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "Which family member is your father's father?",
+      "opts": [
+        "Grandfather",
+        "Cousin",
+        "Aunt",
+        "Sister"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "A female parent is called a:",
+      "opts": [
+        "Mother",
+        "Brother",
+        "Uncle",
+        "Son"
+      ],
+      "correct": 0,
+      "trap": false,
+      "diff": "easy",
+      "cat": "ingles",
+      "age": "6-7",
+      "time": 30,
+      "oa": "ENG-01"
+    },
+    {
+      "q": "A male parent is called a:",
+      "opts": [
+        "Father",
+        "Sister",
+        "Aunt",
+        "Daughter"
       ],
       "correct": 0,
       "trap": false,
@@ -8917,14 +8917,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "A boy child in the family with the same parents is your:",
       "opts": [
-        "Chicken",
-        "Cheese",
-        "Cake",
-        "Chocolate"
+        "Brother",
+        "Mother",
+        "Grandmother",
+        "Aunt"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -8933,12 +8933,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "A girl child in the family with the same parents is your:",
       "opts": [
-        "Chicken",
-        "Pizza",
-        "Cheese",
-        "Yoghurt"
+        "Sister",
+        "Father",
+        "Grandfather",
+        "Uncle"
       ],
       "correct": 0,
       "trap": false,
@@ -8981,14 +8981,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "I like",
+      "q": "When you enjoy reading books, you say: 'I like...':",
       "opts": [
-        "apples",
-        "bananas",
-        "chicken",
-        "cheese"
+        "Reading",
+        "Sleeping",
+        "Crying",
+        "Falling"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -8997,14 +8997,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "I like",
+      "q": "When you enjoy drawing pictures, you say: 'I like...':",
       "opts": [
-        "oranges",
-        "cake",
-        "chocolate",
-        "apples"
+        "Drawing",
+        "Fighting",
+        "Losing",
+        "Dropping"
       ],
-      "correct": 3,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -9045,14 +9045,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "I ______ pizza",
+      "q": "Complete the sentence: 'I ______ playing games with friends!':",
       "opts": [
-        "don't like",
-        "like",
-        "am",
-        "hello"
+        "Like",
+        "Hate not",
+        "Do not want",
+        "Never"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -9125,14 +9125,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which room in the house is used for cooking delicious meals?",
       "opts": [
-        "Ball",
-        "Puppy",
-        "Train",
-        "Car"
+        "Kitchen",
+        "Garden",
+        "Garage",
+        "Roof"
       ],
-      "correct": 2,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -9141,12 +9141,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which room in the house has a bed for sleeping at night?",
       "opts": [
-        "Ball",
-        "Train",
-        "Teddy bear",
-        "Doll"
+        "Bedroom",
+        "Kitchen",
+        "Street",
+        "Park"
       ],
       "correct": 0,
       "trap": false,
@@ -9253,14 +9253,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "What's this?",
+      "q": "Which room in the house has a shower and a sink to wash your hands?",
       "opts": [
-        "Shoes",
-        "Hat",
-        "T-shirt",
-        "Pants"
+        "Bathroom",
+        "Kitchen",
+        "Attic",
+        "Balcony"
       ],
-      "correct": 2,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -9397,12 +9397,12 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Is it a toy?",
+      "q": "A teddy bear or a doll that you play with is a:",
       "opts": [
-        "Yes",
-        "No",
-        "Hello",
-        "Red"
+        "Toy",
+        "Food",
+        "Book",
+        "Drink"
       ],
       "correct": 0,
       "trap": false,
@@ -9413,14 +9413,14 @@
       "oa": "ENG-01"
     },
     {
-      "q": "Is it a house?",
+      "q": "A building where people live with doors, windows and a roof is a:",
       "opts": [
-        "No",
-        "Yes",
-        "Seven",
-        "Mouth"
+        "House",
+        "Car",
+        "Tree",
+        "River"
       ],
-      "correct": 1,
+      "correct": 0,
       "trap": false,
       "diff": "easy",
       "cat": "ingles",
@@ -11191,14 +11191,14 @@
       "oa": "LEN-01"
     },
     {
-      "q": "¿Cómo se llama el signo que encerramos en el poema de la gallina francolina?",
+      "q": "¿Qué signo de puntuación utilizamos para separar palabras en una lista o enumeración?",
       "opts": [
         "Letras",
         "Puntos y comas",
-        "",
+        "Coma",
         "Números"
       ],
-      "correct": 1,
+      "correct": 2,
       "trap": false,
       "diff": "easy",
       "cat": "lenguaje",
@@ -11879,7 +11879,7 @@
       "oa": "LEN-01"
     },
     {
-      "q": "¿Qué objeto usamos para dormir que tiene una almohada de manzana en el",
+      "q": "¿Qué mueble cómodo utilizamos en el dormitorio para descansar por las noches?",
       "opts": [
         "Mesa",
         "Cama",
@@ -12327,7 +12327,7 @@
       "oa": "LEN-01"
     },
     {
-      "q": "¿Qué objeto vuela y está hecho de papel en el",
+      "q": "¿Qué juguete típico chileno vuela alto en septiembre impulsado por el viento?",
       "opts": [
         "Pájaro",
         "Avión de papel",
@@ -12455,7 +12455,7 @@
       "oa": "LEN-01"
     },
     {
-      "q": "¿Qué objeto usa la niña para ver cosas pequeñas en el",
+      "q": "¿Qué objeto con lente de aumento usamos para observar insectos o detalles muy pequeños?",
       "opts": [
         "Lentes",
         "Lupa",
@@ -16011,7 +16011,7 @@
   ],
   "matematicas": [
     {
-      "q": "¿Cuántos lápices ves en la",
+      "q": "✏️ ✏️ ✏️ ¿Cuántos lápices hay en total?",
       "opts": [
         "1",
         "2",
@@ -16155,7 +16155,7 @@
       "oa": "MAT-01"
     },
     {
-      "q": "¿Cuántas flores hay en el",
+      "q": "🌸 🌸 🌸 🌸 🌸 ¿Cuántas flores hay en total?",
       "opts": [
         "4",
         "5",
@@ -16331,7 +16331,7 @@
       "oa": "MAT-01"
     },
     {
-      "q": "¿Cuántos soles hay en la",
+      "q": "☀️ ¿Cuántos soles ves aquí?",
       "opts": [
         "1",
         "2",
@@ -17499,7 +17499,7 @@
       "oa": "MAT-01"
     },
     {
-      "q": "¿Qué forma tiene el sol en los",
+      "q": "¿Qué figura geométrica representa el Sol en los dibujos?",
       "opts": [
         "Cuadrada",
         "Circular",
@@ -18251,7 +18251,7 @@
       "oa": "MAT-01"
     },
     {
-      "q": "¿Qué hora es?",
+      "q": "Si el reloj marca las 3 en punto de la tarde, ¿qué hora es?",
       "opts": [
         "Las 2",
         "Las 4",
