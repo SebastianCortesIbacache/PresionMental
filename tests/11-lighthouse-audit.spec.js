@@ -18,7 +18,7 @@ test.describe('Suite 11: Auditoría PWA, Performance y Buenas Prácticas', () =>
   });
 
   test('T-PWA-02: Registro y Activación del Service Worker (sw.js)', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForTimeout(2000);
 
     const swStatus = await page.evaluate(async () => {
@@ -38,7 +38,7 @@ test.describe('Suite 11: Auditoría PWA, Performance y Buenas Prácticas', () =>
   });
 
   test('T-PERF-03: Métricas de Rendimiento y Core Web Vitals en Carga Fría', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForLoadState('networkidle');
 
     // Medir métricas de navegación mediante Navigation Timing API
@@ -72,7 +72,7 @@ test.describe('Suite 11: Auditoría PWA, Performance y Buenas Prácticas', () =>
       }
     });
 
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'ZeroErrorUser');
     await page.fill('#ageInput', '7');

@@ -4,7 +4,7 @@ test.describe('Suite 1: Onboarding y Perfil', () => {
 
   test('Creación de perfil nuevo (Usuario Español)', async ({ page }) => {
     // 1. Limpiar localStorage por si acaso
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
 

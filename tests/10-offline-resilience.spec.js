@@ -4,7 +4,7 @@ test.describe('Suite 10: Resistencia Offline Real & Emulación de Tablets Escola
 
   test('T-OFF-01: Partida completa con corte abrupto de red (100% Offline-First)', async ({ page, context }) => {
     // 1. Cargar la app inicialmente con red activa
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'OfflineHero');
     await page.fill('#ageInput', '7');
@@ -70,7 +70,7 @@ test.describe('Suite 10: Resistencia Offline Real & Emulación de Tablets Escola
     });
     const page = tabletContext.newPage ? await tabletContext.newPage() : await tabletContext.pages()[0];
 
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'TabletStudent');
     await page.fill('#ageInput', '7');

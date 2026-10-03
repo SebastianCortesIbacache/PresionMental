@@ -6,7 +6,7 @@ test.describe('Suite 8: Monkey Testing & Caos Infantil (Gremlins Simulator)', ()
     const pageErrors = [];
     page.on('pageerror', err => pageErrors.push(err.message));
 
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'MonkeyMochi');
     await page.fill('#ageInput', '7');
@@ -68,7 +68,7 @@ test.describe('Suite 8: Monkey Testing & Caos Infantil (Gremlins Simulator)', ()
   });
 
   test('T-MONKEY-02: Ráfaga de clics en audio sin desbordamiento de AudioContext', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'AudioStress');
     await page.fill('#ageInput', '7');
@@ -90,7 +90,7 @@ test.describe('Suite 8: Monkey Testing & Caos Infantil (Gremlins Simulator)', ()
   });
 
   test('T-MONKEY-03: Spam de respuestas múltiples simultáneas en Gameplay', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'SpamGamer');
     await page.fill('#ageInput', '7');

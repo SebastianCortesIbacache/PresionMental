@@ -4,7 +4,7 @@ const AxeBuilder = require('@axe-core/playwright').default;
 test.describe('Suite 7: Accesibilidad Automatizada (WCAG 2.1 AA)', () => {
 
   test('T-A11Y-01: Auditoría de Accesibilidad en Onboarding', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
 
     const accessibilityScanResults = await new AxeBuilder({ page })
@@ -18,7 +18,7 @@ test.describe('Suite 7: Accesibilidad Automatizada (WCAG 2.1 AA)', () => {
   });
 
   test('T-A11Y-02: Auditoría de Accesibilidad en Home (Juicy Clay World)', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'MochiA11y');
     await page.fill('#ageInput', '7');
@@ -42,7 +42,7 @@ test.describe('Suite 7: Accesibilidad Automatizada (WCAG 2.1 AA)', () => {
   });
 
   test('T-A11Y-03: Ergonomía Táctil Mínima en Botones Principales (>= 44x44px)', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'MochiTouch');
     await page.fill('#ageInput', '7');
@@ -72,7 +72,7 @@ test.describe('Suite 7: Accesibilidad Automatizada (WCAG 2.1 AA)', () => {
   });
 
   test('T-A11Y-04: Atributos ARIA y Semántica en Navegación y Tienda', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { timeout: 15000 });
     await page.fill('#nameInput', 'MochiAria');
     await page.fill('#ageInput', '7');

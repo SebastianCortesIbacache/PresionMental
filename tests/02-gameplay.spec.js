@@ -4,7 +4,7 @@ test.describe('Suite 2: Gameplay y Lógica Base', () => {
 
   test.beforeEach(async ({ page }) => {
     // Completar Onboarding legalmente
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await expect(page.locator('#namePopup')).toBeVisible({ timeout: 10000 });
     await page.fill('#nameInput', 'Tester');
     await page.fill('#ageInput', '6');

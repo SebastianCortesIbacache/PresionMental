@@ -4,7 +4,7 @@ test.describe('Suite 5: Persistencia de Datos (PWA)', () => {
 
   test('El perfil del niño sobrevive a un reinicio de la aplicación', async ({ page }) => {
     // 1. Visitar por primera vez
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     
     // 2. Completar Onboarding (Nuevo perfil)
     await expect(page.locator('#namePopup')).toBeVisible({ timeout: 10000 });
@@ -29,7 +29,7 @@ test.describe('Suite 5: Persistencia de Datos (PWA)', () => {
   });
 
   test('Simulación de inyección de Estrellas y persistencia', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     
     // Onboarding
     await page.fill('#nameInput', 'PandaFuerte');

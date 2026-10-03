@@ -213,7 +213,7 @@ function networkFirst(request) {
     return matchFromCache(request).then(hit => {
       if (hit) return hit;
       // Navegación sin red y sin coincidencia: servir el shell del juego.
-      if (request.mode === 'navigate') return caches.match('./v51_modular.html');
+      if (request.mode === 'navigate') return caches.match('./index.html').then(h => h || caches.match('./v51_modular.html'));
       return Response.error();
     });
   });

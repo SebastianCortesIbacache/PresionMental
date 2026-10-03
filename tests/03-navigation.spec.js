@@ -4,7 +4,7 @@ test.describe('Suite 3: Navegación Global', () => {
 
   test.beforeEach(async ({ page }) => {
     // Completar Onboarding legalmente
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await expect(page.locator('#namePopup')).toBeVisible({ timeout: 10000 });
     await page.fill('#nameInput', 'Tester');
     await page.fill('#ageInput', '6');

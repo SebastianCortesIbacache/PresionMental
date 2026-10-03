@@ -4,7 +4,7 @@ test.describe('Suite 4: Resiliencia Offline (PWA)', () => {
 
   test('Simulación de caída de red (Modo Avión)', async ({ page, context }) => {
     // 1. Cargar normal para popular la caché del Service Worker (simula primer uso)
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     
     // Esperar a que el motor de red baje y cachee todo
     await page.waitForTimeout(4000); 

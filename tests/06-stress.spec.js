@@ -13,7 +13,7 @@ test.describe('Suite 6: Estrés Pre-Beta', () => {
   // ─────────────────────────────────────────────────────────
   test('T-22: Estrés Offline — App jugable sin red', async ({ page, context }) => {
     // 1. Cargar con red normal y limpiar estado previo para forzar el onboarding
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
     await expect(page.locator('#namePopup')).toBeVisible({ timeout: 10000 });
@@ -56,7 +56,7 @@ test.describe('Suite 6: Estrés Pre-Beta', () => {
     await page.route('**fonts.gstatic.com**', route => route.abort());
 
     // 2. Cargar la app y limpiar estado previo (Google Fonts fallará silenciosamente)
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
     await expect(page.locator('#namePopup')).toBeVisible({ timeout: 10000 });
@@ -92,7 +92,7 @@ test.describe('Suite 6: Estrés Pre-Beta', () => {
   // ─────────────────────────────────────────────────────────
   test('T-24: Persistencia Local — Perfil, estrellas y mascota tras reinicio', async ({ page }) => {
     // 1. Primera visita — Limpiar estado previo y registrar al niño
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
     await expect(page.locator('#namePopup')).toBeVisible({ timeout: 10000 });
@@ -114,7 +114,7 @@ test.describe('Suite 6: Estrés Pre-Beta', () => {
 
     // 4. ⚡ REINICIO TOTAL — Simula cerrar y reabrir el navegador
     await page.goto('about:blank');    // Limpiar página (destruye estado JS)
-    await page.goto('/v51_modular.html'); // Re-entrar a la app
+    await page.goto('/index.html'); // Re-entrar a la app
 
     // 5. El onboarding NO debe aparecer (ya está registrado)
     await expect(page.locator('#namePopup')).not.toBeVisible({ timeout: 5000 });

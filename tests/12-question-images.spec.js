@@ -37,7 +37,7 @@ test.describe('Suite 12: Integración de Banco MVP y Renderizado de Ilustracione
   });
 
   test('T-IMG-02: Carga y renderizado visual en runtime con fallback activo', async ({ page }) => {
-    await page.goto('/v51_modular.html');
+    await page.goto('/index.html');
     await page.waitForSelector('#namePopup', { state: 'visible', timeout: 15000 });
     await page.fill('#nameInput', 'MochiTester');
     await page.fill('#ageInput', '7');

@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 async function ensureHome(page) {
-  await page.goto('/v51_modular.html');
+  await page.goto('/index.html');
   await page.waitForSelector('#namePopup', { timeout: 15000 });
   await page.fill('#nameInput', 'VisualMochi');
   await page.fill('#ageInput', '7');
