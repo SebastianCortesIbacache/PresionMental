@@ -671,7 +671,7 @@ let playerAge = window.playerAge;
       updateMission('play', 1);
 
       document.getElementById('timerWrap').style.display = 'block';
-      if(state.mode === 'train') document.getElementById('timerWrap').close();
+      if(state.mode === 'train') document.getElementById('timerWrap').style.display = 'none';
       if(state.mode !== 'train') profile.stats.games++;
       applyLevelRules();
 
