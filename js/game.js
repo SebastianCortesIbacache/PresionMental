@@ -15,6 +15,37 @@ const USE_HOWLER = true;
 
 
 
+    // Pinta el área multimedia de la pregunta (#qMedia).
+    // Con qData.img (ya validada por whitelist en db.js) crea la ilustración vía DOM;
+    // sin img conserva el innerHTML de qData.m (los Generators usan spans de color).
+    function renderQuestionMedia(qData) {
+      const media = document.getElementById('qMedia');
+      if (!media) return;
+      media.classList.remove('has-img');
+      media.textContent = '';
+
+      if (qData.img) {
+        const img = document.createElement('img');
+        img.className = 'q-illustration';
+        img.alt = 'Ilustración de la pregunta';
+        img.decoding = 'async';
+        img.onerror = () => {
+          // Ignorar si ya se pasó a otra pregunta (la imagen ya no está en #qMedia)
+          if (img.parentNode !== media) return;
+          img.remove();
+          media.classList.remove('has-img');
+          media.textContent = qData.m || '';
+        };
+        media.classList.add('has-img');
+        media.appendChild(img);
+        img.src = qData.img;
+        return;
+      }
+
+      // XSS-ACCEPTED: dato interno, no viene del usuario
+      media.innerHTML = qData.m || '';
+    }
+
     async function generateQuestion() {
       const currentMascot = SHOP_ITEMS.mascots.find(x=>x.id===profile.equipM) || SHOP_ITEMS.mascots[0];
       const currentHat = SHOP_ITEMS.hats.find(x=>x.id===profile.equipH) || SHOP_ITEMS.hats[0];
@@ -33,8 +64,7 @@ const USE_HOWLER = true;
       state.currentExplain = qData.explain || `La respuesta correcta es ${qData.c}.`;
 
       renderTags(qData.tags || ['general']);
-      // XSS-ACCEPTED: dato interno, no viene del usuario
-      document.getElementById('qMedia').innerHTML = qData.m || ''; 
+      renderQuestionMedia(qData);
       document.getElementById('qText').textContent = qData.q;
       
       // Accesibilidad TTS

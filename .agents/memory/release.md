@@ -284,3 +284,31 @@ Esperando instrucción específica.
 5. Documentar **procedimientos de rollback** y backups de DB JSON.
 
 
+
+***
+
+## 2026-10-03 — sw.js v5: precache banco MVP + ilustraciones + caché runtime
+
+**Release:** PWA Tier 1 (v51_modular) | **Plataforma:** Web/PWA | **Estado:** Listo para QA offline.
+
+**Ruta tocada:** `sw.js` (único archivo).
+
+**Hecho:**
+- `CACHE_NAME` → `reto-panda-v5`.
+- Precache dividido en `CORE_ASSETS` (36) + `QUESTION_IMAGES` (103) = **139 entradas**, ~5.49 MB total.
+  - Añadido `assets/data/db_mvp_6_7.json` (se mantiene `db_6_7.json` como fallback de js/db.js; db_8_10/db_11_13 y tier2/3.css se dejaron igual, V2 en stand by).
+  - Añadidos CSS que faltaban según los `<link>` reales de v51_modular.html: `variables.css`, `states.css`, `game.css`, `popups.css`.
+  - `tier1.css` se precachea con la URL exacta `./css/tiers/tier1.css?v=3` + respaldo `caches.match(req, {ignoreSearch:true})`.
+  - Imágenes estáticas del shell (caratula, 5 splash_icons, onboarding_hero, icon_cloud, icon_star_clay).
+  - 103 ilustraciones MVP extraídas del campo `img` de db_mvp_6_7.json (2.55 MB, < 15 MB → precache, no runtime). Excluidos `test_opt*` y las 3 mvp_* no referenciadas.
+- Fetch handler: solo GET same-origin. Network-first + `cache.put` para HTML/JS/CSS/JSON; cache-first + `cache.put` para imágenes/audio. Solo se guardan respuestas 200 `basic` no redirigidas (206 de audio no se guardan). Navegación offline sin match → `v51_modular.html`.
+- Precache con `new Request(url, {cache:'reload'})` para no tomar copias viejas de la caché HTTP.
+
+**Validación:** `node --check sw.js` OK; 139/139 rutas existen en disco, 0 duplicados, 0 test_opt; 139/139 responden 200 en http://localhost:8000.
+Scripts: `brain/1ad63a33-.../scratch/extract_imgs.js` y `validate_precache.js`.
+
+**Pendientes / riesgos:**
+- La lista `QUESTION_IMAGES` es estática: si Contenido/Gráfico añaden ilustraciones, regenerarla (script extract_imgs.js) y subir CACHE_NAME. Las no listadas igual quedan en caché runtime tras primera vista.
+- Howler (CDN cdnjs) no se cachea (cross-origin); offline cae al sintetizador nativo. Considerar vendorizarlo en `js/vendor/` (coordinar con Arquitecto).
+- Audio `assets/sounds/*.mp3` y `assets/audio/menu_music.mp3` no precacheados (Howler html5 usa Range → 206 no cacheable); evaluar precache explícito si se requiere audio offline.
+- Network-first sin timeout: en red muy lenta (lie-fi) la carga espera a la red. Evaluar timeout ~3 s.

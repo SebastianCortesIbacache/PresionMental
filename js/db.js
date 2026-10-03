@@ -209,6 +209,34 @@ import { getUniqueFalses, rand, shuffle, missionPeriodKeys, saveP } from './ui.j
 
     let dbCache = {};
 
+    // Banco MVP Tier 1 (6-7 años). Si falla la carga se usa el banco legacy db_6_7.json.
+    const MVP_DB_PATH_6_7 = 'assets/data/db_mvp_6_7.json';
+    // Whitelist de Seguridad: solo ilustraciones locales WebP del MVP Tier 1.
+    const MVP_IMG_WHITELIST = /^assets\/preguntas\/t1_mvp\/[a-z0-9_]+\.webp$/i;
+
+    async function fetchJSON(url) {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('HTTP ' + response.status + ' en ' + url);
+      return response.json();
+    }
+
+    async function loadAgeDB(ageGrp) {
+      if (ageGrp === "6_7") {
+        try {
+          const mvp = await fetchJSON(MVP_DB_PATH_6_7);
+          if (mvp && typeof mvp === 'object' && Object.keys(mvp).length > 0) return mvp;
+          throw new Error('Banco MVP vacío');
+        } catch (e) {
+          console.warn('Banco MVP 6_7 no disponible, usando db_6_7.json', e);
+        }
+      }
+      return fetchJSON('assets/data/db_' + ageGrp + '.json');
+    }
+
+    function safeImgPath(img) {
+      return (typeof img === 'string' && MVP_IMG_WHITELIST.test(img)) ? img : null;
+    }
+
     async function getQuestionFromDB() {
       let ageGrp;
       if (playerAge <= 7) ageGrp = "6_7";
@@ -217,9 +245,7 @@ import { getUniqueFalses, rand, shuffle, missionPeriodKeys, saveP } from './ui.j
       
       if (!dbCache[ageGrp]) {
         try {
-          const response = await fetch('assets/data/db_' + ageGrp + '.json');
-          if (!response.ok) throw new Error('Network response was not ok');
-          dbCache[ageGrp] = await response.json();
+          dbCache[ageGrp] = await loadAgeDB(ageGrp);
         } catch (e) {
           console.error('Failed to load lazy DB', e);
         }
@@ -234,7 +260,7 @@ import { getUniqueFalses, rand, shuffle, missionPeriodKeys, saveP } from './ui.j
       if (cats.length === 0) cats = Object.keys(dbAge);
       
       let cat = cats.length > 0 ? cats[Math.floor(Math.random() * cats.length)] : null;
-      let qs = cat ? dbAge[cat] : null;
+      let qs = (cat && Array.isArray(dbAge[cat])) ? dbAge[cat] : null;
       
       // Fallback a QUESTIONS legacy si no hay datos en NEW_DB para esta categoría
       if (!qs || qs.length === 0) {
@@ -244,7 +270,7 @@ import { getUniqueFalses, rand, shuffle, missionPeriodKeys, saveP } from './ui.j
       }
       
       // Filter corrupted questions (must have exactly 4 opts, correct index in range)
-      qs = qs.filter(q => q.opts && q.opts.length === 4 && q.correct >= 0 && q.correct < 4);
+      qs = qs.filter(q => q && Array.isArray(q.opts) && q.opts.length === 4 && q.correct >= 0 && q.correct < 4);
       if (qs.length === 0) {
         let legacyQ = pickFromPool(cat);
         if (legacyQ) return legacyQ;
@@ -264,7 +290,7 @@ import { getUniqueFalses, rand, shuffle, missionPeriodKeys, saveP } from './ui.j
       let correctText = opts[q.correct];
       opts.sort(() => Math.random() - 0.5);
       
-      return {
+      const result = {
         m: "🤔",
         q: cleanQuestionText(q.q),
         c: correctText,
@@ -273,6 +299,10 @@ import { getUniqueFalses, rand, shuffle, missionPeriodKeys, saveP } from './ui.j
         explain: "La respuesta correcta es: " + correctText,
         time: q.time || 30
       };
+      // Ilustración opcional (MVP Tier 1): solo rutas locales validadas por whitelist
+      const img = safeImgPath(q.img);
+      if (img) result.img = img;
+      return result;
     }
 
     const Generators = {

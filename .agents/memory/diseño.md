@@ -407,3 +407,22 @@ Durante la campaña de QA de la Suite 2 (Asset Integrity), se detectaron **2 ass
 - [x] **Mitigación de Estrés Visual:** Se reescribieron las variables `--danger` (`#FF8A65`) y `--danger-dark` (`#D84315`) exclusivamente para Tier 1. El feedback de error (botones rojos, barra de tiempo) ahora usa tonos salmón amigables que previenen la ansiedad visual, reduciendo el "shake" a un simple estímulo amigable.
 - [x] **Accesibilidad Básica (A11y):** Añadidos `aria-label` descriptivos a los 6 botones del menú circular en `v51_modular.html` (`cb-1` a `cb-6`), y verificado el soporte global de `:focus-visible` y `prefers-reduced-motion` en la UI base.
 
+
+---
+
+## 🎮 GAMEPLAY T1: ILUSTRACIÓN CLAY + LAYOUT EQUILIBRADO + COMODINES CLAY (2026-10-03) — ✅ EJECUTADO
+
+**Archivo tocado:** `css/tiers/tier1.css` (bloque nuevo al final: "GAMEPLAY T1 — LAYOUT EQUILIBRADO + ILUSTRACIÓN CLAY + COMODINES CLAY"). `css/game.css` NO se modificó (todo es específico de Tier 1).
+**Selector raíz usado:** `html.age-tier-1` (la clase vive en `<html>`, no en `<body>`; `body.age-tier-1` NO matchea).
+
+- **Tokens locales** en `html.age-tier-1 #game`: `--t1-clay-white`, `--t1-clay-edge`, `--t1-clay-depth`, `--t1-clay-drop`, `--t1-game-max` (1180px), `--t1-illus-size`, `--t1-ans-min-h`.
+- **Ilustración** `.q-media.has-img .q-illustration` (la inserta `renderQuestionMedia` en `js/game.js`): cuadrada (`aspect-ratio:1/1`, `object-fit:contain`), borde blanco 6px, radio 34px, contorno pastel + sombra offset 9px tipo plastilina, animación `t1IllusSquishIn` (0.55s) desactivada con `prefers-reduced-motion`. Tamaños: landscape `min(360px,40vh,30vw)`, tablet portrait `min(300px,32vh)`, móvil ≤480 `min(220px,56vw,28vh)`, landscape bajo `min(220px,34vh,28vw)`.
+- **Layout**: header/powerups/timer limitados a 1180px y centrados. `.game-layout` columna centrada (máx 640px) en portrait; en landscape fila con `.left-col`/`.right-col` `flex:1 1 0` (máx 560px c/u) → elimina el ~60% de vacío lateral. Centrado vertical con márgenes `auto` (no recorta si desborda) + `overflow-y:auto` de seguridad.
+- **Sin imagen**: `#qMedia` emoji grande (`clamp(34px,6vh,56px)`), `:empty` oculto, tarjeta centrada.
+- **Respuestas** `.btn-ans`: min-height variable (72px base, `clamp(72px,15vh,124px)` landscape, 64px móvil), texto con `overflow-wrap:anywhere`.
+- **Comodines** `.pw-btn`: fondo claro (blanco→`--bg-secondary`), borde blanco, sombra offset azul pastel; `.has-qty` amarillo pastel (`--btn-primary`) con sombra `--primary-dark`; sin stock: opacidad 0.75 + desaturado (nunca oscuro). `.pw-qty` pastilla `--accent` con borde blanco. Área táctil ≥ 44px (52px base, 48px móvil, 44px landscape bajo).
+- **`:has()`** (mejora progresiva): con imagen, la mascota se compacta en móvil y se oculta en landscape bajo.
+
+**Pendientes / riesgos:**
+- `.pw-btn` es `<div onclick>` (js/game.js, dominio Arquitecto): no es focusable por teclado → sugerir `<button type="button">` al Arquitecto.
+- Verificar visualmente con imágenes reales de `assets/preguntas/t1_mvp/` en 1280×800, 1024×768, 390×844 y 844×390 (Tester).
