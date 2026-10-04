@@ -35,12 +35,39 @@ let playerAge = window.playerAge;
     }
     function pokeMascot() {
       const b = document.getElementById('mascotBubble');
+      if (!b) return;
       const lang = profile.gameLang || 'es';
-      b.innerHTML = Math.random() < 0.25 ? getSeasonPhrase(lang) : rand(PET_PHRASES[lang]); // XSS-ACCEPTED: constante interna
-      b.innerHTML += `<div style="position:absolute; top:50%; right:-6px; transform:translateY(-50%) rotate(-45deg); width:10px; height:10px; background:#fff; border-bottom:2px solid #ccc; border-right:2px solid #ccc;"></div>`; // XSS-ACCEPTED: constante interna
-      b.style.opacity = 1;
-      b.style.transform = "translateX(-10px)";
-      setTimeout(() => { b.style.opacity = 0; b.style.transform = "translateX(0)"; }, 3000);
+      const phrases = {
+        es: [
+          '¿Qué jugamos hoy?',
+          '¡Vamos a explorar las islas!',
+          '¡Qué alegría verte de nuevo!',
+          '¡Tenemos una nueva misión juntos!',
+          '¡Tu mente es brillante!',
+          '¡Listo para la aventura!',
+          '¡Cada desafío te hace más fuerte!'
+        ],
+        en: [
+          'What shall we play today?',
+          'Let’s explore the islands!',
+          'So happy to see you!',
+          'We have a new mission together!',
+          'Your mind is brilliant!',
+          'Ready for adventure!',
+          'Every challenge makes you stronger!'
+        ]
+      };
+      const pList = phrases[lang] || phrases.es;
+      const t = pList[Math.floor(Math.random() * pList.length)];
+      const txtEl = document.getElementById('mascotSpeechText');
+      if (txtEl) txtEl.textContent = t;
+      else b.textContent = t;
+
+      b.style.opacity = '1';
+      b.style.transform = 'translateY(-6px) scale(1.05)';
+      setTimeout(() => {
+        b.style.transform = 'translateY(0) scale(1)';
+      }, 350);
     }
 
     function nav(id) {
@@ -454,7 +481,11 @@ let playerAge = window.playerAge;
       try { applyAgeTier(playerAge); } catch(e){}
       applyLang();
       try { 
-        document.getElementById('homeMascot').innerHTML = `<img src="${getMascotImagePath(profile.equipM, profile.equipH)}" alt="${profile.equipM}">`; 
+        if (profile.equipM && profile.equipM !== 'm_panda' && profile.equipM !== 'panda') {
+          document.getElementById('homeMascot').innerHTML = `<img src="${getMascotImagePath(profile.equipM, profile.equipH)}" alt="${profile.equipM}">`;
+        } else {
+          document.getElementById('homeMascot').innerHTML = '';
+        }
       } catch(e){}
       try { applyAccessory(document.getElementById('homeHat'), profile.equipH, profile.equipM, 'home'); } catch(e){}
       try { renderBadgesPreview(); } catch(e){}
@@ -755,10 +786,29 @@ let playerAge = window.playerAge;
       setEl('lblApp', t.app); setEl('lblProf', t.prof); setEl('lblLang', t.lang); setEl('btnSave', t.save);
       setEl('lblYears', t.age);
 
-      let hn = document.querySelector('.home-top-bar h3');
-      if(hn) {
-        hn.innerHTML = `${t.hi}, <span id="playerNameDisplay"></span>!`; // XSS-ACCEPTED: constante interna
-        document.getElementById('playerNameDisplay').textContent = profile.playerName || localStorage.getItem('pm_playerName') || 'Jugador';
+      let pName = profile.playerName || localStorage.getItem('pm_playerName') || 'Sofía';
+      let pAge = profile.playerAge || localStorage.getItem('pm_playerAge') || '8';
+      let nd = document.getElementById('playerNameDisplay'); if(nd) nd.textContent = pName;
+      let ad = document.getElementById('playerAgeDisplay'); if(ad) ad.textContent = pAge;
+
+      // Reto Panda v1.0.1: XP, Nivel y Rango
+      const stars = profile.stars || parseInt(localStorage.getItem('pm_stars') || '0', 10);
+      const level = Math.max(1, Math.floor(stars / 25) + 1);
+      const curXp = (stars % 25) * 20;
+      const nextXp = 500;
+      const xpPct = Math.min(100, Math.round((curXp / nextXp) * 100));
+
+      const lvlEl = document.getElementById('playerLevelDisplay');
+      if (lvlEl) lvlEl.innerText = level;
+      const xpFill = document.getElementById('playerXpFill');
+      if (xpFill) xpFill.style.width = Math.max(12, xpPct) + '%';
+      const xpText = document.getElementById('playerXpText');
+      if (xpText) xpText.innerText = `${curXp} / ${nextXp} XP`;
+
+      const rankEl = document.getElementById('playerRankDisplay');
+      if (rankEl) {
+        const ranks = ['Exploradora', 'Aventurera', 'Descubridora', 'Gran Maestra'];
+        rankEl.innerText = ranks[Math.min(ranks.length - 1, Math.floor(level / 3))];
       }
 
       setByQuery('.star-showcase .mini-label', t.stars); setByQuery('.star-showcase .star-lbl', t.stars);
@@ -1181,6 +1231,23 @@ window.goHome = goHome;
 window.getMascotImagePath = getMascotImagePath;
 window.toggleAmbient = toggleAmbient;
 window.openParentReport = openParentReport;
+
+function claimDailyChest() {
+  if (typeof window.sfxWin === 'function') window.sfxWin();
+  if (typeof createParticles === 'function') createParticles();
+  const chestImg = document.getElementById('dailyChestImg');
+  if (chestImg) {
+    chestImg.src = 'assets/interface/chest_golden_open.webp';
+    chestImg.style.transform = 'scale(1.15)';
+  }
+  profile.stars = (profile.stars || 0) + 50;
+  saveP();
+  updateStarUI();
+  if (typeof showToast === 'function') {
+    showToast('🎉 ¡Cofre reclamado! +50 ⭐');
+  }
+}
+window.claimDailyChest = claimDailyChest;
 // NOTA: window.toggleAudio lo exporta game.js → no crear alias aquí
 
 // -----------------------------------------------------------------------------

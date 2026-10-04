@@ -11,7 +11,10 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/webp" href="assets/mascotas/tier1/m_panda.webp">
   <link rel="apple-touch-icon" href="assets/mascotas/tier1/m_panda.webp">
-  <title>Reto Panda V1</title>
+  <title>Reto Panda v1.0.1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -230,179 +233,110 @@
 
 
   <!-- ============================================================
-       HOME
+       HOME: AVENTURA DE MOCHI EN LAS ISLAS FLOTANTES (v1.0.1)
        ============================================================ -->
   <div id="home" class="screen home-screen">
-    <header class="home-top-bar">
-      <div>
-        <h2 class="home-header-title">🐼 Mochi</h2>
-        <h3 class="home-header-subtitle">¡Hola, <span id="playerNameDisplay">Jugador</span>!</h3>
-        <p class="home-header-age"><span>(<span id="playerAgeDisplay">7</span> <span id="lblYears">años</span>)</span></p>
-      </div>
-      <div class="star-showcase star-showcase-compact">
-        <div>
-          <div class="star-lbl">Estrellas</div>
-          <div class="star-big">⭐ <span id="homeStarsBig">0</span></div>
-        </div>
-        <div class="star-icon">🌟</div>
-      </div>
-    </header>
+    <div class="hub-stage">
 
-    <main class="home-main-area">
-      <div class="circular-menu-wrapper">
-        <div class="circular-menu">
-
-          <button type="button" class="hub-mascot-container"
-                  onclick="safeCall('pokeMascot')"
-                  aria-label="Hablar con Mochi">
-            <div id="mascotBubble" class="hub-bubble">Hola!</div>
-            <div id="homeMascot" class="hub-mascot">🐼</div>
-            <div id="homeHat" class="hub-hat"></div>
-          </button>
-
-          <!-- FIX: checkIntroPopup() y nav() eran module-scoped → safeCall -->
-          <button type="button" class="circle-btn cb-1"
-                  onclick="safeCall('checkIntroPopup'); safeCall('nav', 'mapScreen')"
-                  aria-label="Ir a Mundos">
-            <div class="cb-icon">🗺️</div>
-            <span class="cb-text-flat">MUNDOS</span>
-            <svg class="cb-text-svg" viewBox="0 0 100 100">
-              <path id="curve-1" d="M 13,50 A 37,37 0 0,0 87,50" fill="transparent" />
-              <text><textPath href="#curve-1" startOffset="50%" text-anchor="middle">MUNDOS</textPath></text>
-            </svg>
-          </button>
-          <button type="button" class="circle-btn cb-2"
-                  onclick="safeCall('checkIntroPopup'); safeCall('nav', 'setup')"
-                  aria-label="Ir a Modo Libre">
-            <div class="cb-icon">🎲</div>
-            <span class="cb-text-flat">LIBRE</span>
-            <svg class="cb-text-svg" viewBox="0 0 100 100">
-              <path id="curve-2" d="M 13,50 A 37,37 0 0,0 87,50" fill="transparent" />
-              <text><textPath href="#curve-2" startOffset="50%" text-anchor="middle">LIBRE</textPath></text>
-            </svg>
-          </button>
-          <button type="button" class="circle-btn cb-3"
-                  onclick="safeCall('navShop')"
-                  aria-label="Ir a Tienda">
-            <div class="cb-icon">🛒</div>
-            <span class="cb-text-flat">TIENDA</span>
-            <svg class="cb-text-svg" viewBox="0 0 100 100">
-              <path id="curve-3" d="M 13,50 A 37,37 0 0,0 87,50" fill="transparent" />
-              <text><textPath href="#curve-3" startOffset="50%" text-anchor="middle">TIENDA</textPath></text>
-            </svg>
-          </button>
-          <button type="button" class="circle-btn cb-4"
-                  onclick="safeCall('showStats')"
-                  aria-label="Ver Destrezas">
-            <div class="cb-icon">📊</div>
-            <span class="cb-text-flat">DESTREZAS</span>
-            <svg class="cb-text-svg" viewBox="0 0 100 100">
-              <path id="curve-4" d="M 13,50 A 37,37 0 0,0 87,50" fill="transparent" />
-              <text><textPath href="#curve-4" startOffset="50%" text-anchor="middle">DESTREZAS</textPath></text>
-            </svg>
-          </button>
-          <button type="button" class="circle-btn cb-5"
-                  onclick="safeCall('openLogros')"
-                  aria-label="Ver Logros">
-            <div class="cb-icon">🏆</div>
-            <span class="cb-text-flat">LOGROS</span>
-            <svg class="cb-text-svg" viewBox="0 0 100 100">
-              <path id="curve-5" d="M 13,50 A 37,37 0 0,0 87,50" fill="transparent" />
-              <text><textPath href="#curve-5" startOffset="50%" text-anchor="middle">LOGROS</textPath></text>
-            </svg>
-          </button>
-          <button type="button" class="circle-btn cb-6"
-                  onclick="safeCall('openSettings')"
-                  aria-label="Abrir Ajustes">
-            <div class="cb-icon">⚙️</div>
-            <span class="cb-text-flat">AJUSTES</span>
-            <svg class="cb-text-svg" viewBox="0 0 100 100">
-              <path id="curve-6" d="M 13,50 A 37,37 0 0,0 87,50" fill="transparent" />
-              <text><textPath href="#curve-6" startOffset="50%" text-anchor="middle">AJUSTES</textPath></text>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- ============================================================
-           TABLERO DE MISIONES DE PLASTILINA (Tier 1 Clay World)
-           ============================================================ -->
-      <aside class="home-missions-slab" aria-label="Tablero de Misiones de Plastilina">
-        <div class="missions-slab-inner">
-          <div class="missions-slab-header">
-            <div class="missions-tab-pill">
-              <span class="tab-pill-icon">📅</span> SEMANALES <span class="tab-pill-arrow">▾</span>
-            </div>
+      <!-- 1. TOP BAR -->
+      <header class="hub-header">
+        <div class="hub-profile-card" onclick="safeCall('showStats')" role="button" tabindex="0" aria-label="Abrir Perfil y Destrezas">
+          <div class="hub-avatar-wrap">
+            <img src="assets/interface/avatar_mochi_round.webp" alt="Avatar de Mochi" class="hub-avatar-img">
           </div>
-          <div class="missions-list">
-            <div class="mission-roll">
-              <div class="mission-roll-info">
-                <span class="m-title">Juega 20 partidas</span>
-                <span class="m-reward">+180 ⭐</span>
+          <div class="hub-profile-info">
+            <h1 class="hub-greeting">¡Hola, <span id="playerNameDisplay">Sofía</span>!</h1>
+            <p class="hub-subline"><span id="playerAgeDisplay">8</span> <span id="lblYears">años</span> · <span id="playerRankDisplay">Exploradora</span></p>
+            <div class="hub-xp-container">
+              <span class="hub-level-badge">★ <span id="playerLevelDisplay">12</span></span>
+              <div class="hub-xp-track" role="progressbar" aria-valuenow="320" aria-valuemin="0" aria-valuemax="600" aria-label="Progreso XP">
+                <div class="hub-xp-fill" id="playerXpFill" style="width: 53%;"></div>
+                <span class="hub-xp-label" id="playerXpText">320 / 600 XP</span>
               </div>
-              <div class="m-progress-pill">4/20</div>
-            </div>
-            <div class="mission-roll">
-              <div class="mission-roll-info">
-                <span class="m-title">Acierta 40 de Matemáticas</span>
-                <span class="m-reward">+220 ⭐</span>
-              </div>
-              <div class="m-progress-pill">1/40</div>
-            </div>
-            <div class="mission-roll">
-              <div class="mission-roll-info">
-                <span class="m-title">Logra una racha de 20</span>
-                <span class="m-reward">+260 ⭐</span>
-              </div>
-              <div class="m-progress-pill">1/20</div>
-            </div>
-            <div class="mission-roll">
-              <div class="mission-roll-info">
-                <span class="m-title">Supera 3 mundos</span>
-                <span class="m-reward">+240 ⭐</span>
-              </div>
-              <div class="m-progress-pill">0/3</div>
-            </div>
-            <div class="mission-roll">
-              <div class="mission-roll-info">
-                <span class="m-title">Usa 5 comodines</span>
-                <span class="m-reward">+160 ⭐</span>
-              </div>
-              <div class="m-progress-pill">0/5</div>
-            </div>
-          </div>
-
-          <div class="missions-slab-header missions-header-secondary">
-            <div class="missions-tab-pill">
-              <span class="tab-pill-icon">📅</span> MENSUALES <span class="tab-pill-arrow">▾</span>
-            </div>
-          </div>
-          <div class="missions-list">
-            <div class="mission-roll">
-              <div class="mission-roll-info">
-                <span class="m-title">Juega 80 partidas</span>
-                <span class="m-reward">+520 ⭐</span>
-              </div>
-              <div class="m-progress-pill">4/80</div>
-            </div>
-            <div class="mission-roll mission-roll-hero">
-              <div class="mission-roll-info">
-                <span class="m-title">Acierta 150 de Matemáticas</span>
-                <span class="m-reward">+650 ⭐</span>
-              </div>
-              <div class="m-progress-pill">1/150</div>
-            </div>
-            <div class="mission-roll">
-              <div class="mission-roll-info">
-                <span class="m-title">Resuelve 100 de lógica</span>
-                <span class="m-reward">+560 ⭐</span>
-              </div>
-              <div class="m-progress-pill">0/100</div>
             </div>
           </div>
         </div>
-      </aside>
-    </main>
+
+        <div class="hub-top-actions">
+          <button type="button" class="hub-star-pill" onclick="safeCall('navShop')" aria-label="Ir a Tienda">
+            <img src="assets/badges/star_3d_glossy.webp" alt="Estrellas" class="hub-star-img">
+            <span class="hub-star-val" id="homeStarsBig">128</span>
+            <span class="hub-star-plus" aria-hidden="true">+</span>
+          </button>
+          <button type="button" class="hub-settings-btn" onclick="safeCall('openSettings')" aria-label="Abrir Ajustes">
+            <img src="assets/iconos/ico_gear_3d.webp" alt="Ajustes" class="hub-gear-img">
+          </button>
+        </div>
+      </header>
+
+      <!-- 2. HERO SCENE: MOCHI + SPEECH BUBBLE -->
+      <section class="hub-hero-section">
+        <div class="hub-speech-bubble" id="mascotBubble" onclick="safeCall('pokeMascot')">
+          <p id="mascotSpeechText">¿Qué jugamos hoy?</p>
+        </div>
+        <div class="hub-mochi-wrapper" id="homeMascot" onclick="safeCall('pokeMascot')" role="button" tabindex="0" aria-label="Hablar con Mochi">
+          <!-- Zona táctil de Mochi -->
+        </div>
+      </section>
+
+      <!-- 3. MAIN ACTIONS (MUNDOS & JUEGO LIBRE) -->
+      <nav class="hub-actions-nav" aria-label="Acciones principales">
+        <button type="button" class="hub-btn-action hub-btn-mundos"
+                onclick="safeCall('checkIntroPopup'); safeCall('nav', 'mapScreen')"
+                aria-label="Ir a Mundos">
+          <img src="assets/interface/btn_mundos_clay.webp" alt="Mundos" class="hub-btn-clay-img">
+        </button>
+
+        <button type="button" class="hub-btn-action hub-btn-libre"
+                onclick="safeCall('checkIntroPopup'); safeCall('nav', 'setup')"
+                aria-label="Ir a Modo Libre">
+          <img src="assets/interface/btn_libre_clay.webp" alt="Juego libre" class="hub-btn-clay-img">
+        </button>
+      </nav>
+
+      <!-- 4. BENTO MISSION CARD -->
+      <section class="hub-bento-card" aria-label="Misión de hoy">
+        <div class="hub-bento-header">
+          <div class="hub-bento-badge">
+            <img src="assets/iconos/ico_target_3d.webp" alt="" class="hub-target-ico">
+            <span>Misión de hoy</span>
+          </div>
+        </div>
+        <div class="hub-bento-body">
+          <div class="hub-bento-tasks">
+            <!-- Reto 1: Matemáticas -->
+            <div class="hub-task-row">
+              <img src="assets/iconos/ico_mission_math_3d.webp" alt="" class="hub-task-ico">
+              <div class="hub-task-info">
+                <span class="hub-task-title">Completa 5 desafíos de Matemáticas</span>
+                <div class="hub-task-bar">
+                  <div class="hub-task-bar-fill" id="m1BarFill" style="width: 40%;"></div>
+                </div>
+              </div>
+              <span class="hub-task-count" id="m1Count">2 / 5</span>
+            </div>
+
+            <!-- Reto 2: Estrellas -->
+            <div class="hub-task-row">
+              <img src="assets/badges/star_3d_glossy.webp" alt="" class="hub-task-ico">
+              <div class="hub-task-info">
+                <span class="hub-task-title">Consigue 20 estrellas</span>
+                <div class="hub-task-bar">
+                  <div class="hub-task-bar-fill" id="m2BarFill" style="width: 40%;"></div>
+                </div>
+              </div>
+              <span class="hub-task-count" id="m2Count">8 / 20</span>
+            </div>
+          </div>
+
+          <!-- Cofre 3D de Recompensa -->
+          <button type="button" class="hub-chest-btn" id="dailyChestBtn" onclick="safeCall('claimDailyChest')" aria-label="Cofre de recompensa diaria">
+            <img src="assets/interface/chest_golden_closed.webp" alt="Cofre del tesoro" class="hub-chest-img" id="dailyChestImg">
+          </button>
+        </div>
+      </section>
+
+    </div>
   </div>
 
 

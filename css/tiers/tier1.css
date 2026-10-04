@@ -14,6 +14,8 @@ html.age-tier-1 body {
   font-weight: 800;
   color: var(--text-main);
   background: #b3e5fc; /* Cielo azul suave */
+  overflow-x: hidden !important;
+  max-width: 100vw;
   
   /* Mitigación de Estrés Visual: Rojos más suaves (Pastel/Salmón) para evitar ansiedad */
   --danger: #FF8A65;
@@ -40,13 +42,15 @@ html.age-tier-1 {
 }
 
 /* Nubes en movimiento y Marcos Clay (Solo Tier 1) */
-html.age-tier-1 .bg-clouds-layer {
+html.age-tier-1 .bg-clouds-layer,
+.bg-clouds-layer {
   position: fixed;
   top: 0; left: 0;
-  width: 100%; height: 100%;
+  width: 100vw; height: 100vh;
+  max-width: 100vw;
   pointer-events: none;
   z-index: 0;
-  overflow: hidden;
+  overflow: hidden !important;
   display: block !important;
 }
 
@@ -102,7 +106,7 @@ html.age-tier-1 .bg-cloud.c3 {
 }
 
 html.age-tier-1 .bg-cloud.c4 {
-  top: 48%; right: -5%;
+  top: 48%; right: 4%;
   width: min(36vw, 170px); height: min(22vw, 102px);
   background-image: url('../../assets/fondos/tier1/cloud_clay1.webp') !important;
   animation: cloudDrift1 22s infinite ease-in-out;
@@ -168,7 +172,7 @@ html.age-tier-1 .bg-cloud.c12 {
 /* Animaciones de derivación de nubes */
 @keyframes cloudDrift1 {
   0%, 100% { transform: translateX(0) translateY(0); }
-  50% { transform: translateX(8vw) translateY(-4px); }
+  50% { transform: translateX(-4vw) translateY(-4px); }
 }
 @keyframes cloudDrift2 {
   0%, 100% { transform: translateX(0) translateY(0); }

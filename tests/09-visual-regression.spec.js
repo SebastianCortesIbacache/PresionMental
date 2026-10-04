@@ -16,18 +16,18 @@ test.describe('Suite 9: Regresión Visual y Fidelidad Estética (Juicy Clay Worl
     await page.setViewportSize({ width: 1280, height: 800 });
     await ensureHome(page);
 
-    // 1. Validar que el Tablero de Misiones existe, es visible y no está comprimido
-    const missionSlab = page.locator('.home-missions-slab');
-    await expect(missionSlab).toBeVisible();
-    const slabBox = await missionSlab.boundingBox();
-    expect(slabBox.width).toBeGreaterThanOrEqual(400);
-    expect(slabBox.height).toBeGreaterThanOrEqual(350);
+    // 1. Validar que la Tarjeta Bento de Misiones existe, es visible y no está comprimida
+    const bentoCard = page.locator('.hub-bento-card');
+    await expect(bentoCard).toBeVisible();
+    const bentoBox = await bentoCard.boundingBox();
+    expect(bentoBox.width).toBeGreaterThanOrEqual(300);
+    expect(bentoBox.height).toBeGreaterThanOrEqual(120);
 
-    // 2. Validar que la Rueda de Comandos está a la izquierda sin solapar el tablero
-    const wheelContainer = page.locator('.circular-menu, .circular-menu-wrapper').first();
-    await expect(wheelContainer).toBeVisible();
-    const wheelBox = await wheelContainer.boundingBox();
-    expect(wheelBox.x).toBeLessThan(slabBox.x);
+    // 2. Validar que la botonera de acciones principales está visible y sobre la tarjeta bento
+    const actionsNav = page.locator('.hub-actions-nav');
+    await expect(actionsNav).toBeVisible();
+    const navBox = await actionsNav.boundingBox();
+    expect(navBox.y).toBeLessThan(bentoBox.y);
 
     // 3. Capturar instantánea de inspección
     await page.screenshot({ path: 'tests/snapshots/home-desktop-latest.png', fullPage: true });

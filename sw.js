@@ -1,7 +1,7 @@
 // Reto Panda V1 — Service Worker (Agente Release)
 // v6: precache del banco MVP Tier 1 + ilustraciones MVP,
 // CSS reales de index.html y caché en runtime (cache.put).
-const CACHE_NAME = 'reto-panda-v6';
+const CACHE_NAME = 'reto-panda-v1.0.1';
 
 // IMPORTANTE: cada ruta de esta lista DEBE existir en disco.
 // Si una sola falla, cache.addAll() rechaza y la instalación del SW se invalida.
@@ -44,7 +44,21 @@ const CORE_ASSETS = [
   './assets/interface/splash_icons/world_cohete.webp',
   './assets/interface/onboarding_hero.webp',
   './assets/interface/icon_cloud.webp',
-  './assets/interface/icon_star_clay.webp'
+  './assets/interface/icon_star_clay.webp',
+  // Assets Home: Aventura de Mochi Islas Flotantes (v1.0.1)
+  './assets/fondos/tier1/hub_islas_scene.webp',
+  './assets/interface/avatar_mochi_round.webp',
+  './assets/iconos/ico_mundos_isla_3d.webp',
+  './assets/iconos/ico_juego_libre_gamepad_3d.webp',
+  './assets/interface/btn_mundos_clay.webp',
+  './assets/interface/btn_libre_clay.webp',
+  './assets/interface/chest_golden_closed.webp',
+  './assets/interface/chest_golden_open.webp',
+  './assets/badges/star_3d_glossy.webp',
+  './assets/iconos/ico_target_3d.webp',
+  './assets/iconos/ico_gear_3d.webp',
+  './assets/iconos/ico_mission_math_3d.webp',
+  './assets/interface/hero_mochi_diorama.webp'
 ];
 
 // Ilustraciones MVP referenciadas en db_mvp_6_7.json (campo `img`).

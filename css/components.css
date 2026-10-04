@@ -580,3 +580,484 @@
   z-index: 2;
   pointer-events: none;
 }
+
+/* ==========================================================================
+   HUB PRINCIPAL: AVENTURA DE MOCHI EN LAS ISLAS FLOTANTES (v1.0.1)
+   ========================================================================== */
+.hub-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 100dvh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 12px 16px 14px 16px;
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+  font-family: var(--font-lexend, 'Nunito', sans-serif);
+}
+
+/* --- 1. TOP BAR --- */
+.hub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  z-index: 20;
+}
+
+.hub-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--c-hub-card, #FFFDF6);
+  border: 3px solid var(--c-hub-card-border, #182A44);
+  border-radius: 40px;
+  padding: 6px 14px 6px 6px;
+  box-shadow: 0 5px 0 rgba(24, 42, 68, 0.16);
+  flex: 1;
+  max-width: 290px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.hub-profile-card:hover {
+  transform: translateY(-2px);
+}
+
+.hub-avatar-wrap {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.18);
+  overflow: hidden;
+  background: #BCE2FF;
+}
+.hub-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hub-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+.hub-greeting {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--c-hub-ink, #1D2540);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hub-subline {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #556987;
+  line-height: 1.1;
+}
+
+.hub-xp-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+}
+.hub-level-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-hub-star, #FFC93C);
+  border: 2px solid #E5AC00;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #1D2540;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+.hub-xp-track {
+  position: relative;
+  background: #182A44;
+  border-radius: 10px;
+  height: 12px;
+  width: 110px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hub-xp-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: linear-gradient(90deg, #3FA9F5, #00D2FF);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+.hub-xp-label {
+  position: relative;
+  z-index: 2;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 auto;
+  letter-spacing: -0.2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.hub-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hub-star-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--c-hub-card, #FFFDF6);
+  border: 3px solid var(--c-hub-card-border, #182A44);
+  border-radius: 24px;
+  padding: 8px 12px;
+  min-height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 0 rgba(24, 42, 68, 0.16);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.15s;
+}
+.hub-star-pill:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgba(24, 42, 68, 0.16);
+}
+.hub-star-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+.hub-star-val {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--c-hub-ink, #1D2540);
+}
+.hub-star-plus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2FB877;
+  color: #FFFFFF;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.hub-settings-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-hub-card, #FFFDF6);
+  border: 3px solid var(--c-hub-card-border, #182A44);
+  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 0 rgba(24, 42, 68, 0.16);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.15s;
+}
+.hub-settings-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgba(24, 42, 68, 0.16);
+}
+.hub-gear-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* --- 2. HERO SECTION --- */
+.hub-hero-section {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 240px;
+  max-height: 380px;
+  background: url('../assets/interface/hero_mochi_diorama.webp') no-repeat center center;
+  background-size: cover;
+  border: 4px solid var(--c-hub-card-border, #182A44);
+  border-radius: 36px;
+  box-shadow: 0 8px 0 rgba(24, 42, 68, 0.18);
+  margin: 6px 0 10px 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hub-speech-bubble {
+  pointer-events: auto;
+  position: absolute;
+  top: 35px;
+  right: 25px;
+  background: #FFFFFF;
+  border: 3.5px solid var(--c-hub-card-border, #182A44);
+  border-radius: 28px;
+  padding: 8px 16px;
+  box-shadow: 0 5px 0 rgba(24, 42, 68, 0.15);
+  animation: bubbleFloat 4s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 15;
+  text-align: center;
+}
+.hub-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 28px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #FFFFFF transparent;
+  display: block;
+  width: 0;
+}
+.hub-speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 26px;
+  border-width: 12px 12px 0;
+  border-style: solid;
+  border-color: var(--c-hub-card-border, #182A44) transparent;
+  display: block;
+  width: 0;
+}
+.hub-speech-bubble p {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--c-hub-ink, #1D2540);
+}
+
+@keyframes bubbleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.hub-mochi-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 240px;
+  height: 240px;
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.hub-mochi-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* --- 3. MAIN ACTIONS (MUNDOS & JUEGO LIBRE) --- */
+.hub-actions-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 12px;
+  z-index: 10;
+}
+
+.hub-btn-action {
+  flex: 1;
+  max-width: 195px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 6px 12px rgba(24, 42, 68, 0.22));
+}
+
+.hub-btn-action:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.hub-btn-action:active {
+  transform: translateY(5px) scale(0.96);
+  filter: drop-shadow(0 2px 4px rgba(24, 42, 68, 0.25));
+}
+
+.hub-btn-clay-img {
+  width: 100%;
+  height: auto;
+  max-height: 125px;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+/* --- 4. BENTO MISSION CARD --- */
+.hub-bento-card {
+  position: relative;
+  background: var(--c-hub-card, #FFFDF6);
+  border: 4px solid var(--c-hub-card-border, #182A44);
+  border-radius: 32px;
+  box-shadow: 0 8px 0 rgba(24, 42, 68, 0.18);
+  padding: 18px 20px 16px 20px;
+  width: 100%;
+  min-height: 140px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.hub-bento-header {
+  position: absolute;
+  top: -18px;
+  left: 20px;
+}
+.hub-bento-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--c-hub-star, #FFC93C);
+  border: 3px solid var(--c-hub-card-border, #182A44);
+  border-radius: 20px;
+  padding: 4px 14px;
+  box-shadow: 0 4px 0 rgba(24, 42, 68, 0.15);
+}
+.hub-target-ico {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.hub-bento-badge span {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--c-hub-ink, #1D2540);
+}
+
+.hub-bento-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hub-bento-tasks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hub-task-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hub-task-ico {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  object-fit: contain;
+}
+.hub-task-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.hub-task-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--c-hub-ink, #1D2540);
+  line-height: 1.15;
+}
+.hub-task-bar {
+  background: #E2E8F0;
+  border-radius: 8px;
+  height: 10px;
+  width: 100%;
+  overflow: hidden;
+}
+.hub-task-bar-fill {
+  background: linear-gradient(90deg, #4CE08D, #2FB877);
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+.hub-task-count {
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: var(--c-hub-ink, #1D2540);
+  min-width: 38px;
+  text-align: right;
+}
+
+.hub-chest-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.hub-chest-btn:hover {
+  transform: scale(1.08);
+}
+.hub-chest-btn:active {
+  transform: scale(0.95);
+}
+.hub-chest-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.18));
+}
+
+/* Responsive Desktop Wrapper */
+@media (min-width: 820px) {
+  .hub-stage {
+    max-width: 480px;
+    height: 94vh;
+    border-radius: 44px;
+    border: 6px solid #182A44;
+    box-shadow: 0 16px 40px rgba(0, 30, 70, 0.3);
+    margin: 3vh auto;
+  }
+}

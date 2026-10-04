@@ -52,6 +52,24 @@ html.age-tier-1,
   --glow-effect:   0 0 0 transparent; /* Sin glow en clay */
 
   --text-main:     #1a237e; /* Azul oscuro */
+
+  /* Aventura de Mochi en las Islas Flotantes (v1.0.1) */
+  --c-hub-sky:          #7EC8F0;
+  --c-hub-sky-light:    #E8F6FF;
+  --c-btn-mundos:       #2FB877;
+  --c-btn-mundos-dark:  #186E44;
+  --c-btn-libre:        #FFA53B;
+  --c-btn-libre-dark:   #C46C00;
+  --c-hub-star:         #FFC93C;
+  --c-hub-xp:           #3FA9F5;
+  --c-hub-ink:          #1D2540;
+  --c-hub-card:         #FFFDF6;
+  --c-hub-card-border:  #182A44;
+  --shadow-clay-mundos: 0 8px 0 0 #186E44;
+  --shadow-clay-libre:  0 8px 0 0 #C46C00;
+  --shadow-clay-card:   0 8px 0 0 rgba(24, 42, 68, 0.18);
+  --shadow-clay-topbar: 0 6px 0 0 rgba(24, 42, 68, 0.15);
+  --font-lexend:        'Lexend', 'Nunito', sans-serif;
 }
 
 /* --------------------------------------------------------------------------

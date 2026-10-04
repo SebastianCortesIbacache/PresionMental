@@ -48,10 +48,11 @@ test.describe('Suite 7: Accesibilidad Automatizada (WCAG 2.1 AA)', () => {
     await page.fill('#ageInput', '7');
     await page.click('.onboarding-btn-vamos', { force: true });
     await expect(page.locator('#home')).toHaveClass(/active/, { timeout: 10000 });
+    await page.waitForTimeout(600); // Esperar que la animación scale(0.9 -> 1.0) termine
 
-    // Verificar tamaño de botones de navegación circular
-    const buttons = await page.locator('.circle-btn').all();
-    expect(buttons.length).toBeGreaterThanOrEqual(6);
+    // Verificar tamaño de botones principales del Hub (acciones, tienda, ajustes, cofre)
+    const buttons = await page.locator('#home button').all();
+    expect(buttons.length).toBeGreaterThanOrEqual(4);
 
     for (const btn of buttons) {
       const box = await btn.boundingBox();
@@ -79,8 +80,8 @@ test.describe('Suite 7: Accesibilidad Automatizada (WCAG 2.1 AA)', () => {
     await page.click('.onboarding-btn-vamos', { force: true });
     await expect(page.locator('#home')).toHaveClass(/active/, { timeout: 10000 });
 
-    // Todos los botones de la rueda deben tener aria-label descriptivo
-    const labels = await page.locator('.circle-btn').evaluateAll(elements => 
+    // Todos los botones interactivos del Home deben tener aria-label descriptivo
+    const labels = await page.locator('#home button').evaluateAll(elements => 
       elements.map(el => el.getAttribute('aria-label') || el.innerText)
     );
     expect(labels.every(l => Boolean(l && l.trim().length > 0))).toBe(true);

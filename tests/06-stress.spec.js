@@ -67,9 +67,9 @@ test.describe('Suite 6: Estrés Pre-Beta', () => {
     await page.click('.onboarding-btn-vamos', { force: true });
     await expect(page.locator('#home')).toHaveClass(/active/, { timeout: 5000 });
 
-    // 4. Verificar que los botones circulares del menú siguen siendo círculos
+    // 4. Verificar que los botones de acción del hub siguen teniendo dimensiones táctiles
     //    (el tamaño no debe colapsar a 0 si la fuente falla)
-    const btn = page.locator('.circle-btn').first();
+    const btn = page.locator('.hub-btn-action').first();
     const btnBox = await btn.boundingBox();
     expect(btnBox).not.toBeNull();
     expect(btnBox.width).toBeGreaterThan(50);  // Mínimo 50px de ancho
