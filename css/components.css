@@ -818,17 +818,26 @@
 .hub-speech-bubble {
   pointer-events: auto;
   position: absolute;
-  top: 35px;
-  right: 25px;
-  background: #FFFFFF;
+  top: 18px;
+  right: 18px;
+  width: 195px;
+  min-height: 90px;
+  background: var(--c-hub-card, #FFFDF6);
   border: 3.5px solid var(--c-hub-card-border, #182A44);
-  border-radius: 28px;
-  padding: 8px 16px;
-  box-shadow: 0 5px 0 rgba(24, 42, 68, 0.15);
-  animation: bubbleFloat 4s ease-in-out infinite;
+  border-radius: 36px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 0 rgba(24, 42, 68, 0.18);
+  opacity: 0;
   cursor: pointer;
   z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.hub-speech-bubble.active {
+  opacity: 1;
 }
 .hub-speech-bubble::after {
   content: '';
@@ -837,7 +846,7 @@
   left: 28px;
   border-width: 10px 10px 0;
   border-style: solid;
-  border-color: #FFFFFF transparent;
+  border-color: var(--c-hub-card, #FFFDF6) transparent;
   display: block;
   width: 0;
 }
@@ -854,7 +863,8 @@
 }
 .hub-speech-bubble p {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
+  line-height: 1.25;
   font-weight: 900;
   color: var(--c-hub-ink, #1D2540);
 }

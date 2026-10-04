@@ -63,11 +63,18 @@ let playerAge = window.playerAge;
       if (txtEl) txtEl.textContent = t;
       else b.textContent = t;
 
+      b.classList.add('active');
       b.style.opacity = '1';
       b.style.transform = 'translateY(-6px) scale(1.05)';
       setTimeout(() => {
         b.style.transform = 'translateY(0) scale(1)';
       }, 350);
+
+      clearTimeout(window._bubbleTimer);
+      window._bubbleTimer = setTimeout(() => {
+        b.style.opacity = '0';
+        b.classList.remove('active');
+      }, 5000);
     }
 
     function nav(id) {
