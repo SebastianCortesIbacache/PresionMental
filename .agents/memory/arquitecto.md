@@ -23,14 +23,14 @@ Todo el equipo de agentes debe alinear su trabajo bajo el nuevo "Strategic Pivot
 # ðŸ�—ï¸� SPRINT CRÃ�TICO PRE-BETA â€” Instrucciones del Consultor (2026-06-24)
 *Estas tareas deben ejecutarse en orden. No avances a la siguiente sin completar la anterior.*
 
-## TAREA 1 â€” Declarar `v51_modular.html` como Ãºnica fuente de verdad âœ… COMPLETADA (2026-06-24)
+## TAREA 1 â€” Declarar `index.html` como Ãºnica fuente de verdad âœ… COMPLETADA (2026-06-24)
 
-**Contexto:** Actualmente existen dos versiones activas (`v51_modular.html` en raÃ­z y `v52_modular/v52_modular.html` en subcarpeta). Esto confunde a los agentes y generÃ³ mÃºltiples inconsistencias. El v52 carga CSS y assets con rutas relativas que no existen dentro de su carpeta, estÃ¡ tÃ©cnicamente roto.
+**Contexto:** Actualmente existen dos versiones activas (`index.html` en raÃ­z y `v52_modular/v52_modular.html` en subcarpeta). Esto confunde a los agentes y generÃ³ mÃºltiples inconsistencias. El v52 carga CSS y assets con rutas relativas que no existen dentro de su carpeta, estÃ¡ tÃ©cnicamente roto.
 
 **Instrucciones precisas:**
 1. **Renombra** la carpeta `v52_modular/` a `_ARCHIVO_v52_modular/` (el prefijo `_ARCHIVO_` la saca del scope activo sin borrarla).
-2. **Verifica** que `v51_modular.html` en la raÃ­z carga correctamente en el navegador con live-server.
-3. **Actualiza la memoria del Tester** aÃ±adiendo: *"El build activo es EXCLUSIVAMENTE `v51_modular.html` en la raÃ­z. Ignorar cualquier referencia a v52."*
+2. **Verifica** que `index.html` en la raÃ­z carga correctamente en el navegador con live-server.
+3. **Actualiza la memoria del Tester** aÃ±adiendo: *"El build activo es EXCLUSIVAMENTE `index.html` en la raÃ­z. Ignorar cualquier referencia a v52."*
 4. **No borres** el contenido de v52 â€” es un checkpoint histÃ³rico, solo archÃ­valo.
 
 ---
@@ -97,7 +97,7 @@ TAREA 2: `sw.js` actualizado a `reto-panda-v3` con `db_6_7.json`, `db_8_10.json`
 TAREA 3: `fbExplain` migrado a `.textContent`; `<br>` en mensajes de error reemplazados por `\n` con `white-space:pre-wrap`; `qData.m` marcado XSS-ACCEPTED.*
 
 > [!IMPORTANT]
-> **Ãšnica Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicaciÃ³n es **`v51_modular.html`**. 
+> **Ãšnica Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicaciÃ³n es **`index.html`**. 
 > Cualquier otra variante o carpeta (como `v52_modular` o `v51_circular_backup`) son **Ãºnicamente respaldos y checkpoints anteriores y no deben modificarse ni ejecutarse**.
 
 ## ðŸ†” ID de ConversaciÃ³n Actual
@@ -148,7 +148,7 @@ Eres el **Agente Arquitecto**. Tenemos un HTML monolÃƒÂ­tico crÃƒÂ­tico 
 
 - Problema: CÃƒÂ³digo espagueti. HTML, CSS residual y lÃƒÂ³gica JS compleja mezclada.
 
-- **Regla de Seguridad:** Antes de empezar, solicita al dev crear una copia de `presion_mental_v50.html` llamada `v51_modular.html`. Trabajaremos EXCLUSIVAMENTE sobre esta copia para mantener el original a salvo.
+- **Regla de Seguridad:** Antes de empezar, solicita al dev crear una copia de `presion_mental_v50.html` llamada `index.html`. Trabajaremos EXCLUSIVAMENTE sobre esta copia para mantener el original a salvo.
 - Stack: HTML5, CSS, Vanilla JS. (No usar Node/Vite por ahora, solo `<script type="module">`).
 
 - Resultado esperado: Archivos separados (`index.html`, `/js/store.js`, `/js/ui.js`, `/js/game.js`, `/js/main.js`).
@@ -178,12 +178,12 @@ El dev humano te guiarÃƒÂ¡ o ejecutarÃƒÂ¡ estos pasos contigo. No intent
 
 - Dejar el `v50.html` (o crear un nuevo `index.html`) limpio, solo con la estructura de las vistas y las importaciones de `<script type="module" src="js/main.js"></script>`.
 
-### Ã°Å¸â€œâ€¹ AuditorÃƒÂ­a Funcional (v51_modular.html) - BUGS RESUELTOS (2026-05-15)
+### Ã°Å¸â€œâ€¹ AuditorÃƒÂ­a Funcional (index.html) - BUGS RESUELTOS (2026-05-15)
 
 - [x] **Bug CrÃƒÂ­tico 1 (`splashBar`)**: Corregido en `js/ui.js` (lÃƒÂ­neas 666 y 672), cambiado `getElementById('splashProgress')` a `getElementById('splashBar')`.
 
 - [x] **Bug CrÃƒÂ­tico 2 (Selector Dificultad)**: Corregido en `js/ui.js` (lÃƒÂ­nea 365), la funciÃƒÂ³n `setDif` usa `querySelectorAll('.t-dif-btn')` para que el CSS aplique el highlight al botÃƒÂ³n seleccionado.
-- [x] **Bug CrÃƒÂ­tico 3 (Script Duplicado)**: Verificado. En `v51_modular.html` solo existe una importaciÃƒÂ³n de `js/main.js` al final del body. No hay duplicados.
+- [x] **Bug CrÃƒÂ­tico 3 (Script Duplicado)**: Verificado. En `index.html` solo existe una importaciÃƒÂ³n de `js/main.js` al final del body. No hay duplicados.
 
 - [x] **Deuda TÃƒÂ©cnica (Dependencias Circulares)**: Refactorizado. Se aÃƒÂ±adieron exportaciones explÃƒÂ­citas de `sfxCountdown`, `updatePowerupsUI` y `generateQuestion` en `game.js` y sus respectivas importaciones en `ui.js` para asegurar un flujo de dependencias claro y sin usar el global de `window.*`.
 
@@ -198,7 +198,7 @@ El dev humano te guiarÃƒÂ¡ o ejecutarÃƒÂ¡ estos pasos contigo. No intent
 Por decisiÃƒÂ³n de Jefatura de Proyecto, **el lanzamiento inicial se centrarÃƒÂ¡ ÃƒÅ¡NICAMENTE en el TIER 1**. Los Tiers 2 y 3 quedan en *standby* para versiones futuras.
 
 **Acciones Requeridas por el Arquitecto:**
-- Modificar `v51_modular.html` (o `js/store.js` y `js/ui.js` segÃƒÂºn corresponda) para **fijar el sistema visual en Tier 1** independientemente de la edad ingresada (o fijar un fallback automÃƒÂ¡tico a Tier 1).
+- Modificar `index.html` (o `js/store.js` y `js/ui.js` segÃƒÂºn corresponda) para **fijar el sistema visual en Tier 1** independientemente de la edad ingresada (o fijar un fallback automÃƒÂ¡tico a Tier 1).
 - **Inventario Reducido:** Debes actualizar la constante `SHOP_ITEMS` en `js/store.js` para que solo contenga los siguientes elementos exactos (las imÃƒÂ¡genes serÃƒÂ¡n provistas externamente, debes preparar la lÃƒÂ³gica para consumirlas con prefijos `m_` o similar):
   - **10 Mascotas:** `bear`, `cat`, `dog`, `dragon`, `fox`, `owl`, `panda`, `penguin`, `rabbit`, `capybara`.
   - **3 Accesorios (Sombreros):** `gafas`, `sombrero`, `corona`.
@@ -206,7 +206,7 @@ Por decisiÃƒÂ³n de Jefatura de Proyecto, **el lanzamiento inicial se centrar
   - Total: 50 imÃƒÂ¡genes (se asume que es la combinaciÃƒÂ³n de mascota + accesorio que generarÃƒÂ¡ el usuario). Ajusta la lÃƒÂ³gica de renderizado en `js/ui.js` y `js/game.js` para soportar esta nueva estructura estÃƒÂ¡tica.
 
 ### Ã°Å¸â€ºÂ¡Ã¯Â¸ï¿½ CORRECCIONES DE AUDITORÃƒï¿½A EXTERNA (VALIDADAS)
-- **Viewport Seguro:** En `v51_modular.html`, actualiza la etiqueta meta de viewport a: `<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">` para evitar zoom accidental en mÃƒÂ³viles.
+- **Viewport Seguro:** En `index.html`, actualiza la etiqueta meta de viewport a: `<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">` para evitar zoom accidental en mÃƒÂ³viles.
 - **Reset CSS Universal:** En `css/base.css` (lÃƒÂ­nea 5), actualiza el selector universal para incluir pseudo-elementos: `*, *::before, *::after { box-sizing: border-box; ... }`.
 - **Rendimiento Blur:** En `css/base.css`, aÃƒÂ±ade el fallback recomendado para `backdrop-filter` para evitar lag en dispositivos Android de gama baja.
 
@@ -260,7 +260,7 @@ El USER ha aprobado el plan de transiciÃƒÂ³n de Agujero Negro. Tu rol es pro
 - [x] Referencias DOM a `#badgesList` limpiadas de `applyLang()`.
 
 ### Correcciones de AuditorÃƒÂ­a TÃƒÂ©cnica
-- [x] **Viewport seguro y accesible:** `v51_modular.html` actualizado a `width=device-width, initial-scale=1.0, viewport-fit=cover` (removiendo `maximum-scale` y `user-scalable` para cumplir con las validaciones de accesibilidad e IDE).
+- [x] **Viewport seguro y accesible:** `index.html` actualizado a `width=device-width, initial-scale=1.0, viewport-fit=cover` (removiendo `maximum-scale` y `user-scalable` para cumplir con las validaciones de accesibilidad e IDE).
 - [x] **EliminaciÃƒÂ³n de Estilos Inline:** Se eliminaron las reglas de estilo en lÃƒÂ­nea de las imÃƒÂ¡genes de usuario, edad y botÃƒÂ³n del popup de bienvenida, moviendo sus clases CSS `.custom-input-icon` y `.custom-btn-icon` a `css/popups.css`.
 - [x] **Reset CSS universal:** `css/base.css` actualizado a `*, *::before, *::after`.
 - [x] **Fallback backdrop-filter Android:** aÃƒÂ±adido en `base.css` con `@supports not`.
@@ -279,7 +279,7 @@ El USER ha aprobado el plan de transiciÃƒÂ³n de Agujero Negro. Tu rol es pro
 
 ### Ã°Å¸Å½Âµ DIRECTIVA DE AUDIO (HOWLER.JS VS NATIVO) Ã¢â‚¬â€� COMPLETADO Ã¢Å“â€¦
 - [x] **Feature Flag (`USE_HOWLER`):** Implementado en `game.js` (lÃƒÂ­nea 14) permitiendo activar/desactivar Howler.js dinÃƒÂ¡micamente y con fallback automÃƒÂ¡tico a sintetizador nativo si falla el CDN.
-- [x] **IntegraciÃƒÂ³n en HTML:** Inyectado script de Howler.js en `v51_modular.html` desde CDNJS.
+- [x] **IntegraciÃƒÂ³n en HTML:** Inyectado script de Howler.js en `index.html` desde CDNJS.
 - [x] **Carga y Despacho:** Precargados efectos de sonido y configurado el router de despacho condicional en `game.js`.
 
 *Actualizado el 2026-05-30 por el Consultor TÃƒÂ©cnico (Antigravity)*
@@ -305,7 +305,7 @@ El USER ha aprobado el plan de transiciÃƒÂ³n de Agujero Negro. Tu rol es pro
 - [x] **BUG #3 â€” Alias incorrecto `window.toggleAudio`:** Eliminado el alias errÃ³neo `window.toggleAudio = toggleAmbient` de `ui.js`. `window.toggleAudio` lo exporta correctamente `game.js` (controla SFX); `toggleAmbient` solo controla la mÃºsica de fondo.
 
 ### Markup de Fondo Tier 1 â€” COMPLETADO
-- [x] **`#bgClouds` en `v51_modular.html`:** Actualizado con marcos de borde (`bg-cloud-border-top`, `bg-cloud-border-bottom`) y 8 gotitas de arcilla 3D (`clay-drop cd1`â€“`cd8`). Los estilos CSS correspondientes ya existÃ­an en `css/tiers/tier1.css`.
+- [x] **`#bgClouds` en `index.html`:** Actualizado con marcos de borde (`bg-cloud-border-top`, `bg-cloud-border-bottom`) y 8 gotitas de arcilla 3D (`clay-drop cd1`â€“`cd8`). Los estilos CSS correspondientes ya existÃ­an en `css/tiers/tier1.css`.
 
 ### Estado de BUGs #1 y #2 â€” VERIFICADOS COMO YA RESUELTOS
 - [x] **BUG #1 â€” `confirmQuit()`:** Ya implementada en `js/db.js` (lÃ­nea 202). Congela el timer vÃ­a `state.frozen = true` (que el loop de `requestAnimationFrame` en `game.js` respeta correctamente) y muestra `#quitConfirmPopup`. Exportada en `window.confirmQuit`. NO requerÃ­a acciÃ³n adicional.
@@ -397,7 +397,7 @@ Los siguientes 4 assets estÃ¡n pendientes de creaciÃ³n por el Agente GrÃ¡f
 
 El Consultor Externo y el USER han acordado reestructurar estÃ©ticamente el Tier 1 (Clay World). El Arquitecto debe coordinar con DiseÃ±o para integrar las gotitas de arcilla y los marcos de nubes.
 
-### Tareas en `v51_modular.html`:
+### Tareas en `index.html`:
 1.  **Markup del Fondo `#bgClouds`:**
     Asegurar que el elemento `#bgClouds` contenga el siguiente Ã¡rbol de nodos:
     ```html
@@ -523,7 +523,7 @@ export { generateQuestion, sfxCountdown, updatePowerupsUI, sfxWrong };
   - `game.js` ~lÃ­nea 260: `// applyAccessory(document.getElementById('previewHat'), ...)`
 
 ### ðŸŸ¡ MEJORA #5: Inputs de Settings sin label de accesibilidad
-- **DÃ³nde:** `v51_modular.html`, dentro de `#settingsOverlay`, ~lÃ­neas 612-616
+- **DÃ³nde:** `index.html`, dentro de `#settingsOverlay`, ~lÃ­neas 612-616
 - **Fix requerido â€” agregar labels:** 
 ```html
 <!-- ANTES -->
@@ -573,7 +573,7 @@ El equipo de seguridad ha detectado los siguientes puntos que el Agente Arquitec
    - **AcciÃ³n:** Implementar un mecanismo simple de ofuscaciÃ³n o Checksum/Hash local (ej. Base64 o firma HMAC bÃ¡sica) antes de guardar en `localStorage`, y verificar dicha firma al cargar. Si el hash no coincide (indicio de trampa o manipulaciÃ³n manual), reiniciar las estrellas a un valor seguro o mostrar advertencia.
 
 2. **ValidaciÃ³n de Entradas en el Perfil (SEC-04):**
-   - **DÃ³nde:** `v51_modular.html` y `js/ui.js`.
+   - **DÃ³nde:** `index.html` y `js/ui.js`.
    - **AcciÃ³n:** Agregar atributo `pattern="[A-Za-z0-9 ]+"` en los campos de input del nombre (`#setNameInput`, `#welcomeNameInput`) y limpiar la cadena en la funciÃ³n que guarda el perfil, eliminando cualquier caracter que no sea alfanumÃ©rico.
 
 
@@ -628,16 +628,16 @@ questionEl.textContent = cleanQuestionText(q.text);
 **BUG-001: countOverlay.showModal is not a function**
 - **DescripciÃ³n:** Al iniciar el Modo Libre (T-04), el juego crashea en consola porque `ui.js` intenta invocar `.showModal()` sobre `countOverlay`, pero este elemento sigue siendo un `<div>` y no fue migrado a `<dialog>`.
 - **InstrucciÃ³n de ResoluciÃ³n (INMEDIATA):**
-  1. Busca el elemento `<div id="countOverlay">` en el HTML (`v51_modular.html` y/o la copia en la carpeta `v52_modular/v52_modular.html`).
+  1. Busca el elemento `<div id="countOverlay">` en el HTML (`index.html` y/o la copia en la carpeta `v52_modular/v52_modular.html`).
   2. CÃ¡mbialo por `<dialog id="countOverlay" class="popup-overlay z-index-310">` (o mantÃ©n sus clases originales pero como dialog).
   3. AsegÃºrate de que `ui.js` en la funciÃ³n de la cuenta regresiva cierre el popup con `.close()` en lugar de `style.display = 'none'`.
-- âœ… **ESTADO (2026-06-20): RESUELTO.** Se actualizÃ³ `<div id="countOverlay">` a `<dialog id="countOverlay" class="popup-overlay z-index-110">` en `v51_modular.html` y `v52_modular/v52_modular.html`. Se corrigiÃ³ tambiÃ©n `v52_modular/js/ui.js` para usar `showModal()` y `close()`.
+- âœ… **ESTADO (2026-06-20): RESUELTO.** Se actualizÃ³ `<div id="countOverlay">` a `<dialog id="countOverlay" class="popup-overlay z-index-110">` en `index.html` y `v52_modular/v52_modular.html`. Se corrigiÃ³ tambiÃ©n `v52_modular/js/ui.js` para usar `showModal()` y `close()`.
 
 ## ðŸš¨ BUG-002 REPORTADO POR QA TESTER (2026-06-20)
 **BUG-002: feedbackOverlay.showModal is not a function**
 - **DescripciÃ³n:** El elemento `<div id="feedbackOverlay">` no fue migrado a `<dialog>` durante el sprint de seguridad. El cÃ³digo en `game.js` intenta llamar `.showModal()` tras cada respuesta del jugador, provocando un crash silencioso que congela el juego.
 - **InstrucciÃ³n de ResoluciÃ³n (INMEDIATA):**
-  1. En `v51_modular.html`, lÃ­nea del `<div id="feedbackOverlay">`: cambiar a `<dialog id="feedbackOverlay">` (mantener sus clases existentes).
+  1. En `index.html`, lÃ­nea del `<div id="feedbackOverlay">`: cambiar a `<dialog id="feedbackOverlay">` (mantener sus clases existentes).
   2. Hacer lo mismo en `v52_modular/v52_modular.html`.
   3. Verificar en `game.js` que la funciÃ³n que controla el feedback ya use `.showModal()` y `.close()` (si aÃºn usa `style.display`, actualizar tambiÃ©n).
 - âœ… **ESTADO (2026-06-20): RESUELTO.** `<div id="feedbackOverlay">` migrado a `<dialog class="feedback-dialog">` en `v51` y `v52`. CSS de `game.css` actualizado para suprimir `display:none/flex` y usar selector `[open]`. `showFeedback()` en `game.js` ya era correcto (usaba `.showModal()` y `.close()`).
@@ -652,7 +652,7 @@ questionEl.textContent = cleanQuestionText(q.text);
 **Objetivo del Arquitecto:** Implementar las recomendaciones clave de rendimiento y accesibilidad antes de considerar la app lista para producciÃ³n masiva.
 
 ### 1. ImplementaciÃ³n de CSP Headers (Seguridad)
-- **DÃ³nde:** En el `<head>` de `v51_modular.html` (o `v52_modular.html` si es el activo).
+- **DÃ³nde:** En el `<head>` de `index.html` (o `v52_modular.html` si es el activo).
 - **AcciÃ³n:** Agregar la polÃ­tica `<meta http-equiv="Content-Security-Policy" content="...">` para blindar la carga de recursos. AsegÃºrate de permitir scripts locales y los CDNs externos que ya utilizamos (como Howler.js).
 
 ### 2. Rendimiento: Carga Diferida (Lazy-Load) de Preguntas
@@ -682,7 +682,7 @@ questionEl.textContent = cleanQuestionText(q.text);
   1. Busca en `js/ui.js` la funciÃ³n que renderiza la pantalla `#settings` o `#ajustes` (puede llamarse `navSettings`, `renderSettings`, `openSettings` o similar).
   2. Inspecciona el template literal del `<input id="setNameInput">` â€” verifica que el tag estÃ© correctamente cerrado y que no haya comillas sin escapar que rompan el string.
   3. Alternativa: Si el input se genera dinÃ¡micamente, reemplÃ¡zalo por un `document.createElement('input')` para evitar errores de parseo de HTML.
-  4. **Estado:** âœ… RESUELTO (2026-06-25) â€” Se eliminÃ³ un `>` errÃ³neo en el `<input id="setNameInput">` en `v51_modular.html` (LÃ­nea 595) que causaba que los atributos siguientes se renderizaran como texto plano.
+  4. **Estado:** âœ… RESUELTO (2026-06-25) â€” Se eliminÃ³ un `>` errÃ³neo en el `<input id="setNameInput">` en `index.html` (LÃ­nea 595) que causaba que los atributos siguientes se renderizaran como texto plano.
 
 ---
 
@@ -692,9 +692,9 @@ questionEl.textContent = cleanQuestionText(q.text);
 - **DescripciÃ³n:** Durante la ejecuciÃ³n automatizada de Playwright, se ingresÃ³ el nombre "MarÃ­a". Al guardarse y renderizarse en el Home, el sistema devolviÃ³ "Mara".
 - **Causa probable:** La medida de seguridad (SEC-04) implementada previamente introdujo un Regex muy restrictivo (`/[^A-Za-z0-9 ]/g` o similar) o un atributo `pattern="[A-Za-z0-9 ]+"` en el HTML, el cual no soporta caracteres propios del espaÃ±ol (Ã¡, Ã©, Ã­, Ã³, Ãº, Ã±, Ã¼).
 - **InstrucciÃ³n de ResoluciÃ³n (INMEDIATA):**
-  1. En `v51_modular.html`, localiza los inputs de nombre (`#nameInput`, `#setNameInput`) y actualiza el atributo `pattern` para soportar acentos: `pattern="[A-Za-z0-9 Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ±Ã‘Ã¼Ãœ]+"`
+  1. En `index.html`, localiza los inputs de nombre (`#nameInput`, `#setNameInput`) y actualiza el atributo `pattern` para soportar acentos: `pattern="[A-Za-z0-9 Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ±Ã‘Ã¼Ãœ]+"`
   2. En `js/ui.js` o `js/store.js` (donde se aplique la limpieza de la variable antes de guardar), ajusta la expresiÃ³n regular para ignorar caracteres latinos vÃ¡lidos.
-- **Estado:** âœ… RESUELTO (2026-06-25) â€” Se ampliaron las regex y patterns HTML en `v51_modular.html`, `js/ui.js` y `js/game.js` para permitir `Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ±Ã‘Ã¼Ãœ`.
+- **Estado:** âœ… RESUELTO (2026-06-25) â€” Se ampliaron las regex y patterns HTML en `index.html`, `js/ui.js` y `js/game.js` para permitir `Ã¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“ÃšÃ±Ã‘Ã¼Ãœ`.
 
 ---
 

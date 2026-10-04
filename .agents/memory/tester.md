@@ -20,7 +20,7 @@ Todo el equipo de agentes debe alinear su trabajo bajo el nuevo "Strategic Pivot
 ---
 
 > [!IMPORTANT]
-> **Única Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicación es **`v51_modular.html`** en la raíz del proyecto.
+> **Única Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicación es **`index.html`** en la raíz del proyecto.
 > La carpeta `_ARCHIVO_v52_modular/` es un **archivo histórico** (renombrada el 2026-06-24). **Ignorar cualquier referencia a v52.** No ejecutar, no modificar, no testear sobre esa carpeta.
 
 ## Reto Panda
@@ -83,7 +83,7 @@ Los siguientes cambios fueron aplicados por los agentes Seguridad, Diseño y Arq
 
 ### BUG-001: countOverlay.showModal is not a function
 - **Severidad:** CRÍTICA
-- **Componente:** `js/ui.js` y `v51_modular.html`
+- **Componente:** `js/ui.js` y `index.html`
 - **Pasos para reproducir:**
   1. Completar onboarding y entrar al menú.
   2. Hacer clic en "LIBRE" (Modo Libre).
@@ -95,18 +95,18 @@ Los siguientes cambios fueron aplicados por los agentes Seguridad, Diseño y Arq
 
 ### BUG-002: feedbackOverlay.showModal is not a function
 - **Severidad:** CRÍTICA
-- **Componente:** `v51_modular.html` y `v52_modular/v52_modular.html`
+- **Componente:** `index.html` y `v52_modular/v52_modular.html`
 - **Pasos para reproducir:**
   1. Iniciar una partida en Modo Libre.
   2. Responder cualquier pregunta (correcta o incorrecta).
 - **Resultado Observado:** Crash silencioso — `TypeError: feedbackOverlay.showModal is not a function`. El juego queda congelado en la misma pregunta sin poder avanzar. El Agente Tester aplicó un parche dinámico vía consola para desbloquear las pruebas restantes.
 - **Resultado Esperado:** Aparece la pantalla de feedback (verde=correcto / rojo=incorrecto) y la partida avanza a la siguiente pregunta.
 - **Agente Responsable:** Arquitecto
-- **Estado:** ✅ RESUELTO (2026-06-20). Se migró `<div id="feedbackOverlay">` a `<dialog id="feedbackOverlay" class="feedback-dialog">` en `v51_modular.html` y `v52_modular/v52_modular.html`. CSS en `game.css` actualizado para usar `[open]` en lugar de `display:none/flex`. La función `showFeedback()` en `game.js` ya usaba `.showModal()` y `.close()` correctamente.
+- **Estado:** ✅ RESUELTO (2026-06-20). Se migró `<div id="feedbackOverlay">` a `<dialog id="feedbackOverlay" class="feedback-dialog">` en `index.html` y `v52_modular/v52_modular.html`. CSS en `game.css` actualizado para usar `[open]` en lugar de `display:none/flex`. La función `showFeedback()` en `game.js` ya usaba `.showModal()` y `.close()` correctamente.
 
 ### BUG-003: HTML crudo visible en pantalla de Configuración (Ajustes)
 - **Severidad:** ALTA
-- **Componente:** `v51_modular.html` — sección `#settings` o pantalla de Ajustes
+- **Componente:** `index.html` — sección `#settings` o pantalla de Ajustes
 - **Pasos para reproducir:**
   1. Desde el menú principal, hacer click en "AJUSTES" (botón naranja ⚙️).
   2. Observar el campo de nombre/perfil.
@@ -114,7 +114,7 @@ Los siguientes cambios fueron aplicados por los agentes Seguridad, Diseño y Arq
 - **Causa probable:** El elemento `<input>` en el HTML de la pantalla de ajustes está mal estructurado o un `innerHTML` está renderizando los atributos del input como texto plano en lugar de crear el elemento.
 - **Resultado Esperado:** Debe verse un campo de texto editable con placeholder "Nombre".
 - **Agente Responsable:** Arquitecto
-- **Estado:** ✅ RESUELTO (2026-06-25) — Se corrigió el HTML en `v51_modular.html` quitando el cierre prematuro del `<input>`.
+- **Estado:** ✅ RESUELTO (2026-06-25) — Se corrigió el HTML en `index.html` quitando el cierre prematuro del `<input>`.
 
 ---
 
@@ -220,7 +220,7 @@ Ejecutar en orden. Cada paso debe completarse sin error antes de avanzar.
 ## 📋 Instrucciones para Retomar
 
 1. Lee este archivo completo.
-2. Abre la app en el navegador (`v51_modular.html`).
+2. Abre la app en el navegador (`index.html`).
 3. Ejecuta las Suites 1 a 5 en orden, y **obligatoriamente la Suite 9 (Pruebas Especiales)**.
 4. Documenta cada hallazgo en la sección "Registro de Bugs Abiertos" con el formato estándar.
 5. Entrega los bugs a los agentes correspondientes (escribe en sus memorias).

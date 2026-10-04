@@ -1,21 +1,20 @@
-// Reto Panda — Service Worker (Agente Release)
-// v5 (2026-10-03): precache del banco MVP Tier 1 + ilustraciones MVP,
-// CSS reales de v51_modular.html y caché en runtime (cache.put).
-const CACHE_NAME = 'reto-panda-v5';
+// Reto Panda V1 — Service Worker (Agente Release)
+// v6: precache del banco MVP Tier 1 + ilustraciones MVP,
+// CSS reales de index.html y caché en runtime (cache.put).
+const CACHE_NAME = 'reto-panda-v6';
 
 // IMPORTANTE: cada ruta de esta lista DEBE existir en disco.
 // Si una sola falla, cache.addAll() rechaza y la instalación del SW se invalida.
 const CORE_ASSETS = [
   './',
   './index.html',
-  './v51_modular.html',
   './manifest.json',
   './js/main.js',
   './js/store.js',
   './js/db.js',
   './js/ui.js',
   './js/game.js',
-  // CSS en el mismo orden que los <link> de v51_modular.html
+  // CSS en el mismo orden que los <link> de index.html
   './css/variables.css',
   './css/base.css',
   './css/layout.css',
@@ -23,7 +22,7 @@ const CORE_ASSETS = [
   './css/states.css',
   './css/game.css',
   './css/popups.css',
-  './css/tiers/tier1.css?v=3', // URL exacta que pide v51_modular.html (respaldo: ignoreSearch)
+  './css/tiers/tier1.css?v=3', // URL exacta que pide index.html (respaldo: ignoreSearch)
   './css/tiers/tier2.css',
   './css/tiers/tier3.css',
   // Trivia JSON — necesarios para offline-first (Tarea 2 Sprint 2026-06-24)
@@ -36,7 +35,7 @@ const CORE_ASSETS = [
   './assets/interface/mochi_profile_badge.webp',
   './assets/fondos/tier1/bg_sky_clay.webp',
   './assets/badges/star_counter_bg.webp',
-  // Imágenes estáticas del shell (splash + onboarding de v51_modular.html)
+  // Imágenes estáticas del shell (splash + onboarding de index.html)
   './assets/interface/caratula.webp',
   './assets/interface/splash_icons/world_isla.webp',
   './assets/interface/splash_icons/world_oceano.webp',
@@ -198,7 +197,7 @@ function putInCache(request, response) {
 }
 
 // Busca coincidencia exacta y, como respaldo, ignorando el query string
-// (p. ej. css/tiers/tier1.css?v=3 → tier1.css, v51_modular.html?x=1 → v51_modular.html).
+// (p. ej. css/tiers/tier1.css?v=3 → tier1.css, index.html?x=1 → index.html).
 function matchFromCache(request) {
   return caches.match(request).then(hit => hit || caches.match(request, { ignoreSearch: true }));
 }
@@ -213,7 +212,7 @@ function networkFirst(request) {
     return matchFromCache(request).then(hit => {
       if (hit) return hit;
       // Navegación sin red y sin coincidencia: servir el shell del juego.
-      if (request.mode === 'navigate') return caches.match('./index.html').then(h => h || caches.match('./v51_modular.html'));
+      if (request.mode === 'navigate') return caches.match('./index.html');
       return Response.error();
     });
   });

@@ -119,7 +119,7 @@ Cada bug encontrado debe documentarse con este formato en tu memoria:
 ```markdown
 ### BUG-XXX: [Título breve]
 - **Severidad:** CRÍTICA / ALTA / MEDIA / BAJA
-- **Componente:** [js/ui.js, css/layout.css, v51_modular.html, etc.]
+- **Componente:** [js/ui.js, css/layout.css, index.html, etc.]
 - **Pasos para reproducir:**
   1. ...
   2. ...

@@ -1,6 +1,6 @@
 # Reporte de Auditoría y Correcciones Visuales — Menú Circular Tier 1
 
-Se ha completado la revisión y corrección del menú principal de **Presión Mental** en la versión modular (`v51_modular.html`) para el **Tier 1 (Clay World)**.
+Se ha completado la revisión y corrección del menú principal de **Presión Mental** en la versión modular (`index.html`) para el **Tier 1 (Clay World)**.
 
 A continuación se detallan los hallazgos técnicos y las soluciones aplicadas:
 
@@ -21,13 +21,13 @@ A continuación se detallan los hallazgos técnicos y las soluciones aplicadas:
 ### 3. Ajuste de Letras Curvas en SVG
 * **Problema:** Los títulos curvos de los botones de menú estaban demasiado cerca o tocaban el borde blanco exterior de plastilina.
 * **Causa:** El radio del arco del path SVG de texto estaba establecido en `40` dentro de un viewBox de `100x100` (`d="M 10,50 A 40,40 0 0,0 90,50"`).
-* **Solución:** Se redujo el radio a `37` (`d="M 13,50 A 37,37 0 0,0 87,50"`) en los 6 botones de `v51_modular.html`. Esto desplazó el texto curvo ligeramente hacia arriba (aproximadamente un 3%), centrándolo sobre el fondo de color del botón.
+* **Solución:** Se redujo el radio a `37` (`d="M 13,50 A 37,37 0 0,0 87,50"`) en los 6 botones de `index.html`. Esto desplazó el texto curvo ligeramente hacia arriba (aproximadamente un 3%), centrándolo sobre el fondo de color del botón.
 
 ---
 
 ## 📂 Archivos Modificados
 
-1. [v51_modular.html](file:///e:/Presion%20Mental%20APP/v51_modular.html) (Líneas 323–376)
+1. [index.html](file:///e:/Presion%20Mental%20APP/index.html) (Líneas 323–376)
    * Se actualizaron los paths de arco SVG a un radio de 37 para centrar el texto curvo de los 6 botones.
 2. [css/tiers/tier1.css](file:///e:/Presion%20Mental%20APP/css/tiers/tier1.css)
    * Línea 36: Se eliminó `background-attachment: fixed !important`.

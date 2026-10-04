@@ -20,7 +20,7 @@ Todo el equipo de agentes debe alinear su trabajo bajo el nuevo "Strategic Pivot
 ---
 
 > [!IMPORTANT]
-> **Única Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicación es **`v51_modular.html`**. 
+> **Única Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicación es **`index.html`**. 
 > Cualquier otra variante o carpeta (como `v52_modular` o `v51_circular_backup`) son **únicamente respaldos y checkpoints anteriores y no deben modificarse ni ejecutarse**.
 
 

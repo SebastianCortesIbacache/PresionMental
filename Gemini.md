@@ -2,7 +2,7 @@
 
 Este proyecto cuenta con un ecosistema multiagente especializado:
 - **Consultor Externo** (Antigravity) → Auditoría, recomendaciones y coordinación.
-- **Agente Arquitecto** → Estructura, modularización y funcionalidad JS/HTML (`v51_modular.html`, `js/`).
+- **Agente Arquitecto** → Estructura, modularización y funcionalidad JS/HTML (`index.html`, `js/`).
 - **Agente Diseño** → Estilos CSS, animaciones y experiencia visual Vivid Tiers (`css/`).
 - **Agente Gráfico** → Creación y optimización de assets WebP, SVGs e iconografía (`assets/`).
 - **Agente Contenido** → Banco de preguntas, alineación curricular y archivos JSON (`assets/data/`).

@@ -20,7 +20,7 @@ Todo el equipo de agentes debe alinear su trabajo bajo el nuevo "Strategic Pivot
 ---
 
 > [!IMPORTANT]
-> **Única Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicación es **`v51_modular.html`**. 
+> **Única Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicación es **`index.html`**. 
 > Cualquier otra variante o carpeta (como `v52_modular` o `v51_circular_backup`) son **únicamente respaldos y checkpoints anteriores y no deben modificarse ni ejecutarse**.
 
 ## Ã°Å¸â€ â€� ID de ConversaciÃƒÂ³n Actual
@@ -63,7 +63,7 @@ Finalizar la arquitectura visual modular y supervisar la producciÃƒÂ³n segme
 2. **Tier 2 (8-10 aÃƒÂ±os):** `Tier 2.jpg` - Retrowave.
 3. **Tier 3 (11-13 aÃƒÂ±os):** `Tier 3.jpg` - Cyberpunk.
 
-### Ã°Å¸â€œâ€¹ AuditorÃƒÂ­a Funcional (v51_modular.html) - NUEVOS BUGS (2026-05-15)
+### Ã°Å¸â€œâ€¹ AuditorÃƒÂ­a Funcional (index.html) - NUEVOS BUGS (2026-05-15)
 # Ã°Å¸Å½Â¨ Memoria: Agente DiseÃƒÂ±o
 
 ## Ã°Å¸â€ â€� ID de ConversaciÃƒÂ³n Actual
@@ -106,7 +106,7 @@ Finalizar la arquitectura visual modular y supervisar la producciÃƒÂ³n segme
 2. **Tier 2 (8-10 aÃƒÂ±os):** `Tier 2.jpg` - Retrowave.
 3. **Tier 3 (11-13 aÃƒÂ±os):** `Tier 3.jpg` - Cyberpunk.
 
-### Ã°Å¸â€œâ€¹ AuditorÃƒÂ­a Funcional (v51_modular.html) - NUEVOS BUGS (2026-05-15)
+### Ã°Å¸â€œâ€¹ AuditorÃƒÂ­a Funcional (index.html) - NUEVOS BUGS (2026-05-15)
 
 - [x] **Bug CrÃƒÂ­tico 4 (Tiers VacÃƒÂ­os)**: Implementados `css/tiers/tier1.css` y `css/tiers/tier2.css` (Claymorphism y Retrowave) y actualizados selectores (`.age-tier-X body`) para apuntar al `documentElement` modificado por el loader en head.
 
@@ -139,7 +139,7 @@ Por decisiÃƒÂ³n de Jefatura de Proyecto, **el lanzamiento inicial se centrar
 El USER aprobÃƒÂ³ el plan de unificaciÃƒÂ³n visual de la Splash Screen (`#splash`) con el Portal de Bienvenida (`#namePopup`) y el efecto de colapso gravitatorio.
 
 **Avances Implementados:**
-1. **UnificaciÃƒÂ³n EstÃƒÂ©tica de Carga (#splash):** Estructura en `v51_modular.html` y estilos en `css/layout.css` unificados con los anillos concÃƒÂ©ntricos cian-magenta-dorado y la imagen WebP de Mochi animada. Barra chunky con gradiente arcoÃƒÂ­ris.
+1. **UnificaciÃƒÂ³n EstÃƒÂ©tica de Carga (#splash):** Estructura en `index.html` y estilos en `css/layout.css` unificados con los anillos concÃƒÂ©ntricos cian-magenta-dorado y la imagen WebP de Mochi animada. Barra chunky con gradiente arcoÃƒÂ­ris.
 2. **Indicadores de Mundos:** Clases `.active-world` y `.completed-world` con glow individual.
 3. **Colapso e EyecciÃ³n:** `@keyframes singularityCollapse`, `@keyframes spaceWarp` y `@keyframes portalExpansion` vinculados correspondientemente para el efecto de agujero negro + destello blanco transicional (`#flashOverlay.flash-active`).
 4. **Accesibilidad (Reduced Motion):** AÃ±adido media query `@media (prefers-reduced-motion: reduce)` en `css/popups.css` que simplifica todas las animaciones y la transiciÃ³n fÃ­sica a desvanecimientos (`fade-in`/`fade-out`) sin giros ni escalas bruscas.
@@ -284,7 +284,7 @@ El Consultor Externo y el USER han acordado reestructurar estéticamente el Tier
 ### Corrección del Menú Circular y Renderizado (2026-06-01):
 *   **Posición Absoluta de Botones:** Se cambió la posición de los botones en `.circle-btn` de `position: relative !important` a `position: absolute !important` en `css/tiers/tier1.css`. Esto corrigió el error de distribución radial que los apilaba al fondo de forma desalineada y recortada.
 *   **Fondo de Pantalla Completo:** Se eliminó `background-attachment: fixed !important` en `html.age-tier-1` para resolver el error de recorte del lienzo en Puppeteer y navegadores móviles.
-*   **Ajuste del Radio de Texto Curvo SVG:** Se modificaron los paths curvos a un radio de 37 (`d="M 13,50 A 37,37 0 0,0 87,50"`) en `v51_modular.html` para centrar perfectamente el texto sobre el área de color del botón y evitar que roce con el borde exterior blanco.
+*   **Ajuste del Radio de Texto Curvo SVG:** Se modificaron los paths curvos a un radio de 37 (`d="M 13,50 A 37,37 0 0,0 87,50"`) en `index.html` para centrar perfectamente el texto sobre el área de color del botón y evitar que roce con el borde exterior blanco.
 *   **Separación de Letras (Letter Spacing) y Tipografía:** Se reajustó la tipografía del texto curvo (`font-size: 11.5px`, `letter-spacing: 0.13em`, `stroke-width: 2.8px`) en `css/tiers/tier1.css` para optimizar el espacio entre los caracteres y eliminar cualquier solapamiento, como el que ocurría en las letras "T" y "S" del botón "AJUSTES".
 *   **Corrección del Contador de Estrellas (Star Showcase):** Se rediseñó el componente en el Tier 1 colocando el texto `"ESTRELLAS CONSEGUIDAS"` flotando arriba de la cápsula (`position: absolute; bottom: 43px; left: -20px; width: 150px`) y centrando el número de estrellas en color azul oscuro clay e incrementando su tamaño (`20px`) en la zona naranja de la cápsula. Las dimensiones físicas se optimizaron a `110px` x `40px` con `background-size: 100% 100%`.
 *   **Tarjeta Contenedora de Nombre y Edad (Clay Badge):** Se implementó un diseño divertido de nametag estilo claymorfismo para la zona de perfil del usuario en la parte superior izquierda (`.home-top-bar > div:first-child`). Se agregaron bordes blancos de plastilina de `3.5px`, fondo blanco semitransparente, sombra clay, y se encapsuló la edad en una pastilla rosa clay.
@@ -405,7 +405,7 @@ Durante la campaña de QA de la Suite 2 (Asset Integrity), se detectaron **2 ass
 - [x] **Ilustraciones de Preguntas:** Se elaboró y transmitió formalmente el requerimiento técnico (dimensiones, padding, fondo transparente, claymorphism) al Agente Gráfico basado en `TIER1_CLAY_REQUERIMIENTOS.md`.
 - [x] **Apoyo Visual en Popups (`introPopup`):** Se inyectaron reglas CSS específicas para Tier 1 que transforman los `popup-info-box` en tarjetas Claymorphism (fondos pasteles, iconos redondeados, sombras suaves) para apoyar el tutorial secuencial (Cumplimiento Pedagógico).
 - [x] **Mitigación de Estrés Visual:** Se reescribieron las variables `--danger` (`#FF8A65`) y `--danger-dark` (`#D84315`) exclusivamente para Tier 1. El feedback de error (botones rojos, barra de tiempo) ahora usa tonos salmón amigables que previenen la ansiedad visual, reduciendo el "shake" a un simple estímulo amigable.
-- [x] **Accesibilidad Básica (A11y):** Añadidos `aria-label` descriptivos a los 6 botones del menú circular en `v51_modular.html` (`cb-1` a `cb-6`), y verificado el soporte global de `:focus-visible` y `prefers-reduced-motion` en la UI base.
+- [x] **Accesibilidad Básica (A11y):** Añadidos `aria-label` descriptivos a los 6 botones del menú circular en `index.html` (`cb-1` a `cb-6`), y verificado el soporte global de `:focus-visible` y `prefers-reduced-motion` en la UI base.
 
 
 ---

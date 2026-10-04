@@ -8,7 +8,7 @@
 2. **Producto:** PWA 100% Offline-First. Sin backend ni nube.
 3. **Estética:** Clay World (Claymorphism). Sin diseños neon en Tier 1.
 4. **Meta:** Beta cerrada de 30 testers en Chile.
-5. **Build activo:** `v51_modular.html` en raíz del proyecto.
+5. **Build activo:** `index.html` en raíz del proyecto.
 
 > [!IMPORTANT]
 > **PROTOCOLO DE MEMORIA:** Cada vez que elabores una estrategia, redactes una pieza de comunicación o definas métricas, añade una entrada fechada en esta memoria con: qué se produjo, el segmento objetivo y el estado de la acción. Sin excepción.
@@ -17,7 +17,7 @@
 
 ## Visión General del Proyecto
 - **Nombre:** Reto Panda
-- **Versión activa:** v51_modular (build oficial)
+- **Versión activa:** index (build oficial)
 - **Pivote estratégico:** Tier 1 (Clay World), Chile First, PWA offline‑first.
 - **Objetivo principal:** Validar la experiencia educativa con 30 testers en Chile antes de escalar.
 

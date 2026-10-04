@@ -16,7 +16,7 @@ Todo el equipo de agentes debe alinear su trabajo bajo el nuevo "Strategic Pivot
 ---
 
 > [!IMPORTANT]
-> **Única Fuente de Verdad del Proyecto:** El archivo HTML activo sobre el cual se trabaja y se ejecuta la aplicación es **`v51_modular.html`** en la raíz del proyecto.
+> **Única Fuente de Verdad del Proyecto:** El archivo HTML único y activo sobre el cual se trabaja y se ejecuta la aplicación es **`index.html`** («Reto Panda V1») en la raíz del proyecto.
 > La carpeta `_ARCHIVO_v52_modular/` es un **archivo histórico** (renombrada el 2026-06-24). **Ignorar cualquier referencia a v52.** No ejecutar, no modificar, no analizar sobre esa carpeta.
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
 ## 🛠️ Avances Realizados (2026-06-01)
 1. **Corrección del Menú Circular:**
    - Detectado y corregido un bug crítico de layout en `css/tiers/tier1.css` donde `.circle-btn` tenía `position: relative !important`, lo cual rompía la posición absoluta requerida por la fórmula de distribución radial en `css/layout.css`. Se restauró a `position: absolute !important`.
-   - Modificados los paths SVG de los 6 botones circulares en `v51_modular.html` reduciendo el radio de 40 a 37 (`d="M 13,50 A 37,37 0 0,0 87,50"`) para desplazar el texto curvo ligeramente hacia arriba y evitar que toque el borde blanco.
+   - Modificados los paths SVG de los 6 botones circulares en `index.html` reduciendo el radio de 40 a 37 (`d="M 13,50 A 37,37 0 0,0 87,50"`) para desplazar el texto curvo ligeramente hacia arriba y evitar que toque el borde blanco.
    - Optimizado el espacio y tamaño de los textos curvos SVG (`font-size: 11.5px`, `letter-spacing: 0.13em`, `stroke-width: 2.8px`) en `css/tiers/tier1.css` para resolver solapamientos de letras (especialmente entre la 'T' y la 'S' en 'AJUSTES').
 2. **Corrección de Carga de Fondo (Viewport Crop):**
    - Eliminada la propiedad `background-attachment: fixed !important` en `css/tiers/tier1.css` para el fondo del Tier 1. Esto solucionó un error de renderizado del navegador (Puppeteer/móviles) que cortaba el fondo de plastilina azul cielo a la mitad y revelaba un fondo gris.
@@ -102,7 +102,7 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
    
 2. **Transición a v52 y Lógica Visual:**
    - **Portal Splashscreen (Agujero Negro):** Validado en `js/ui.js` la inclusión de las clases `collapsing-portal` y `revealing-portal`. La secuencia asíncrona decopla exitosamente la visualización de la tarjeta de registro (`namePopup`) hasta que el splash inicial colapsa tras 900ms, resolviendo el bug visual de "overlay prematuro".
-   - **Arquitectura v52:** El código validado y estabilizado de `v51_modular.html` ha sido migrado oficialmente a `v52_modular/v52_modular.html`, marcando el inicio de la nueva estructura.
+   - **Arquitectura v52:** El código validado y estabilizado de `index.html` ha sido migrado oficialmente a `v52_modular/v52_modular.html`, marcando el inicio de la nueva estructura.
 
 ## 🚀 Próximos Pasos Recomendados para el USER
 - **Sprint Pre-Beta completado (2026-06-25):** v52 archivado, SW actualizado, game.js parcheado, ui.js auditado.
@@ -122,7 +122,7 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
 **Motivo:** Textos de UI con alta carga cognitiva y sesgo punitivo/estresante para niños de 6-7 años.
 
 ### 🛠️ Tareas para el Agente ARQUITECTO
-1. **Modificar `v51_modular.html` (Popups):**
+1. **Modificar `index.html` (Popups):**
    - **`introPopup` (Guía Rápida):** Eliminar el bloque de texto largo y complejo. Reemplazarlo por frases ultra cortas (ej. "¡Toca la respuesta correcta!", "¡Gana estrellas!"). Eliminar las menciones a "asustar al panda" y "gatos locos/ladrones" en esta etapa inicial.
    - **`quitConfirmPopup`:** Cambiar el texto `"Perderás tu racha actual de X 🔥"` por `"¿Quieres descansar? Tu progreso está guardado."` para eliminar la culpa.
    - **`statsOverlay` (Destrezas):** Cambiar `"Empiezas al 100%. Fallar resta %, acertar recupera."` por `"¡Mira todo lo que has aprendido! Juega más para llenar tus barras."` (Enfoque positivo).
@@ -143,7 +143,7 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
 
 ## 🛠️ Avances Realizados (2026-06-26) - EJECUCIÓN DIRECTA
 1. **Modificación de Popups (Cumplimiento Pedagógico):**
-   - El Consultor Externo (yo) ejecutó directamente la modificación de `v51_modular.html` para cumplir con las directrices del Psicopedagogo.
+   - El Consultor Externo (yo) ejecutó directamente la modificación de `index.html` para cumplir con las directrices del Psicopedagogo.
    - **`introPopup`:** Textos largos eliminados. Reemplazados por frases ultra cortas ("¡Toca la respuesta correcta!", "¡Gana estrellas!"). Eliminadas menciones punitivas a "gatos locos/ladrones".
    - **`quitConfirmPopup`:** Reemplazado "Perderás tu racha actual de X 🔥" por "¿Quieres descansar? Tu progreso está guardado. 🌟", manteniendo el span oculto para evitar errores JS.
    - **`statsOverlay`:** Cambiado el texto a "¡Mira todo lo que has aprendido! Juega más para llenar tus barras."
@@ -186,6 +186,6 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
 
 ### 🎨 Tareas para el Agente DISEÑO
 1. **Feedback Visual del "Escudo Mágico":**
-   - Crear o ajustar la clase CSS (ej. `.shield-aura` en `v51_modular.html` / `css/game.css`) para que el escudo alrededor de la mascota sea un campo de fuerza de colores pastel suave y amigable, alejándose de estéticas bélicas o agresivas.
+   - Crear o ajustar la clase CSS (ej. `.shield-aura` en `index.html` / `css/game.css`) para que el escudo alrededor de la mascota sea un campo de fuerza de colores pastel suave y amigable, alejándose de estéticas bélicas o agresivas.
 2. **Iconografía de la Tienda:**
    - Asegurarse de que el botón de compra del "Bonus Valiente" en la Tienda refleje positividad (estrella brillante, trofeo) y no un concepto de apuesta. Coordinar con el Agente Gráfico si se requiere un nuevo WebP.

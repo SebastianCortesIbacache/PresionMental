@@ -286,7 +286,7 @@ Recomendación general: La selección de 200 preguntas es equilibrada y abarca l
 - Reordenar: N/A
 
 ## 📝 AUDITORÍA GENERAL DE INTERFAZ Y TEXTOS (2026-06-26)
-Se revisó el archivo `v51_modular.html` identificando problemas de sobrecarga cognitiva y lenguaje punitivo en la Guía Rápida (Intro), en el popup de Destrezas y en la pantalla de Salida. Se sugirió simplificar textos, eliminar motivadores basados en culpa o ansiedad, y añadir apoyo de audio.
+Se revisó el archivo `index.html` identificando problemas de sobrecarga cognitiva y lenguaje punitivo en la Guía Rápida (Intro), en el popup de Destrezas y en la pantalla de Salida. Se sugirió simplificar textos, eliminar motivadores basados en culpa o ansiedad, y añadir apoyo de audio.
 
 ---
 
@@ -333,6 +333,6 @@ Recomendación general: Reformular el concepto de riesgo. Los niños de 6-7 año
 - Quitar: Cualquier mención a apuestas, perder puntos o multiplicadores negativos.
 - Simplificar: Usar íconos claros (un escudo con un corazón, una estrella x2 brillante).
 - Reordenar: Introducir los comodines recién en el Mundo 2 (Bosque), cuando el niño ya domine la mecánica básica del Mundo 1.
- # #   =���  R e g i s t r o   C r u z a d o   ( A g e n t e   C o n t e n i d o )   -   2 0 2 6 - 0 6 - 2 7 
- -   * * F e e d b a c k   M o t i v a c i o n a l   y   O A * * :   S e   i m p l e m e n t �   t u   r e c o m e n d a c i � n   d e   u s a r   f e e d b a c k   e s t r i c t a m e n t e   p o s i t i v o   y   m o t i v a c i o n a l   e n   l a   a p l i c a c i � n .   S e   e d i t a r o n   \ g a m e . j s \ ,   \ u i . j s \   y   \ d b . j s \   p a r a   e l i m i n a r   t o n o s   p u n i t i v o s .   A d e m � s ,   s e   i n y e c t a r o n   l a s   e t i q u e t a s   \ o a \   e n   \ d b _ 6 _ 7 . j s o n \ .  
+ # #   =���  R e g i s t r o   C r u z a d o   ( A g e n t e   C o n t e n i d o )   -   2 0 2 6 - 0 6 - 2 7 
+ -   * * F e e d b a c k   M o t i v a c i o n a l   y   O A * * :   S e   i m p l e m e n t �   t u   r e c o m e n d a c i � n   d e   u s a r   f e e d b a c k   e s t r i c t a m e n t e   p o s i t i v o   y   m o t i v a c i o n a l   e n   l a   a p l i c a c i � n .   S e   e d i t a r o n   \ g a m e . j s \ ,   \ u i . j s \   y   \ d b . j s \   p a r a   e l i m i n a r   t o n o s   p u n i t i v o s .   A d e m � s ,   s e   i n y e c t a r o n   l a s   e t i q u e t a s   \ o a \   e n   \ d b _ 6 _ 7 . j s o n \ .  
  

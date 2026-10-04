@@ -51,4 +51,4 @@ Los emojis planos actuales (`🌴 🌊 🧪 ✨ 🚀`) deben ser reemplazados po
 
 ## Acción Posterior
 
-Una vez generados los 5 assets, notificar al Agente Diseño. El Diseño actualizará el HTML del splash (`v51_modular.html`) reemplazando los `<span class="splash-world-icon">` de emoji por `<img>` con las rutas de estos assets.
+Una vez generados los 5 assets, notificar al Agente Diseño. El Diseño actualizará el HTML del splash (`index.html`) reemplazando los `<span class="splash-world-icon">` de emoji por `<img>` con las rutas de estos assets.
