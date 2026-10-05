@@ -48,7 +48,7 @@ test.describe('Suite 7: Accesibilidad Automatizada (WCAG 2.1 AA)', () => {
     await page.fill('#ageInput', '7');
     await page.click('.onboarding-btn-vamos', { force: true });
     await expect(page.locator('#home')).toHaveClass(/active/, { timeout: 10000 });
-    await page.waitForTimeout(600); // Esperar que la animación scale(0.9 -> 1.0) termine
+    await page.waitForTimeout(1000); // Esperar que la animación scale(0.9 -> 1.0) termine por completo
 
     // Verificar tamaño de botones principales del Hub (acciones, tienda, ajustes, cofre)
     const buttons = await page.locator('#home button').all();

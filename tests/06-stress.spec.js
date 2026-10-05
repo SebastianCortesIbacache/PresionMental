@@ -24,6 +24,14 @@ test.describe('Suite 6: Estrés Pre-Beta', () => {
     await page.click('.onboarding-btn-vamos', { force: true });
     await expect(page.locator('#home')).toHaveClass(/active/, { timeout: 5000 });
 
+    // Esperar a que el Service Worker termine de precachear y tome el control
+    await page.evaluate(async () => {
+      if ('serviceWorker' in navigator) {
+        await navigator.serviceWorker.ready;
+      }
+    });
+    await page.waitForTimeout(1200);
+
     // 3. ✂️ CORTAR LA RED — Simula DevTools → Network → Offline
     await context.setOffline(true);
 

@@ -252,6 +252,107 @@
   transition: opacity 0.6s ease-in-out, visibility 0.6s;
 }
 
+/* --------------------------------------------------------------------------
+   SPLASH CINEMATIC VIDEO (RETO PANDA INTRO)
+   -------------------------------------------------------------------------- */
+.splash-video-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background: #071322;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.splash-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.splash-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: max(env(safe-area-inset-top, 24px), 24px) 20px;
+  box-sizing: border-box;
+  z-index: 30;
+}
+
+.splash-btn-sound,
+.splash-btn-skip {
+  pointer-events: auto;
+  cursor: pointer;
+  border: none;
+  font-family: 'Nunito', 'Lexend', sans-serif;
+  font-weight: 900;
+  transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.18s, background-color 0.18s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.splash-btn-sound {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  color: #1a237e;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.splash-btn-sound:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.splash-btn-skip {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #FFD54F;
+  color: #E65100;
+  font-size: 15px;
+  font-weight: 900;
+  box-shadow: 0 5px 0 #FF8F00, 0 8px 18px rgba(0, 0, 0, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.5px;
+}
+
+.splash-btn-skip:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #FF8F00;
+}
+
+.splash-video-box.fading-out {
+  animation: splashFadeOut 0.5s forwards cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes splashFadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.03); }
+}
+
 /* Specific styling for the loading card — the splash shows only the logo image, no circle container */
 .splash-circular-card {
   transition: transform 1s cubic-bezier(0.85, 0, 0.15, 1), filter 1s ease-in-out, opacity 1s;

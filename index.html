@@ -128,20 +128,37 @@
   </div>
 
   <!-- ============================================================
-       SPLASH SCREEN (GALAXY ARCADE PREMIUM PORTAL LOADER)
+       SPLASH SCREEN (VIDEO CINEMÁTICO INTRO + PORTAL LOADER)
        ============================================================ -->
   <div id="splash" class="onboarding-screen">
     <!-- Shared Deep Space Starfield -->
     <div class="space-starfield"></div>
 
-    <!-- Carátula Principal Reto Panda — sin contenedor circular -->
-    <div class="splash-content-wrapper">
+    <!-- Video Cinematográfico de Intro -->
+    <div class="splash-video-box" id="splashVideoBox">
+      <video id="splashVideo" class="splash-video"
+             src="assets/video/intro_reto_panda.mp4"
+             playsinline autoplay muted
+             preload="auto">
+      </video>
+
+      <div class="splash-video-overlay">
+        <button type="button" class="splash-btn-sound" id="splashSoundBtn" onclick="safeCall('toggleSplashAudio')" aria-label="Activar o desactivar sonido">
+          🔇
+        </button>
+        <button type="button" class="splash-btn-skip" id="splashSkipBtn" onclick="safeCall('skipSplashVideo')" aria-label="Saltar introducción">
+          Saltar intro ➔
+        </button>
+      </div>
+    </div>
+
+    <!-- Carátula y barra de respaldo (ocultas durante el video) -->
+    <div class="splash-content-wrapper" id="splashFallbackWrapper" style="display: none;">
       <img src="assets/interface/caratula.webp"
            onerror="this.src='assets/mascotas/tier1/m_panda.webp'"
            alt="Reto Panda"
            class="caratula-img splash-mascot-float">
 
-      <!-- Íconos de mundos y barra de carga -->
       <div class="splash-world-icons">
         <img id="sw0" class="splash-world-icon" src="assets/interface/splash_icons/world_isla.webp" alt="Isla">
         <span class="splash-separator">›</span>
