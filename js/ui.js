@@ -284,7 +284,11 @@ let playerAge = window.playerAge;
 
       // Reset to badges tab and show
       switchLogrosTab('badges');
-      overlay.showModal();
+      if (typeof overlay.showModal === 'function') {
+        overlay.showModal();
+      } else {
+        overlay.style.display = 'flex';
+      }
     }
 
     // Alias legacy para compatibilidad con safeCall('openBadges') existente
@@ -894,7 +898,12 @@ let playerAge = window.playerAge;
     }
 
     function closeSettings() {
-      document.getElementById('settingsOverlay').close();
+      if (typeof window.safeCloseDialog === 'function') {
+        window.safeCloseDialog('settingsOverlay');
+      } else {
+        const so = document.getElementById('settingsOverlay');
+        if (so) { try { so.close(); } catch(e){} if (so.style.display) so.style.display = ''; }
+      }
     }
 
     function applyAgeTier(age) {
@@ -966,7 +975,12 @@ let playerAge = window.playerAge;
       }
     }
     function closeIntroPopup() {
-      document.getElementById('introPopup').close();
+      if (typeof window.safeCloseDialog === 'function') {
+        window.safeCloseDialog('introPopup');
+      } else {
+        const ip = document.getElementById('introPopup');
+        if (ip) { try { ip.close(); } catch(e){} if (ip.style.display) ip.style.display = ''; }
+      }
       profile.introSeen = true;
       saveP();
     }

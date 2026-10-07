@@ -725,3 +725,20 @@ questionEl.textContent = cleanQuestionText(q.text);
   - `generateQuestion()` llama a `renderQuestionMedia(qData)` en vez del innerHTML directo.
 - Verificado: sintaxis OK (node --check), CSP `img-src 'self'` permite las imágenes, 106 img en el JSON MVP, 0 fuera de whitelist, 0 archivos faltantes.
 - **Pendientes / ajenos:** `sw.js` (Release) solo precachea `db_6_7.json`; añadir `db_mvp_6_7.json` y las WebP de `assets/preguntas/t1_mvp/` para offline real. CSS `.q-media.has-img .q-illustration` → Agente Diseño.
+
+## 2026-10-07 — Corrección del ciclo de vida de <dialog> y flujo de salida (Agente Arquitecto)
+- **Problema resuelto:** Al solicitar salida durante una partida (`confirmQuit()`), el diálogo `#quitConfirmPopup` se abría con `.showModal()`, pero sus botones "Seguir" y "Salir" solo ocultaban visualmente el elemento con `style.display = 'none'` sin invocar `.close()`. Esto mantenía el `<dialog>` activo en la capa superior modal (*top layer*) del navegador, bloqueando todos los eventos de puntero fuera del diálogo e impidiendo hacer clic en "Aceptar" (`#resBtn`) en la pantalla `#result`.
+- **index.html:**
+  - Implementada función global `safeCloseDialog(id)` en el bloque de utilidades sincronizadas (Script #2): invoca `.close()` con control de excepciones y limpia cualquier `style.display` inline residual. Expuesta en `window.safeCloseDialog`.
+  - Unificados todos los botones de cierre de diálogos (`#quitConfirmPopup`, `#parentReportOverlay`, `#explainPopup`, `#shopPopup`, `#statsOverlay`) para utilizar `safeCloseDialog()` garantizando la salida formal del top layer.
+  - Asegurado el orden de flujo en `#quitConfirmPopup`: cierre del diálogo con `safeCloseDialog('quitConfirmPopup')`, descongelado seguro del estado (`safeUnfreeze()`) y navegación a resultado (`handleFail(false, true)`).
+- **js/game.js:**
+  - `confirmQuit()` robustecido para resetear estilos inline residuales y abrir con `showModal()` dentro de try/catch seguro.
+  - `handleFail()` actualizado para forzar `state.frozen = false` y asegurar que `#quitConfirmPopup` se cierre formalmente como defensa en profundidad antes de transicionar a la pantalla `#result`.
+  - `closeMemoryOverlay()` actualizado para usar `safeCloseDialog('memOverlay')`.
+- **js/ui.js:**
+  - `closeSettings()` y `closeIntroPopup()` actualizados para usar `safeCloseDialog()`.
+  - `openLogros()` protegido para verificar `typeof overlay.showModal === 'function'` antes de invocarlo o aplicar `display = 'flex'` para elementos `<div>`.
+- **Validación automatizada:**
+  - Suite 13 (`tests/13-quit-modal.spec.js`): Pasó 100% verde sin timeouts ni bloqueo de eventos.
+  - Suite completa (`npx playwright test`): 30/30 pruebas pasando (100% verde) en Chromium sin regresiones de accesibilidad, visual o de juego.

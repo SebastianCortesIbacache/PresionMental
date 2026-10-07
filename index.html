@@ -89,6 +89,28 @@
         console.warn('[PM] safeUnfreeze: window.state no está definido aún.');
       }
     }
+
+    /**
+     * Cierra un <dialog> de forma segura y limpia llamando a .close()
+     * y reseteando cualquier estilo inline residual que pudiera interferir.
+     * @param {string} id - ID del elemento <dialog>
+     */
+    function safeCloseDialog(id) {
+      var d = document.getElementById(id);
+      if (d) {
+        try {
+          if (typeof d.close === 'function') {
+            d.close();
+          }
+        } catch (e) {
+          // Si el diálogo no estaba abierto o falla .close(), se captura de forma segura
+        }
+        if (d.style.display) {
+          d.style.display = '';
+        }
+      }
+    }
+    window.safeCloseDialog = safeCloseDialog;
   </script>
 
   <!-- ══ HOWLER.JS — Motor de Audio (Feature Flag: USE_HOWLER en game.js) ══ -->
@@ -441,7 +463,7 @@
         <button type="button" class="btn-3d btn-action mt-10 w-100"
                 onclick="safeCall('generateStatsImage')">📸 Guardar Informe para Padres</button>
         <button type="button" class="btn-3d btn-play mt-10 w-100"
-                onclick="document.getElementById('statsOverlay').close()">CERRAR</button>
+                onclick="safeCloseDialog('statsOverlay')">CERRAR</button>
       </div>
     </div>
   </dialog>
@@ -671,11 +693,11 @@
       <p class="popup-text mb-20">¿Quieres descansar? Tu progreso está guardado. 🌟<span id="quitStreakVal" style="display:none;"></span></p>
       <div class="flex-wrap-center">
         <button type="button" class="btn-3d btn-action flex-1 btn-large-text"
-                onclick="document.getElementById('quitConfirmPopup').style.display='none'; safeUnfreeze();">
+                onclick="safeCloseDialog('quitConfirmPopup'); safeUnfreeze();">
           Seguir
         </button>
         <button type="button" class="btn-3d flex-1 btn-large-text bg-danger shadow-danger"
-                onclick="document.getElementById('quitConfirmPopup').style.display='none'; safeUnfreeze(); safeCall('handleFail', false, true);">
+                onclick="safeCloseDialog('quitConfirmPopup'); safeUnfreeze(); safeCall('handleFail', false, true);">
           Salir
         </button>
       </div>
@@ -691,7 +713,7 @@
       <h2 class="popup-center border-secondary mt-0">📋 Reporte de Progreso</h2>
       <div id="parentReportContent"></div>
       <button type="button" class="btn-3d btn-play mt-10 w-100"
-              onclick="document.getElementById('parentReportOverlay').style.display='none'">CERRAR</button>
+              onclick="safeCloseDialog('parentReportOverlay')">CERRAR</button>
     </div>
   </dialog>
 
@@ -706,7 +728,7 @@
       <div class="popup-icon-large">🤔💡</div>
       <p id="explainMsg" class="popup-text mb-20"></p>
       <button type="button" class="btn-3d btn-play"
-              onclick="document.getElementById('explainPopup').style.display='none'; safeCall('generateQuestion');">¡ENTENDIDO!</button>
+              onclick="safeCloseDialog('explainPopup'); safeCall('generateQuestion');">¡ENTENDIDO!</button>
     </div>
   </dialog>
 
@@ -720,7 +742,7 @@
       <h2 id="shopPopupTitle"  class="border-accent mb-10 mt-10">¡COMPRA GENIAL!</h2>
       <p  id="shopPopupMsg"    class="popup-text mb-20"></p>
       <button type="button" class="btn-3d btn-play"
-              onclick="document.getElementById('shopPopup').style.display='none';">¡Genial!</button>
+              onclick="safeCloseDialog('shopPopup');">¡Genial!</button>
     </div>
   </dialog>
 

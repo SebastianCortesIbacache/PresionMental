@@ -163,7 +163,15 @@ import {
       state.timer = requestAnimationFrame(tick);
     }
 
-    function closeMemoryOverlay() { document.getElementById('memOverlay').close(); generateQuestion(); }
+    function closeMemoryOverlay() {
+      if (typeof window.safeCloseDialog === 'function') {
+        window.safeCloseDialog('memOverlay');
+      } else {
+        const mo = document.getElementById('memOverlay');
+        if (mo) { try { mo.close(); } catch(e){} if (mo.style.display) mo.style.display = ''; }
+      }
+      generateQuestion();
+    }
 
     function updatePowerupsUI() {
       const bar = document.getElementById('powerupsBar');
@@ -293,6 +301,16 @@ import {
 
     function handleFail(timeout=false, manualQuit=false) {
       if(state.timer) { cancelAnimationFrame(state.timer); clearInterval(state.timer); }
+      state.frozen = false;
+      if (typeof window.safeCloseDialog === 'function') {
+        window.safeCloseDialog('quitConfirmPopup');
+      } else {
+        const qp = document.getElementById('quitConfirmPopup');
+        if (qp) {
+          try { if (typeof qp.close === 'function') qp.close(); } catch(e){}
+          if (qp.style.display) qp.style.display = '';
+        }
+      }
       recordStreakDay();
       document.getElementById('resIcon').innerHTML = manualQuit ? '🚪' : `<img src="${getMascotImagePath(profile.equipM, profile.equipH)}" alt="${profile.equipM}">`;
       applyAccessory(document.getElementById('resHat'), profile.equipH, profile.equipM, 'result');
@@ -408,9 +426,18 @@ import {
 
 
 function confirmQuit() {
-  document.getElementById('quitStreakVal').textContent = state.streak || 0;
-  state.frozen = true;
-  document.getElementById('quitConfirmPopup').showModal();
+  const popup = document.getElementById('quitConfirmPopup');
+  if (popup) {
+    if (popup.style.display) popup.style.display = '';
+    const streakVal = document.getElementById('quitStreakVal');
+    if (streakVal) streakVal.textContent = state.streak || 0;
+    state.frozen = true;
+    try {
+      popup.showModal();
+    } catch (e) {
+      console.warn('[PM] Error abriendo quitConfirmPopup:', e);
+    }
+  }
 }
 
 // --- WINDOW EXPORTS FOR INLINE HTML HANDLERS ---
