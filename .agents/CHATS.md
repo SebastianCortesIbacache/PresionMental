@@ -18,7 +18,8 @@ Reto Panda/
 │   │   ├── diseño.md         ← Memoria del Agente Diseño
 │   │   ├── grafico.md        ← Memoria del Agente Gráfico
 │   │   ├── seguridad.md      ← Memoria del Agente Seguridad (PANDA-SHIELD)
-│   │   └── tester.md         ← Memoria del Agente Tester (QA) ← NUEVO
+│   │   ├── sonido.md         ← Memoria del Agente Sonido
+│   │   └── tester.md         ← Memoria del Agente Tester (QA)
 │   └── rules/
 │       ├── agente-arquitecto.md
 │       ├── agente-consultor.md
@@ -26,7 +27,8 @@ Reto Panda/
 │       ├── agente-diseño.md
 │       ├── agente-grafico.md
 │       ├── agente-seguridad.md
-│       └── agente-tester.md  ← NUEVO
+│       ├── agente-sonido.md
+│       └── agente-tester.md
 ├── js/
 │   ├── main.js
 │   ├── store.js
@@ -106,6 +108,13 @@ Reto Panda/
 - **Archivos de memoria:** `.agents/memory/psicopedagogo.md`
 - **Reglas:** `.agents/rules/agente-psicopedagogo.md`
 - **Estado actual:** ✅ Directrices pedagógicas integradas (feedback positivo y comodines no punitivos).
+
+### 🎵 Agente Sonido
+- **Rol:** Audio Director, diseño de SFX táctiles ("Juicy Clay"), música adaptativa (BGM), Web Audio API, síntesis TTS y ergonomía acústica infantil
+- **Archivos de memoria:** `.agents/memory/sonido.md`
+- **Reglas:** `.agents/rules/agente-sonido.md`
+- **Acceso a archivos:** `assets/audio/`, `assets/sounds/`, módulos de audio en `js/`
+- **Estado actual:** 🟢 Inicializado. Sistema dual (Web Audio API procedural + Howler.js HTML5 audio) operativo y verificado contra estrés y regresiones.
 
 ### 📈 Agente Growth
 - **Rol:** Estrategia de adopción escolar, métricas de retención, modelo de valor y cumplimiento COPPA

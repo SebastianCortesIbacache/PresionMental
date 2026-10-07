@@ -9,6 +9,7 @@ Este proyecto cuenta con un ecosistema multiagente especializado:
 - **Agente Tester (QA)** → Pruebas automatizadas (Playwright), regresiones y validación offline (`tests/`).
 - **Agente Seguridad** (PANDA-SHIELD) → Auditoría de seguridad, mitigación XSS y privacidad COPPA/GDPR-K.
 - **Agente Psicopedagogo** → Mitigación de estrés cognitivo, feedback positivo y didáctica infantil.
+- **Agente Sonido** → Diseño sonoro, efectos táctiles (SFX), música (BGM), Web Audio API y mitigación de fatiga acústica (`assets/audio/`, `assets/sounds/`).
 - **Agente Growth** → Estrategia de adopción, retención, métricas y modelo de valor.
 - **Agente Release** → Empaquetado PWA/Capacitor, configuración offline y publicación.
 
