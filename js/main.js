@@ -1,4 +1,5 @@
 import './store.js';
+import './audio.js';
 import './ui.js';
 import './db.js';
 import './game.js';

@@ -14,6 +14,7 @@ const CORE_ASSETS = [
   './js/db.js',
   './js/ui.js',
   './js/game.js',
+  './js/audio.js',
   // CSS en el mismo orden que los <link> de index.html
   './css/variables.css',
   './css/base.css',

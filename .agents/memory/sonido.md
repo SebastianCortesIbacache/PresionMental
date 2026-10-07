@@ -13,7 +13,7 @@
 
 ## 🆔 ID de Conversación y Estado
 - **Última Actualización:** 2026-10-07
-- **Estado Actual:** 🟢 Agente inicializado y documentado. Sistema de audio dual operativo y 100% verde en pruebas automatizadas.
+- **Estado Actual:** 🟢 Motor de audio 100% modularizado en `js/audio.js`. Splash video con audio revivido y control interactivo inteligente. SFX táctiles integrados en Mochi (`sfxSquish`), cofre diario (`sfxChest`) y navegación (`sfxTap`). Suite Playwright: 29/29 pruebas superadas (100% verde).
 
 ---
 
@@ -22,38 +22,46 @@
 ### 1. Pistas de Música (BGM)
 | Archivo | Formato / Peso | Ubicación | Estado |
 |---|---|---|---|
-| `menu_music.mp3` | MP3 / 1.7 MB | `assets/audio/menu_music.mp3` | ✅ Activo. Se reproduce en bucle en Home, Tienda, Setup y Mundos con control en `#ambientBtn`. |
-| `intro_reto_panda.mp4` | MP4 / 6.4 MB | `assets/video/intro_reto_panda.mp4` | ✅ Activo. Audio cinematográfico integrado (ambiente acuático + arpegio + acorde final "Reto Panda"). |
+| `menu_music.mp3` | MP3 / 1.7 MB | `assets/audio/menu_music.mp3` | ✅ Activo. Se reproduce con Fade-in/Fade-out suave mediante `startAmbientMusic()` / `stopAmbientMusic()` con control en `#ambientBtn`. |
+| `intro_reto_panda.mp4` | MP4 / 6.4 MB | `assets/video/intro_reto_panda.mp4` | ✅ Activo. Audio estéreo AAC revivido. Autoplay inteligente con detección de permisos del navegador, badge visual interactivo (`🔊 Sonido` / `🔇 Toca para sonido`) y desmuteo instantáneo al tocar la pantalla. |
 
-### 2. Efectos de Sonido (SFX)
-- **Implementación Actual:**
-  - Sintetizador nativo procedural mediante **Web Audio API** (`AudioContext`, osciladores senoidales y triangulares con rampas exponenciales de ganancia).
-  - Wrapper enrutador hacia **Howler.js** con fallback automático al sintetizador nativo si los archivos no existen o la red falla.
-- **Funciones Implementadas en `js/game.js`:**
-  - `sfxCorrect()`: Tono ascendente de recompensa.
-  - `sfxWrong()`: Tono descendente amortiguado.
-  - `sfxLevelUp()` / `sfxHappyGo()`: Arpegio de subida de nivel.
-  - `sfxCoin()`: Tono de adquisición de estrella/moneda.
-  - `sfxTick()` / `sfxHappyTick()`: Reloj suave.
-  - `sfxUrgent()`: Alerta de últimos segundos sin estridencia.
-  - `sfxCountdown()`: Tono de cuenta regresiva (3, 2, 1, ¡YA!).
-  - `sfxHalfTime()`: Tono de mitad del tiempo.
+### 2. Arquitectura Modular (`js/audio.js`)
+- **Web Audio API Procedural ("Juicy Clay"):**
+  - `sfxTap()`: Pop gomoso de botón UI (frecuencia ascendente rápida 320Hz -> 640Hz).
+  - `sfxSquish()`: Deformación suave de plastilina al interactuar con Mochi (440Hz -> 280Hz).
+  - `sfxChest()`: Cascada mágica de marimba pentatónica al abrir el cofre diario de estrellas.
+  - `sfxCorrect()`: Arpegio cálido de marimba de madera (Do - Mi - Sol).
+  - `sfxWrong()`: Acorde amable y constructivo de reintento (sin frecuencias estridentes de buzzer).
+  - `sfxLevelUp()` / `sfxWin()`: Fanfarria de victoria y avance de etapa.
+  - `sfxCoin()`: Tintineo brillante de estrella adquirida.
+  - `sfxTick()`: Golpe de reloj de madera suave.
+  - `sfxUrgent()`: Alerta de tiempo crítico amable sin estridencias.
+  - `sfxCountdown()`: Pitido cálido de cuenta regresiva previa.
+- **Enrutador Dual con Howler.js:**
+  - Fallback instantáneo al sintetizador procedural si Howler.js no está disponible o falla la red.
+- **Transiciones y Fade:**
+  - `startAmbientMusic(targetVol)`: Fade-in suave con desbloqueo resiliente en primer gesto de usuario.
+  - `stopAmbientMusic(immediate)`: Fade-out suave de 250ms para evitar cortes abruptos de audio.
 
 ### 3. Locución y Accesibilidad (TTS)
-- `speakQuestion(text)` en `js/game.js`: Utiliza `SpeechSynthesisUtterance` con idioma `es-CL` para leer las preguntas en voz alta a niños que están en proceso de alfabetización inicial.
+- `speakQuestion(text)` en `js/audio.js`: Utiliza `SpeechSynthesisUtterance` con acento `es-CL`, cadencia pausada (rate 0.95) y tono cálido (pitch 1.1) para niños de 6-7 años.
 
 ---
 
 ## 🧪 Pruebas de Calidad Asociadas (Playwright)
 - `tests/08-monkey-stress.spec.js`:
-  - `T-MONKEY-02: Ráfaga de clics en audio sin desbordamiento de AudioContext`: ✅ PASS. Valida que el motor no sature el thread de audio ante clics masivos continuos.
+  - `T-MONKEY-02: Ráfaga de clics en audio sin desbordamiento de AudioContext`: ✅ PASS. Cero fugas ni bloqueos del hilo de audio tras ráfagas intensivas de toques.
+  - `T-MONKEY-01: 2.000 acciones aleatorias ultrarrápidas sin colapso del DOM`: ✅ PASS.
 - `tests/07-accessibility.spec.js`:
-  - `T-A11Y-03`: Los botones de audio flotantes (`#ambientBtn` y `#audioBtnGlobal`) cumplen el tamaño táctil de accesibilidad ($\ge 44\times 44\text{ px}$).
+  - `T-A11Y-03`: Botones `#ambientBtn` y `#audioBtnGlobal` cumplen ergonomía táctil ($\ge 44\times 44\text{ px}$).
+- `tests/11-lighthouse-audit.spec.js`:
+  - `T-QUAL-04`: 0 errores en consola de audio.
+- **Total:** 29/29 tests pasando en verde.
 
 ---
 
-## 🚀 Hoja de Ruta (Roadmap) del Agente Sonido
-1. **Modularización:** Coordinar con el Agente Arquitecto para extraer la lógica de audio de `js/game.js` y `js/ui.js` hacia un módulo limpio e independiente: `js/audio.js`.
-2. **Biblioteca de Assets "Juicy Clay SFX":** Producir o integrar archivos `.mp3` reales para los efectos de sonido táctiles (pop de burbuja, squish de plastilina, cascada de gemas).
-3. **Ajuste de Mezcla y Volumen:** Implementar perfiles de ganancia independientes para Música de fondo (0.35), Efectos de sonido (0.6) y Voz narradora (1.0), con atenuación automática (ducking) de la música cuando la voz habla.
-4. **Transiciones Fade In / Fade Out:** Suavizar la entrada y salida de música entre pantallas para evitar cortes bruscos al iniciar una partida.
+## 🚀 Logros Completados y Próximos Pasos
+1. ✅ **Completado:** Separación modular limpia de audio a `js/audio.js`, cacheado en Service Worker (`sw.js`).
+2. ✅ **Completado:** Revitalización del audio en la pantalla de carga con video intro de Mochi.
+3. ✅ **Completado:** Sonorización táctil de Mochi (Squish), cofre (Chest) y navegación (Tap).
+4. ⏳ **Siguiente Iteración:** Ducking dinámico (atenuación automática del BGM cuando el narrador TTS está hablando).

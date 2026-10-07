@@ -275,6 +275,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
 .splash-video-overlay {
@@ -305,18 +306,43 @@
 }
 
 .splash-btn-sound {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.88);
+  padding: 8px 16px;
+  min-height: 44px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.92);
   color: #1a237e;
-  font-size: 22px;
-  display: flex;
+  font-size: 14px;
+  font-weight: 900;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   box-shadow: 0 5px 0 rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.35);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+}
+
+.splash-btn-sound.is-muted {
+  background: #FFF9C4;
+  color: #E65100;
+  box-shadow: 0 5px 0 #FBC02D, 0 8px 18px rgba(0, 0, 0, 0.35);
+  animation: splashSoundPulse 2s infinite ease-in-out;
+}
+
+@keyframes splashSoundPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.splash-sound-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.splash-sound-label {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
 }
 
 .splash-btn-sound:active {

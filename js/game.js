@@ -6,12 +6,25 @@ import {
 } from './ui.js';
 import { getQuestionFromDB } from './db.js';
 
-// ════════════════════════════════════════════════
-// ⚡ FEATURE FLAG — AUDIO ENGINE CHECKPOINT
-// Cambia a false para revertir al sintetizador nativo (Web Audio API).
-// Si el CDN de Howler falló en carga, se fuerza a false automáticamente.
-// ════════════════════════════════════════════════
-const USE_HOWLER = true;
+import {
+  audioEnabled,
+  getAudioCtx,
+  playTone,
+  sfxCorrect,
+  sfxWrong,
+  sfxLevelUp,
+  sfxWin,
+  sfxCoin,
+  sfxTick,
+  sfxUrgent,
+  sfxCountdown,
+  sfxHalfTime,
+  sfxHappyTick,
+  sfxHappyGo,
+  toggleAudio,
+  speakQuestion,
+  stopSpeech
+} from './audio.js';
 
 
 
@@ -385,141 +398,7 @@ const USE_HOWLER = true;
     }
 
 
-    // ══ AUDIO ENGINE — SISTEMA DUAL (Howler.js / Web Audio API nativo) ══
-    // Feature Flag: USE_HOWLER (definido al inicio del módulo, línea 14)
-    // Para revertir: cambiar USE_HOWLER = false
-
-    let audioEnabled = true;
-
-    // ---- BACKEND A: Sintetizador nativo (Web Audio API) -------
-    let audioCtx = null;
-    function getAudioCtx() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      if (audioCtx.state === 'suspended') audioCtx.resume();
-      return audioCtx;
-    }
-    function playTone(freq, duration, type='sine', vol=0.3, delay=0) {
-      if (!audioEnabled) return;
-      try {
-        const ctx = getAudioCtx();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain); gain.connect(ctx.destination);
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + delay);
-        gain.gain.setValueAtTime(vol, ctx.currentTime + delay);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + duration);
-        osc.start(ctx.currentTime + delay);
-        osc.stop(ctx.currentTime + delay + duration + 0.05);
-      } catch(e) {}
-    }
-
-    // Funciones nativas originales (CHECKPOINT — no borrar)
-    const _native = {
-      correct:   () => { playTone(523,0.1,'sine',0.3); playTone(659,0.1,'sine',0.3,0.1); playTone(784,0.18,'sine',0.3,0.2); },
-      wrong:     () => { playTone(300,0.08,'sawtooth',0.25); playTone(220,0.18,'sawtooth',0.25,0.09); },
-      levelUp:   () => { [523,659,784,1047].forEach((f,i) => playTone(f,0.12,'sine',0.28,i*0.1)); },
-      coin:      () => { playTone(1047,0.06,'sine',0.2); playTone(1319,0.06,'sine',0.2,0.07); playTone(1568,0.1,'sine',0.2,0.14); },
-      tick:      () => playTone(880,0.04,'square',0.12),
-      urgent:    () => { playTone(660,0.06,'square',0.18); playTone(440,0.06,'square',0.18,0.1); },
-      countdown: () => playTone(440,0.08,'sine',0.2),
-      halfTime:  () => playTone(660,0.1,'sine',0.2),
-      happyTick: () => { if(!audioEnabled)return; try { let a=getAudioCtx(),o=a.createOscillator(),g=a.createGain(); o.type='sine'; o.frequency.setValueAtTime(523.25,a.currentTime); o.frequency.exponentialRampToValueAtTime(659.25,a.currentTime+0.1); g.gain.setValueAtTime(0.3,a.currentTime); g.gain.exponentialRampToValueAtTime(0.01,a.currentTime+0.2); o.connect(g); g.connect(a.destination); o.start(); o.stop(a.currentTime+0.2); } catch(e){} },
-      happyGo:   () => { if(!audioEnabled)return; try { let a=getAudioCtx(),o=a.createOscillator(),g=a.createGain(); o.type='triangle'; o.frequency.setValueAtTime(523.25,a.currentTime); o.frequency.exponentialRampToValueAtTime(1046.50,a.currentTime+0.3); g.gain.setValueAtTime(0.4,a.currentTime); g.gain.exponentialRampToValueAtTime(0.01,a.currentTime+0.5); o.connect(g); g.connect(a.destination); o.start(); o.stop(a.currentTime+0.5); } catch(e){} }
-    };
-
-    // ---- BACKEND B: Howler.js ------------------------------------------------
-    let _howls = null;
-    let _howlStatus = {};
-    function _initHowler() {
-      if (_howls || typeof Howl === 'undefined' || window._HOWLER_FAILED) return;
-      
-      const config = {
-        correct:   { file: 'correct.mp3', vol: 0.7 },
-        wrong:     { file: 'wrong.mp3',   vol: 0.7 },
-        coin:      { file: 'coin.mp3',    vol: 0.6 },
-        levelUp:   { file: 'win.mp3',     vol: 0.75 },
-        tick:      { file: 'tick.mp3',    vol: 0.4 },
-        urgent:    { file: 'urgent.mp3',  vol: 0.5 },
-        countdown: { file: 'pop.mp3',     vol: 0.4 },
-        halfTime:  { file: 'urgent.mp3',  vol: 0.3 }
-      };
-
-      _howls = {};
-      Object.keys(config).forEach(name => {
-        const item = config[name];
-        _howlStatus[name] = 'loading';
-        _howls[name] = new Howl({
-          src: ['assets/sounds/' + item.file],
-          volume: item.vol,
-          html5: true, // Forzar HTML5 Audio para saltar bloqueos de CORS en protocolo file://
-          preload: true,
-          onload: () => {
-            _howlStatus[name] = 'loaded';
-          },
-          onloaderror: (id, err) => {
-            console.warn(`[PM Audio] Error cargando ${item.file}:`, err);
-            _howlStatus[name] = 'error';
-          },
-          onplayerror: (id, err) => {
-            console.warn(`[PM Audio] Error reproduciendo ${item.file}:`, err);
-            // Intentar reproducir con sintetizador nativo si falla la reproducción
-            if (_native[name]) _native[name]();
-          }
-        });
-      });
-      console.log('[PM Audio] Howler.js inicializado con soporte HTML5 Audio (✓)');
-    }
-    function _playHowl(name, nativeFn) {
-      if (!audioEnabled) return;
-      if (!_howls) _initHowler();
-      if (_howls && _howls[name] && _howlStatus[name] !== 'error') {
-        try {
-          _howls[name].stop();
-          _howls[name].play();
-        } catch(e) {
-          nativeFn && nativeFn();
-        }
-      } else {
-        nativeFn && nativeFn();
-      }
-    }
-
-    // ---- ROUTER sfx — despacha al backend correcto según flag ---------------
-    const _useH = () => USE_HOWLER && typeof Howl !== 'undefined' && !window._HOWLER_FAILED;
-
-    function sfxCorrect()   { _useH() ? _playHowl('correct',   _native.correct)   : _native.correct(); }
-    function sfxWrong()     { _useH() ? _playHowl('wrong',     _native.wrong)     : _native.wrong(); }
-    function sfxLevelUp()   { _useH() ? _playHowl('levelUp',   _native.levelUp)   : _native.levelUp(); }
-    function sfxCoin()      { _useH() ? _playHowl('coin',      _native.coin)      : _native.coin(); }
-    function sfxTick()      { _useH() ? _playHowl('tick',      _native.tick)      : _native.tick(); }
-    function sfxUrgent()    { _useH() ? _playHowl('urgent',    _native.urgent)    : _native.urgent(); }
-    function sfxCountdown() { _useH() ? _playHowl('countdown', _native.countdown) : _native.countdown(); }
-    function sfxHalfTime()  { _useH() ? _playHowl('halfTime',  _native.halfTime)  : _native.halfTime(); }
-    function sfxHappyTick() { _useH() ? _playHowl('tick',      _native.happyTick) : _native.happyTick(); }
-    function sfxHappyGo()   { _useH() ? _playHowl('levelUp',   _native.happyGo)   : _native.happyGo(); }
-
-    function speakQuestion(text) {
-      if (!audioEnabled || !('speechSynthesis' in window)) return;
-      window.speechSynthesis.cancel(); // Detener audios previos
-      let utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-CL';
-      utterance.rate = 0.95; // Velocidad un poco más lenta
-      utterance.pitch = 1.1; // Tono más cálido
-      window.speechSynthesis.speak(utterance);
-    }
-    
-    function stopSpeech() {
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-    }
-
-    function toggleAudio() {
-      audioEnabled = !audioEnabled;
-      if (_useH()) Howler.mute(!audioEnabled);
-      const btn = document.getElementById('audioBtnGlobal');
-      if (btn) { btn.textContent = audioEnabled ? '🔊' : '🔇'; btn.classList.toggle('muted', !audioEnabled); }
-      if (audioEnabled) sfxCoin();
-    }
+    // Motor de audio modularizado en js/audio.js (Agente Sonido)
 
     
 
@@ -566,4 +445,22 @@ window.sfxCountdown = sfxCountdown;
 window.toggleAudio = toggleAudio;
 window.confirmQuit = confirmQuit;
 
-export { generateQuestion, sfxCountdown, updatePowerupsUI, sfxWrong };
+export {
+  generateQuestion,
+  sfxCountdown,
+  updatePowerupsUI,
+  sfxWrong,
+  getAudioCtx,
+  playTone,
+  sfxCorrect,
+  sfxLevelUp,
+  sfxCoin,
+  sfxTick,
+  sfxUrgent,
+  sfxHalfTime,
+  sfxHappyTick,
+  sfxHappyGo,
+  toggleAudio,
+  speakQuestion,
+  stopSpeech
+};

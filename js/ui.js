@@ -1,5 +1,13 @@
 import { THEMES, COLORS, SHOP_ITEMS, WORLDS, SKILLS_META, BADGES, defaultProfile, profile, state, fmtColor, generateHash } from './store.js';
 import { generateQuestion, sfxCountdown, updatePowerupsUI, sfxWrong } from './game.js';
+import { 
+  startAmbientMusic, 
+  stopAmbientMusic, 
+  toggleAmbient, 
+  sfxSquish, 
+  sfxChest, 
+  sfxTap 
+} from './audio.js';
 
 // Global variables workaround for strict mode
 let playerAge = window.playerAge;
@@ -34,6 +42,7 @@ let playerAge = window.playerAge;
       return (lang === 'en' ? en : es)[season];
     }
     function pokeMascot() {
+      if (typeof sfxSquish === 'function') sfxSquish();
       const b = document.getElementById('mascotBubble');
       if (!b) return;
       const lang = profile.gameLang || 'es';
@@ -78,6 +87,7 @@ let playerAge = window.playerAge;
     }
 
     function nav(id) {
+      if (typeof sfxTap === 'function') sfxTap();
       if (typeof window.stopSpeech === 'function') window.stopSpeech();
       document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
       const target = document.getElementById(id);
@@ -1132,12 +1142,23 @@ let playerAge = window.playerAge;
         return;
       }
 
-      // Tap / clic en cualquier parte del video para saltar intro
+      // Tap / clic en cualquier parte del video
       box.addEventListener('click', function(e) {
-        if (e.target && (e.target.id === 'splashSoundBtn' || e.target.closest('#splashSoundBtn'))) {
+        // Clic directo en el botón de saltar intro
+        if (e.target && (e.target.id === 'splashSkipBtn' || e.target.closest('#splashSkipBtn'))) {
+          skipSplashVideo();
           return;
         }
-        skipSplashVideo();
+        // Si el video está silenciado, cualquier toque en la pantalla o en el botón activa el sonido
+        if (vid.muted) {
+          unmuteSplashVideo();
+          return;
+        }
+        // Si ya está desmuteado y tocan el botón de sonido, conmuta el estado de audio
+        if (e.target && (e.target.id === 'splashSoundBtn' || e.target.closest('#splashSoundBtn'))) {
+          toggleSplashAudio();
+          return;
+        }
       });
 
       // Al terminar el video normalmente
@@ -1158,24 +1179,67 @@ let playerAge = window.playerAge;
         }
       }, 8500);
 
-      // Iniciar reproducción (muted para cumplir con las políticas de autoplay de navegadores)
-      vid.muted = true;
+      // Intentar reproducir CON SONIDO directamente
+      vid.muted = false;
+      vid.volume = 1.0;
       var playPromise = vid.play();
       if (playPromise !== undefined) {
-        playPromise.catch(function() {
-          console.warn('Video autoplay blocked, waiting for user tap or skip.');
+        playPromise.then(function() {
+          // El navegador permitió autoplay con audio
+          updateSplashSoundBtnUI(false);
+        }).catch(function() {
+          // El navegador bloqueó autoplay con audio: silenciar temporalmente y avisar
+          console.log('[Splash Video] Autoplay con audio bloqueado por política del navegador. Iniciando en silencio.');
+          vid.muted = true;
+          updateSplashSoundBtnUI(true);
+          vid.play().catch(function(e) { console.warn('Autoplay muted blocked:', e); });
+
+          // Desbloquear audio automáticamente ante cualquier interacción del usuario
+          var unlockOnUserAction = function() {
+            if (!_splashVideoDone && vid && vid.muted) {
+              unmuteSplashVideo();
+            }
+            window.removeEventListener('pointerdown', unlockOnUserAction);
+            window.removeEventListener('keydown', unlockOnUserAction);
+          };
+          window.addEventListener('pointerdown', unlockOnUserAction, { once: true });
+          window.addEventListener('keydown', unlockOnUserAction, { once: true });
         });
+      }
+    }
+
+    function updateSplashSoundBtnUI(isMuted) {
+      var soundBtn = document.getElementById('splashSoundBtn');
+      if (!soundBtn) return;
+      if (isMuted) {
+        soundBtn.classList.add('is-muted');
+        soundBtn.innerHTML = '<span class="splash-sound-icon">🔇</span> <span class="splash-sound-label">Toca para sonido</span>';
+      } else {
+        soundBtn.classList.remove('is-muted');
+        soundBtn.innerHTML = '<span class="splash-sound-icon">🔊</span> <span class="splash-sound-label">Sonido</span>';
+      }
+    }
+
+    function unmuteSplashVideo() {
+      var vid = document.getElementById('splashVideo');
+      if (!vid) return;
+      vid.muted = false;
+      vid.volume = 1.0;
+      updateSplashSoundBtnUI(false);
+      var p = vid.play();
+      if (p !== undefined) {
+        p.catch(function() {});
       }
     }
 
     function toggleSplashAudio() {
       var vid = document.getElementById('splashVideo');
-      var soundBtn = document.getElementById('splashSoundBtn');
       if (!vid) return;
-
-      vid.muted = !vid.muted;
-      if (soundBtn) {
-        soundBtn.textContent = vid.muted ? '🔇' : '🔊';
+      if (vid.muted) {
+        unmuteSplashVideo();
+      } else {
+        vid.muted = true;
+        updateSplashSoundBtnUI(true);
       }
     }
 
@@ -1222,66 +1286,11 @@ let playerAge = window.playerAge;
 
 
 // ─────────────────────────────────────────────────────────
-// MÚSICA AMBIENT (MP3)
-// Archivo esperado: assets/audio/menu_music.mp3
+// MÚSICA AMBIENTAL (Gestión centralizada en js/audio.js)
 // ─────────────────────────────────────────────────────────
-let _ambientAudio = null;
-let _ambientEnabled = true;   // Por defecto ACTIVADO
-let _ambientMuted   = false;  // Silenciado por el usuario
-
-function _getAmbientAudio() {
-  if (!_ambientAudio) {
-    _ambientAudio = new Audio('assets/audio/menu_music.mp3');
-    _ambientAudio.loop   = true;
-    _ambientAudio.volume = 0.45;
-    _ambientAudio.preload = 'auto';
-  }
-  return _ambientAudio;
-}
-
-function startAmbientMusic() {
-  if (_ambientMuted) return;
-  const a = _getAmbientAudio();
-  if (a.paused) {
-    a.play().catch(() => {
-      // Autoplay policy: el browser bloqueó el audio.
-      // Se activa en el primer clic del usuario.
-      const unlock = () => {
-        if (_ambientEnabled && !_ambientMuted) {
-          a.play().catch(() => {});
-        }
-        document.removeEventListener('click', unlock);
-        document.removeEventListener('touchstart', unlock);
-        document.removeEventListener('keydown', unlock);
-      };
-      document.addEventListener('click', unlock, { once: true });
-      document.addEventListener('touchstart', unlock, { once: true });
-      document.addEventListener('keydown', unlock, { once: true });
-    });
-  }
-}
-
-function stopAmbientMusic() {
-  if (_ambientAudio && !_ambientAudio.paused) {
-    _ambientAudio.pause();
-  }
-}
-
-function toggleAmbient() {
-  _ambientMuted = !_ambientMuted;
-  const btn = document.getElementById('ambientBtn');
-  if (_ambientMuted) {
-    stopAmbientMusic();
-    if (btn) { btn.classList.add('muted'); btn.textContent = '🔇'; btn.title = 'Activar música'; }
-  } else {
-    startAmbientMusic();
-    if (btn) { btn.classList.remove('muted'); btn.textContent = '🎵'; btn.title = 'Silenciar música'; }
-  }
-}
-
-// Exponer funciones de audio ambient a global
 window.stopAmbientMusic  = stopAmbientMusic;
 window.startAmbientMusic = startAmbientMusic;
+window.toggleAmbient     = toggleAmbient;
 
 // Arrancar música tras primer cargado al home
 const _hideSplashOriginal = hideSplash;
@@ -1346,11 +1355,13 @@ window.toggleAmbient = toggleAmbient;
 window.openParentReport = openParentReport;
 window.initSplashVideo = initSplashVideo;
 window.toggleSplashAudio = toggleSplashAudio;
+window.unmuteSplashVideo = unmuteSplashVideo;
 window.skipSplashVideo = skipSplashVideo;
 window.finishSplashVideo = finishSplashVideo;
 
 function claimDailyChest() {
-  if (typeof window.sfxWin === 'function') window.sfxWin();
+  if (typeof sfxChest === 'function') sfxChest();
+  else if (typeof window.sfxWin === 'function') window.sfxWin();
   if (typeof createParticles === 'function') createParticles();
   const chestImg = document.getElementById('dailyChestImg');
   if (chestImg) {
@@ -1412,5 +1423,6 @@ export {
   showStarGain, updateStarUI, recordStreakDay, nav, applyAccessory, 
   showToast, ensureDailyMissions, applyLang, renderTags, updateSkills, 
   flash, showExplain, TRANSLATIONS, saveP, missionPeriodKeys, getMascotImagePath,
-  createParticles, initSplashVideo, toggleSplashAudio, skipSplashVideo, finishSplashVideo
+  createParticles, initSplashVideo, toggleSplashAudio, unmuteSplashVideo, skipSplashVideo, finishSplashVideo,
+  startAmbientMusic, stopAmbientMusic, toggleAmbient, sfxSquish, sfxChest, sfxTap
 };
