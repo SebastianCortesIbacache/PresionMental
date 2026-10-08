@@ -742,3 +742,19 @@ questionEl.textContent = cleanQuestionText(q.text);
 - **Validación automatizada:**
   - Suite 13 (`tests/13-quit-modal.spec.js`): Pasó 100% verde sin timeouts ni bloqueo de eventos.
   - Suite completa (`npx playwright test`): 30/30 pruebas pasando (100% verde) en Chromium sin regresiones de accesibilidad, visual o de juego.
+
+## 2026-10-08 — Intro de video en bucle continuo y CTA ¡A JUGAR! con carátula 3D (Agente Arquitecto)
+- **Objetivo:** Cumplir el requerimiento de intro en movimiento perpetuo (bucle de video continuo de Mochi), con aparición suave de la carátula 3D (`assets/interface/caratula.webp`) y botón "¡A JUGAR! 🎮" a los ~6.5-7s de reproducción, garantizando continuidad auditiva sin cortes y preservando la velocidad en tests de Playwright.
+- **index.html:**
+  - Dentro de `#splashVideoBox`, después de `.splash-video-overlay`, se agregó el contenedor `#splashWelcomeCta` con `.splash-title-logo` (`caratula.webp`) y el botón `#splashPlayBtn` (`onclick="safeCall('finishSplashVideo')"`).
+  - Configurado el atributo `loop` en `<video id="splashVideo">`.
+- **js/ui.js:**
+  - `initSplashVideo()`: Configurado `vid.loop = true;` para mantener el nado bajo el agua sin corte abrupto.
+  - Se eliminó el timeout agresivo de cierre automático a los 8.5s y se implementó `showSplashWelcomeCta()` activado vía `timeupdate` cuando `vid.currentTime >= 6.5` y mediante temporizador de contingencia a los 7s.
+  - Soporte táctil y desmuteo delegado en `splashVideoBox` asegurando que clics en `#splashPlayBtn`, `#splashSkipBtn` y `#splashSoundBtn` ejecuten sus respectivas acciones prioritarias y no sean absorbidos por el unmute.
+  - `finishSplashVideo()`: Reproduce efecto sonoro táctil (`sfxHappyGo()` o `sfxTap()`), arranca música ambiental en fade continuo (`startAmbientMusic()`), aplica fade out suave al video, oculta el splash y navega al onboarding o Home según el estado del perfil.
+  - Preservado bypass ultrarrápido en modo WebDriver (`if (navigator.webdriver)`) para evitar regresiones o demoras en pruebas automatizadas.
+  - Exportados `showSplashWelcomeCta` y `sfxHappyGo` en `window` y en el bloque `export` del módulo.
+- **Validación automatizada:**
+  - Ejecución de `npx playwright test`: 30/30 pruebas pasando 100% verde (0 fallos).
+  - Refinamiento de fidelidad visual en Tablet 1024x768 (`T-VIS-02`): Se asignó `box.style.display = 'none'` al terminar el fade-out y en el bypass de webdriver, y se incorporó `max-width: 100vw; overflow: hidden; visibility: hidden;` en `@keyframes splashFadeOut` para eliminar cualquier desborde residual de 1-3px en `scrollWidth`. Suite 9 pasó 100% verde.

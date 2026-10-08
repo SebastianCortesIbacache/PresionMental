@@ -160,7 +160,7 @@
     <div class="splash-video-box" id="splashVideoBox">
       <video id="splashVideo" class="splash-video"
              src="assets/video/intro_reto_panda.mp4"
-             playsinline autoplay
+             playsinline autoplay loop
              preload="auto">
       </video>
 
@@ -171,6 +171,13 @@
         </button>
         <button type="button" class="splash-btn-skip" id="splashSkipBtn" onclick="safeCall('skipSplashVideo')" aria-label="Saltar introducción">
           Saltar intro ➔
+        </button>
+      </div>
+
+      <div class="splash-welcome-cta" id="splashWelcomeCta">
+        <img src="assets/interface/caratula.webp" alt="Reto Panda" class="splash-title-logo" id="splashTitleLogo">
+        <button type="button" class="splash-btn-play" id="splashPlayBtn" onclick="safeCall('finishSplashVideo')">
+          ¡A JUGAR! 🎮
         </button>
       </div>
     </div>

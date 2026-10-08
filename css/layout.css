@@ -372,11 +372,186 @@
 .splash-video-box.fading-out {
   animation: splashFadeOut 0.5s forwards cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 @keyframes splashFadeOut {
   0% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.03); }
+  99% { opacity: 0; transform: scale(1.03); visibility: visible; }
+  100% { opacity: 0; transform: scale(1.03); visibility: hidden; }
+}
+
+/* --------------------------------------------------------------------------
+   SPLASH WELCOME CTA — BOTÓN "¡A JUGAR! 🎮" Y LOGO 3D (TIER 1 CLAY WORLD)
+   -------------------------------------------------------------------------- */
+.splash-welcome-cta,
+#splashWelcomeCta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 3.5vh, 26px);
+  padding: max(env(safe-area-inset-top, 24px), 24px) 20px max(env(safe-area-inset-bottom, 24px), 24px) 20px;
+  box-sizing: border-box;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.splash-welcome-cta.is-visible,
+#splashWelcomeCta.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.splash-title-logo {
+  max-width: min(85vw, 380px);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+  animation: clayFloat 3.2s ease-in-out infinite;
+}
+
+.splash-btn-play,
+#splashPlayBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 12px 36px;
+  border-radius: 50px;
+  border: 3.5px solid rgba(255, 255, 255, 0.7);
+  background: linear-gradient(180deg, #66BB6A 0%, #4CAF50 100%);
+  color: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: clamp(18px, 4vw, 24px);
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  box-shadow: 0 8px 0 #2E7D32, 0 15px 25px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.15s ease,
+              filter 0.2s ease;
+  animation: ctaPulse 2.4s ease-in-out infinite;
+}
+
+.splash-btn-play:hover,
+#splashPlayBtn:hover {
+  filter: brightness(1.06);
+}
+
+.splash-btn-play:active,
+#splashPlayBtn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #2E7D32, 0 8px 15px rgba(0, 0, 0, 0.3);
+  animation: none;
+}
+
+/* Keyframes de flotación orgánica (estilo nube / plastilina) */
+@keyframes clayFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Keyframes de pulso invitante (estilo llamada a la acción lúdica) */
+@keyframes ctaPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 0 #2E7D32, 0 15px 25px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 10px 0 #2E7D32, 0 18px 30px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* Adaptación para pantallas móviles pequeñas (<= 480px) */
+@media (max-width: 480px) {
+  .splash-welcome-cta,
+  #splashWelcomeCta {
+    gap: 16px;
+    padding: 16px;
+  }
+  .splash-title-logo {
+    max-width: min(88vw, 310px);
+  }
+  .splash-btn-play,
+  #splashPlayBtn {
+    min-height: 52px;
+    padding: 10px 28px;
+    font-size: clamp(17px, 4.5vw, 20px);
+    box-shadow: 0 6px 0 #2E7D32, 0 12px 20px rgba(0, 0, 0, 0.35);
+  }
+  .splash-btn-play:active,
+  #splashPlayBtn:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 #2E7D32, 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Adaptación para móviles en orientación horizontal baja (evita recorte) */
+@media (max-height: 480px) and (orientation: landscape) {
+  .splash-welcome-cta,
+  #splashWelcomeCta {
+    gap: 10px;
+    padding: 10px;
+  }
+  .splash-title-logo {
+    max-height: 44vh;
+    width: auto;
+  }
+  .splash-btn-play,
+  #splashPlayBtn {
+    min-height: 44px;
+    padding: 8px 24px;
+    font-size: 16px;
+    box-shadow: 0 5px 0 #2E7D32, 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  .splash-btn-play:active,
+  #splashPlayBtn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #2E7D32;
+  }
+}
+
+/* Accesibilidad: Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .splash-welcome-cta,
+  #splashWelcomeCta {
+    transition: opacity 0.3s ease;
+    transform: none !important;
+  }
+  .splash-title-logo {
+    animation: none !important;
+  }
+  .splash-btn-play,
+  #splashPlayBtn {
+    animation: none !important;
+  }
 }
 
 /* Specific styling for the loading card — the splash shows only the logo image, no circle container */
