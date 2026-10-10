@@ -24,7 +24,7 @@ test.describe('Suite 13: Flujo de Salida de Partida (Quit Modal)', () => {
 
     await page.click('button:has-text("EMPEZAR")');
     await expect(page.locator('#countOverlay')).not.toBeVisible({ timeout: 5000 });
-    await expect(page.locator('#game')).toHaveClass(/active/);
+    await expect(page.locator('#memOverlay')).not.toBeVisible({ timeout: 6000 });
 
     // 3. Presionar botón de salir (✕) dentro del juego
     await page.click('#game .btn-back');

@@ -60,11 +60,11 @@ Reto Panda/
 
 ## Agentes configurados
 
-### 🕵️ Consultor Externo (Antigravity)
-- **Rol:** Auditoría, estrategia y coordinación entre agentes. NO modifica código directamente.
+### 🕵️ Consultor Externo / Cuartel Estratégico (Antigravity)
+- **Rol:** Auditoría, estrategia central, toma de decisiones y coordinación entre agentes. NO modifica código directamente.
 - **Archivos de memoria:** `.agents/memory/consultor.md`
 - **Reglas:** `.agents/rules/agente-consultor.md`
-- **Conversación:** `0c306431-c583-4d9c-9211-90a56ae00388`
+- **Conversación:** `f19f98ab-bf6b-4c35-a33a-1e3b97fe8853`
 
 ### 🏗️ Agente Arquitecto
 - **Rol:** Coherencia técnica JS/HTML, bugs de lógica, estructura modular ESM

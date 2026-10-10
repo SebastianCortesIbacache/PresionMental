@@ -1135,16 +1135,6 @@ let playerAge = window.playerAge;
 
     // --- SPLASH VIDEO INTRO CONTROLLER ---
     var _splashVideoDone = false;
-    var _splashCtaVisible = false;
-
-    function showSplashWelcomeCta() {
-      if (_splashCtaVisible || _splashVideoDone) return;
-      _splashCtaVisible = true;
-      var cta = document.getElementById('splashWelcomeCta');
-      if (cta) {
-        cta.classList.add('is-visible');
-      }
-    }
 
     function initSplashVideo() {
       var vid = document.getElementById('splashVideo');
@@ -1170,19 +1160,11 @@ let playerAge = window.playerAge;
         return;
       }
 
-      // Configurar video en bucle continuo para fluidez del nado submarino
-      vid.loop = true;
-
       // Tap / clic en cualquier parte del contenedor del video
       box.addEventListener('click', function(e) {
         // Clic directo en el botón de saltar intro
         if (e.target && (e.target.id === 'splashSkipBtn' || e.target.closest('#splashSkipBtn'))) {
           skipSplashVideo();
-          return;
-        }
-        // Clic directo en el botón "¡A Jugar!"
-        if (e.target && (e.target.id === 'splashPlayBtn' || e.target.closest('#splashPlayBtn'))) {
-          finishSplashVideo();
           return;
         }
         // Clic directo en el botón de conmutar sonido
@@ -1197,24 +1179,17 @@ let playerAge = window.playerAge;
         }
       });
 
-      // Programar la aparición del CTA tras ~6.5s de reproducción del video
-      vid.addEventListener('timeupdate', function() {
-        if (vid.currentTime >= 6.5) {
-          showSplashWelcomeCta();
-        }
+      // Al terminar la animación del video, avanzar directamente al menú
+      vid.addEventListener('ended', function() {
+        finishSplashVideo();
       });
 
-      // Temporizador de respaldo (6.5s a 7.5s) por si timeupdate no reporta a tiempo
+      // Temporizador de respaldo a los 8.5s (duración de la animación + margen)
       setTimeout(function() {
         if (!_splashVideoDone) {
-          showSplashWelcomeCta();
+          finishSplashVideo();
         }
-      }, 7000);
-
-      // Si por alguna razón ended se emitiese, mostrar CTA de inmediato
-      vid.addEventListener('ended', function() {
-        showSplashWelcomeCta();
-      });
+      }, 8500);
 
       // En caso de error al cargar el archivo de video (offline, formato no soportado, etc.)
       vid.addEventListener('error', function() {
@@ -1222,7 +1197,7 @@ let playerAge = window.playerAge;
         fallbackToClassicLoader();
       });
 
-      // Intentar reproducir CON SONIDO directamente
+      // Iniciar el video con sonido obligatorio
       vid.muted = false;
       vid.volume = 1.0;
       var playPromise = vid.play();
@@ -1256,10 +1231,12 @@ let playerAge = window.playerAge;
       if (!soundBtn) return;
       if (isMuted) {
         soundBtn.classList.add('is-muted');
-        soundBtn.innerHTML = '<span class="splash-sound-icon">🔇</span> <span class="splash-sound-label">Toca para sonido</span>';
+        soundBtn.setAttribute('aria-label', 'Activar sonido');
+        soundBtn.innerHTML = '<span class="splash-sound-icon">🔇</span> <span class="splash-sound-label" id="splashSoundLabel">Activar sonido</span>';
       } else {
         soundBtn.classList.remove('is-muted');
-        soundBtn.innerHTML = '<span class="splash-sound-icon">🔊</span> <span class="splash-sound-label">Sonido</span>';
+        soundBtn.setAttribute('aria-label', 'Silenciar sonido');
+        soundBtn.innerHTML = '<span class="splash-sound-icon">🔊</span> <span class="splash-sound-label" id="splashSoundLabel">Silenciar</span>';
       }
     }
 
@@ -1445,7 +1422,6 @@ window.toggleSplashAudio = toggleSplashAudio;
 window.unmuteSplashVideo = unmuteSplashVideo;
 window.skipSplashVideo = skipSplashVideo;
 window.finishSplashVideo = finishSplashVideo;
-window.showSplashWelcomeCta = showSplashWelcomeCta;
 
 function claimDailyChest() {
   if (typeof sfxChest === 'function') sfxChest();
@@ -1512,5 +1488,5 @@ export {
   showToast, ensureDailyMissions, applyLang, renderTags, updateSkills, 
   flash, showExplain, TRANSLATIONS, saveP, missionPeriodKeys, getMascotImagePath,
   createParticles, initSplashVideo, toggleSplashAudio, unmuteSplashVideo, skipSplashVideo, finishSplashVideo,
-  showSplashWelcomeCta, startAmbientMusic, stopAmbientMusic, toggleAmbient, sfxSquish, sfxChest, sfxTap, sfxHappyGo
+  startAmbientMusic, stopAmbientMusic, toggleAmbient, sfxSquish, sfxChest, sfxTap, sfxHappyGo
 };

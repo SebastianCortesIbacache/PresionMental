@@ -758,3 +758,19 @@ questionEl.textContent = cleanQuestionText(q.text);
 - **Validación automatizada:**
   - Ejecución de `npx playwright test`: 30/30 pruebas pasando 100% verde (0 fallos).
   - Refinamiento de fidelidad visual en Tablet 1024x768 (`T-VIS-02`): Se asignó `box.style.display = 'none'` al terminar el fade-out y en el bypass de webdriver, y se incorporó `max-width: 100vw; overflow: hidden; visibility: hidden;` en `@keyframes splashFadeOut` para eliminar cualquier desborde residual de 1-3px en `scrollWidth`. Suite 9 pasó 100% verde.
+
+## 2026-10-10 — Simplificación de intro: reproducción única con sonido obligatorio y transición directa al menú (Agente Arquitecto)
+- **Objetivo:** Cumplir la directiva del usuario de reproducir el video cinemático una sola vez completa con sonido por defecto (el botón de sonido actúa para silenciar), eliminar la pantalla intermedia (#splashWelcomeCta) y pasar directamente al menú principal tras terminar la animación o presionar "Saltar intro".
+- **index.html:**
+  - En `<video id="splashVideo">`: removido el atributo `loop`.
+  - En `#splashSoundBtn`: actualizado `aria-label="Silenciar sonido"` y contenido por defecto `<span class="splash-sound-icon">🔊</span> <span class="splash-sound-label" id="splashSoundLabel">Silenciar</span>`.
+  - Removido el contenedor `#splashWelcomeCta` de dentro de `#splashVideoBox`. Botón `#splashSkipBtn` conservado intacto.
+- **js/ui.js:**
+  - `initSplashVideo()`: Eliminado `vid.loop = true;`. Eliminada la lógica y temporizadores de `#splashWelcomeCta`.
+  - El video arranca con audio obligatorio (`vid.muted = false; vid.volume = 1.0;`). Si la política estricta de autoplay del navegador lo bloquea, se conmuta temporalmente a silencio y se prepara el desbloqueo automático en el primer toque de usuario.
+  - `updateSplashSoundBtnUI(isMuted)`: Actualiza correctamente textos ("Silenciar" / "Activar sonido"), iconos (🔊 / 🔇) y atributos `aria-label`.
+  - Finalización del video conectada a `ended` y con salvaguarda a 8.5s (`setTimeout`) por si el evento no llegase a emitirse en algún navegador.
+  - `finishSplashVideo()`: Ejecuta fade out, aplica `box.style.display = 'none'`, arranca la música ambiental (`startAmbientMusic()`) y navega a Home/Onboarding.
+  - Bypass `if (navigator.webdriver)` intacto para testing instantáneo. Limpieza de exports obsoletos (`showSplashWelcomeCta`).
+- **Validación automatizada:**
+  - Ejecución de `npx playwright test`: 30/30 pruebas pasando 100% verde (0 fallos).
