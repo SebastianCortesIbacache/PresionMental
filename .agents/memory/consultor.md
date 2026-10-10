@@ -193,13 +193,17 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
 ---
 
 ## 🏛️ ESTABLECIMIENTO DEL CUARTEL GENERAL ESTRATÉGICO (2026-10-10)
-- **Designación:** El USER ha formalizado esta conversación (`f19f98ab-bf6b-4c35-a33a-1e3b97fe8853`) como el **Chat Central de Decisiones Estratégicas y Hoja de Ruta** de **Reto Panda**.
-- **Propósito:** 
-  1. Centralizar la visión macro del proyecto (Prioridad MVP Tier 1 Clay World 6-7 años, Chile First, 100% Offline-First).
-  2. Planificar sprints y definir prioridades antes de delegar a agentes especializados (Arquitecto, Diseño, Gráfico, Contenido, Seguridad, Tester, Psicopedagogo, Sonido, Growth, Release).
-  3. Auditar cumplimiento de objetivos y calidad antes de cada release.
+- **Designación de Roles entre Chats:**
+  - **Chat RP Estratégico:** Cuartel General de Decisiones Estratégicas, planificación macro, hojas de ruta y diseño general.
+  - **Chat Operativo (Este Chat - Conversación Actual `2f629c2b-0e37-48e1-943f-fe25db8f7d81`):**
+    - **Rol Exclusivo:** 100% OPERATIVO (ejecución de código, modificaciones, refactorizaciones, fixes de lógica/estilos y testing).
+    - **Prohibición de Planes:** NO se elaboran planes ni hojas de ruta en este chat; todo lo estratégico se delega a "RP Estratégico".
+    - **REGLA ESTRICTA DE CONFIRMACIÓN:** Cualquier tarea técnica o modificación debe ser ordenada directamente por el USER luego de pedir y recibir confirmación explícita. NADA se ejecuta sin orden directa confirmada.
+    - **DOCUMENTACIÓN OBLIGATORIA:** Cualquier cambio realizado en archivos del proyecto debe quedar registrado en las memorias de los agentes/subagentes involucrados (`.agents/memory/`) y del proyecto (`.agents/CHATS.md`).
+
 - **Estado Actual del Proyecto:**
   - Código y funcionalidad: `index.html` es la única fuente de verdad; 30/30 tests Playwright pasando en verde (100%).
-  - Intro / Splash: Video en bucle/reproducción única con sonido simplificado y transición a Home completada por el Arquitecto.
-  - Siguiente etapa: Definición estratégica con el USER sobre prioridades inmediatas (Diseño Clay World, refinamiento de contenido/comodines, campaña de testing o empaquetado inicial).
+  - Intro / Splash: Video en reproducción única con sonido activo por defecto (botón para silenciar), skip funcional y transición directa al Home con música continua.
+  - Sincronización: Subido a GitHub en commit `48f6355`.
+
 

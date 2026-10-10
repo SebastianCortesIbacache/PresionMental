@@ -60,11 +60,16 @@ Reto Panda/
 
 ## Agentes configurados
 
-### 🕵️ Consultor Externo / Cuartel Estratégico (Antigravity)
-- **Rol:** Auditoría, estrategia central, toma de decisiones y coordinación entre agentes. NO modifica código directamente.
+### 🕵️ Chat RP Estratégico (Antigravity Consultor)
+- **Rol:** Cuartel General Estratégico, toma de decisiones del proyecto, planes maestros, hojas de ruta y priorización de sprints.
 - **Archivos de memoria:** `.agents/memory/consultor.md`
 - **Reglas:** `.agents/rules/agente-consultor.md`
 - **Conversación:** `f19f98ab-bf6b-4c35-a33a-1e3b97fe8853`
+
+### ⚙️ Chat Operativo (Antigravity Ejecución)
+- **Rol:** 100% OPERATIVO. Ejecución directa de código, refactorizaciones, modificaciones CSS/JS/HTML, integración de assets y testing automatizado.
+- **Regla Estricta:** NO se realizan planes ni hojas de ruta aquí. TODAS las tareas deben ser ordenadas directamente por el USER luego de pedir y recibir confirmación explícita. Todo cambio en código debe documentarse en las memorias de agentes.
+- **Conversación:** `2f629c2b-0e37-48e1-943f-fe25db8f7d81`
 
 ### 🏗️ Agente Arquitecto
 - **Rol:** Coherencia técnica JS/HTML, bugs de lógica, estructura modular ESM
