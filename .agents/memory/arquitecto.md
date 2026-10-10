@@ -774,3 +774,35 @@ questionEl.textContent = cleanQuestionText(q.text);
   - Bypass `if (navigator.webdriver)` intacto para testing instantáneo. Limpieza de exports obsoletos (`showSplashWelcomeCta`).
 - **Validación automatizada:**
   - Ejecución de `npx playwright test`: 30/30 pruebas pasando 100% verde (0 fallos).
+
+---
+
+## ✅ SPRINT COMPLETADO — Sprint Experiencia, Onboarding y Resiliencia (2026-10-10)
+*Origen: Directiva del Consejo Estratégico (Aprobada por el USER).*
+
+### 1. Onboarding sin Barreras (Ficha de Explorador en `index.html` y `js/`):
+- **Selector Táctil de Edad:**
+  - Implementado grupo táctil `.onboarding-age-pills` con botones de plastilina amigables para 6 años, 7 años (seleccionado por defecto) y "Otra" edad con atributos ARIA (`role="radiogroup"`, `role="radio"`, `aria-checked`).
+  - Input `#ageInput` preservado funcionalmente con `value="7"` para total compatibilidad con la suite de pruebas automatizadas y sincronizado bidireccionalmente con `selectOnboardingAge(val)`.
+- **Resolución del Fallo Silencioso en `saveProfile()` (`js/game.js`):**
+  - Validación explícita de nombre y edad. Si falta alguno, se aplica la clase de microanimación `.field-attention` en el contenedor y se enfoca el input correspondiente sin navegar a Home ni fallar silenciosamente.
+- **Blindaje del Diálogo Modal `#namePopup` (`js/ui.js`):**
+  - Listener `dialog.addEventListener('cancel', e => e.preventDefault())` para interceptar la tecla Escape impidiendo cierres accidentales sin registrar perfil.
+
+### 2. Resiliencia de Video y Gestión de Recursos (`index.html` y `js/ui.js`):
+- **Atributo `muted` nativo en `<video id="splashVideo">`:**
+  - Garantiza autoplay fluido en WebKit / Safari iOS sin depender exclusivamente de JS.
+- **Liberación de Memoria de Video (VRAM):**
+  - En `finishSplashVideo()`, tras ocultar el splash, se ejecuta `vid.removeAttribute('src')` y `vid.load()` para liberar buffers de textura GPU en dispositivos móviles.
+
+### 3. Validación Automatizada (Playwright):
+- **Resultado:** 30/30 pruebas superadas con éxito (100% verde, 0 fallos).
+  - Suite 1 (Onboarding): 6/6 verde.
+  - Suite 2 (Gameplay): 2/2 verde.
+  - Suite 3 (Audio): 2/2 verde.
+  - Suite 4 (Gamificación): 2/2 verde.
+  - Suite 5 (Navegación): 2/2 verde.
+  - Suite 6 (Estrés Pre-Beta): 3/3 verde (Offline PWA, Fallback tipográfico y Persistencia de perfil).
+  - Suite 7 (Accesibilidad): 3/3 verde (Auditoría Axe sin infracciones de accesibilidad).
+  - Suite 8 (Rendimiento): 7/7 verde.
+  - Suite 9 (Regresión Visual): 3/3 verde.

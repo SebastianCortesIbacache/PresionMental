@@ -411,8 +411,55 @@ import {
     }
 
     function saveProfile() {
-      let n = document.getElementById('nameInput').value.trim().replace(/[^A-Za-z0-9 áéíóúÁÉÍÓÚñÑüÜ]/g, ''); let a = parseInt(document.getElementById('ageInput').value);
-      if(n && a >= 4) { localStorage.setItem('pm_playerName', n); localStorage.setItem('pm_playerAge', a); profile.playerName = n; playerAge = a; saveP(); var _sp=document.getElementById('splash'); if(_sp) _sp.style.display='none'; document.getElementById('playerNameDisplay').innerText = n; document.getElementById('playerAgeDisplay').innerText = a; document.getElementById('namePopup').close(); ensureDailyMissions(); updateStarUI(); nav('home'); } 
+      const nameInput = document.getElementById('nameInput');
+      const ageInput = document.getElementById('ageInput');
+      const nameWrap = document.getElementById('nameInputWrapper') || (nameInput ? nameInput.closest('.onboarding-input-wrapper') : null);
+      const ageGroup = document.getElementById('ageFieldGroup') || (ageInput ? ageInput.closest('.onboarding-field') : null);
+
+      let n = nameInput ? nameInput.value.trim().replace(/[^A-Za-z0-9 áéíóúÁÉÍÓÚñÑüÜ]/g, '') : '';
+      let a = ageInput ? parseInt(ageInput.value, 10) : NaN;
+
+      if (!n) {
+        if (nameWrap) {
+          nameWrap.classList.remove('field-attention');
+          void nameWrap.offsetWidth;
+          nameWrap.classList.add('field-attention');
+          setTimeout(() => nameWrap.classList.remove('field-attention'), 600);
+        }
+        if (nameInput) nameInput.focus();
+        return;
+      }
+
+      if (!a || isNaN(a) || a < 4) {
+        if (ageGroup) {
+          ageGroup.classList.remove('field-attention');
+          void ageGroup.offsetWidth;
+          ageGroup.classList.add('field-attention');
+          setTimeout(() => ageGroup.classList.remove('field-attention'), 600);
+        }
+        if (ageInput) ageInput.focus();
+        return;
+      }
+
+      localStorage.setItem('pm_playerName', n);
+      localStorage.setItem('pm_playerAge', a);
+      profile.playerName = n;
+      playerAge = a;
+      saveP();
+      var _sp = document.getElementById('splash');
+      if (_sp) _sp.style.display = 'none';
+      var nd = document.getElementById('playerNameDisplay');
+      if (nd) nd.innerText = n;
+      var ad = document.getElementById('playerAgeDisplay');
+      if (ad) ad.innerText = a;
+      var np = document.getElementById('namePopup');
+      if (np) {
+        try { if (typeof np.close === 'function') np.close(); } catch(e){}
+        if (np.style.display) np.style.display = '';
+      }
+      ensureDailyMissions();
+      updateStarUI();
+      nav('home');
     }
 
 

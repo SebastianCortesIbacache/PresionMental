@@ -358,6 +358,55 @@ dialog.onboarding-screen:not([open]) {
   font-weight: 700;
 }
 
+/* Botones táctiles de edad del Onboarding (Tier 1 Clay) */
+.onboarding-age-pills {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 8px;
+  width: 100%;
+}
+.onboarding-age-pill {
+  flex: 1;
+  min-height: 46px;
+  padding: 8px 12px;
+  border-radius: 25px;
+  border: 2.5px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  color: #1a4731;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  box-shadow: 0 4px 0 rgba(30, 90, 50, 0.25), 0 6px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s, box-shadow 0.12s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.onboarding-age-pill:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(30, 90, 50, 0.3);
+}
+.onboarding-age-pill.selected {
+  background: linear-gradient(180deg, #FFD54F 0%, #FFCA28 100%);
+  color: #E65100;
+  border-color: #FFFFFF;
+  box-shadow: 0 5px 0 #F57F17, 0 8px 16px rgba(245, 127, 23, 0.3);
+  transform: scale(1.03);
+}
+
+/* Animación de atención amable para campos incompletos */
+@keyframes clayFieldAttention {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+.field-attention {
+  animation: clayFieldAttention 0.4s ease-in-out;
+  box-shadow: 0 0 0 3px #FF8A65, 0 8px 0 rgba(30, 90, 50, 0.4) !important;
+}
+
 /* Separador decorativo */
 .onboarding-separator {
   display: flex;

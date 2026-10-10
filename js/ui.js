@@ -1037,6 +1037,60 @@ let playerAge = window.playerAge;
       }
     }
 
+    function selectOnboardingAge(val) {
+      var input = document.getElementById('ageInput');
+      var pills = document.querySelectorAll('.onboarding-age-pill');
+      if (!input) return;
+
+      if (val === 6 || val === '6' || val === 7 || val === '7') {
+        var num = parseInt(val, 10);
+        input.value = num;
+        pills.forEach(function(btn) {
+          var isMatch = btn.dataset.age === String(num);
+          btn.classList.toggle('selected', isMatch);
+          btn.setAttribute('aria-checked', isMatch ? 'true' : 'false');
+        });
+      } else if (val === 'other') {
+        pills.forEach(function(btn) {
+          var isOther = btn.dataset.age === 'other';
+          btn.classList.toggle('selected', isOther);
+          btn.setAttribute('aria-checked', isOther ? 'true' : 'false');
+        });
+        input.focus();
+        if (typeof input.select === 'function') input.select();
+      }
+    }
+
+    function initOnboardingAgePills() {
+      var input = document.getElementById('ageInput');
+      if (!input || input.dataset.agePillsBound === '1') return;
+      input.dataset.agePillsBound = '1';
+
+      input.addEventListener('input', function() {
+        var val = input.value.trim();
+        var pills = document.querySelectorAll('.onboarding-age-pill');
+        if (val === '6') {
+          pills.forEach(function(b) {
+            var m = b.dataset.age === '6';
+            b.classList.toggle('selected', m);
+            b.setAttribute('aria-checked', m ? 'true' : 'false');
+          });
+        } else if (val === '7') {
+          pills.forEach(function(b) {
+            var m = b.dataset.age === '7';
+            b.classList.toggle('selected', m);
+            b.setAttribute('aria-checked', m ? 'true' : 'false');
+          });
+        } else {
+          pills.forEach(function(b) {
+            var m = b.dataset.age === 'other';
+            b.classList.toggle('selected', m);
+            b.setAttribute('aria-checked', m ? 'true' : 'false');
+          });
+        }
+      });
+    }
+
     function goHome(profileIncomplete) {
       if(profileIncomplete) {
         var np = document.getElementById('namePopup'); 
@@ -1049,6 +1103,7 @@ let playerAge = window.playerAge;
             np.dataset.dustSpawned = '1';
           }
         }
+        initOnboardingAgePills();
       } else {
         try { ensureDailyMissions(); } catch(e){}
         try { updateStarUI(); } catch(e){}
@@ -1144,7 +1199,11 @@ let playerAge = window.playerAge;
       // omitir video rápidamente para que los 30 tests pasen en milisegundos sin timeout.
       if (navigator.webdriver) {
         if (vid) {
-          try { vid.pause(); } catch(e) {}
+          try {
+            vid.pause();
+            vid.removeAttribute('src');
+            vid.load();
+          } catch(e) {}
         }
         if (box) {
           box.style.display = 'none';
@@ -1335,11 +1394,27 @@ let playerAge = window.playerAge;
         if (box) {
           box.style.display = 'none';
         }
+        var vid = document.getElementById('splashVideo');
+        if (vid) {
+          try {
+            vid.pause();
+            vid.removeAttribute('src');
+            vid.load();
+          } catch(e) {}
+        }
         hideSplashWithMusic();
 
         var isComplete = checkProfileComplete();
         goHome(!isComplete);
       }, 400);
+    }
+
+    // Blindaje de diálogo nativo #namePopup para evitar cierre accidental con Escape
+    var namePopupEl = document.getElementById('namePopup');
+    if (namePopupEl) {
+      namePopupEl.addEventListener('cancel', function(e) {
+        e.preventDefault();
+      });
     }
 
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -1422,6 +1497,7 @@ window.toggleSplashAudio = toggleSplashAudio;
 window.unmuteSplashVideo = unmuteSplashVideo;
 window.skipSplashVideo = skipSplashVideo;
 window.finishSplashVideo = finishSplashVideo;
+window.selectOnboardingAge = selectOnboardingAge;
 
 function claimDailyChest() {
   if (typeof sfxChest === 'function') sfxChest();
@@ -1488,5 +1564,5 @@ export {
   showToast, ensureDailyMissions, applyLang, renderTags, updateSkills, 
   flash, showExplain, TRANSLATIONS, saveP, missionPeriodKeys, getMascotImagePath,
   createParticles, initSplashVideo, toggleSplashAudio, unmuteSplashVideo, skipSplashVideo, finishSplashVideo,
-  startAmbientMusic, stopAmbientMusic, toggleAmbient, sfxSquish, sfxChest, sfxTap, sfxHappyGo
+  selectOnboardingAge, startAmbientMusic, stopAmbientMusic, toggleAmbient, sfxSquish, sfxChest, sfxTap, sfxHappyGo
 };

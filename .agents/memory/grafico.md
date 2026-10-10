@@ -189,3 +189,31 @@ El **Agente Contenido / Psicopedagogo** ha validado un nuevo archivo con la sele
 - **Avance:** ¡100% COMPLETADO! (Lotes 1 al 10 procesados a WebP en `assets/preguntas/t1_mvp/`).
 - Faltantes finales para lanzar el MVP: **0 imágenes** 🎉
 
+---
+
+## 🎨 TAREAS PENDIENTES — Procesamiento e Integración de Nuevos Assets (2026-10-10)
+*Origen: Directiva del Consejo Estratégico y encargo directo del USER.*
+
+El usuario generará de forma independiente los assets clave y los depositará en la carpeta:
+📂 **`assets/Nuevos/`**
+
+### Protocolo de Inspección, Edición y Guardado para el Agente Gráfico:
+1. **Monitoreo y Revisión:** Inspeccionar los archivos depositados en `assets/Nuevos/`.
+2. **Saneamiento de Canal Alfa (Transparencia):**
+   - Eliminar cualquier fondo verde chroma-key, blanco o gris sólido.
+   - Garantizar canal alfa 100% transparente en los contornos exteriores, sin halos ni artefactos de compresión.
+3. **Regla de Oro (Cero Texto en Imágenes):**
+   - Verificar rigurosamente que los botones de Mundos y Libre y el diorama NO contengan palabras o letras impresas en los píxeles.
+4. **Conversión y Optimización WebP:**
+   - Convertir a WebP optimizado manteniendo la máxima fidelidad visual y dimensiones requeridas.
+5. **Rutas Finales de Destino:**
+   - `assets/interface/chest_golden_closed.webp` (Cofre cerrado 512×512)
+   - `assets/interface/chest_golden_open.webp` (Cofre abierto con estrellas y gemas 512×512)
+   - `assets/interface/btn_mundos_clay.webp` (Botón de Aventura 600×400 transparente)
+   - `assets/interface/btn_libre_clay.webp` (Botón de Juego Libre 600×400 transparente)
+   - `assets/interface/hero_mochi_diorama.webp` (Diorama limpio sin bocadillo impreso 800×800)
+   - `assets/iconos/ico_gear_3d.webp` (Engranaje limpio y centrado 256×256)
+   - `assets/iconos/ico_target_3d.webp` (Diana limpia 256×256)
+   - `assets/iconos/ico_mission_math_3d.webp` (Pizarra con números "1, 2, 3, 4" 256×256)
+
+

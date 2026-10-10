@@ -427,3 +427,22 @@ Durante la campaña de QA de la Suite 2 (Asset Integrity), se detectaron **2 ass
 - `.pw-btn` es `<div onclick>` (js/game.js, dominio Arquitecto): no es focusable por teclado → sugerir `<button type="button">` al Arquitecto.
 - Verificar visualmente con imágenes reales de `assets/preguntas/t1_mvp/` en 1280×800, 1024×768, 390×844 y 844×390 (Tester).
 
+---
+
+## 📋 TAREAS PENDIENTES — Sprint Experiencia, Onboarding y Tablets (2026-10-10)
+*Origen: Directiva del Consejo Estratégico (Aprobada por el USER).*
+
+### 1. Onboarding Ficha de Explorador (`css/popups.css` y `css/tiers/tier1.css`): ✅ EJECUTADO (2026-10-10)
+- **Burbujas Táctiles de Edad (`.onboarding-age-pills`, `.onboarding-age-pill`)**: Estilizados en `css/popups.css` bajo la estética Claymorphism (bordes redondeados 25px, borde blanco 2.5px, sombra 3D inferior `0 4px 0 rgba(30,90,50,0.25)`). Estado `.selected` con degradado dorado-ámbar (#FFD54F ➔ #FFCA28), sombra naranja clay (#F57F17) y escala sutil 1.03.
+- **Feedback visual de atención (`.field-attention`, `@keyframes clayFieldAttention`)**: Implementada animación horizontal no punitiva (±5px, 0.4s) con halo salmón `--danger` (#FF8A65) para prevenir estrés visual en niños al omitir campos requeridos.
+- **Alineación de apertura de portal en `css/tiers/tier1.css`**: Modificado el selector `html.age-tier-1 #namePopup.revealing-portal .onboarding-circular-card` a `.onboarding-content` para que la animación `portalUnfold` opere sobre el contenedor DOM real activo.
+- **Optimización de rendimiento a 60Hz**: Atenuado el filtro de desenfoque de `.clay-dust-orb` en `css/tiers/tier1.css` de `blur(18px)` a `blur(8px)` para eliminar caídas de cuadros por sobrecarga de GPU en tablets.
+
+### 2. Hub Principal y Botones de Acción (`css/components.css`):
+- **Texto Tipográfico sobre Botones:**
+  - Cuando se integren los nuevos assets limpios sin texto (`btn_mundos_clay.webp` y `btn_libre_clay.webp`), asegurar que los rótulos ("Mundos" y "Juego Libre") se rendericen en HTML como texto Nunito vivo, centrado y legible, con sombra de texto suave.
+- **Tablets Horizontales (1024×768):**
+  - Asegurar la distribución en dos zonas: panel izquierdo (Mochi y diorama) y panel derecho (misiones y acciones) sin barras de scroll indeseadas.
+
+
+

@@ -65,3 +65,28 @@
 2. ✅ **Completado:** Revitalización del audio en la pantalla de carga con video intro de Mochi.
 3. ✅ **Completado:** Sonorización táctil de Mochi (Squish), cofre (Chest) y navegación (Tap).
 4. ⏳ **Siguiente Iteración:** Ducking dinámico (atenuación automática del BGM cuando el narrador TTS está hablando).
+
+---
+
+## 🎵 TAREAS PENDIENTES — Sprint Ergonomía Acústica y Transición (2026-10-10)
+*Origen: Directiva del Consejo Estratégico (Aprobada por el USER).*
+
+### 1. Calibración del Video Intro (`js/ui.js` y `intro_reto_panda.mp4`):
+- **Techo Seguro de Ganancia:**
+  - Reducir el volumen inicial de `vid.volume = 1.0` a un techo seguro de `0.60` (atenuación de -4.5 dBFS) para evitar sobresaltos en niños de 6 años.
+- **Micro Fade-in de Desmutado:**
+  - Al desbloquear o conmutar sonido en el video, aplicar una rampa suave de 200–300 ms en lugar de un salto binario instantáneo (elimina el *click* dinámico).
+
+### 2. Limpieza de Transición Acústica (Eliminación de Cacofonía):
+- **Silenciar `sfxLevelUp` al Entrar al Menú:**
+  - En `js/ui.js` (función `nav('home')`), remover la invocación de `window.sfxLevelUp()`. Entrar al menú no es una victoria de juego; debe recibirse con paz ambiental.
+- **Secuenciación de BGM:**
+  - Iniciar el fade-in de `menu_music.mp3` tras completar el fade-out del video, evitando que compitan dos pistas de música a la vez.
+
+### 3. Rediseño de SFX Táctiles y Accesibilidad TTS:
+- **`sfxSquish()` (Tocar a Mochi):**
+  - Rediseñar el barrido triangular (que suena a láser retro) hacia un cuerpo de onda senoidal suave con filtro paso-bajo (~1100 Hz) que simule plastilina blanda (*Juicy Clay*).
+  - Incorporar variación de tono aleatoria (*micro-detune* de ±5%) para evitar la fatiga auditiva por toques repetitivos continuos.
+- **Voz TTS para Mochi:**
+  - Conectar el toque de Mochi (`pokeMascot`) con la locución hablada `speakQuestion(t)` en acento chileno cálido, aplicando *Audio Ducking* (bajar la música de fondo al 40% mientras habla).
+

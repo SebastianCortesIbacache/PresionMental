@@ -206,4 +206,27 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
   - Intro / Splash: Video en reproducción única con sonido activo por defecto (botón para silenciar), skip funcional y transición directa al Home con música continua.
   - Sincronización: Subido a GitHub en commit `48f6355`.
 
+### 🚀 SPRINT EJECUTADO: Onboarding Táctil y Resiliencia de Video (2026-10-10) — ✅ COMPLETADO
+- **Ordenado por:** USER (confirmación explícita tras revisión de tareas pendientes del consejo).
+- **Ejecución Técnica:**
+  - **Agente Diseño:** Estilos Claymorphism en `css/popups.css` para `.onboarding-age-pills` y `.onboarding-age-pill` con estado `.selected` y `:active` táctil. Animación no punitiva `@keyframes clayFieldAttention` con clase `.field-attention`. Reparado selector `.revealing-portal .onboarding-content` en `css/tiers/tier1.css`. Atenuado blur de `.clay-dust-orb` a 8px para optimización de GPU.
+  - **Agente Arquitecto:** Integración en `index.html` de los botones táctiles de edad (6, 7 y Otra edad) preservando `#ageInput` para compatibilidad de testing. Sincronización bidireccional en `js/ui.js` (`selectOnboardingAge`). Blindaje de `#namePopup` ante tecla Escape (`cancel` preventDefault). Purga de VRAM en `finishSplashVideo()` (`removeAttribute('src')` y `.load()`). Resolución de fallo silencioso en `js/game.js` (`saveProfile()`) con microanimación de atención.
+- **Validación:** 30/30 tests Playwright en verde (100% PASS).
+- **Memorias actualizadas:** `arquitecto.md`, `diseño.md`, `consultor.md`.
+
+
+---
+
+## 🏛️ RESOLUCIÓN DEL CONSEJO: LORE, ONBOARDING Y PROTOCOLO DE ASSETS (2026-10-10)
+- **Aprobaciones del USER:**
+  1. **Lore y Biblia de Personaje:** Establecida y documentada en `docs/lore/FICHA_PERSONAJE_MOCHI.md`. Mochi es un panda adolescente aventurero que explora el Archipiélago de las Islas Flotantes junto al niño (copiloto de expedición).
+  2. **Selector de Edad sin Barreras:** En Onboarding se implementan 3 botones táctiles: `[ 6 ]`, `[ 7 ]` y `[ Otra ]`.
+  3. **Protocolo de Assets (`assets/Nuevos/`):** El USER generará los assets clave de forma independiente a partir de prompts específicos. El Agente Gráfico los inspeccionará en `assets/Nuevos/`, limpiará su canal alfa y los ubicará en sus rutas definitivas.
+- **Delegación de Tareas para Chat "RP Operativo":**
+  - `arquitecto.md`: Selector táctil de edad, fix de fallo silencioso, listener cancel en `<dialog>`, modularización de `saveProfile` y offline hardening en `sw.js`.
+  - `diseño.md`: CSS de burbujas de edad `[ 6 ] [ 7 ] [ Otra ]`, fix de animación `portalUnfold`, texto tipográfico HTML sobre botones y optimización GPU.
+  - `grafico.md`: Monitoreo y procesamiento de assets depositados en `assets/Nuevos/` (cofres, botones sin texto horneado, diorama e iconos).
+  - `sonido.md`: Techo de volumen en video (0.60), silenciar `sfxLevelUp` al cargar Home, rediseño de `sfxSquish` (Juicy Clay) y locución TTS en Mochi.
+  - `tester.md`: Adaptar Suite 1 a los nuevos selectores de edad y validar Suite 9 con los nuevos assets sin desbordes.
+
 

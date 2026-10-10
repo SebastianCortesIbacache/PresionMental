@@ -254,3 +254,18 @@ Ejecutar en orden. Cada paso debe completarse sin error antes de avanzar.
 - `tests/04-offline.spec.js` — Suite 4: Resiliencia Offline (PWA)
 - `tests/05-persistence.spec.js` — Suite 5: Persistencia de Datos
 - `tests/06-stress.spec.js` — Suite 6: Estrés Pre-Beta (T-22, T-23, T-24)
+
+---
+
+## 🧪 TAREAS PENDIENTES — Validación de Onboarding sin Barreras y Nuevos Assets (2026-10-10)
+*Origen: Directiva del Consejo Estratégico (Aprobada por el USER).*
+
+Cuando el Arquitecto, Diseño y Gráfico apliquen sus cambios en el código y assets:
+1. **Actualizar Suite 1 (`tests/01-onboarding.spec.js`):**
+   - Adaptar el test para seleccionar la edad mediante los nuevos botones táctiles: `[ 6 ]`, `[ 7 ]` u `[ Otra ]` (en lugar del `fill('#ageInput')`).
+   - Agregar caso de prueba para verificar que al pulsar "¡A LA AVENTURA! ❯" sin nombre se active el feedback de error amigable (sin congelamiento ni crashes).
+2. **Validar Suite 9 (`tests/09-visual-regression.spec.js`):**
+   - Confirmar que los nuevos assets (cofre y botones sin recuadros opacos) se rendericen sin desbordes en Tablet Horizontal (1024×768) y Móvil (390×844).
+3. **Ejecutar Suite Completa:**
+   - Garantizar que los 30 tests mantengan el 100% de pase en verde (`npx playwright test`).
+

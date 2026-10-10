@@ -160,7 +160,7 @@
     <div class="splash-video-box" id="splashVideoBox">
       <video id="splashVideo" class="splash-video"
              src="assets/video/intro_reto_panda.mp4"
-             playsinline autoplay
+             playsinline autoplay muted
              preload="auto">
       </video>
 
@@ -227,9 +227,9 @@
       <div class="onboarding-form">
 
         <!-- Campo: Nombre -->
-        <div class="onboarding-field">
+        <div class="onboarding-field" id="nameFieldGroup">
           <label for="nameInput" class="onboarding-label">¿Cómo te llamas?</label>
-          <div class="onboarding-input-wrapper">
+          <div class="onboarding-input-wrapper" id="nameInputWrapper">
             <img src="assets/interface/icon_cloud.webp" alt=""
                  class="onboarding-input-icon" onerror="this.src='assets/interface/icon_user.webp'">
             <input type="text" id="nameInput" placeholder="Tu nombre"
@@ -246,13 +246,18 @@
         </div>
 
         <!-- Campo: Edad -->
-        <div class="onboarding-field">
+        <div class="onboarding-field" id="ageFieldGroup">
           <label for="ageInput" class="onboarding-label">¿Cuántos años tienes?</label>
-          <div class="onboarding-input-wrapper">
+          <div class="onboarding-age-pills" role="radiogroup" aria-label="Seleccionar edad">
+            <button type="button" class="onboarding-age-pill" data-age="6" role="radio" aria-checked="false" onclick="safeCall('selectOnboardingAge', 6)">6 años</button>
+            <button type="button" class="onboarding-age-pill selected" data-age="7" role="radio" aria-checked="true" onclick="safeCall('selectOnboardingAge', 7)">7 años</button>
+            <button type="button" class="onboarding-age-pill" data-age="other" role="radio" aria-checked="false" onclick="safeCall('selectOnboardingAge', 'other')">Otra edad</button>
+          </div>
+          <div class="onboarding-input-wrapper age-input-wrapper" id="ageInputWrapper">
             <img src="assets/interface/icon_star_clay.webp" alt=""
                  class="onboarding-input-icon" onerror="this.src='assets/interface/icon_age.webp'">
             <input type="number" id="ageInput" placeholder="Tu edad"
-                   min="4" max="99" inputmode="numeric">
+                   min="4" max="99" inputmode="numeric" value="7">
           </div>
         </div>
       </div>
