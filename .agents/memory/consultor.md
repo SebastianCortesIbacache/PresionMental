@@ -229,4 +229,12 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
   - `sonido.md`: Techo de volumen en video (0.60), silenciar `sfxLevelUp` al cargar Home, rediseño de `sfxSquish` (Juicy Clay) y locución TTS en Mochi.
   - `tester.md`: Adaptar Suite 1 a los nuevos selectores de edad y validar Suite 9 con los nuevos assets sin desbordes.
 
-
+### 🚀 SPRINT EJECUTADO: Procesamiento e Integración de Nuevos Assets 2K (2026-10-10) — ✅ COMPLETADO
+- **Ordenado por:** USER (tras confirmar variante Opción A de Mochi en Isla y Opción A de Engranaje azul).
+- **Ejecución Técnica:**
+  - Implementado script `.agents/scripts/process_new_assets.py` con `Pillow` y `rembg`.
+  - 7 assets 2K convertidos a `.webp` de peso ultraliviano (<80 KB cada uno, total ~220 KB añadidos a caché offline).
+  - Aislamiento 100% alfa para: `ico_gear_3d.webp`, `ico_target_3d.webp`, `ico_mission_math_3d.webp`, `caratula.webp`, `btn_mundos_clay.webp`, `btn_libre_clay.webp`.
+  - Encuadre diorama panorámico limpio (sin bocadillos estáticos horneados) para `hero_mochi_diorama.webp`.
+- **Validación QA:** 30/30 tests Playwright pasando en verde (100% PASS, Suite 9 de regresión visual validada sin desbordes).
+- **Memorias actualizadas:** `grafico.md`, `consultor.md`.

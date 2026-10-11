@@ -191,29 +191,40 @@ El **Agente Contenido / Psicopedagogo** ha validado un nuevo archivo con la sele
 
 ---
 
-## 🎨 TAREAS PENDIENTES — Procesamiento e Integración de Nuevos Assets (2026-10-10)
-*Origen: Directiva del Consejo Estratégico y encargo directo del USER.*
+## 🎨 TAREAS COMPLETADAS — Procesamiento e Integración de Nuevos Assets (2026-10-10)
+*Origen: Aprobación y orden directa del USER tras selección de variantes (Opción A para Mochi en Isla y Opción A para Engranaje).*
 
-El usuario generará de forma independiente los assets clave y los depositará en la carpeta:
-📂 **`assets/Nuevos/`**
+### Assets Procesados y Desplegados a Producción:
+1. **Logo Oficial 3D del Juego:**
+   - Origen: `assets/Nuevos/RETO_PANDA_THE_GAME_logo_2K_20261010191114.jpg`
+   - Destino: `assets/interface/caratula.webp` (760×499 px, 79.7 KB)
+   - Fondo blanco aislado con rembg, crop centrado a bounding box y compresión WebP.
+2. **Placa Botón 3D Modo Mundos:**
+   - Origen: `assets/Nuevos/Clay_snowy_mountain_menu_button_2K_20261010191108.jpg`
+   - Destino: `assets/interface/btn_mundos_clay.webp` (400×434 px, 32.0 KB)
+   - Fondo verde aislado con rembg (transparencia limpia con sombra horneada suave).
+3. **Placa Botón 3D Modo Libre (Gaming / Joystick):**
+   - Origen: `assets/Nuevos/Clay_gaming_menu_button_slab_2K_20261010191105.jpg`
+   - Destino: `assets/interface/btn_libre_clay.webp` (400×361 px, 30.1 KB)
+   - Fondo verde aislado con rembg (transparencia limpia con sombra horneada suave).
+4. **Icono Diana / Target 3D ("Misión de hoy"):**
+   - Origen: `assets/Nuevos/Archery_target_with_arrow_2K_20261010191038.jpg`
+   - Destino: `assets/iconos/ico_target_3d.webp` (115×119 px, 7.6 KB)
+   - Canal alfa 100% transparente, alta nitidez para renderizado de badges.
+5. **Icono Pizarra de Números (Reto Matemáticas):**
+   - Origen: `assets/Nuevos/Clay_numbers_on_blackboard_2K_20261010191041.jpg`
+   - Destino: `assets/iconos/ico_mission_math_3d.webp` (119×120 px, 7.5 KB)
+   - Fondo aislado con rembg, recorte ceñido a marco de pizarra.
+6. **Icono Engranaje 3D (Ajustes):**
+   - Origen: `assets/Nuevos/Sky_blue_mechanical_gear_2K_20261010191027.jpg` (Opción A: Sky Blue)
+   - Destino: `assets/iconos/ico_gear_3d.webp` (117×120 px, 6.7 KB)
+   - Canal alfa 100% transparente, centrado óptico perfecto.
+7. **Hero Diorama Mochi en la Isla:**
+   - Origen: `assets/Nuevos/Panda_explorer_sitting_on_island_2K_20261010191020.jpg` (Opción A: Cielo Azul Brillante)
+   - Destino: `assets/interface/hero_mochi_diorama.webp` (1024×768 px, 67.3 KB)
+   - Diorama limpio sin bocadillo horneado, óptimo para composición con el bocadillo DOM interactivo.
 
-### Protocolo de Inspección, Edición y Guardado para el Agente Gráfico:
-1. **Monitoreo y Revisión:** Inspeccionar los archivos depositados en `assets/Nuevos/`.
-2. **Saneamiento de Canal Alfa (Transparencia):**
-   - Eliminar cualquier fondo verde chroma-key, blanco o gris sólido.
-   - Garantizar canal alfa 100% transparente en los contornos exteriores, sin halos ni artefactos de compresión.
-3. **Regla de Oro (Cero Texto en Imágenes):**
-   - Verificar rigurosamente que los botones de Mundos y Libre y el diorama NO contengan palabras o letras impresas en los píxeles.
-4. **Conversión y Optimización WebP:**
-   - Convertir a WebP optimizado manteniendo la máxima fidelidad visual y dimensiones requeridas.
-5. **Rutas Finales de Destino:**
-   - `assets/interface/chest_golden_closed.webp` (Cofre cerrado 512×512)
-   - `assets/interface/chest_golden_open.webp` (Cofre abierto con estrellas y gemas 512×512)
-   - `assets/interface/btn_mundos_clay.webp` (Botón de Aventura 600×400 transparente)
-   - `assets/interface/btn_libre_clay.webp` (Botón de Juego Libre 600×400 transparente)
-   - `assets/interface/hero_mochi_diorama.webp` (Diorama limpio sin bocadillo impreso 800×800)
-   - `assets/iconos/ico_gear_3d.webp` (Engranaje limpio y centrado 256×256)
-   - `assets/iconos/ico_target_3d.webp` (Diana limpia 256×256)
-   - `assets/iconos/ico_mission_math_3d.webp` (Pizarra con números "1, 2, 3, 4" 256×256)
+- **Validación QA:** 30/30 pruebas Playwright pasando 100% verde (cero regresiones, cero desbordes).
+- **Herramienta Automatizada:** Creado script `.agents/scripts/process_new_assets.py` para re-ejecución inmediata si ingresan nuevos lotes.
 
 
