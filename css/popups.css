@@ -1203,4 +1203,217 @@ dialog.onboarding-screen:not([open]) {
   }
 }
 
+/* ==========================================================================
+   PASAPORTE DE AVENTURAS DE MOCHI — ONBOARDING CINEMATOGRÁFICO (TIER 1)
+   ========================================================================== */
+dialog.onboarding-passport-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: rgba(12, 22, 38, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 999;
+  box-sizing: border-box;
+}
 
+dialog.onboarding-passport-screen[open] {
+  display: flex !important;
+}
+
+dialog.onboarding-passport-screen::backdrop {
+  background: rgba(10, 20, 35, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.passport-viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.passport-board {
+  position: relative;
+  width: min(96vw, calc(94vh * 1.792));
+  height: min(94vh, calc(96vw / 1.792));
+  max-width: 1400px;
+  max-height: 781px;
+  aspect-ratio: 1920 / 1071;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  animation: passportPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes passportPopIn {
+  0% { opacity: 0; transform: scale(0.92) translateY(18px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.passport-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+.passport-hotspots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+/* 1. Hotspot Input Nombre */
+.passport-hotspot-name {
+  position: absolute;
+  left: 55.6%;
+  top: 56.6%;
+  width: 24.2%;
+  height: 5.0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.passport-hotspot-name input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: clamp(14px, 2.0vw, 24px);
+  color: #1a237e;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+  caret-color: #1a237e;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.passport-hotspot-name input::placeholder {
+  color: rgba(26, 35, 126, 0.45);
+  font-weight: 700;
+}
+
+/* 2. Hotspot Sellos de Edad */
+.passport-hotspot-ages {
+  position: absolute;
+  left: 55.0%;
+  top: 65.0%;
+  width: 25.5%;
+  height: 10.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.passport-seal-btn {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
+}
+
+.passport-seal-btn:hover {
+  transform: scale(1.08);
+}
+
+.passport-seal-btn:active {
+  transform: scale(0.95);
+}
+
+.seal-halo {
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  width: 92%;
+  height: 92%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.25s ease, box-shadow 0.25s ease;
+  pointer-events: none;
+}
+
+.passport-seal-btn.selected .seal-halo {
+  opacity: 1;
+  box-shadow: 0 0 0 4px #FFD700, 0 0 18px rgba(255, 215, 0, 0.95), inset 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: sealPulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes sealPulseGlow {
+  0%, 100% { box-shadow: 0 0 0 4px #FFD700, 0 0 18px rgba(255, 215, 0, 0.9); }
+  50% { box-shadow: 0 0 0 5px #FFE082, 0 0 24px rgba(255, 215, 0, 1); }
+}
+
+.passport-age-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 3. Hotspot Botón ¡VAMOS A EXPLORAR! */
+.passport-hotspot-btn {
+  position: absolute;
+  left: 52.2%;
+  top: 76.2%;
+  width: 30.0%;
+  height: 10.5%;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.passport-hotspot-btn:hover {
+  transform: scale(1.02);
+}
+
+.passport-hotspot-btn:active {
+  transform: scale(0.96) translateY(3px);
+}
+
+.passport-video {
+  transition: opacity 0.5s ease;
+}

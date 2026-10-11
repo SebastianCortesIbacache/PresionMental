@@ -90,3 +90,22 @@
 - **Voz TTS para Mochi:**
   - Conectar el toque de Mochi (`pokeMascot`) con la locución hablada `speakQuestion(t)` en acento chileno cálido, aplicando *Audio Ducking* (bajar la música de fondo al 40% mientras habla).
 
+
+
+---
+
+## 🎵 SPRINT COMPLETADO — Ergonomía Sonora del Onboarding y Calibración (2026-10-11)
+*Origen: Aprobación unánime del Consejo Asesor y Dirección del Proyecto.*
+
+### 🎧 Implementaciones Realizadas (`js/audio.js` y `js/ui.js`):
+1. **Calibración de Videos (Techo Seguro a 0.60):**
+   - En `js/ui.js` (`unmuteSplashVideo`), volumen acotado a un techo de `0.60` con micro fade-in progresivo en rampa de 200 ms (10 pasos de 20ms) para evitar chasquidos (*pops*) y proteger el oído infantil.
+2. **Ergonomía del Home (Eliminar Cacofonía):**
+   - En `js/ui.js` (`nav('home')`), eliminada la llamada `if(window.sfxLevelUp) window.sfxLevelUp();`. La llegada al Home ahora transiciona suavemente a la atmósfera musical de fondo sin explosiones de victoria no solicitadas.
+3. **Rediseño Procedural de Plastilina Táctil (`_native.squish` en `js/audio.js`):**
+   - Se migró de onda triangular aguda tipo láser a onda senoidal blanda (`sine`) con filtro biquad paso-bajo a 550 Hz (Q: 1.2) y micro-detune aleatorio de ±5% (`0.95 + Math.random() * 0.10`) para generar sensación física y táctil de arcilla/plastilina fresca sin fatiga acústica.
+4. **Locución y TTS en el Pasaporte de Mochi (`speakMochiOnboarding`):**
+   - Integrado `speakMochiOnboarding(text)` en `js/audio.js` con soporte para voces en español (`es-CL` / `es`), con atenuación dinámica *Audio Ducking* (`setAmbientDucking(true)`) que baja el BGM al 40% durante la locución y lo restaura suavemente (`setAmbientDucking(false)`) al terminar o en error.
+   - Disparado automáticamente en `showPassportScreen()` con el saludo de Mochi: *"¡Hola! Soy Mochi. Escribe tu nombre y elige tu edad para sellar nuestro pasaporte de viaje"*.
+- **Estado:** ✅ 100% Verificado y sin regresiones acústicas.
+

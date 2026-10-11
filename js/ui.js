@@ -98,7 +98,6 @@ let playerAge = window.playerAge;
         if(id === 'home') { 
           document.getElementById('dynamicBg').className = 'dynamic-bg bg-mix'; 
           refreshHome(); 
-          if(window.sfxLevelUp) window.sfxLevelUp(); // "el sonido de juego suene" al cargar menú
         }
         if(id === 'mapScreen') { document.getElementById('dynamicBg').className = 'dynamic-bg bg-espacio'; renderMap(); }
         if(id === 'setup') { renderSetupThemes(); document.getElementById('dynamicBg').className = 'dynamic-bg bg-mix'; setTimeout(bindEnglishToggle, 0); }
@@ -1188,29 +1187,28 @@ let playerAge = window.playerAge;
       // Removed the fixed setTimeout(goHome, 5000) so tickSplash controls the flow
     }
 
-    // --- SPLASH VIDEO INTRO CONTROLLER ---
+    // --- SPLASH VIDEO INTRO & PASSPORT CONTROLLER ---
     var _splashVideoDone = false;
 
     function initSplashVideo() {
       var vid = document.getElementById('splashVideo');
+      var pVid = document.getElementById('passportVideo');
       var box = document.getElementById('splashVideoBox');
 
       // Si estamos en entorno de testing automatizado (Playwright / WebDriver),
       // omitir video rápidamente para que los 30 tests pasen en milisegundos sin timeout.
       if (navigator.webdriver) {
-        if (vid) {
-          try {
-            vid.pause();
-            vid.removeAttribute('src');
-            vid.load();
-          } catch(e) {}
-        }
-        if (box) {
-          box.style.display = 'none';
-        }
+        if (vid) { try { vid.pause(); vid.removeAttribute('src'); vid.load(); } catch(e) {} }
+        if (pVid) { try { pVid.pause(); pVid.removeAttribute('src'); pVid.load(); } catch(e) {} }
+        if (box) { box.style.display = 'none'; }
         setTimeout(function() {
-          finishSplashVideo();
-        }, 150);
+          var isComplete = checkProfileComplete();
+          if (!isComplete) {
+            showPassportScreen();
+          } else {
+            finishSplashVideo();
+          }
+        }, 80);
         return;
       }
 
@@ -1232,21 +1230,22 @@ let playerAge = window.playerAge;
           return;
         }
         // Si el video está silenciado, cualquier toque en el fondo activa el sonido
-        if (vid.muted) {
+        var activeVid = (pVid && pVid.style.display !== 'none' && !pVid.paused) ? pVid : vid;
+        if (activeVid && activeVid.muted) {
           unmuteSplashVideo();
           return;
         }
       });
 
-      // Al terminar la animación del video, avanzar directamente al menú
+      // Al terminar la animación del primer video
       vid.addEventListener('ended', function() {
-        finishSplashVideo();
+        onFirstVideoEnded();
       });
 
-      // Temporizador de respaldo a los 8.5s (duración de la animación + margen)
+      // Temporizador de respaldo a los 8.5s para Video 1
       setTimeout(function() {
-        if (!_splashVideoDone) {
-          finishSplashVideo();
+        if (!_splashVideoDone && vid && !vid.paused && vid.style.display !== 'none') {
+          onFirstVideoEnded();
         }
       }, 8500);
 
@@ -1256,16 +1255,14 @@ let playerAge = window.playerAge;
         fallbackToClassicLoader();
       });
 
-      // Iniciar el video con sonido obligatorio
+      // Iniciar el video con volumen seguro limitado a 0.60
       vid.muted = false;
-      vid.volume = 1.0;
+      vid.volume = 0.60;
       var playPromise = vid.play();
       if (playPromise !== undefined) {
         playPromise.then(function() {
-          // El navegador permitió autoplay con audio
           updateSplashSoundBtnUI(false);
         }).catch(function() {
-          // El navegador bloqueó autoplay con audio: silenciar temporalmente y avisar
           console.log('[Splash Video] Autoplay con audio bloqueado por política del navegador. Iniciando en silencio.');
           vid.muted = true;
           updateSplashSoundBtnUI(true);
@@ -1273,7 +1270,7 @@ let playerAge = window.playerAge;
 
           // Desbloquear audio automáticamente ante cualquier interacción del usuario
           var unlockOnUserAction = function() {
-            if (!_splashVideoDone && vid && vid.muted) {
+            if (!_splashVideoDone) {
               unmuteSplashVideo();
             }
             window.removeEventListener('pointerdown', unlockOnUserAction);
@@ -1282,6 +1279,52 @@ let playerAge = window.playerAge;
           window.addEventListener('pointerdown', unlockOnUserAction, { once: true });
           window.addEventListener('keydown', unlockOnUserAction, { once: true });
         });
+      }
+    }
+
+    function onFirstVideoEnded() {
+      if (_splashVideoDone) return;
+      var isComplete = checkProfileComplete();
+      if (isComplete) {
+        finishSplashVideo();
+        return;
+      }
+
+      // Si el usuario no tiene perfil: reproducir Video 2 (Mochi con pasaporte)
+      var vid = document.getElementById('splashVideo');
+      var pVid = document.getElementById('passportVideo');
+      if (pVid) {
+        if (vid) {
+          vid.style.display = 'none';
+          try { vid.pause(); vid.removeAttribute('src'); vid.load(); } catch(e){}
+        }
+        pVid.style.display = 'block';
+        pVid.style.opacity = '1';
+        pVid.muted = vid ? vid.muted : false;
+        pVid.volume = 0.60;
+        
+        pVid.addEventListener('ended', function() {
+          showPassportScreen();
+        }, { once: true });
+        pVid.addEventListener('error', function() {
+          showPassportScreen();
+        }, { once: true });
+
+        // Respaldo de duración para Video 2 (7.5s)
+        setTimeout(function() {
+          if (!_splashVideoDone && pVid.style.display !== 'none') {
+            showPassportScreen();
+          }
+        }, 7500);
+
+        var p = pVid.play();
+        if (p !== undefined) {
+          p.catch(function() {
+            showPassportScreen();
+          });
+        }
+      } else {
+        showPassportScreen();
       }
     }
 
@@ -1300,11 +1343,19 @@ let playerAge = window.playerAge;
     }
 
     function unmuteSplashVideo() {
-      var vid = document.getElementById('splashVideo');
+      var v1 = document.getElementById('splashVideo');
+      var v2 = document.getElementById('passportVideo');
+      var vid = (v2 && v2.style.display !== 'none' && !v2.paused) ? v2 : v1;
       if (!vid) return;
       vid.muted = false;
-      vid.volume = 1.0;
+      vid.volume = 0.05;
       updateSplashSoundBtnUI(false);
+      var curV = 0.05;
+      var fade = setInterval(function() {
+        curV = Math.min(0.60, curV + 0.15);
+        try { vid.volume = curV; } catch(e){}
+        if (curV >= 0.60) clearInterval(fade);
+      }, 50);
       var p = vid.play();
       if (p !== undefined) {
         p.catch(function() {});
@@ -1312,7 +1363,9 @@ let playerAge = window.playerAge;
     }
 
     function toggleSplashAudio() {
-      var vid = document.getElementById('splashVideo');
+      var v1 = document.getElementById('splashVideo');
+      var v2 = document.getElementById('passportVideo');
+      var vid = (v2 && v2.style.display !== 'none' && !v2.paused) ? v2 : v1;
       if (!vid) return;
       if (vid.muted) {
         unmuteSplashVideo();
@@ -1323,7 +1376,12 @@ let playerAge = window.playerAge;
     }
 
     function skipSplashVideo() {
-      finishSplashVideo();
+      var isComplete = checkProfileComplete();
+      if (isComplete) {
+        finishSplashVideo();
+      } else {
+        showPassportScreen();
+      }
     }
 
     function fallbackToClassicLoader() {
@@ -1333,6 +1391,49 @@ let playerAge = window.playerAge;
       if (box) box.style.display = 'none';
       if (fallback) fallback.style.display = 'flex';
       startLoader();
+    }
+
+    function showPassportScreen() {
+      if (_splashVideoDone) return;
+      _splashVideoDone = true;
+
+      // 1. Ocultar video box con micro-crossfade suave
+      var box = document.getElementById('splashVideoBox');
+      if (box) {
+        box.classList.add('fading-out');
+        setTimeout(function() {
+          box.style.display = 'none';
+        }, 300);
+      }
+      var sp = document.getElementById('splash');
+      if (sp) {
+        sp.style.display = 'none';
+        sp.classList.remove('active');
+      }
+
+      // 2. Liberar texturas VRAM de ambos videos al terminar
+      var v1 = document.getElementById('splashVideo');
+      if (v1) { try { v1.pause(); v1.removeAttribute('src'); v1.load(); } catch(e){} }
+      var v2 = document.getElementById('passportVideo');
+      if (v2) { try { v2.pause(); v2.removeAttribute('src'); v2.load(); } catch(e){} }
+
+      // 3. Abrir la pantalla del pasaporte interactivo
+      var np = document.getElementById('namePopup');
+      if (np) {
+        try { np.showModal(); } catch(e){}
+        np.classList.add('revealing-portal');
+      }
+      initOnboardingAgePills();
+
+      // 4. Iniciar música ambiental suave y disparar locución TTS chilena de Mochi
+      try {
+        if (typeof startAmbientMusic === 'function') startAmbientMusic(0.35);
+        if (typeof window.speakMochiOnboarding === 'function') {
+          setTimeout(function() {
+            window.speakMochiOnboarding("¡Hola! Soy Mochi. Escribe tu nombre y elige tu edad para sellar nuestro pasaporte de viaje");
+          }, 350);
+        }
+      } catch(e){}
     }
 
     function finishSplashVideo() {
@@ -1365,48 +1466,24 @@ let playerAge = window.playerAge;
         console.warn('[Splash] Error iniciando música ambiental:', e);
       }
 
-      // 3. Pausar video y silenciarlo suavemente
-      var vid = document.getElementById('splashVideo');
-      if (vid) {
-        try {
-          if (vid.volume > 0 && !vid.muted) {
-            var vVol = vid.volume;
-            var vFade = setInterval(function() {
-              vVol = Math.max(0, vVol - 0.25);
-              try { vid.volume = vVol; } catch(err) {}
-              if (vVol <= 0.05) {
-                clearInterval(vFade);
-                try { vid.pause(); } catch(err) {}
-              }
-            }, 40);
-          } else {
-            vid.pause();
-          }
-        } catch(e) {}
-      }
+      // 3. Liberar texturas VRAM de ambos videos
+      var v1 = document.getElementById('splashVideo');
+      if (v1) { try { v1.pause(); v1.removeAttribute('src'); v1.load(); } catch(e){} }
+      var v2 = document.getElementById('passportVideo');
+      if (v2) { try { v2.pause(); v2.removeAttribute('src'); v2.load(); } catch(e){} }
 
       var box = document.getElementById('splashVideoBox');
       if (box) {
         box.classList.add('fading-out');
+        setTimeout(function() {
+          box.style.display = 'none';
+        }, 300);
       }
 
-      setTimeout(function() {
-        if (box) {
-          box.style.display = 'none';
-        }
-        var vid = document.getElementById('splashVideo');
-        if (vid) {
-          try {
-            vid.pause();
-            vid.removeAttribute('src');
-            vid.load();
-          } catch(e) {}
-        }
-        hideSplashWithMusic();
+      hideSplashWithMusic();
 
-        var isComplete = checkProfileComplete();
-        goHome(!isComplete);
-      }, 400);
+      var isComplete = checkProfileComplete();
+      goHome(!isComplete);
     }
 
     // Blindaje de diálogo nativo #namePopup para evitar cierre accidental con Escape

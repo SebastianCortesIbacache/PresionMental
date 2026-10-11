@@ -26,27 +26,23 @@ Entregar una experiencia lúdica y pedagógica de excelencia para niños de 1° 
 ## 🚀 FASE 1: Pulido y Cierre del Flujo Inicial (EN CURSO)
 **Alcance:** Desde la primera pantalla de carga / video cinemático hasta la pantalla principal (Hub de Mochi).
 
-* [ ] **Hito 1.1 — Producción e Integración de Assets Clave:**
-  * USER genera imágenes desde prompts específicos y las deposita en `assets/Nuevos/`.
-  * `Agente Gráfico` sanea canal alfa (100% transparente), optimiza a `.webp` y reubica en destino:
-    * `chest_golden_closed.webp` y `chest_golden_open.webp` (Cofre diario sin perforaciones).
-    * `btn_mundos_clay.webp` y `btn_libre_clay.webp` (Botones limpios sin texto horneado).
-    * `hero_mochi_diorama.webp` (Diorama de fondo sin bocadillo horneado).
-    * `ico_gear_3d.webp`, `ico_target_3d.webp`, `ico_mission_math_3d.webp` (Iconos 3D limpios).
-* [ ] **Hito 1.2 — Onboarding sin Barreras ("Ficha de Explorador"):**
-  * `Agente Arquitecto` reemplaza el campo de edad por selector táctil: **[ 6 ]**, **[ 7 ]** y **[ Otra ]**.
-  * `Agente Diseño` aplica estilo clay press y estados activos a las burbujas táctiles.
-  * `Agente Arquitecto` elimina el fallo silencioso en `saveProfile()` (agrega shake suave + sonido/locución amable si faltan datos).
-  * `Agente Diseño` repara el selector CSS de apertura `.revealing-portal .onboarding-content` (animación `portalUnfold`).
-  * `Agente Arquitecto` intercepta evento `cancel` en `<dialog id="namePopup">` para blindar tecla Escape.
+* [x] **Hito 1.1 — Producción e Integración de Assets Clave:**
+  * ✅ 7 Assets 3D integrados: Logo (`caratula.webp`), Botones (`btn_mundos_clay.webp`, `btn_libre_clay.webp`), Iconos (`ico_gear_3d`, `ico_target_3d`, `ico_mission_math_3d`) y Diorama (`hero_mochi_diorama.webp`).
+  * ⏳ Procesar los 2 cofres depositados en `assets/Nuevos/`: `chest_golden_closed.webp` y `chest_golden_open.webp`.
+* [ ] **Hito 1.2 — Onboarding Cinemático "Pasaporte de Aventuras":**
+  * `Agente Gráfico`: Trasladar video `onboarding_passport.mp4` y generar fondo WebP `onboarding_passport_bg.webp`.
+  * `Agente Arquitecto`: Encadenar reproducción: Video Intro ➔ Video Pasaporte (si usuario nuevo) ➔ Revelar interfaz estática con crossfade.
+  * `Agente Diseño`: Montar capas interactivas sobre el pasaporte: input `#nameInput` en surco blanco, sellos de edad [ 6 ], [ 7 ] y [ Otra ] con halo de selección, y botón "¡VAMOS A EXPLORAR!".
+  * `Agente Arquitecto`: Sincronizar con `saveProfile()`, blindar tecla Escape y liberar VRAM de videos al terminar.
 * [ ] **Hito 1.3 — Ergonomía Acústica y Transición Suave:**
-  * `Agente Sonido` calibra el video intro a volumen seguro de `0.60` con micro fade-in de desmutado.
+  * `Agente Sonido` calibra los videos a volumen seguro de `0.60` con micro fade-in de desmutado.
   * `Agente Sonido` remueve `sfxLevelUp` al cargar `#home` para eliminar la cacofonía de entrada.
-  * `Agente Sonido` rediseña `sfxSquish` (toque a Mochi) a plastilina blanda (*Juicy Clay*) con variación tonal (*micro-detune*).
-  * `Agente Sonido` conecta el bocadillo de Mochi con voz chilena TTS (`speakQuestion`) con *Audio Ducking*.
+  * `Agente Sonido` rediseña `sfxSquish` a plastilina blanda (*Juicy Clay*) con variación tonal (*micro-detune*).
+  * `Agente Sonido` conecta bienvenida de Mochi en el pasaporte y en el Home con voz chilena TTS (`speakQuestion`) y *Audio Ducking*.
 * [ ] **Hito 1.4 — Resiliencia Técnica y Certificación QA:**
-  * `Agente Arquitecto` añade atributo nativo `muted` al `<video>` en HTML para garantizar compatibilidad con iOS WebKit.
+  * Atributo nativo `muted` en videos para iOS WebKit.
   * `Agente Tester` actualiza Suite 1 y valida Suite 9 en Playwright certificando 30/30 tests en verde.
+
 
 ---
 

@@ -228,3 +228,23 @@ El **Agente Contenido / Psicopedagogo** ha validado un nuevo archivo con la sele
 - **Herramienta Automatizada:** Creado script `.agents/scripts/process_new_assets.py` para re-ejecución inmediata si ingresan nuevos lotes.
 
 
+
+
+---
+
+## 🎨 SPRINT COMPLETADO — Procesamiento de Assets Onboarding Pasaporte y Cofres (2026-10-11)
+*Origen: Aprobación unánime del Consejo Asesor y Dirección del Proyecto.*
+
+### 📦 Assets Procesados y Desplegados:
+1. **Lienzo de Fondo del Pasaporte 3D:**
+   - Origen: `assets/Nuevos/Panda_onboarding_interface_on_pa*.jpg` (2.7K, 2752×1536 px)
+   - Destino: `assets/interface/onboarding_passport_bg.webp` (1920×1071 px, calidad 88, 152.1 KB < 250 KB).
+   - Textura Juicy Clay de alta fidelidad, ratio 16:9 preservado sin distorsión.
+2. **Video 2 de Onboarding (Mochi con Pasaporte):**
+   - Origen: `assets/Nuevos/Panda_explorer_waving_passport*.mp4`
+   - Destino: `assets/video/onboarding_passport.mp4` (3.20 MB).
+3. **Procesamiento de los 2 Cofres Diarios con Canal Alfa (rembg):**
+   - Cofre Cerrado: `assets/interface/chest_golden_closed.webp` (512×512 px WebP, 42.8 KB, fondo transparente limpio).
+   - Cofre Abierto: `assets/interface/chest_golden_open.webp` (512×512 px WebP, 50.0 KB, fondo transparente limpio).
+- **Estado:** ✅ 100% Completado y verificado.
+

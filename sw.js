@@ -1,7 +1,7 @@
 // Reto Panda V1 — Service Worker (Agente Release)
 // v6: precache del banco MVP Tier 1 + ilustraciones MVP,
 // CSS reales de index.html y caché en runtime (cache.put).
-const CACHE_NAME = 'reto-panda-v1.0.1';
+const CACHE_NAME = 'reto-panda-v1.0.2';
 
 // IMPORTANTE: cada ruta de esta lista DEBE existir en disco.
 // Si una sola falla, cache.addAll() rechaza y la instalación del SW se invalida.
@@ -44,6 +44,7 @@ const CORE_ASSETS = [
   './assets/interface/splash_icons/world_destellos.webp',
   './assets/interface/splash_icons/world_cohete.webp',
   './assets/interface/onboarding_hero.webp',
+  './assets/interface/onboarding_passport_bg.webp',
   './assets/interface/icon_cloud.webp',
   './assets/interface/icon_star_clay.webp',
   // Assets Home: Aventura de Mochi Islas Flotantes (v1.0.1)

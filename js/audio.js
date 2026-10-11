@@ -72,24 +72,38 @@ const _native = {
     } catch (e) {}
   },
 
-  // Squish suave al interactuar con Mochi
+  // Squish suave al interactuar con Mochi (onda senoidal blanda + filtro paso-bajo + micro-detune ±5%)
   squish: () => {
     if (!audioEnabled) return;
     try {
       const ctx = getAudioCtx();
       if (!ctx) return;
       const osc = ctx.createOscillator();
+      const filter = ctx.createBiquadFilter();
       const gain = ctx.createGain();
-      osc.connect(gain);
+
+      osc.type = 'sine'; // Onda senoidal blanda
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(550, ctx.currentTime);
+
+      osc.connect(filter);
+      filter.connect(gain);
       gain.connect(ctx.destination);
-      osc.type = 'triangle';
+
       const t = ctx.currentTime;
-      osc.frequency.setValueAtTime(440, t);
-      osc.frequency.exponentialRampToValueAtTime(280, t + 0.12);
-      gain.gain.setValueAtTime(0.3, t);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.14);
+      // Micro-detune aleatorio (±5%)
+      const detuneFactor = 1 + (Math.random() * 0.10 - 0.05);
+      const startFreq = 420 * detuneFactor;
+      const endFreq = 260 * detuneFactor;
+
+      osc.frequency.setValueAtTime(startFreq, t);
+      osc.frequency.exponentialRampToValueAtTime(endFreq, t + 0.13);
+
+      gain.gain.setValueAtTime(0.28, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
+
       osc.start(t);
-      osc.stop(t + 0.14);
+      osc.stop(t + 0.15);
     } catch (e) {}
   },
 
@@ -355,9 +369,12 @@ function toggleAmbient() {
   }
 }
 
-// ─────────────────────────────────────────────────────────────────────────
-// 4. LOCUCIÓN PEDAGÓGICA (SPEECH SYNTHESIS / TTS)
-// ─────────────────────────────────────────────────────────────────────────
+function setAmbientDucking(isDucked) {
+  if (!_ambientAudio || _ambientAudio.paused) return;
+  const baseVol = 0.38;
+  _ambientAudio.volume = isDucked ? (baseVol * 0.40) : baseVol;
+}
+
 function speakQuestion(text) {
   if (!audioEnabled || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
@@ -368,9 +385,24 @@ function speakQuestion(text) {
   window.speechSynthesis.speak(utterance);
 }
 
+function speakMochiOnboarding(text) {
+  if (!audioEnabled || !('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const phrase = text || "¡Hola! Soy Mochi. Escribe tu nombre y elige tu edad para sellar nuestro pasaporte de viaje";
+  const utterance = new SpeechSynthesisUtterance(phrase);
+  utterance.lang = 'es-CL';
+  utterance.rate = 0.95;
+  utterance.pitch = 1.15;
+  setAmbientDucking(true);
+  utterance.onend = () => { setAmbientDucking(false); };
+  utterance.onerror = () => { setAmbientDucking(false); };
+  window.speechSynthesis.speak(utterance);
+}
+
 function stopSpeech() {
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
+    setAmbientDucking(false);
   }
 }
 
@@ -413,10 +445,12 @@ window.sfxHappyTick = sfxHappyTick;
 window.sfxHappyGo = sfxHappyGo;
 window.toggleAudio = toggleAudio;
 window.speakQuestion = speakQuestion;
+window.speakMochiOnboarding = speakMochiOnboarding;
 window.stopSpeech = stopSpeech;
 window.startAmbientMusic = startAmbientMusic;
 window.stopAmbientMusic = stopAmbientMusic;
 window.toggleAmbient = toggleAmbient;
+window.setAmbientDucking = setAmbientDucking;
 
 export {
   audioEnabled,
@@ -438,8 +472,10 @@ export {
   sfxHappyGo,
   toggleAudio,
   speakQuestion,
+  speakMochiOnboarding,
   stopSpeech,
   startAmbientMusic,
   stopAmbientMusic,
-  toggleAmbient
+  toggleAmbient,
+  setAmbientDucking
 };

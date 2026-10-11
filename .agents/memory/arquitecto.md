@@ -806,3 +806,29 @@ questionEl.textContent = cleanQuestionText(q.text);
   - Suite 7 (Accesibilidad): 3/3 verde (Auditoría Axe sin infracciones de accesibilidad).
   - Suite 8 (Rendimiento): 7/7 verde.
   - Suite 9 (Regresión Visual): 3/3 verde.
+
+
+---
+
+## 📋 SPRINT COMPLETADO — Secuencia Cinemática de Onboarding "Pasaporte de Aventuras" (2026-10-11)
+*Origen: Aprobación unánime del Consejo Asesor y Dirección del Proyecto.*
+
+### 🎯 Implementación Arquitectónica (`index.html` y `js/`):
+1. **Contenedor a Pantalla Completa (`index.html`):**
+   - Se reemplazó el popup blanco flotante por `<dialog id="namePopup" class="popup-overlay onboarding-screen onboarding-passport-screen">`.
+   - Se incluyó el segundo reproductor de video `#passportVideo` dentro de `#splashVideoBox`.
+   - Montaje del tablero de pasaporte `#passportBoard` con fondo estático `#passportBgImg` (`assets/interface/onboarding_passport_bg.webp`) y capas interactivas de precisión:
+     - Input `#nameInput` centrado en el surco blanco central (`left: 55.6%`, `top: 56.6%`, `width: 24.2%`).
+     - Botones de edad `.passport-seal-btn.onboarding-age-pill` sobre los sellos de cera [ 6 ], [ 7 ] (activo por defecto con halo dorado) y [ Otra ], junto a `#ageInput`.
+     - Botón `.passport-hotspot-btn.onboarding-btn-vamos` sobre la barra de arcilla verde inferior con micro-ripple táctil.
+2. **Controlador y Encadenamiento Cinemático (`js/ui.js`):**
+   - `initSplashVideo()` reproduce el video 1 (`intro_reto_panda.mp4`).
+   - Al terminar el video 1: si no hay perfil creado, inicia inmediatamente el video 2 (`#passportVideo`), manteniendo la inmersión. Si ya existe perfil, navega directo a Home.
+   - Al finalizar el video 2: ejecuta `showPassportScreen()` con micro-crossfade suave hacia la interfaz estática interactiva y dispara la bienvenida por voz de Mochi.
+   - `#splashSkipBtn` / `skipSplashVideo()`: si el perfil está incompleto, avanza directamente a la pantalla interactiva del pasaporte sin trabas ni demoras.
+   - Desmutado con rampa de audio: techo seguro de volumen 0.60 y micro fade-in de 200ms en `unmuteSplashVideo()`.
+   - Liberación de VRAM: en `finishSplashVideo()`, ambos reproductores de video (`#splashVideo` y `#passportVideo`) son pausados y desvinculados de memoria GPU con `removeAttribute('src')` y `load()`.
+3. **Limpieza Sonora:**
+   - Eliminada la llamada a `sfxLevelUp()` dentro de `nav('home')`.
+4. **Validación QA:**
+   - Certificado 100% verde en la suite completa de Playwright: **30/30 pruebas pasando**.

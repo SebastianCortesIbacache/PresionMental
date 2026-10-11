@@ -106,7 +106,7 @@ Reto Panda/
 - **Rol:** Pruebas funcionales, detección de regresiones, suites Playwright
 - **Archivos de memoria:** `.agents/memory/tester.md`
 - **Reglas:** `.agents/rules/agente-tester.md`
-- **Estado actual:** ✅ 11/11 tests Playwright en verde.
+- **Estado actual:** ✅ 30/30 tests Playwright en verde (100% de la suite certificada).
 
 ### 🧸 Agente Psicopedagogo
 - **Rol:** Pedagogía infantil, carga cognitiva, lenguaje motivacional y didáctica 6-7 años

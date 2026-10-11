@@ -238,3 +238,34 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
   - Encuadre diorama panorámico limpio (sin bocadillos estáticos horneados) para `hero_mochi_diorama.webp`.
 - **Validación QA:** 30/30 tests Playwright pasando en verde (100% PASS, Suite 9 de regresión visual validada sin desbordes).
 - **Memorias actualizadas:** `grafico.md`, `consultor.md`.
+
+---
+
+## 🚀 SPRINT EJECUTADO: Secuencia Cinemática de Onboarding "Pasaporte de Aventuras" y Cofres (2026-10-11) — ✅ COMPLETADO
+- **Ordenado por:** USER (Directiva de Dirección y Consejo Asesor para el cierre definitivo de la Fase 1).
+- **Ejecución Técnica Coordinada:**
+  1. **Agente Gráfico:**
+     - `assets/interface/onboarding_passport_bg.webp`: Optimizado a 1920×1071 px, compresión alta fidelidad WebP (152.1 KB < 250 KB).
+     - `assets/video/onboarding_passport.mp4`: Desplegado y verificado (3.20 MB).
+     - Cofres diarios procesados con `rembg` (canal alfa transparente, 512×512 px): `chest_golden_closed.webp` (42.8 KB) y `chest_golden_open.webp` (50.0 KB).
+  2. **Agente Arquitecto & Agente Diseño:**
+     - Reemplazo de modal flotante `#namePopup` por pantalla completa inmersiva `dialog.onboarding-passport-screen` (`index.html`, `css/popups.css`).
+     - Segundo reproductor `#passportVideo` integrado en `#splashVideoBox` para reproducir `onboarding_passport.mp4` al finalizar el primer video (solo para nuevos usuarios sin perfil).
+     - Micro-crossfade suave hacia el fondo estático `onboarding_passport_bg.webp`.
+     - Hotspots interactivos de alta precisión calibrados sobre la libreta del pasaporte:
+       * Input `#nameInput` centrado en el surco blanco central (Nunito 900, azul oscuro, fondo transparente).
+       * Sellos de edad táctiles [ 6 ], [ 7 ] (activo por defecto con halo dorado pulsante) y [ Otra ], sincronizados bidireccionalmente con `selectOnboardingAge()`.
+       * Botón ¡VAMOS A EXPLORAR! (`.onboarding-btn-vamos`) sobre la barra verde de arcilla, disparando `saveProfile()` con micro-escala `:active`.
+     - Si el perfil ya existe, la app salta directo al Home sin mostrar el pasaporte.
+     - Botón "Saltar intro" avanza directo a la pantalla interactiva del pasaporte sin bloqueos.
+     - Liberación de VRAM: desvinculación GPU (`removeAttribute('src')` y `load()`) para ambos videos.
+  3. **Agente Sonido:**
+     - Techo seguro de volumen de videos a 0.60 con micro fade-in de 200 ms al desmutar en `unmuteSplashVideo()`.
+     - Eliminada llamada cacofónica a `sfxLevelUp()` en `nav('home')`.
+     - Rediseñado `_native.squish` en `js/audio.js` a onda senoidal blanda con filtro paso-bajo (550 Hz) y micro-detune aleatorio (±5%) para simular Juicy Clay real.
+     - Locución TTS chilena de Mochi integrada con audio ducking dinámico (BGM atenuado al 40% mientras habla).
+  4. **Agente Tester (QA):**
+     - Actualizado `tests/01-onboarding.spec.js` para validar la pantalla del pasaporte y los hotspots.
+     - Suite completa Playwright ejecutada: **30/30 tests aprobados en verde (100% PASS)**.
+- **Memorias actualizadas:** `grafico.md`, `arquitecto.md`, `diseño.md`, `sonido.md`, `tester.md`, `consultor.md` y `CHATS.md`.
+

@@ -157,11 +157,20 @@
     <div class="space-starfield"></div>
 
     <!-- Video Cinematográfico de Intro -->
+    <!-- Video Cinematográfico de Intro y Pasaporte -->
     <div class="splash-video-box" id="splashVideoBox">
       <video id="splashVideo" class="splash-video"
              src="assets/video/intro_reto_panda.mp4"
              playsinline autoplay muted
              preload="auto">
+      </video>
+
+      <!-- Video 2: Mochi agitando el pasaporte -->
+      <video id="passportVideo" class="splash-video passport-video"
+             src="assets/video/onboarding_passport.mp4"
+             playsinline muted
+             preload="auto"
+             style="display: none; opacity: 0;">
       </video>
 
       <div class="splash-video-overlay">
@@ -211,67 +220,52 @@
 
 
   <!-- ============================================================
-       NAME & AGE POPUP (CIRCULO GAMING PREMIUM DE BIENVENIDA)
+       ONBOARDING: PASAPORTE DE AVENTURAS DE MOCHI (CINEMÁTICO TIER 1)
        ============================================================ -->
-  <dialog id="namePopup" class="popup-overlay onboarding-screen">
+  <dialog id="namePopup" class="popup-overlay onboarding-screen onboarding-passport-screen">
+    <div class="passport-viewport">
+      <div class="passport-board" id="passportBoard">
+        <!-- Fondo estático 3D del pasaporte abierto -->
+        <img src="assets/interface/onboarding_passport_bg.webp"
+             alt="Tu Pasaporte de Aventuras"
+             class="passport-bg-img"
+             id="passportBgImg">
 
-    <!-- Formulario principal del Onboarding -->
-    <div class="onboarding-content">
+        <!-- Capas interactivas (Hotspots alineados con el pasaporte) -->
+        <div class="passport-hotspots">
 
-      <!-- Hero: Panda + "Cuéntame sobre ti" (imagen con transparencia) -->
-      <img src="assets/interface/onboarding_hero.webp"
-           alt="¡Cuéntame sobre ti!"
-           class="onboarding-hero-img">
-
-      <!-- Formulario -->
-      <div class="onboarding-form">
-
-        <!-- Campo: Nombre -->
-        <div class="onboarding-field" id="nameFieldGroup">
-          <label for="nameInput" class="onboarding-label">¿Cómo te llamas?</label>
-          <div class="onboarding-input-wrapper" id="nameInputWrapper">
-            <img src="assets/interface/icon_cloud.webp" alt=""
-                 class="onboarding-input-icon" onerror="this.src='assets/interface/icon_user.webp'">
+          <!-- 1. Input: Nombre sobre el surco blanco central -->
+          <div class="passport-hotspot-name" id="nameFieldGroup">
             <input type="text" id="nameInput" placeholder="Tu nombre"
                    maxlength="12" autocomplete="off"
-                   pattern="[A-Za-z0-9 áéíóúÁÉÍÓÚñÑüÜ]+">
+                   pattern="[A-Za-z0-9 áéíóúÁÉÍÓÚñÑüÜ]+"
+                   aria-label="¿Cómo te llamas?">
           </div>
-        </div>
 
-        <!-- Separador -->
-        <div class="onboarding-separator">
-          <span class="sep-line"></span>
-          <span class="sep-leaf">🌿</span>
-          <span class="sep-line"></span>
-        </div>
-
-        <!-- Campo: Edad -->
-        <div class="onboarding-field" id="ageFieldGroup">
-          <label for="ageInput" class="onboarding-label">¿Cuántos años tienes?</label>
-          <div class="onboarding-age-pills" role="radiogroup" aria-label="Seleccionar edad">
-            <button type="button" class="onboarding-age-pill" data-age="6" role="radio" aria-checked="false" onclick="safeCall('selectOnboardingAge', 6)">6 años</button>
-            <button type="button" class="onboarding-age-pill selected" data-age="7" role="radio" aria-checked="true" onclick="safeCall('selectOnboardingAge', 7)">7 años</button>
-            <button type="button" class="onboarding-age-pill" data-age="other" role="radio" aria-checked="false" onclick="safeCall('selectOnboardingAge', 'other')">Otra edad</button>
+          <!-- 2. Sellos de Cera de Edad: [ 6 ], [ 7 ] y [ Otra ] -->
+          <div class="passport-hotspot-ages" id="ageFieldGroup" role="radiogroup" aria-label="Seleccionar edad">
+            <!-- Sello 6 años (Rojo) -->
+            <button type="button" class="passport-seal-btn onboarding-age-pill" data-age="6" role="radio" aria-checked="false" onclick="safeCall('selectOnboardingAge', 6)" title="6 años" aria-label="6 años">
+              <span class="seal-halo"></span>
+            </button>
+            <!-- Sello 7 años (Naranja / Activo por defecto con halo dorado) -->
+            <button type="button" class="passport-seal-btn onboarding-age-pill selected" data-age="7" role="radio" aria-checked="true" onclick="safeCall('selectOnboardingAge', 7)" title="7 años" aria-label="7 años">
+              <span class="seal-halo"></span>
+            </button>
+            <!-- Sello Otra edad (Morado) -->
+            <button type="button" class="passport-seal-btn onboarding-age-pill" data-age="other" role="radio" aria-checked="false" onclick="safeCall('selectOnboardingAge', 'other')" title="Otra edad" aria-label="Otra edad">
+              <span class="seal-halo"></span>
+            </button>
+            <!-- Input numérico preservado para compatibilidad y tests -->
+            <input type="number" id="ageInput" class="passport-age-input" min="4" max="99" inputmode="numeric" value="7" aria-label="Edad en números">
           </div>
-          <div class="onboarding-input-wrapper age-input-wrapper" id="ageInputWrapper">
-            <img src="assets/interface/icon_star_clay.webp" alt=""
-                 class="onboarding-input-icon" onerror="this.src='assets/interface/icon_age.webp'">
-            <input type="number" id="ageInput" placeholder="Tu edad"
-                   min="4" max="99" inputmode="numeric" value="7">
-          </div>
+
+          <!-- 3. Botón ¡VAMOS A EXPLORAR! sobre la barra de arcilla verde -->
+          <button type="button" class="passport-hotspot-btn onboarding-btn-vamos" onclick="safeCall('saveProfile')" aria-label="¡Vamos a explorar!">
+            <span class="passport-btn-ripple"></span>
+          </button>
+
         </div>
-      </div>
-
-      <!-- Botón ¡VAMOS! -->
-      <button type="button" class="onboarding-btn-vamos" onclick="safeCall('saveProfile')">
-        ¡VAMOS! ❯
-      </button>
-
-      <!-- Puntos decorativos -->
-      <div class="onboarding-pagination">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
       </div>
     </div>
   </dialog>

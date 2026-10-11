@@ -15,10 +15,10 @@ test.describe('Suite 4: Resiliencia Offline (PWA)', () => {
     // 3. Recargar la página (simulando que el usuario cerró y abrió sin Wifi)
     await page.reload();
     
-    // 4. Validar que la app cargó sin errores de red
-    await expect(page.locator('#splash')).toBeVisible();
-    
-    // 5. Validar que el splash desaparece (la PWA cargó exitosamente los assets)
+    // 4. Validar que la PWA cargó exitosamente los assets y el splash finaliza
     await expect(page.locator('#splash')).not.toBeVisible({ timeout: 15000 });
+    
+    // 5. Validar que la aplicación está operativa offline (pantalla de onboarding de pasaporte abierta)
+    await expect(page.locator('#namePopup')).toBeVisible();
   });
 });
