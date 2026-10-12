@@ -285,4 +285,5 @@ Cuando el Arquitecto, Diseño y Gráfico apliquen sus cambios en el código y as
    - **Resultado Oficial:** **30 passed (2.3m)** — **100% verde (30/30)**.
    - Cero regresiones funcionales en Gameplay, Audio, Gamificación, Navegación, Estrés, Accesibilidad y Rendimiento.
 - **Estado:** ✅ CERTIFICADO PARA PRODUCCIÓN.
+- **Hotfix Visual (2026-10-11 22:50):** Certificado 30/30 tests en verde tras aplicar correcciones CSS de anulación de fondo selvático, alineación del botón verde y transparencia del halo en el sello 7.
 

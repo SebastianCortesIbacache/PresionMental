@@ -819,8 +819,8 @@ questionEl.textContent = cleanQuestionText(q.text);
    - Se incluyó el segundo reproductor de video `#passportVideo` dentro de `#splashVideoBox`.
    - Montaje del tablero de pasaporte `#passportBoard` con fondo estático `#passportBgImg` (`assets/interface/onboarding_passport_bg.webp`) y capas interactivas de precisión:
      - Input `#nameInput` centrado en el surco blanco central (`left: 55.6%`, `top: 56.6%`, `width: 24.2%`).
-     - Botones de edad `.passport-seal-btn.onboarding-age-pill` sobre los sellos de cera [ 6 ], [ 7 ] (activo por defecto con halo dorado) y [ Otra ], junto a `#ageInput`.
-     - Botón `.passport-hotspot-btn.onboarding-btn-vamos` sobre la barra de arcilla verde inferior con micro-ripple táctil.
+     - Botones de edad `.passport-seal-btn.onboarding-age-pill` sobre los sellos de cera [ 6 ], [ 7 ] (activo por defecto con halo dorado translúcido) y [ Otra ], junto a `#ageInput` (`left: 55.0%`, `top: 66.0%`, `width: 25.5%`, `height: 11.0%`).
+     - Botón `.passport-hotspot-btn.onboarding-btn-vamos` sobre la barra de arcilla verde inferior con micro-ripple táctil (`left: 53.0%`, `top: 80.0%`, `width: 29.0%`, `height: 9.5%`).
 2. **Controlador y Encadenamiento Cinemático (`js/ui.js`):**
    - `initSplashVideo()` reproduce el video 1 (`intro_reto_panda.mp4`).
    - Al terminar el video 1: si no hay perfil creado, inicia inmediatamente el video 2 (`#passportVideo`), manteniendo la inmersión. Si ya existe perfil, navega directo a Home.
@@ -832,3 +832,4 @@ questionEl.textContent = cleanQuestionText(q.text);
    - Eliminada la llamada a `sfxLevelUp()` dentro de `nav('home')`.
 4. **Validación QA:**
    - Certificado 100% verde en la suite completa de Playwright: **30/30 pruebas pasando**.
+   - Captura y verificación visual: fondo negro puro sin decoraciones de selva, halo del sello 7 sin relleno opaco y botón de inicio perfectamente solapado.

@@ -1217,7 +1217,7 @@ dialog.onboarding-passport-screen {
   padding: 0;
   margin: 0;
   border: none;
-  background: rgba(12, 22, 38, 0.96);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1231,7 +1231,7 @@ dialog.onboarding-passport-screen[open] {
 }
 
 dialog.onboarding-passport-screen::backdrop {
-  background: rgba(10, 20, 35, 0.95);
+  background: #000;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
@@ -1292,14 +1292,18 @@ dialog.onboarding-passport-screen::backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .passport-hotspot-name input {
   width: 100%;
   height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   text-align: center;
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
@@ -1320,37 +1324,55 @@ dialog.onboarding-passport-screen::backdrop {
 .passport-hotspot-ages {
   position: absolute;
   left: 55.0%;
-  top: 65.0%;
+  top: 66.0%;
   width: 25.5%;
-  height: 10.5%;
+  height: 11.0%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .passport-seal-btn {
   position: relative;
   width: 30%;
   height: 100%;
-  background: transparent;
-  border: none;
+  background: transparent !important;
+  border: none !important;
   border-radius: 50%;
   cursor: pointer;
-  padding: 0;
+  padding: 0 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  outline: none;
+  outline: none !important;
+  box-shadow: none !important;
   transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
   z-index: 2;
+}
+
+/* Inmunidad estricta contra estilos heredados de .onboarding-age-pill */
+.onboarding-passport-screen .passport-seal-btn.onboarding-age-pill,
+.onboarding-passport-screen .passport-seal-btn.onboarding-age-pill.selected {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  min-height: unset !important;
+  padding: 0 !important;
+  transform: none !important;
 }
 
 .passport-seal-btn:hover {
   transform: scale(1.08);
 }
 
-.passport-seal-btn:active {
-  transform: scale(0.95);
+.passport-seal-btn:active,
+.onboarding-passport-screen .passport-seal-btn.onboarding-age-pill:active {
+  transform: scale(0.95) !important;
+  box-shadow: none !important;
 }
 
 .seal-halo {
@@ -1361,19 +1383,21 @@ dialog.onboarding-passport-screen::backdrop {
   height: 92%;
   border-radius: 50%;
   opacity: 0;
+  background: transparent !important; /* Sin relleno para que el número del sello quede 100% visible */
   transition: opacity 0.25s ease, box-shadow 0.25s ease;
   pointer-events: none;
 }
 
 .passport-seal-btn.selected .seal-halo {
   opacity: 1;
-  box-shadow: 0 0 0 4px #FFD700, 0 0 18px rgba(255, 215, 0, 0.95), inset 0 0 10px rgba(255, 255, 255, 0.5);
+  background: transparent !important;
+  box-shadow: 0 0 0 3.5px #FFD700, 0 0 16px rgba(255, 215, 0, 0.95);
   animation: sealPulseGlow 2s infinite ease-in-out;
 }
 
 @keyframes sealPulseGlow {
-  0%, 100% { box-shadow: 0 0 0 4px #FFD700, 0 0 18px rgba(255, 215, 0, 0.9); }
-  50% { box-shadow: 0 0 0 5px #FFE082, 0 0 24px rgba(255, 215, 0, 1); }
+  0%, 100% { box-shadow: 0 0 0 3.5px #FFD700, 0 0 16px rgba(255, 215, 0, 0.9); }
+  50% { box-shadow: 0 0 0 4.5px #FFE082, 0 0 22px rgba(255, 215, 0, 1); }
 }
 
 .passport-age-input {
@@ -1391,19 +1415,35 @@ dialog.onboarding-passport-screen::backdrop {
 /* 3. Hotspot Botón ¡VAMOS A EXPLORAR! */
 .passport-hotspot-btn {
   position: absolute;
-  left: 52.2%;
-  top: 76.2%;
-  width: 30.0%;
-  height: 10.5%;
-  background: transparent;
-  border: none;
+  left: 53.0%;
+  top: 80.0%;
+  width: 29.0%;
+  height: 9.5%;
+  background: transparent !important;
+  border: none !important;
   border-radius: 20px;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
+  box-shadow: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Inmunidad estricta contra estilos heredados de .onboarding-btn-vamos */
+.onboarding-passport-screen .passport-hotspot-btn.onboarding-btn-vamos,
+.onboarding-passport-screen .passport-hotspot-btn.onboarding-btn-vamos:hover,
+.onboarding-passport-screen .passport-hotspot-btn.onboarding-btn-vamos:active {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  max-width: unset !important;
+  width: 29.0% !important;
+  height: 9.5% !important;
+  color: transparent !important;
+  text-shadow: none !important;
 }
 
 .passport-hotspot-btn:hover {
@@ -1411,7 +1451,7 @@ dialog.onboarding-passport-screen::backdrop {
 }
 
 .passport-hotspot-btn:active {
-  transform: scale(0.96) translateY(3px);
+  transform: scale(0.96) translateY(2px) !important;
 }
 
 .passport-video {

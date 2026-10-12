@@ -450,27 +450,33 @@ Durante la campaña de QA de la Suite 2 (Asset Integrity), se detectaron **2 ass
 
 ---
 
-## 🎨 SPRINT COMPLETADO — Diseño y Hotspots del Onboarding "Pasaporte de Aventuras" (2026-10-11)
-*Origen: Aprobación unánime del Consejo Asesor y Dirección del Proyecto.*
+## 🎨 SPRINT COMPLETADO Y AJUSTADO — Diseño y Hotspots del Onboarding "Pasaporte de Aventuras" (2026-10-11)
+*Origen: Aprobación del Consejo Asesor y Hotfix de Desajustes Visuales Críticos ordenado por el USER.*
 
-### 📐 Implementación de Maquetación y Hotspots CSS (`css/popups.css`):
-1. **Contenedor Principal (`dialog.onboarding-passport-screen`):**
-   - Diálogo a pantalla completa sin márgenes (`position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 10000; border: none; background: #0c1a2e;`).
-   - `.passport-viewport`: contenedor flex centrado con `width: 100%; height: 100%; overflow: hidden;`.
-   - `.passport-board`: contenedor responsivo con relación de aspecto preservada (`aspect-ratio: 1920 / 1071; width: min(100vw, calc(100vh * (1920 / 1071))); max-height: 100vh;`).
-   - `.passport-bg-img`: imagen de fondo nítida (`assets/interface/onboarding_passport_bg.webp`), `object-fit: contain; pointer-events: none;`.
-2. **Hotspots Táctiles de Alta Precisión (`.passport-hotspots`):**
-   - **Input de Nombre (`.passport-hotspot-name` / `#nameInput`):**
-     - Posición porcentual fija sobre el surco blanco central: `left: 55.6%; top: 56.6%; width: 24.2%; height: 5.0%;`.
-     - Tipografía Nunito 900, azul oscuro profundo (`#1a237e`), fondo transparente sin bordes molestos, placeholder suave (`rgba(26, 35, 126, 0.4)`).
-   - **Sellos de Cera de Edad (`.passport-hotspot-ages` / `.passport-seal-btn`):**
-     - Posición porcentual sobre los sellos de cera: `left: 55.0%; top: 65.0%; width: 25.5%; height: 10.5%;`.
-     - Botones circulares transparentes distribuidos en flex gap.
-     - Halo dorado en relieve para estado `.selected` (`.seal-halo` con `box-shadow: 0 0 0 3px #FFD700, 0 0 16px rgba(255, 215, 0, 0.85); animation: sealHaloPulse 2s infinite ease-in-out;`).
-   - **Botón ¡VAMOS A EXPLORAR! (`.passport-hotspot-btn` / `.onboarding-btn-vamos`):**
-     - Posición porcentual sobre la barra verde de arcilla: `left: 52.2%; top: 76.2%; width: 30.0%; height: 10.5%;`.
-     - Área táctil amplia y amigable, cursor pointer, micro-escala `:active` (`transform: scale(0.96)`) con efecto de brillo `:hover`.
-3. **Móviles Verticales (Portrait max-width: 768px):**
-   - Media query portrait con escala aumentada (`width: max(100vw, calc(100vh * (1920 / 1071) * 0.75));`) y paneo horizontal automático hacia la libreta (`transform: translateX(-15%);`) para maximizar ergonomía en smartphones sin deformar la estética.
-- **Validación QA:** 100% de pruebas Playwright aprobadas (30/30).
+### 📐 Implementación de Maquetación y Hotspots CSS (`css/popups.css` y `css/tiers/tier1.css`):
+1. **Neutralización del Fondo Selvático Residual (`css/tiers/tier1.css`):**
+   - Anulados los fondos verdes degradados y pseudo-elementos decorativos (`::before` y `::after` con hojas, flores y estrellas) de `#namePopup` cuando tiene la clase `.onboarding-passport-screen`.
+   - Diálogo a pantalla completa fijado en negro puro (`background: #000 !important; margin: 0 !important; padding: 0 !important;`).
+2. **Corrección de Hotspot del Botón "¡VAMOS A EXPLORAR!" (`css/popups.css`):**
+   - Calibración de posición exacta sobre la barra horneada verde de plastilina: `left: 53.0%; top: 80.0%; width: 29.0%; height: 9.5%;` (corregido el desplazamiento vertical anterior a `76.2%`).
+   - Inmunidad estricta contra estilos heredados de `.onboarding-btn-vamos`: fondo transparente, sin bordes ni sombras de caja superpuestas.
+3. **Corrección del Halo del Sello 7 (`css/popups.css`):**
+   - Eliminado el relleno amarillo sólido heredado de `.onboarding-age-pill.selected`.
+   - `.seal-halo` fijado con `background: transparent !important;` y contorno dorado brillante (`box-shadow: 0 0 0 3.5px #FFD700, 0 0 16px rgba(255, 215, 0, 0.95);`), permitiendo que el número "7" del sello sea 100% visible.
+4. **Eliminación de Marcos de Depuración:**
+   - Todos los hotspots interactivos (`.passport-hotspots *`) fijados con `outline: none !important; border: none !important; background: transparent !important;`.
+- **Validación QA:** 30/30 pruebas Playwright aprobadas (100% PASS) y captura visual certificada sin desbordes ni artefactos residuales.
 
+
+
+
+---
+
+## 🎨 FIX CRÍTICO — Ajuste de Pantalla Completa y Calibración de Hotspots del Pasaporte (2026-10-11)
+*Origen: Reporte de usuario e inspección visual en producción.*
+
+### Problemas Corregidos:
+1. **Fondo Verde de Selva Residual:** `html.age-tier-1 #namePopup.onboarding-screen` inyectaba hojas tropicales SVG en `::before` y `::after` y degradado verde, visible por márgenes de `.passport-board`.
+2. **Botón Verde Desplazado:** `.passport-hotspot-btn` estaba a `top: 76.2%` (40px muy arriba) montado sobre los sellos. Posición corregida: `top: 80.0%`, `height: 9.0%`.
+3. **Sello 7 Cubierto:** `.seal-halo` tenía relleno amarillo sólido. Corregido a `background: transparent !important;` con borde perimetral dorado `#FFD700`.
+4. **Pantalla Completa:** `.passport-board` y `.passport-bg-img` configurados a `100vw × 100vh` con `object-fit: cover` y `border-radius: 0`.

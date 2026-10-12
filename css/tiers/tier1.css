@@ -406,9 +406,21 @@ html.age-tier-1 #namePopup .onboarding-space-bg {
    TIER 1 — ONBOARDING SELVA CLAY — Rediseño DOM integrado (SVG decorations)
    ══════════════════════════════════════════════════════════════════════════ */
 
+/* Anular fondo verde y decoraciones antiguas cuando namePopup es el pasaporte */
+html.age-tier-1 #namePopup.onboarding-passport-screen {
+  background: #000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+html.age-tier-1 #namePopup.onboarding-passport-screen::before,
+html.age-tier-1 #namePopup.onboarding-passport-screen::after {
+  display: none !important; /* Elimina hojas selváticas, flores y estrellas residuales */
+}
+
 /* 1. Diálogo = Selva de fondo */
-html.age-tier-1 #namePopup.onboarding-screen,
-html.age-tier-1 dialog.onboarding-screen {
+html.age-tier-1 #namePopup.onboarding-screen:not(.onboarding-passport-screen),
+html.age-tier-1 dialog.onboarding-screen:not(.onboarding-passport-screen) {
   background:
     radial-gradient(ellipse 60% 40% at 50% 0%, #a8e063 0%, transparent 70%),
     radial-gradient(ellipse 80% 60% at 30% 100%, #56ab2f 0%, transparent 70%),
@@ -429,7 +441,7 @@ html.age-tier-1 .space-starfield {
 }
 
 /* 3. Decoraciones orgánicas SVG en el fondo del diálogo (hojas selváticas) */
-html.age-tier-1 #namePopup.onboarding-screen::before {
+html.age-tier-1 #namePopup.onboarding-screen:not(.onboarding-passport-screen)::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -460,7 +472,7 @@ html.age-tier-1 #namePopup.onboarding-screen::before {
 }
 
 /* 4. Detalles inferiores — más hojas y flores en la base */
-html.age-tier-1 #namePopup.onboarding-screen::after {
+html.age-tier-1 #namePopup.onboarding-screen:not(.onboarding-passport-screen)::after {
   content: "";
   position: absolute;
   inset: 0;
