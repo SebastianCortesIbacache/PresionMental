@@ -269,3 +269,14 @@ Auditar la interfaz del Tier 1 (Clay World) a partir de la captura de pantalla p
      - Suite completa Playwright ejecutada: **30/30 tests aprobados en verde (100% PASS)**.
 - **Memorias actualizadas:** `grafico.md`, `arquitecto.md`, `diseño.md`, `sonido.md`, `tester.md`, `consultor.md` y `CHATS.md`.
 
+---
+
+## 🏛️ RESOLUCIÓN DEL CONSEJO: INTEGRACIÓN DEL AGENTE BLENDER 3D Y STAND-BY DE INTEGRACIÓN (2026-10-14)
+- **Participantes:** Consultor Externo, Agente Blender 3D, Agente Arquitecto, Agente Diseño, Agente Psicopedagogo, Agente Sonido, Agente QA.
+- **Acuerdo Estratégico del Consejo:**
+  1. **Integración Formal:** Se aprueba e integra al **Agente Blender 3D** al Consejo Consultivo Estratégico.
+  2. **Arquitectura Definida:** Se determinó que la presencia de Mochi 3D en el juego será mediante una **Arquitectura Híbrida** (3D interactivo en tiempo real para Home y Tienda, renders WebP 2D de alta fidelidad para el Quiz contrarreloj para garantizar 60 FPS y 0ms de latencia).
+  3. **Directiva del USER (STAND-BY):** La integración en código/Web de Mochi 3D en el juego queda formalmente en **STAND-BY**.
+  4. **Prioridad Inmediata Nº 1:** Afinar, esculpir y pulir el modelo 3D de Mochi en Blender 5.2 LTS (`tools/blender/`) hasta lograr una fidelidad 1:1 exacta con el diseño canónico de la dirección de arte (`FICHA_PERSONAJE_MOCHI.md`, proporciones Kindchenschema, rasgos faciales, ojos especulares, hoodie azul, mochila mostaza y material PBR Claymorphism) antes de cualquier implementación web.
+- **Estado Resultante:** 🟡 Integración web en Stand-by. 🟢 Foco exclusivo en el refinamiento visual del modelo 3D en Blender.
+

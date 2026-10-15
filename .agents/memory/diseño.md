@@ -472,6 +472,8 @@ Durante la campaña de QA de la Suite 2 (Asset Integrity), se detectaron **2 ass
 
 ---
 
+---
+
 ## 🎨 FIX CRÍTICO — Ajuste de Pantalla Completa y Calibración de Hotspots del Pasaporte (2026-10-11)
 *Origen: Reporte de usuario e inspección visual en producción.*
 
@@ -480,3 +482,21 @@ Durante la campaña de QA de la Suite 2 (Asset Integrity), se detectaron **2 ass
 2. **Botón Verde Desplazado:** `.passport-hotspot-btn` estaba a `top: 76.2%` (40px muy arriba) montado sobre los sellos. Posición corregida: `top: 80.0%`, `height: 9.0%`.
 3. **Sello 7 Cubierto:** `.seal-halo` tenía relleno amarillo sólido. Corregido a `background: transparent !important;` con borde perimetral dorado `#FFD700`.
 4. **Pantalla Completa:** `.passport-board` y `.passport-bg-img` configurados a `100vw × 100vh` con `object-fit: cover` y `border-radius: 0`.
+
+---
+
+## 🎨 SPRINT PERFECCIONAMIENTO — Onboarding Pasaporte 100% Fullscreen Edge-to-Edge y Hotspots (2026-10-14)
+*Origen: Directiva del Consejo Asesor y Dirección.*
+
+### Implementación en `css/popups.css`:
+1. **Escalado Cover 100% Edge-to-Edge:**
+   - `.passport-board`: `width: max(100vw, calc(100vh * (1920 / 1071))); height: max(100vh, calc(100vw / (1920 / 1071)));` centrado absoluto sin bordes redondeados flotantes ni sombras externas.
+   - `.passport-bg-img`: `object-fit: cover; width: 100%; height: 100%; border-radius: 0;`.
+   - Fondo y backdrop unificados en `#071322`.
+2. **Recalibración Milimétrica de Hotspots:**
+   - Input Nombre: `left: 53.5%; top: 55.2%; width: 27.5%; height: 7.2%;` con tipografía Nunito 900 adaptativa `clamp(16px, 2.2vw, 28px)` y placeholder de alto contraste.
+   - Sellos de Edad: `left: 54.5%; top: 67.0%; width: 26.0%; height: 10.5%;`. Halo con borde dorado `3.5px` y animación `sealPulseGlow` conservando el número visible.
+   - Botón ¡VAMOS A EXPLORAR!: `left: 53.0%; top: 79.5%; width: 29.2%; height: 9.8%;` con animación táctil al presionar.
+3. **Aislamiento de Diálogo:**
+   - Regla `dialog.onboarding-passport-screen:not([open]) { display: none !important; }`.
+4. **Certificación:** 30/30 tests en verde.

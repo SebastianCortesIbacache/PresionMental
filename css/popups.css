@@ -1203,21 +1203,19 @@ dialog.onboarding-screen:not([open]) {
   }
 }
 
-/* ==========================================================================
-   PASAPORTE DE AVENTURAS DE MOCHI — ONBOARDING CINEMATOGRÁFICO (TIER 1)
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   ONBOARDING PASAPORTE DE AVENTURAS DE MOCHI (100% FULLSCREEN EDGE-TO-EDGE)
+   -------------------------------------------------------------------------- */
 dialog.onboarding-passport-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  max-width: 100vw;
-  max-height: 100vh;
-  padding: 0;
   margin: 0;
+  padding: 0;
   border: none;
-  background: #000;
+  background: #071322;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1230,14 +1228,18 @@ dialog.onboarding-passport-screen[open] {
   display: flex !important;
 }
 
+dialog.onboarding-passport-screen:not([open]) {
+  display: none !important;
+}
+
 dialog.onboarding-passport-screen::backdrop {
-  background: #000;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: #071322;
 }
 
 .passport-viewport {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -1246,31 +1248,29 @@ dialog.onboarding-passport-screen::backdrop {
   overflow: hidden;
 }
 
+/* Escalado Cover exacto para llenar el 100% de la pantalla sin bordes ni franjas negras */
 .passport-board {
-  position: relative;
-  width: min(96vw, calc(94vh * 1.792));
-  height: min(94vh, calc(96vw / 1.792));
-  max-width: 1400px;
-  max-height: 781px;
-  aspect-ratio: 1920 / 1071;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-  animation: passportPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-@keyframes passportPopIn {
-  0% { opacity: 0; transform: scale(0.92) translateY(18px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100vw, calc(100vh * (1920 / 1071)));
+  height: max(100vh, calc(100vw / (1920 / 1071)));
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .passport-bg-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   user-select: none;
   pointer-events: none;
-  border-radius: 20px;
+  border-radius: 0;
 }
 
 .passport-hotspots {
@@ -1285,10 +1285,10 @@ dialog.onboarding-passport-screen::backdrop {
 /* 1. Hotspot Input Nombre */
 .passport-hotspot-name {
   position: absolute;
-  left: 55.6%;
-  top: 56.6%;
-  width: 24.2%;
-  height: 5.0%;
+  left: 53.5%;
+  top: 55.2%;
+  width: 27.5%;
+  height: 7.2%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1307,9 +1307,9 @@ dialog.onboarding-passport-screen::backdrop {
   text-align: center;
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
-  font-size: clamp(14px, 2.0vw, 24px);
+  font-size: clamp(16px, 2.2vw, 28px);
   color: #1a237e;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
   caret-color: #1a237e;
   padding: 0 8px;
   box-sizing: border-box;
@@ -1323,10 +1323,10 @@ dialog.onboarding-passport-screen::backdrop {
 /* 2. Hotspot Sellos de Edad */
 .passport-hotspot-ages {
   position: absolute;
-  left: 55.0%;
-  top: 66.0%;
-  width: 25.5%;
-  height: 11.0%;
+  left: 54.5%;
+  top: 67.0%;
+  width: 26.0%;
+  height: 10.5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1353,7 +1353,6 @@ dialog.onboarding-passport-screen::backdrop {
   z-index: 2;
 }
 
-/* Inmunidad estricta contra estilos heredados de .onboarding-age-pill */
 .onboarding-passport-screen .passport-seal-btn.onboarding-age-pill,
 .onboarding-passport-screen .passport-seal-btn.onboarding-age-pill.selected {
   background: transparent !important;
@@ -1377,13 +1376,13 @@ dialog.onboarding-passport-screen::backdrop {
 
 .seal-halo {
   position: absolute;
-  top: 4%;
-  left: 4%;
-  width: 92%;
-  height: 92%;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
   border-radius: 50%;
   opacity: 0;
-  background: transparent !important; /* Sin relleno para que el número del sello quede 100% visible */
+  background: transparent !important;
   transition: opacity 0.25s ease, box-shadow 0.25s ease;
   pointer-events: none;
 }
@@ -1416,9 +1415,9 @@ dialog.onboarding-passport-screen::backdrop {
 .passport-hotspot-btn {
   position: absolute;
   left: 53.0%;
-  top: 80.0%;
-  width: 29.0%;
-  height: 9.5%;
+  top: 79.5%;
+  width: 29.2%;
+  height: 9.8%;
   background: transparent !important;
   border: none !important;
   border-radius: 20px;
@@ -1431,7 +1430,6 @@ dialog.onboarding-passport-screen::backdrop {
   transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Inmunidad estricta contra estilos heredados de .onboarding-btn-vamos */
 .onboarding-passport-screen .passport-hotspot-btn.onboarding-btn-vamos,
 .onboarding-passport-screen .passport-hotspot-btn.onboarding-btn-vamos:hover,
 .onboarding-passport-screen .passport-hotspot-btn.onboarding-btn-vamos:active {
@@ -1440,8 +1438,8 @@ dialog.onboarding-passport-screen::backdrop {
   box-shadow: none !important;
   outline: none !important;
   max-width: unset !important;
-  width: 29.0% !important;
-  height: 9.5% !important;
+  width: 29.2% !important;
+  height: 9.8% !important;
   color: transparent !important;
   text-shadow: none !important;
 }

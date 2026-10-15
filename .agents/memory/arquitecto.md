@@ -833,3 +833,19 @@ questionEl.textContent = cleanQuestionText(q.text);
 4. **Validación QA:**
    - Certificado 100% verde en la suite completa de Playwright: **30/30 pruebas pasando**.
    - Captura y verificación visual: fondo negro puro sin decoraciones de selva, halo del sello 7 sin relleno opaco y botón de inicio perfectamente solapado.
+
+---
+
+## 📋 HOTFIX — Reproducción Completa de Video 2 y Aislamiento de Diálogo en Onboarding (2026-10-14)
+*Origen: Instrucción del Consejo Estratégico y Dirección del Proyecto.*
+
+### 🎯 Cambios Implementados (`js/ui.js` y `css/popups.css`):
+1. **Reproducción Íntegra de Video 2 (`js/ui.js`):**
+   - Eliminados timeouts de corte prematuro (8500ms y 7500ms) que interrumpían la animación de Mochi con el pasaporte.
+   - Sincronización precisa: Video 1 se oculta únicamente cuando Video 2 dispara el evento `playing`.
+   - Transición limpia: `showPassportScreen()` se invoca exclusivamente al dispararse el evento `ended` de Video 2 (o inmediatamente si el usuario presiona "Saltar intro").
+   - Resiliencia de autoplay: Manejo de audio bloqueado por políticas de navegador reintentando en silencio (`muted = true`) con desbloqueo reactivo en el primer gesto del usuario.
+2. **Aislamiento de Diálogo Nativo (`css/popups.css`):**
+   - Añadida regla explícita `dialog.onboarding-passport-screen:not([open]) { display: none !important; }` para garantizar que tras cerrarse el pasaporte no quede residuo en el árbol de render que afecte métricas de viewport.
+3. **Validación QA:**
+   - 30/30 tests Playwright pasando en verde (100% PASS).

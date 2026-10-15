@@ -36,6 +36,7 @@ test.describe('Suite 9: Regresión Visual y Fidelidad Estética (Juicy Clay Worl
   test('T-VIS-02: Verificación de Proporciones en Tablet Horizontal (1024x768)', async ({ page }) => {
     await page.setViewportSize({ width: 1024, height: 768 });
     await ensureHome(page);
+    await page.waitForTimeout(400);
 
     // En tablet horizontal ambos paneles deben seguir visibles sin scroll horizontal indeseado
     const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);

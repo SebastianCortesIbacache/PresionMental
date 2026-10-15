@@ -1242,13 +1242,6 @@ let playerAge = window.playerAge;
         onFirstVideoEnded();
       });
 
-      // Temporizador de respaldo a los 8.5s para Video 1
-      setTimeout(function() {
-        if (!_splashVideoDone && vid && !vid.paused && vid.style.display !== 'none') {
-          onFirstVideoEnded();
-        }
-      }, 8500);
-
       // En caso de error al cargar el archivo de video (offline, formato no soportado, etc.)
       vid.addEventListener('error', function() {
         console.warn('Video intro failed to load, falling back to classic loader.');
@@ -1263,12 +1256,11 @@ let playerAge = window.playerAge;
         playPromise.then(function() {
           updateSplashSoundBtnUI(false);
         }).catch(function() {
-          console.log('[Splash Video] Autoplay con audio bloqueado por política del navegador. Iniciando en silencio.');
+          console.log('[Splash Video] Autoplay con audio bloqueado. Iniciando en silencio.');
           vid.muted = true;
           updateSplashSoundBtnUI(true);
           vid.play().catch(function(e) { console.warn('Autoplay muted blocked:', e); });
 
-          // Desbloquear audio automáticamente ante cualquier interacción del usuario
           var unlockOnUserAction = function() {
             if (!_splashVideoDone) {
               unmuteSplashVideo();
@@ -1290,41 +1282,53 @@ let playerAge = window.playerAge;
         return;
       }
 
-      // Si el usuario no tiene perfil: reproducir Video 2 (Mochi con pasaporte)
+      // Usuario nuevo: reproducir Video 2 completo (Mochi agitando el pasaporte)
       var vid = document.getElementById('splashVideo');
       var pVid = document.getElementById('passportVideo');
-      if (pVid) {
+      if (!pVid) {
+        showPassportScreen();
+        return;
+      }
+
+      pVid.style.display = 'block';
+      pVid.style.opacity = '1';
+      pVid.muted = vid ? vid.muted : false;
+      pVid.volume = 0.60;
+
+      // Ocultar Video 1 únicamente cuando Video 2 comience a reproducirse en pantalla
+      var onPlayingV2 = function() {
         if (vid) {
           vid.style.display = 'none';
           try { vid.pause(); vid.removeAttribute('src'); vid.load(); } catch(e){}
         }
-        pVid.style.display = 'block';
-        pVid.style.opacity = '1';
-        pVid.muted = vid ? vid.muted : false;
-        pVid.volume = 0.60;
-        
-        pVid.addEventListener('ended', function() {
-          showPassportScreen();
-        }, { once: true });
-        pVid.addEventListener('error', function() {
-          showPassportScreen();
-        }, { once: true });
+      };
+      pVid.addEventListener('playing', onPlayingV2, { once: true });
 
-        // Respaldo de duración para Video 2 (7.5s)
-        setTimeout(function() {
-          if (!_splashVideoDone && pVid.style.display !== 'none') {
-            showPassportScreen();
-          }
-        }, 7500);
-
-        var p = pVid.play();
-        if (p !== undefined) {
-          p.catch(function() {
-            showPassportScreen();
-          });
-        }
-      } else {
+      // REGLA CRÍTICA: Video 2 debe terminar completo. Solo el evento 'ended' dispara la UI estática
+      pVid.addEventListener('ended', function() {
         showPassportScreen();
+      }, { once: true });
+
+      pVid.addEventListener('error', function(err) {
+        console.warn('[PassportVideo] Error de video 2:', err);
+        showPassportScreen();
+      }, { once: true });
+
+      // Reproducción resiliente: si el navegador bloquea audio, reintentar silenciado sin abortar el video
+      var p = pVid.play();
+      if (p !== undefined) {
+        p.catch(function(err) {
+          console.warn('[PassportVideo] Audio bloqueado en video 2. Reintentando silenciado para asegurar reproducción completa:', err);
+          pVid.muted = true;
+          updateSplashSoundBtnUI(true);
+          var retry = pVid.play();
+          if (retry !== undefined) {
+            retry.catch(function(e2) {
+              console.error('[PassportVideo] Fallo al reproducir video 2 incluso silenciado:', e2);
+              showPassportScreen();
+            });
+          }
+        });
       }
     }
 

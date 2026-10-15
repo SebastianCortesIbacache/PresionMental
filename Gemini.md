@@ -12,6 +12,7 @@ Este proyecto cuenta con un ecosistema multiagente especializado:
 - **Agente Sonido** → Diseño sonoro, efectos táctiles (SFX), música (BGM), Web Audio API y mitigación de fatiga acústica (`assets/audio/`, `assets/sounds/`).
 - **Agente Growth** → Estrategia de adopción, retención, métricas y modelo de valor.
 - **Agente Release** → Empaquetado PWA/Capacitor, configuración offline y publicación.
+- **Agente Blender 3D** → Modelado procedural, texturizado PBR Claymorphism, rigging (Armature), animación y renderizado de personajes/accesorios (`tools/blender/`, `assets/mascotas/`, `assets/accesorios/`).
 
 ## Roles y Responsabilidades
 - Ningún agente debe intervenir en el dominio de otro.

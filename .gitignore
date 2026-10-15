@@ -33,4 +33,6 @@ current_ui_*.png
 updated_ui_*.png
 assets/interface/hub_extracted/
 tests/snapshots/home-*.png
+*.blend1
+
 

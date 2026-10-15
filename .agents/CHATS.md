@@ -13,6 +13,7 @@ Reto Panda/
 ├── .agents/
 │   ├── memory/
 │   │   ├── arquitecto.md     ← Memoria del Agente Arquitecto
+│   │   ├── blender3d.md      ← Memoria del Agente Blender 3D
 │   │   ├── consultor.md      ← Memoria del Consultor Externo
 │   │   ├── contenido.md      ← Memoria del Agente Contenido
 │   │   ├── diseño.md         ← Memoria del Agente Diseño
@@ -22,6 +23,7 @@ Reto Panda/
 │   │   └── tester.md         ← Memoria del Agente Tester (QA)
 │   └── rules/
 │       ├── agente-arquitecto.md
+│       ├── agente-blender3d.md
 │       ├── agente-consultor.md
 │       ├── agente-contenido.md
 │       ├── agente-diseño.md
@@ -132,6 +134,15 @@ Reto Panda/
 - **Archivos de memoria:** `.agents/memory/release.md`
 - **Reglas:** `.agents/rules/agente-release.md`
 - **Estado actual:** ⏳ En espera de cierre definitivo de UI para empaquetado v1.0.
+
+### 🧊 Agente Blender 3D
+- **Rol:** Modelado procedural, texturizado PBR Claymorphism, rigging (Armature), animación y renderizado de personajes/accesorios en Blender 5.2 LTS.
+- **Archivos de memoria:** `.agents/memory/blender3d.md`
+- **Reglas:** `.agents/rules/agente-blender3d.md`
+- **Skill:** `.agents/skills/blender-3d/SKILL.md`
+- **Conversación:** `d2a48e89-ee5c-43c7-b6b4-853da199fd85`
+- **Acceso a archivos:** `tools/blender/`, `assets/mascotas/`, `assets/accesorios/`
+- **Estado actual:** 🟢 Mochi Canónico (guiño, polerón azul, mochila, Armature articulado) modelado, texturizado y renderizado en 512×512 transparente (.blend, .glb, .webp, .png). Pipeline automatizado operativo.
 
 ---
 

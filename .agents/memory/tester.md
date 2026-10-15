@@ -284,6 +284,17 @@ Cuando el Arquitecto, Diseño y Gráfico apliquen sus cambios en el código y as
    - Ejecutado: `npx playwright test`.
    - **Resultado Oficial:** **30 passed (2.3m)** — **100% verde (30/30)**.
    - Cero regresiones funcionales en Gameplay, Audio, Gamificación, Navegación, Estrés, Accesibilidad y Rendimiento.
-- **Estado:** ✅ CERTIFICADO PARA PRODUCCIÓN.
 - **Hotfix Visual (2026-10-11 22:50):** Certificado 30/30 tests en verde tras aplicar correcciones CSS de anulación de fondo selvático, alineación del botón verde y transparencia del halo en el sello 7.
+
+---
+
+## 🧪 CERTIFICACIÓN QA — Reproducción Completa Video 2 y Pasaporte Edge-to-Edge Fullscreen (2026-10-14)
+*Origen: Validación de entrega de Tarea 1 (ui.js) y Tarea 2 (popups.css).*
+
+### 📋 Resultados Oficiales:
+- **Suite Onboarding (`tests/01-onboarding.spec.js`):** ✅ PASS (1/1).
+- **Suite Regresión Visual (`tests/09-visual-regression.spec.js`):** ✅ PASS (3/3), estabilizado el settle de transición en T-VIS-02.
+- **Suite Completa (`npx playwright test --workers=1`):** **30 passed (2.4m) — 100% VERDE (30/30)**.
+- **Cero regresiones:** En flujos de Onboarding, Gameplay, Audio, Tienda, Rendimiento y Persistencia.
+- **Estado:** ✅ CERTIFICADO PARA PRODUCCIÓN Y DESPLIEGUE.
 
